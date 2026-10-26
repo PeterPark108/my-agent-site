@@ -6,6 +6,20 @@ d.querySelectorAll('.has>a').forEach(a=>a.addEventListener('click',e=>{if(innerW
 const C=window.MYAGENT_CONFIG||{},EM=C.formEmail||'',ZP=(C.zaloPhone||'').replace(/\D/g,''),okEM=/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(EM);
 d.querySelectorAll('a[data-mailto]').forEach(a=>{if(okEM)a.href='mailto:'+EM;else a.hidden=true});
 d.querySelectorAll('a[data-zalo]').forEach(a=>{if(ZP)a.href='https://zalo.me/'+ZP;else a.hidden=true});
+// floating call button: mobile dials via tel:, desktop shows number popover
+const TEL=ZP||'0328439972',TF=TEL.replace(/^(\d{4})(\d{3})(\d+)$/,'$1 $2 $3');
+d.querySelectorAll('a[data-tel]').forEach(a=>{a.href='tel:'+TEL});
+const fb=d.getElementById('fab-call');if(fb){fb.setAttribute('aria-label','Gọi '+TF);let pop;
+const close=(f)=>{if(!pop||pop.hidden)return;pop.classList.remove('on');pop.hidden=true;fb.setAttribute('aria-expanded','false');if(f)fb.focus()};
+fb.addEventListener('click',e=>{if(!(matchMedia('(pointer:fine)').matches&&innerWidth>960))return;e.preventDefault();
+if(!pop){pop=d.createElement('div');pop.className='fab-pop';pop.id='fab-pop';pop.setAttribute('role','dialog');pop.setAttribute('aria-label','Số điện thoại My Agent');pop.hidden=true;
+pop.innerHTML='<button type="button" class="x" aria-label="Đóng">×</button><span class="k mono">// Điện thoại / Zalo</span><strong class="num">'+TF+'</strong><div class="acts"><button type="button" class="cp">Sao chép số</button><a class="pri" href="tel:'+TEL+'">Gọi</a><a href="https://zalo.me/'+TEL+'" target="_blank" rel="noopener">Chat Zalo</a></div><span class="sr" aria-live="polite" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)"></span>';
+d.body.appendChild(pop);pop.querySelector('.x').onclick=()=>close(1);
+const cp=pop.querySelector('.cp');cp.onclick=async()=>{let ok=false;try{await navigator.clipboard.writeText(TEL);ok=true}catch(_){const ta=d.createElement('textarea');ta.value=TEL;d.body.appendChild(ta);ta.select();try{ok=d.execCommand('copy')}catch(_){}ta.remove()}
+cp.textContent=ok?'✓ Đã sao chép':'Không sao chép được';cp.classList.toggle('ok',ok);pop.querySelector('.sr').textContent=ok?'Đã sao chép số '+TF:'';setTimeout(()=>{cp.textContent='Sao chép số';cp.classList.remove('ok')},2000)}}
+if(!pop.hidden){close(1);return}pop.hidden=false;fb.setAttribute('aria-expanded','true');requestAnimationFrame(()=>pop.classList.add('on'));pop.querySelector('.cp').focus()});
+d.addEventListener('keydown',e=>{if(e.key==='Escape')close(1)});
+d.addEventListener('click',e=>{if(pop&&!pop.hidden&&!pop.contains(e.target)&&!fb.contains(e.target))close()})}
 d.querySelectorAll('.form-alt').forEach(p=>{if(!okEM&&!ZP)p.hidden=true});
 d.querySelectorAll('form[data-contact]').forEach(f=>{const st=f.querySelector('.form-status'),bt=f.querySelector('button[type=submit]'),say=(m,c)=>{st.textContent=m;st.className='form-status '+(c||'')};
 f.addEventListener('submit',async e=>{e.preventDefault();if(f._honey&&f._honey.value)return;
