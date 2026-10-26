@@ -5,6 +5,7 @@
 - Công tắc `motionEnabled` (js/config.js) và `?motion=0`; tôn trọng prefers-reduced-motion. Tài liệu: docs/animation.md.
 - Sửa CLS: glow chuột dùng transform; console gõ chữ giữ chiều cao cố định trên mobile.
 - Cache-busting `?v=` thêm cho main.js và motion.js.
+
 ## 0.1.8 - 2026-10-27
 - Intro: nút Bỏ qua chỉ còn icon ×, không còn chữ trong intro.
 - Cache-busting ?v=VERSION cho style.min.css và intro.js trên mọi trang.
