@@ -6,7 +6,7 @@
 window.MYAGENT_CONFIG = {
   siteUrl: 'https://myagentvn.com/',
   formEmail: 'vantungn044@gmail.com',
-  zaloPhone: 'PHONE_HERE',
+  zaloPhone: '0328439972',
   gaId: 'G-XXXXXXXXXX'
 };
 /* GA4: chỉ tải khi gaId hợp lệ. Lưu ý: nếu nhắm khách EU/cần tuân thủ dữ liệu cá nhân (NĐ 13/2023), nên thêm banner đồng ý cookie trước khi bật. */
