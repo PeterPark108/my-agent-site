@@ -1,17 +1,52 @@
 #!/usr/bin/env python3
 """Idempotent technical pass: SEO head tags, fonts, form wiring, a11y tweaks, sitemap.
 Does NOT change visible copy. Run from repo root: python3 scripts/tech_pass.py"""
-import re,pathlib,json,html
+import re,pathlib,json,html,subprocess,datetime,sys
+sys.path.insert(0,str(pathlib.Path(__file__).resolve().parent))
+from seo_pages import PAGES
+NOINDEX={'tra-cuu-tien-do.html'}  # tiện ích: noindex,follow + loại khỏi sitemap
 R=pathlib.Path(__file__).resolve().parent.parent
 cfg=(R/'js/config.js').read_text()
 BASE=re.search(r"siteUrl:\s*'([^']+)'",cfg).group(1)
 pages=sorted([p for p in R.glob('*.html')]+list(R.glob('dich-vu/*.html')))
 # redirect stubs (noindex) are skipped: no head injection, not in sitemap
-pages=[p for p in pages if 'name="robots" content="noindex' not in p.read_text()]
+pages=[p for p in pages if 'http-equiv="refresh"' not in p.read_text() and p.name!='404.html']
 urls=[]
+ORG={"@type":"ProfessionalService","@id":BASE+"#org","name":"My Agent","alternateName":"Công ty TNHH Thương mại và Dịch vụ My Agent","url":BASE,"logo":BASE+"assets/icon-512.png","image":BASE+"assets/og-image.png","telephone":"+84328439972","email":"vantungn044@gmail.com",
+ "address":{"@type":"PostalAddress","addressLocality":"Thành phố Hồ Chí Minh","addressCountry":"VN"},
+ "areaServed":[{"@type":"City","name":"Thành phố Hồ Chí Minh"},{"@type":"Country","name":"Việt Nam"}],"sameAs":[]}
+def txt(x): return re.sub(r'\s+',' ',html.unescape(re.sub(r'<[^>]+>','',x))).strip()
+def jsonld(rel,url,s,desc):
+  out=[]; C="https://schema.org"
+  if rel=='index.html':
+    o=dict(ORG,description=desc)
+    out.append({"@context":C,"@graph":[o,{"@type":"WebSite","@id":BASE+"#website","url":BASE,"name":"My Agent","inLanguage":"vi","publisher":{"@id":BASE+"#org"}}]})
+    return out
+  h1=txt(re.search(r'<h1[^>]*>(.*?)</h1>',s,re.S).group(1))
+  crumbs=[("Trang chủ",BASE)]
+  if rel.startswith('dich-vu/'): crumbs.append(("Dịch vụ",BASE+"dich-vu.html"))
+  crumbs.append((h1,url))
+  out.append({"@context":C,"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":i+1,"name":n,"item":u} for i,(n,u) in enumerate(crumbs)]})
+  kw=PAGES.get(rel,{}).get('kw')
+  if kw: out.append({"@context":C,"@type":"Service","name":kw,"serviceType":kw,"description":desc,"url":url,"provider":{"@type":"ProfessionalService","@id":BASE+"#org","name":"My Agent","url":BASE},"areaServed":ORG["areaServed"]})
+  qa=re.findall(r'<details[^>]*><summary>(.*?)</summary>(.*?)</details>',s,re.S)
+  if qa: out.append({"@context":C,"@type":"FAQPage","mainEntity":[{"@type":"Question","name":txt(q),"acceptedAnswer":{"@type":"Answer","text":txt(a)}} for q,a in qa]})
+  return out
+def lastmod(rel):
+  d=subprocess.run(['git','log','-1','--format=%cs','--',rel],cwd=R,capture_output=True,text=True).stdout.strip()
+  return d or datetime.date.today().isoformat()
 for f in pages:
   rel=f.relative_to(R).as_posix(); p='../'*rel.count('/'); s=f.read_text()
-  url=BASE if rel=='index.html' else BASE+rel; urls.append(url)
+  url=BASE if rel=='index.html' else BASE+rel
+  if rel not in NOINDEX: urls.append((url,rel))
+  e=lambda x:html.escape(x,quote=True)
+  sp=PAGES.get(rel,{})
+  if sp:
+    s=re.sub(r'<title>.*?</title>','<title>'+e(sp['title'])+'</title>',s,count=1)
+    s=re.sub(r'<meta name="description" content="[^"]*">','<meta name="description" content="'+e(sp['desc'])+'">',s,count=1)
+    for k in ('h1','lead'):
+      if k in sp and sp[k][1] not in s: s=s.replace(sp[k][0],sp[k][1],1)
+  s=re.sub(r'<meta name="robots" content="[^"]*">','',s)
   # fonts: drop Google Fonts, use self-hosted
   s=re.sub(r'<link rel="preconnect" href="https://fonts\.(googleapis|gstatic)\.com"( crossorigin)?>','',s)
   s=re.sub(r'<link href="https://fonts\.googleapis\.com/css2[^"]*" rel="stylesheet">',
@@ -21,14 +56,13 @@ for f in pages:
   title=html.unescape(re.search(r'<title>(.*?)</title>',s).group(1))
   m=re.search(r'<meta name="description" content="([^"]*)"',s); desc=html.unescape(m.group(1)) if m else ''
   e=lambda x:html.escape(x,quote=True)
-  head=[f'<link rel="canonical" href="{url}">',
+  head=[f'<link rel="canonical" href="{url}"><link rel="alternate" hreflang="vi" href="{url}"><link rel="alternate" hreflang="x-default" href="{url}">',
    f'<link rel="icon" href="{p}assets/favicon.svg" type="image/svg+xml"><link rel="icon" href="{p}assets/favicon-32.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="{p}assets/apple-touch-icon.png"><link rel="manifest" href="{p}site.webmanifest">',
    f'<meta property="og:type" content="website"><meta property="og:locale" content="vi_VN"><meta property="og:site_name" content="My Agent"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:url" content="{url}"><meta property="og:image" content="{BASE}assets/og-image.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">',
    f'<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{e(title)}"><meta name="twitter:description" content="{e(desc)}"><meta name="twitter:image" content="{BASE}assets/og-image.png">',
    f'<script src="{p}js/config.js"></script>']
-  if rel=='index.html':
-    ld={"@context":"https://schema.org","@type":"ProfessionalService","name":"My Agent","url":BASE,"logo":BASE+"assets/icon-512.png","image":BASE+"assets/og-image.png","description":desc,"telephone":"+84328439972","email":"","taxID":"","address":{"@type":"PostalAddress","streetAddress":"","addressLocality":"","addressCountry":"VN"},"sameAs":[]}
-    head.append('<script type="application/ld+json">'+json.dumps(ld,ensure_ascii=False)+'</script>')
+  if rel in NOINDEX: head.insert(0,'<meta name="robots" content="noindex, follow">')
+  for ld in jsonld(rel,url,s,desc): head.append('<script type="application/ld+json">'+json.dumps(ld,ensure_ascii=False)+'</script>')
   s=s.replace('</head>','<!-- tech:head -->'+''.join(head)+'<!-- /tech:head --></head>',1)
   # logo images: intrinsic size (svg viewBox 260x64)
   s=s.replace('alt="My Agent" height="40">','alt="My Agent" width="163" height="40" decoding="async">')
@@ -58,6 +92,12 @@ for f in pages:
   if 'tra-cuu-tien-do.html">Tra cứu tiến độ' not in s:
     s=s.replace(f'<a href="{p}lien-he.html">Liên hệ</a><a href="{p}cong-cu.html">',f'<a href="{p}lien-he.html">Liên hệ</a><a href="{p}tra-cuu-tien-do.html">Tra cứu tiến độ</a><a href="{p}cong-cu.html">')
   f.write_text(s)
-(R/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join(f'  <url><loc>{u}</loc><changefreq>weekly</changefreq><priority>{"1.0" if u==BASE else "0.7"}</priority></url>\n' for u in urls)+'</urlset>\n')
+(R/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join(f'  <url><loc>{u}</loc><lastmod>{lastmod(r)}</lastmod><priority>{"1.0" if u==BASE else "0.7"}</priority></url>\n' for u,r in urls)+'</urlset>\n')
 (R/'robots.txt').write_text(f'User-agent: *\nAllow: /\n\nSitemap: {BASE}sitemap.xml\n')
+# CSS rút gọn (giữ css/style.css làm bản nguồn dễ đọc)
+c=(R/'css/style.css').read_text(); c=re.sub(r'/\*.*?\*/','',c,flags=re.S); c=re.sub(r'\s+',' ',c); c=re.sub(r'\s*([{};,>])\s*',r'\1',c).replace(';}','}')
+(R/'css/style.min.css').write_text(c.strip()+'\n')
+for f in pages:
+  t=f.read_text(); t2=re.sub(r'(href="(?:\.\./)?css/)style\.css(\?[^"]*)?"',r'\1style.min.css\2"',t)
+  if t2!=t: f.write_text(t2)
 print(len(pages),'pages; base',BASE)

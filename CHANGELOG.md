@@ -1,5 +1,13 @@
 # Nhật ký thay đổi
 
+## v0.1.2 — 27/10/2026
+- SEO toàn diện: title/description riêng từng trang theo bộ từ khóa đã chốt (scripts/seo_pages.py), canonical + hreflang vi/x-default về https://myagentvn.com, Open Graph/Twitter đầy đủ.
+- JSON-LD: ProfessionalService + WebSite (trang chủ), Service + BreadcrumbList + FAQPage (trang dịch vụ), BreadcrumbList các trang khác; areaServed TP.HCM + Việt Nam.
+- Trang tra cứu tiến độ: noindex, follow và loại khỏi sitemap; sitemap có lastmod.
+- Trang 404.html (noindex). CSS rút gọn css/style.min.css (bản nguồn css/style.css giữ nguyên).
+- Thêm scripts/seo_audit.py, docs/seo-tu-khoa.md, docs/seo-viec-cua-peter.md, docs/seo-yeu-cau-may-chu.md.
+- Đổi chữ tối thiểu: H1 trang Thiết kế website, câu mở đầu trang chủ và trang Thiết kế website (xem báo cáo cho MJ duyệt).
+
 ## v0.1.0 — 27/10/2026
 - Bản phát hành đầu tiên trên myagentvn.com: trang chủ, giới thiệu, 18 trang dịch vụ, combo, dự án, công cụ, liên hệ (form gửi về lienhe@myagentvn.com), tra cứu tiến độ đơn, ghi nguồn & giấy phép, chính sách bảo mật.
 - SEO cơ bản (title, meta, ảnh chia sẻ, sitemap, robots), chỗ gắn Google Analytics.
