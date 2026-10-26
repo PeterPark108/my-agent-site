@@ -10,7 +10,7 @@ d.querySelectorAll('.form-alt').forEach(p=>{if(!okEM&&!ZP)p.hidden=true});
 d.querySelectorAll('form[data-contact]').forEach(f=>{const st=f.querySelector('.form-status'),bt=f.querySelector('button[type=submit]'),say=(m,c)=>{st.textContent=m;st.className='form-status '+(c||'')};
 f.addEventListener('submit',async e=>{e.preventDefault();if(f._honey&&f._honey.value)return;
 const bad=[...f.elements].find(x=>x.willValidate&&!x.checkValidity());if(bad){bad.focus();say(bad.type=='tel'?'Số điện thoại chưa hợp lệ.':bad.type=='email'?'Email chưa hợp lệ.':'Vui lòng điền đủ thông tin bắt buộc.','err');return}
-if(!okEM){say('Form chưa được cấu hình email nhận. Vui lòng liên hệ qua hotline/Zalo.','err');return}
+if(!okEM){say('Form tạm thời chưa nhận được tin nhắn. Vui lòng thử lại sau ít phút.','err');return}
 const fd=new FormData(f);fd.delete('_honey');fd.append('_subject','Yêu cầu tư vấn mới từ website My Agent');fd.append('_template','table');fd.append('_captcha','false');fd.append('_url',location.href);
 bt.disabled=true;say('Đang gửi...');
 try{const r=await fetch('https://formsubmit.co/ajax/'+encodeURIComponent(EM),{method:'POST',headers:{Accept:'application/json'},body:fd});const j=await r.json().catch(()=>({}));
