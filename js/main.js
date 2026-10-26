@@ -2,7 +2,21 @@
 const hdr=d.getElementById('hdr'),onS=()=>hdr.classList.toggle('sc',scrollY>10);onS();addEventListener('scroll',onS,{passive:true});
 const b=d.querySelector('.burger'),nav=d.querySelector('nav');b.onclick=()=>{const o=nav.classList.toggle('open');b.setAttribute('aria-expanded',o)};
 d.querySelectorAll('.has>a').forEach(a=>a.addEventListener('click',e=>{if(innerWidth<=960){e.preventDefault();a.parentNode.classList.toggle('open')}}));
-d.querySelectorAll('form').forEach(f=>{if(f.classList.contains('domain'))return;f.onsubmit=e=>{e.preventDefault();f.innerHTML='<span class="k">// đã gửi</span><h3>Cảm ơn anh/chị!</h3><p class="muted">My Agent sẽ liên hệ lại trong thời gian sớm nhất.</p>'}});
+// contact form -> FormSubmit.co (config in js/config.js)
+const C=window.MYAGENT_CONFIG||{},EM=C.formEmail||'',ZP=(C.zaloPhone||'').replace(/\D/g,''),okEM=/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(EM);
+d.querySelectorAll('a[data-mailto]').forEach(a=>{if(okEM)a.href='mailto:'+EM;else a.hidden=true});
+d.querySelectorAll('a[data-zalo]').forEach(a=>{if(ZP)a.href='https://zalo.me/'+ZP;else a.hidden=true});
+d.querySelectorAll('.form-alt').forEach(p=>{if(!okEM&&!ZP)p.hidden=true});
+d.querySelectorAll('form[data-contact]').forEach(f=>{const st=f.querySelector('.form-status'),bt=f.querySelector('button[type=submit]'),say=(m,c)=>{st.textContent=m;st.className='form-status '+(c||'')};
+f.addEventListener('submit',async e=>{e.preventDefault();if(f._honey&&f._honey.value)return;
+const bad=[...f.elements].find(x=>x.willValidate&&!x.checkValidity());if(bad){bad.focus();say(bad.type=='tel'?'Số điện thoại chưa hợp lệ.':bad.type=='email'?'Email chưa hợp lệ.':'Vui lòng điền đủ thông tin bắt buộc.','err');return}
+if(!okEM){say('Form chưa được cấu hình email nhận. Vui lòng liên hệ qua hotline/Zalo.','err');return}
+const fd=new FormData(f);fd.delete('_honey');fd.append('_subject','Yêu cầu tư vấn mới từ website My Agent');fd.append('_template','table');fd.append('_captcha','false');fd.append('_url',location.href);
+bt.disabled=true;say('Đang gửi...');
+try{const r=await fetch('https://formsubmit.co/ajax/'+encodeURIComponent(EM),{method:'POST',headers:{Accept:'application/json'},body:fd});const j=await r.json().catch(()=>({}));
+if(!r.ok||j.success===false||j.success==='false')throw 0;
+f.innerHTML='<span class="k">// đã gửi</span><h3>Cảm ơn anh/chị!</h3><p class="muted">My Agent sẽ liên hệ lại trong thời gian sớm nhất.</p>'}
+catch(_){bt.disabled=false;say('Gửi chưa thành công. Vui lòng thử lại hoặc liên hệ qua Email/Zalo.','err')}})});
 // reveal + counters
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
 d.querySelectorAll('.rv,.tl').forEach((el,i)=>{el.style.transitionDelay=(i%4)*70+'ms';io.observe(el)});

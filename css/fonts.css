@@ -1,0 +1,169 @@
+/* Self-hosted fonts (SIL OFL 1.1) via @fontsource — see assets/fonts/OFL-*.txt */
+/* be-vietnam-pro-vietnamese-400-normal */
+@font-face {
+  font-family: 'Be Vietnam Pro';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url(../assets/fonts/be-vietnam-pro-vietnamese-400-normal.woff2) format('woff2');
+}
+/* be-vietnam-pro-latin-ext-400-normal */
+@font-face {
+  font-family: 'Be Vietnam Pro';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url(../assets/fonts/be-vietnam-pro-latin-ext-400-normal.woff2) format('woff2');
+}
+/* be-vietnam-pro-latin-400-normal */
+@font-face {
+  font-family: 'Be Vietnam Pro';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url(../assets/fonts/be-vietnam-pro-latin-400-normal.woff2) format('woff2');
+}
+/* be-vietnam-pro-vietnamese-500-normal */
+@font-face {
+  font-family: 'Be Vietnam Pro';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(../assets/fonts/be-vietnam-pro-vietnamese-500-normal.woff2) format('woff2');
+}
+/* be-vietnam-pro-latin-ext-500-normal */
+@font-face {
+  font-family: 'Be Vietnam Pro';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(../assets/fonts/be-vietnam-pro-latin-ext-500-normal.woff2) format('woff2');
+}
+/* be-vietnam-pro-latin-500-normal */
+@font-face {
+  font-family: 'Be Vietnam Pro';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(../assets/fonts/be-vietnam-pro-latin-500-normal.woff2) format('woff2');
+}
+/* be-vietnam-pro-vietnamese-600-normal */
+@font-face {
+  font-family: 'Be Vietnam Pro';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url(../assets/fonts/be-vietnam-pro-vietnamese-600-normal.woff2) format('woff2');
+}
+/* be-vietnam-pro-latin-ext-600-normal */
+@font-face {
+  font-family: 'Be Vietnam Pro';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url(../assets/fonts/be-vietnam-pro-latin-ext-600-normal.woff2) format('woff2');
+}
+/* be-vietnam-pro-latin-600-normal */
+@font-face {
+  font-family: 'Be Vietnam Pro';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url(../assets/fonts/be-vietnam-pro-latin-600-normal.woff2) format('woff2');
+}
+/* be-vietnam-pro-vietnamese-700-normal */
+@font-face {
+  font-family: 'Be Vietnam Pro';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(../assets/fonts/be-vietnam-pro-vietnamese-700-normal.woff2) format('woff2');
+}
+/* be-vietnam-pro-latin-ext-700-normal */
+@font-face {
+  font-family: 'Be Vietnam Pro';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(../assets/fonts/be-vietnam-pro-latin-ext-700-normal.woff2) format('woff2');
+}
+/* be-vietnam-pro-latin-700-normal */
+@font-face {
+  font-family: 'Be Vietnam Pro';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(../assets/fonts/be-vietnam-pro-latin-700-normal.woff2) format('woff2');
+}
+/* be-vietnam-pro-vietnamese-800-normal */
+@font-face {
+  font-family: 'Be Vietnam Pro';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 800;
+  src: url(../assets/fonts/be-vietnam-pro-vietnamese-800-normal.woff2) format('woff2');
+}
+/* be-vietnam-pro-latin-ext-800-normal */
+@font-face {
+  font-family: 'Be Vietnam Pro';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 800;
+  src: url(../assets/fonts/be-vietnam-pro-latin-ext-800-normal.woff2) format('woff2');
+}
+/* be-vietnam-pro-latin-800-normal */
+@font-face {
+  font-family: 'Be Vietnam Pro';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 800;
+  src: url(../assets/fonts/be-vietnam-pro-latin-800-normal.woff2) format('woff2');
+}
+/* jetbrains-mono-vietnamese-400-normal */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url(../assets/fonts/jetbrains-mono-vietnamese-400-normal.woff2) format('woff2');
+}
+/* jetbrains-mono-latin-ext-400-normal */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url(../assets/fonts/jetbrains-mono-latin-ext-400-normal.woff2) format('woff2');
+}
+/* jetbrains-mono-latin-400-normal */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url(../assets/fonts/jetbrains-mono-latin-400-normal.woff2) format('woff2');
+}
+/* jetbrains-mono-vietnamese-600-normal */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url(../assets/fonts/jetbrains-mono-vietnamese-600-normal.woff2) format('woff2');
+}
+/* jetbrains-mono-latin-ext-600-normal */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url(../assets/fonts/jetbrains-mono-latin-ext-600-normal.woff2) format('woff2');
+}
+/* jetbrains-mono-latin-600-normal */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url(../assets/fonts/jetbrains-mono-latin-600-normal.woff2) format('woff2');
+}
