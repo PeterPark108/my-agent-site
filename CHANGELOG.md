@@ -1,5 +1,9 @@
 # Nhật ký thay đổi
 
+## v0.1.3 — 27/10/2026
+- Đổi cam kết: "lên trang đầu Google" → "tối ưu để tăng thứ hạng trên Google" (SEO tổng thể).
+- Đổi cam kết: "hỗ trợ kỹ thuật 24/7" / "Hỗ trợ ưu tiên 24/7" → "... trong giờ làm việc, phản hồi trong 24 giờ" (Hosting SEO, gói Chuyên nghiệp các trang dịch vụ).
+
 ## v0.1.2 — 27/10/2026
 - SEO toàn diện: title/description riêng từng trang theo bộ từ khóa đã chốt (scripts/seo_pages.py), canonical + hreflang vi/x-default về https://myagentvn.com, Open Graph/Twitter đầy đủ.
 - JSON-LD: ProfessionalService + WebSite (trang chủ), Service + BreadcrumbList + FAQPage (trang dịch vụ), BreadcrumbList các trang khác; areaServed TP.HCM + Việt Nam.
