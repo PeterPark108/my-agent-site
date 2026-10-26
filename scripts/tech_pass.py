@@ -25,7 +25,7 @@ for f in pages:
    f'<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{e(title)}"><meta name="twitter:description" content="{e(desc)}"><meta name="twitter:image" content="{BASE}assets/og-image.png">',
    f'<script src="{p}js/config.js"></script>']
   if rel=='index.html':
-    ld={"@context":"https://schema.org","@type":"ProfessionalService","name":"Công ty TNHH Thương mại và Dịch vụ My Agent","alternateName":"My Agent","url":BASE,"logo":BASE+"assets/icon-512.png","image":BASE+"assets/og-image.png","description":desc,"telephone":"","email":"","taxID":"","address":{"@type":"PostalAddress","streetAddress":"","addressLocality":"","addressCountry":"VN"},"sameAs":[]}
+    ld={"@context":"https://schema.org","@type":"ProfessionalService","name":"My Agent","url":BASE,"logo":BASE+"assets/icon-512.png","image":BASE+"assets/og-image.png","description":desc,"telephone":"","email":"","taxID":"","address":{"@type":"PostalAddress","streetAddress":"","addressLocality":"","addressCountry":"VN"},"sameAs":[]}
     head.append('<script type="application/ld+json">'+json.dumps(ld,ensure_ascii=False)+'</script>')
   s=s.replace('</head>','<!-- tech:head -->'+''.join(head)+'<!-- /tech:head --></head>',1)
   # logo images: intrinsic size (svg viewBox 260x64)

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://peterpark108.github.io/my-agent-site/chinh-sach-bao-mat.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://peterpark108.github.io/my-agent-site/cong-cu.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://peterpark108.github.io/my-agent-site/dich-vu/backlink-website.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://peterpark108.github.io/my-agent-site/dich-vu/bo-cong-thuong.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
@@ -24,7 +25,5 @@
   <url><loc>https://peterpark108.github.io/my-agent-site/ghi-nguon.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://peterpark108.github.io/my-agent-site/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://peterpark108.github.io/my-agent-site/lien-he.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://peterpark108.github.io/my-agent-site/tin-tuc.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://peterpark108.github.io/my-agent-site/tuyen-dung.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://peterpark108.github.io/my-agent-site/ve-chung-toi.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
 </urlset>
