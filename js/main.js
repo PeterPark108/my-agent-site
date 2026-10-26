@@ -36,7 +36,7 @@ catch(_){bt.disabled=false;say('Gửi chưa thành công. Vui lòng thử lại 
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
 d.querySelectorAll('.rv,.tl').forEach((el,i)=>{el.style.transitionDelay=(i%4)*70+'ms';io.observe(el)});
 // pointer effects
-if(FINE&&!RM){const g=d.querySelector('.glow-cursor');addEventListener('pointermove',e=>{g.style.left=e.clientX+'px';g.style.top=e.clientY+'px'},{passive:true});
+if(FINE&&!RM){const g=d.querySelector('.glow-cursor');addEventListener('pointermove',e=>{g.style.transform=`translate(${e.clientX}px,${e.clientY}px) translate(-50%,-50%)`},{passive:true});
 d.querySelectorAll('.card').forEach(c=>{c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;c.style.setProperty('--mx',x+'px');c.style.setProperty('--my',y+'px');if(c.classList.contains('tilt'))c.style.transform=`perspective(900px) rotateX(${(y/r.height-.5)*-5}deg) rotateY(${(x/r.width-.5)*5}deg) translateY(-4px)`});c.addEventListener('pointerleave',()=>c.style.transform='')});
 d.querySelectorAll('.btn').forEach(m=>{m.addEventListener('pointermove',e=>{const r=m.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;m.style.setProperty('--x',x+'px');m.style.setProperty('--y',y+'px');if(m.classList.contains('mag'))m.style.transform=`translate(${(x-r.width/2)*.15}px,${(y-r.height/2)*.25}px)`});m.addEventListener('pointerleave',()=>m.style.transform='')})}
 // spider-web network canvas
