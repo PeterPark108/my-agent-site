@@ -6,6 +6,8 @@ R=pathlib.Path(__file__).resolve().parent.parent
 cfg=(R/'js/config.js').read_text()
 BASE=re.search(r"siteUrl:\s*'([^']+)'",cfg).group(1)
 pages=sorted([p for p in R.glob('*.html')]+list(R.glob('dich-vu/*.html')))
+# redirect stubs (noindex) are skipped: no head injection, not in sitemap
+pages=[p for p in pages if 'name="robots" content="noindex' not in p.read_text()]
 urls=[]
 for f in pages:
   rel=f.relative_to(R).as_posix(); p='../'*rel.count('/'); s=f.read_text()
