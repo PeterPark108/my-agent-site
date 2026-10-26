@@ -5,7 +5,7 @@
    gaId      : Google Analytics 4 Measurement ID (vd G-ABC123XYZ). Để 'G-XXXXXXXXXX' = tắt. */
 window.MYAGENT_CONFIG = {
   siteUrl: 'https://myagentvn.com/',
-  formEmail: 'lienhe@myagentvn.com',
+  formEmail: 'vantungn044@gmail.com',
   zaloPhone: 'PHONE_HERE',
   gaId: 'G-XXXXXXXXXX'
 };

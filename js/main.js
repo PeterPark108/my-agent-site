@@ -14,6 +14,7 @@ if(!okEM){say('Form tạm thời chưa nhận được tin nhắn. Vui lòng th�
 const fd=new FormData(f);fd.delete('_honey');fd.append('_subject','Yêu cầu tư vấn mới từ website My Agent');fd.append('_template','table');fd.append('_captcha','false');fd.append('_url',location.href);
 bt.disabled=true;say('Đang gửi...');
 try{const r=await fetch('https://formsubmit.co/ajax/'+encodeURIComponent(EM),{method:'POST',headers:{Accept:'application/json'},body:fd});const j=await r.json().catch(()=>({}));
+if(/activat/i.test(j.message||'')){bt.disabled=false;st.innerHTML='Hệ thống nhận form đang chờ kích hoạt. Anh/chị vui lòng gửi tạm qua <a href="mailto:'+EM+'">'+EM+'</a>'+(ZP?' hoặc <a href="https://zalo.me/'+ZP+'">Zalo</a>':'')+'.';st.className='form-status err';return}
 if(!r.ok||j.success===false||j.success==='false')throw 0;
 f.innerHTML='<span class="k">// đã gửi</span><h3>Cảm ơn anh/chị!</h3><p class="muted">My Agent sẽ liên hệ lại trong thời gian sớm nhất.</p>'}
 catch(_){bt.disabled=false;say('Gửi chưa thành công. Vui lòng thử lại hoặc liên hệ qua Email/Zalo.','err')}})});
