@@ -345,3 +345,31 @@ html.js .dg .bar{transform:scaleY(.15);transition:transform .8s cubic-bezier(.2,
 }
 @keyframes dgDash{to{stroke-dashoffset:-24}}
 @keyframes dgPin{50%{transform:translateY(-6px)}}
+/* tin tức công nghệ */
+.nw-grid{grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+.news{display:flex;flex-direction:column;gap:10px}
+.news[hidden]{display:none}
+.nw-top{display:flex;align-items:center;gap:10px;font-size:12.5px;color:var(--mu)}
+.nw-ic{display:inline-grid;place-items:center;width:36px;height:36px;border-radius:10px;border:1px solid var(--ln);background:linear-gradient(135deg,rgba(255,45,61,.18),rgba(61,245,255,.12));color:#3DF5FF;flex:none}
+.nw-ic .i{width:20px;height:20px}
+.nw-tg{padding:3px 9px;border-radius:99px;border:1px solid rgba(255,45,61,.35);color:#FFC2C6}
+.nw-top time{margin-left:auto}
+.nw-h{font-size:18px;line-height:1.35;margin:4px 0 0}
+.nw-s{color:var(--mu);margin:0}
+.nw-in{margin:0;padding:10px 12px;border-left:2px solid #3DF5FF;background:rgba(61,245,255,.06);border-radius:0 8px 8px 0;font-size:14.5px}
+.nw-in b{color:#3DF5FF}
+.nw-src{margin:auto 0 0;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:13px;padding-top:6px}
+.nw-src .btn{min-height:44px}
+.nw-chips{justify-content:flex-start;margin-bottom:28px}
+.nw-chips .chip{min-height:44px}
+.nw-chips .chip[aria-pressed=true]{color:#fff;background:linear-gradient(135deg,rgba(226,54,54,.35),rgba(27,58,140,.5));border-color:rgba(255,45,61,.5)}
+.nw-note{margin-top:26px}
+@media(max-width:480px){.nw-grid{grid-template-columns:1fr}}
+/* menu desktop: không xuống dòng nhãn (sau khi thêm mục Tin tức) */
+@media(min-width:961px){nav li>a{white-space:nowrap}header .wrap>.btn{white-space:nowrap}}
+@media(min-width:961px) and (max-width:1360px){nav ul{gap:0}nav li>a{padding:9px 8px;font-size:13.5px}}
+@media(min-width:961px) and (max-width:1140px){nav li>a{padding:8px 6px;font-size:12.5px}header .wrap>.btn{display:none}}
+@media(min-width:961px) and (max-width:1200px){nav>ul>li:nth-child(3){display:none}}
+@media(min-width:961px){nav li.has{position:static}header nav>ul:has(.mega){position:static}header nav>ul:has(.mega)>.mv-ind{bottom:auto;top:calc(50% + 24px)}}
+.nw-h{max-width:none;text-wrap:pretty}
+@media(max-width:600px){.nw-chips{gap:8px}.nw-chips .chip{padding:6px 12px}}

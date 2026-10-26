@@ -19,6 +19,7 @@ PAGES={
 'lien-he.html':dict(title='Liên hệ tư vấn, báo giá'+B,desc='Liên hệ My Agent qua form, Zalo hoặc email để được tư vấn và báo giá rõ ràng cho website, marketing online và dịch vụ dữ liệu.'),
 'cong-cu.html':dict(title='Công cụ miễn phí cho website'+B,desc='Bộ công cụ miễn phí từ My Agent hỗ trợ chủ website và người làm marketing, dùng ngay trên trình duyệt, không cần cài đặt.'),
 'chinh-sach-bao-mat.html':dict(title='Chính sách bảo mật'+B,desc='Chính sách bảo mật của My Agent: cách chúng tôi thu thập, sử dụng và bảo vệ thông tin khi bạn liên hệ hoặc sử dụng dịch vụ.'),
+'tin-tuc.html':dict(title='Tin tức công nghệ: AI, bảo mật, SEO'+B,desc='Tin công nghệ chọn lọc về AI, bảo mật, web & SEO, dữ liệu và Zalo, có link nguồn gốc và góc nhìn My Agent cho doanh nghiệp nhỏ, cập nhật thường xuyên.'),
 'ghi-nguon.html':dict(title='Ghi nguồn và giấy phép'+B,desc='Ghi nguồn và giấy phép font, hình ảnh, biểu tượng được dùng trên website My Agent.'),
 'tra-cuu-tien-do.html':dict(title='Tra cứu tiến độ đơn hàng'+B,desc='Khách hàng My Agent nhập mã đơn để xem tiến độ dự án.'),
 }

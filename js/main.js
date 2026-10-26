@@ -53,4 +53,6 @@ const t=d.getElementById('term');if(t){const L=[['c1','$ my-agent run --goal "t�
 const esc=s=>s.replace(/</g,'&lt;');if(RM){t.innerHTML=L.map(([c,s])=>`<span class="${c}">${esc(s)}</span>`).join('\n');return}
 let i=0,j=0,out='';const step=()=>{if(i>=L.length){t.innerHTML=out+'<span class="cur"></span>';setTimeout(()=>{i=j=0;out='';step()},4000);return}const [c,s]=L[i];j++;t.innerHTML=out+`<span class="${c}">${esc(s.slice(0,j))}</span><span class="cur"></span>`;if(j>=s.length){out+=`<span class="${c}">${esc(s)}</span>\n`;i++;j=0;setTimeout(step,350)}else setTimeout(step,i==0?45:14)};
 new IntersectionObserver(([e],o)=>{if(e.isIntersecting){o.disconnect();step()}}).observe(t)}
+// tin tức: lọc theo chủ đề (không JS = hiện tất cả)
+d.querySelectorAll('.nw-chips').forEach(g=>{const bs=[...g.querySelectorAll('button[data-f]')],cs=[...d.querySelectorAll('#news-list .news')],em=d.querySelector('.nw-empty');bs.forEach(b=>b.addEventListener('click',()=>{const f=b.dataset.f;bs.forEach(x=>x.setAttribute('aria-pressed',x===b));let n=0;cs.forEach(c=>{const on=f==='all'||c.dataset.topic===f;c.hidden=!on;if(on){n++;c.classList.add('in')}});if(em)em.hidden=n>0}))});
 })();
