@@ -51,6 +51,12 @@ for f in pages:
       s=re.sub(r'(<form class="card glass rv" data-contact[^>]*>)',r'\1<input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" class="hp">',s,count=1)
       s=re.sub(r'(data-contact.*?</button>)',r'\1<p class="form-status" role="status" aria-live="polite"></p><p class="form-alt muted"><a data-mailto href="#">Email</a> · <a data-zalo href="#" target="_blank" rel="noopener">Zalo</a></p>',s,count=1,flags=re.S)
     s=re.sub(r'(data-contact.*?)<button class="btn lg mag">',r'\1<button type="submit" class="btn lg mag">',s,count=1,flags=re.S)
+  # tra cứu tiến độ: menu + footer (idempotent)
+  if 'tra-cuu-tien-do.html"' not in s.split('</nav>',1)[0]:
+    on=' class=on' if rel=='tra-cuu-tien-do.html' else ''
+    s=re.sub(rf'(<li class="[^"]*"><a href="{re.escape(p)}lien-he.html"[^>]*>Liên hệ</a></li>)',rf'<li class=""><a href="{p}tra-cuu-tien-do.html"{on}>Tra cứu đơn</a></li>\1',s,count=1)
+  if 'tra-cuu-tien-do.html">Tra cứu tiến độ' not in s:
+    s=s.replace(f'<a href="{p}lien-he.html">Liên hệ</a><a href="{p}cong-cu.html">',f'<a href="{p}lien-he.html">Liên hệ</a><a href="{p}tra-cuu-tien-do.html">Tra cứu tiến độ</a><a href="{p}cong-cu.html">')
   f.write_text(s)
 (R/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join(f'  <url><loc>{u}</loc><changefreq>weekly</changefreq><priority>{"1.0" if u==BASE else "0.7"}</priority></url>\n' for u in urls)+'</urlset>\n')
 (R/'robots.txt').write_text(f'User-agent: *\nAllow: /\n\nSitemap: {BASE}sitemap.xml\n')

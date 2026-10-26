@@ -15,3 +15,6 @@ Live: https://myagentvn.com/ (deploy từ nhánh `main`, thư mục gốc).
 
 ## Tài nguyên & giấy phép
 Phông Be Vietnam Pro, JetBrains Mono (SIL OFL 1.1, tự host trong `assets/fonts`, kèm file giấy phép). Biểu tượng SVG vẽ theo phong cách Lucide (ISC). Chi tiết: `ghi-nguon.html`.
+
+## Theo dõi tiến độ đơn
+Xem `docs/theo-doi-tien-do.md`. Lệnh: `python3 scripts/order_admin.py add|update|list|remove`. File `data/private/` không bao giờ commit.

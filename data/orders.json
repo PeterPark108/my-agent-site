@@ -1,0 +1,34 @@
+{
+ "v": 1,
+ "salt": "aba61ac278143ee242bf64aaf8877678",
+ "orders": {
+  "70c102f498c5961584853972e0a1d88cde42f9cc690c391926d9ef5cd2788f7a": {
+   "step": 3,
+   "steps": [
+    "done",
+    "done",
+    "current",
+    "pending",
+    "pending"
+   ],
+   "percent": 55,
+   "status": "Đang dựng giao diện và nội dung",
+   "updated": "2026-10-26",
+   "note": "Xong trang chủ, đang làm các trang dịch vụ.",
+   "history": [
+    {
+     "d": "2026-10-26",
+     "n": "Xong trang chủ, đang làm các trang dịch vụ."
+    },
+    {
+     "d": "2026-10-20",
+     "n": "Đã chốt sơ đồ trang và giao diện mẫu."
+    },
+    {
+     "d": "2026-10-16",
+     "n": "Đã tiếp nhận yêu cầu thiết kế website."
+    }
+   ]
+  }
+ }
+}
