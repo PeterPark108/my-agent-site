@@ -7,3 +7,7 @@ Khi khách mở trang chủ lần đầu trong phiên, web hiện màn intro ch�
 - Mỗi phiên trình duyệt chỉ hiện 1 lần (khóa `myagent_intro_seen` trong sessionStorage). Máy bật "giảm chuyển động" sẽ không thấy intro.
 - Nội dung trang chủ vẫn nằm nguyên trong HTML (không ảnh hưởng SEO); intro là lớp phủ do `js/intro.js` thêm vào, tự gỡ sau tối đa 6,5 giây. Hiệu ứng nền vẽ bằng canvas (DPR tối đa 1,5, dừng khi tab ẩn, dọn sạch khi xong); phần logo dùng CSS.
 - File: `js/intro.js`, CSS ở cuối `css/style.css`, đoạn script nhỏ trong `<head>` do `scripts/tech_pass.py` thêm vào `index.html`.
+
+## v0.1.8
+- Nút "Bỏ qua" chỉ còn icon × (góc trên phải, mờ cho tới khi hover/focus; aria-label "Bỏ qua intro", 44×44px, Esc vẫn dùng được). Intro không còn chữ nào ngoài logo (logo-dark.svg có wordmark "MyAgent" — là một phần logo).
+- Cache-busting: `css/style.min.css?v=VERSION` và `js/intro.js?v=VERSION` (tech_pass.py tự cập nhật theo VERSION) vì server cache 7 ngày, khách cũ có thể còn bản intro v0.1.6 có chữ terminal.
