@@ -1,5 +1,10 @@
 # Nhật ký thay đổi
 
+## v0.1.5 — 27/10/2026
+- Nút gọi nổi (.fab) gọi thẳng tel:0328439972 (aria-label "Gọi 0328 439 972"); trên máy tính bấm vào hiện hộp số điện thoại với Sao chép số / Gọi / Chat Zalo (Esc hoặc bấm ngoài để đóng).
+- Thêm nút Zalo nổi (https://zalo.me/0328439972) phía trên nút gọi trên mọi trang.
+- Thêm dòng "Điện thoại / Zalo: 0328 439 972" ở chân trang và khối thông tin trang Liên hệ; link Zalo dưới form có href mặc định thật.
+
 ## v0.1.4 — 27/10/2026
 - Dự án Hướng Nghiệp 360: nút "Xem bản chạy" (trang chủ, du-an.html) đổi sang https://huongnghiep.myagentvn.com.
 - Thêm địa chỉ ngắn /tra-cuu-tien-do/ (trang chuyển hướng noindex, giữ ?ma= và #) tới tra-cuu-tien-do.html.

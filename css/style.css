@@ -236,3 +236,13 @@ svg.web a:hover text{fill:#fff;text-decoration:underline}
 @media(max-width:560px){.trk-form{display:grid;grid-template-columns:minmax(0,1fr)}.trk-form>*{min-width:0}.trk-form .hint{white-space:normal}.trk-steps{grid-template-columns:1fr;gap:0}.trk-steps li{grid-template-columns:36px 1fr;justify-items:start;text-align:left;align-items:center;gap:12px;padding:6px 0;font-size:14px}.trk-steps li:before{top:-14px;bottom:auto;left:17px;right:auto;width:2px;height:28px}.trk-form .btn{flex:1 1 100%}}
 @media(prefers-reduced-motion:reduce){.trk-steps .current i{animation:none}.trk-bar span{transition:none}}
 .trk-home{margin:14px 0 0}.trk-home a{display:inline-flex;align-items:center;min-height:44px;color:#AFC3F5;font-weight:600;border-bottom:1px dashed rgba(175,195,245,.4)}.trk-home a:hover{color:#fff}
+/* floating call / zalo */
+.fab-zalo{bottom:84px;width:48px;height:48px;right:23px;background:linear-gradient(135deg,#0068ff,#5b8cff);animation:none;color:#fff;font-size:12px;font-weight:700;line-height:1;letter-spacing:.02em;text-decoration:none}
+.ct-ph{margin:.6em 0}.ct-ph a{color:#fff;font-weight:600}
+.fab-pop{position:fixed;right:20px;bottom:150px;z-index:41;width:min(340px,calc(100vw - 40px));padding:18px;border-radius:16px;background:rgba(10,14,30,.94);border:1px solid rgba(255,45,61,.45);box-shadow:0 0 32px rgba(255,45,61,.25),0 10px 40px rgba(0,0,0,.5);backdrop-filter:blur(12px);color:#fff;opacity:0;transform:translateY(8px);transition:opacity .18s,transform .18s}
+.fab-pop.on{opacity:1;transform:none}.fab-pop[hidden]{display:none}
+.fab-pop .k{font-size:12px;opacity:.7}.fab-pop .num{display:block;font-size:28px;font-weight:700;letter-spacing:.03em;margin:4px 0 14px}
+.fab-pop .acts{display:flex;gap:8px;flex-wrap:wrap}.fab-pop .acts>*{flex:1;min-height:44px;display:grid;place-items:center;border-radius:10px;font-size:14px;font-weight:600;white-space:nowrap;cursor:pointer;text-decoration:none;color:#fff;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06);padding:0 10px}
+.fab-pop .acts .pri{background:linear-gradient(135deg,var(--neon),var(--red));border:0}.fab-pop .acts .ok{border-color:#3ddc97;color:#3ddc97}
+.fab-pop .x{position:absolute;top:6px;right:6px;width:44px;height:44px;background:none;border:0;color:#fff;font-size:22px;cursor:pointer}
+@media (prefers-reduced-motion:reduce){.fab,.fab-pop{animation:none;transition:none}}
