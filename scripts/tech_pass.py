@@ -104,3 +104,12 @@ for f in pages:
   t=f.read_text(); t2=re.sub(r'(href="(?:\.\./)?css/)style\.css(\?[^"]*)?"',r'\1style.min.css\2"',t)
   if t2!=t: f.write_text(t2)
 print(len(pages),'pages; base',BASE)
+
+# cache-busting (idempotent): ?v=VERSION cho style.min.css và intro.js
+_V=(R/'VERSION').read_text().strip()
+for f in R.rglob('*.html'):
+  if '.git' in f.parts: continue
+  t=f.read_text()
+  t2=re.sub(r'(css/style\.min\.css)(\?v=[^"]*)?"',r'\1?v='+_V+'"',t)
+  t2=re.sub(r'(js/intro\.js)(\?v=[^"]*)?"',r'\1?v='+_V+'"',t2)
+  if t2!=t: f.write_text(t2)

@@ -1,5 +1,9 @@
 # Nhật ký thay đổi
 
+## 0.1.8 - 2026-10-27
+- Intro: nút Bỏ qua chỉ còn icon ×, không còn chữ trong intro.
+- Cache-busting ?v=VERSION cho style.min.css và intro.js trên mọi trang.
+
 ## v0.1.7 — 27/10/2026
 - Làm lại intro trang chủ theo yêu cầu: chỉ còn logo My Agent, xuất hiện hoành tráng (~3,3 giây): tia sáng hội tụ, chớp sáng + vòng sóng xung kích, logo phóng/nhòe vào, glitch tách màu, hạt bung, glow neon, vệt sáng quét, rồi phóng-tan vào trang. Bỏ dòng terminal, thanh tiến trình, phần trăm. Giữ nguyên Bỏ qua/Esc, sessionStorage, reduced-motion, introEnabled, ?intro=1/0.
 
