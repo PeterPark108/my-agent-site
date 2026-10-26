@@ -25,7 +25,7 @@ hero.addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect();x=(
 hero.addEventListener('pointerleave',()=>L.forEach(el=>el.style.translate=''))}
 // menu: vạch chỉ báo trượt theo link (desktop)
 const ul=d.querySelector('header nav>ul');if(ul&&FINE){const bar=d.createElement('i');bar.className='mv-ind';bar.setAttribute('aria-hidden','true');ul.appendChild(bar);
-const to=a=>{if(!a||W()<=960){bar.style.opacity=0;return}const r=a.getBoundingClientRect(),u=ul.getBoundingClientRect();bar.style.opacity=1;bar.style.transform=`translateX(${r.left-u.left}px) scaleX(${r.width/100})`};
+const to=a=>{if(!a||W()<=960){bar.style.opacity=0;return}const r=a.getBoundingClientRect(),u=(bar.offsetParent||ul).getBoundingClientRect();bar.style.opacity=1;bar.style.transform=`translateX(${r.left-u.left}px) scaleX(${r.width/100})`};
 const on=()=>to(ul.querySelector(':scope>li>a.on'));ul.querySelectorAll(':scope>li>a').forEach(a=>a.addEventListener('pointerenter',()=>to(a)));ul.addEventListener('pointerleave',on);addEventListener('resize',on);setTimeout(on,60)}
 // chuyển trang mượt (an toàn: bỏ qua tab mới, phím bổ trợ, tel/mailto, hash, tải file)
 d.addEventListener('click',e=>{if(e.defaultPrevented||e.button||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;const a=e.target.closest&&e.target.closest('a[href]');if(!a||a.target||a.hasAttribute('download'))return;

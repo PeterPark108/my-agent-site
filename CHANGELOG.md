@@ -1,5 +1,11 @@
 # Nhật ký thay đổi
 
+## 0.4.0 – 2026-10-27
+- Mục mới **Tin tức công nghệ** (`tin-tuc.html`): 10 tin có thật kèm nguồn, bộ lọc theo chủ đề và Góc nhìn My Agent; trang chủ có khối "Tin công nghệ mới nhất".
+- Dữ liệu tin nằm ở `data/news.json`, dựng bằng `scripts/news_build.py` (có `--check-urls`); hướng dẫn ở `docs/tin-tuc.md`.
+- SEO: CollectionPage/ItemList + BreadcrumbList JSON-LD, có trong sitemap. Menu và chân trang có thêm mục Tin tức.
+- Menu desktop: nhãn không còn xuống dòng; mega menu luôn nằm gọn trong màn hình ở 961–1440px.
+
 ## 0.3.0 — 2026-10-27
 - 18 trang dịch vụ: thêm khối "Góc nhìn chuyên môn" (sơ đồ SVG inline riêng từng dịch vụ + checklist chuyên môn), quy trình có mô tả từng bước, "Bạn nhận được gì", "Công nghệ & công cụ", "Phù hợp với ai", dịch vụ liên quan, FAQ chuyên sâu (FAQPage JSON-LD tự khớp nội dung hiển thị).
 - Sinh bằng scripts/svc_deep.py từ scripts/svc_data.py (idempotent, giữa marker svc-deep); CSS thành phần dùng chung trong css/style.css.
