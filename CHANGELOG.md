@@ -1,5 +1,9 @@
 # Nhật ký thay đổi
 
+## v0.1.6 — 27/10/2026
+- Màn intro "khởi động hệ thống" ở trang chủ (~3,6 giây): dòng lệnh gõ chữ, thanh tiến trình, ký tự mã rơi + lưới + scan-line, logo My Agent hiện dần rồi mờ vào trang. Nút "Bỏ qua" / phím Esc.
+- Chỉ hiện lần đầu mỗi phiên, bỏ qua khi giảm chuyển động; bật/tắt bằng introEnabled trong js/config.js, ?intro=1 / ?intro=0 (docs/intro.md).
+
 ## v0.1.5 — 27/10/2026
 - Nút gọi nổi (.fab) gọi thẳng tel:0328439972 (aria-label "Gọi 0328 439 972"); trên máy tính bấm vào hiện hộp số điện thoại với Sao chép số / Gọi / Chat Zalo (Esc hoặc bấm ngoài để đóng).
 - Thêm nút Zalo nổi (https://zalo.me/0328439972) phía trên nút gọi trên mọi trang.

@@ -2,11 +2,13 @@
    siteUrl   : địa chỉ gốc của web (đổi bằng scripts/set-domain.sh <tên-miền>)
    formEmail : email nhận form liên hệ (FormSubmit.co). Lần gửi đầu tiên FormSubmit gửi mail kích hoạt -> bấm "Activate".
    zaloPhone : số Zalo, chỉ chữ số, vd 0901234567
+   introEnabled: true = bật màn intro trang chủ (mỗi phiên 1 lần), false = tắt. Xem docs/intro.md
    gaId      : Google Analytics 4 Measurement ID (vd G-ABC123XYZ). Để 'G-XXXXXXXXXX' = tắt. */
 window.MYAGENT_CONFIG = {
   siteUrl: 'https://myagentvn.com/',
   formEmail: 'vantungn044@gmail.com',
   zaloPhone: '0328439972',
+  introEnabled: true,
   gaId: 'G-XXXXXXXXXX'
 };
 /* GA4: chỉ tải khi gaId hợp lệ. Lưu ý: nếu nhắm khách EU/cần tuân thủ dữ liệu cá nhân (NĐ 13/2023), nên thêm banner đồng ý cookie trước khi bật. */
