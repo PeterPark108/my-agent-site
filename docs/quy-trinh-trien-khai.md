@@ -32,3 +32,9 @@ Riêng cập nhật tiến độ đơn (`data/orders.json`) là thay đổi nh�
 
 ## Ghi chú cho thông báo Zalo sau này
 Token Zalo OA lưu trong GitHub Secrets hoặc biến môi trường của server, không bao giờ ghi vào mã. Việc gửi tin chạy ở hàm phía server (serverless/VPS), không gọi từ trình duyệt.
+
+## Bật CI tự động trên GitHub (Peter làm 1 lần)
+Bot không có quyền `workflow` nên chưa tạo được `.github/workflows/check.yml`. File mẫu nằm ở `docs/ci/check.yml`.
+Trên GitHub: nhánh `dev` → Add file → Create new file → tên `.github/workflows/check.yml` → dán nội dung file mẫu → Commit.
+Sau đó vào Settings → Branches → luật của `production` → bật "Require status checks" và chọn `check`.
+Trước khi bật, có thể chạy tay: `python3 scripts/ci_check.py`.
