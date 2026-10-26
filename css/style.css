@@ -301,3 +301,47 @@ html.js:not(.mo) .rv{animation:mvFail 0s 3s forwards}@keyframes mvFail{to{opacit
 .founder::after{content:"";position:absolute;inset:2px;border-radius:20px;background:linear-gradient(to bottom,transparent 60%,rgba(5,8,20,.85));pointer-events:none}
 .founder figcaption{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);z-index:1;white-space:nowrap;font-size:.85rem;padding:7px 14px;border-radius:999px;background:rgba(10,14,30,.7);border:1px solid rgba(0,229,255,.45);color:#fff;backdrop-filter:blur(6px)}
 @media(max-width:900px){.founder{max-width:360px}}
+/* ===== svc-deep: thành phần trang dịch vụ chuyên sâu (v0.3.0) ===== */
+.xp{display:grid;grid-template-columns:1fr;gap:20px}
+.xp>*,.svm{min-width:0}.dg{min-width:0;max-width:100%;margin:0;padding:16px;display:flex;flex-direction:column;justify-content:center}
+.dg .sc{overflow-x:auto;-webkit-overflow-scrolling:touch}.dg svg{display:block;width:100%;min-width:540px;height:auto;aspect-ratio:600/240}
+.dg figcaption{color:var(--mu);font-size:12px;margin-top:10px}
+.dg .tx{fill:var(--tx);font-family:var(--f)}.dg .mu{fill:var(--mu);font-family:var(--f)}
+.dg .fr rect,.dg .fr path{fill:rgba(255,255,255,.02);stroke:var(--ln);stroke-width:1.5}
+.dg .nd rect{fill:rgba(11,30,74,.55);stroke:rgba(61,123,255,.55);stroke-width:1.3}
+.dg .nd.hl rect{stroke:var(--neon);fill:rgba(255,45,61,.12)}
+.dg .dl{fill:none;stroke:var(--neon);stroke-width:2;stroke-linecap:round;stroke-dasharray:6 6}
+.dg .dl.lp{stroke:var(--el);opacity:.6}.dg .dl.ph{stroke-dasharray:none;stroke-width:2.5}
+.dg .grd{fill:none;stroke:var(--ln);stroke-width:1.2}
+.dg .kp{fill:rgba(61,123,255,.45)}.dg .bar{fill:rgba(61,123,255,.6);transform-box:fill-box;transform-origin:bottom}
+.dg .tk{fill:none;stroke:var(--neon);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.dg .pin{fill:rgba(255,45,61,.25);stroke:var(--neon);stroke-width:2}.dg .pc{fill:var(--neon)}
+.dg .dt{fill:var(--neon)}.dg .dt.b{fill:#f5b942}.dg .dt.c{fill:#3ddc84}
+.xpl{padding:24px}.xpl ul{display:grid;grid-template-columns:1fr 1fr;gap:0 24px}.xpl li:nth-child(2){border-top:0}.xpl h3{font-size:18px;margin-bottom:14px}
+.xpl ul,.dlv,.tch,.fit ul{list-style:none;padding:0;margin:0}
+.xpl li{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-top:1px solid var(--ln)}
+.xpl li:first-child{border-top:0}
+.xpl li .i,.dlv .i,.fit .i{flex:none;width:20px;height:20px;color:var(--neon);margin-top:2px}
+.xpl b{display:block;font-size:15px;color:#fff}.xpl span{display:block;color:var(--mu);font-size:14px;margin-top:3px}
+.dlv{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.dlv li{display:flex;gap:12px;align-items:flex-start;padding:16px 18px;font-size:15px}
+.tch{display:flex;flex-wrap:wrap;gap:10px}
+.tch li{font-family:var(--m);font-size:13px;padding:8px 14px;border-radius:999px;border:1px solid rgba(61,123,255,.45);background:rgba(11,30,74,.45);color:var(--tx)}
+.tch li:nth-child(3n+1){border-color:rgba(255,45,61,.45);background:rgba(255,45,61,.08)}
+.fitg{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.fit{padding:22px}.fit h3{font-size:17px;margin-bottom:10px}
+.fit li{display:flex;gap:10px;align-items:flex-start;padding:7px 0;color:var(--tx);font-size:15px}
+.fit.no .i{color:var(--mu)}.fit.no h3{color:var(--mu)}
+.relx{margin-top:28px;display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center}
+.relx a:not(.btn){color:var(--tx);border-bottom:1px dashed var(--neon);text-decoration:none}
+.relx .btn{margin-left:auto}
+.tl p{text-wrap:pretty}
+@media(max-width:900px){.fitg,.xpl ul{grid-template-columns:1fr}.xpl li:nth-child(2){border-top:1px solid var(--ln)}.relx .btn{margin-left:0}}
+@media(prefers-reduced-motion:no-preference){
+.dg.in .dl{animation:dgDash 1.2s linear infinite}
+html.js .dg .ck,html.js .dg .fn{opacity:0;transition:opacity .5s ease var(--d,0ms)}.dg.in .ck,.dg.in .fn{opacity:1}
+html.js .dg .bar{transform:scaleY(.15);transition:transform .8s cubic-bezier(.2,.8,.2,1) var(--d,0ms)}.dg.in .bar{transform:none}
+.dg .pin{transform-box:fill-box}.dg.in .pin{animation:dgPin 2.4s ease-in-out infinite}
+}
+@keyframes dgDash{to{stroke-dashoffset:-24}}
+@keyframes dgPin{50%{transform:translateY(-6px)}}

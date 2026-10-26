@@ -1,5 +1,10 @@
 # Nhật ký thay đổi
 
+## 0.3.0 — 2026-10-27
+- 18 trang dịch vụ: thêm khối "Góc nhìn chuyên môn" (sơ đồ SVG inline riêng từng dịch vụ + checklist chuyên môn), quy trình có mô tả từng bước, "Bạn nhận được gì", "Công nghệ & công cụ", "Phù hợp với ai", dịch vụ liên quan, FAQ chuyên sâu (FAQPage JSON-LD tự khớp nội dung hiển thị).
+- Sinh bằng scripts/svc_deep.py từ scripts/svc_data.py (idempotent, giữa marker svc-deep); CSS thành phần dùng chung trong css/style.css.
+- SEO on-page: rà title/description/H1/heading/canonical/og cho 18 trang; meta description Google Maps chứa từ khoá chính.
+
 ## 0.2.1 — 2026-10-27
 - Trang Về chúng tôi: thay khối console bằng ảnh người sáng lập Nguyễn Văn Tùng (PeterPark) mặc vest, cắt từ ngực trở lên (webp + jpg, 800/480px), khung viền neon, chú thích tên.
 
