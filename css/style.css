@@ -294,3 +294,10 @@ html.js:not(.mo) .rv{animation:mvFail 0s 3s forwards}@keyframes mvFail{to{opacit
 @media(prefers-reduced-motion:reduce){.mv-prog,.mv-ind{display:none}.mo .mv,.mo .hero *{opacity:1!important;transform:none!important;filter:none!important}}
 /* console gõ chữ: giữ chiều cao cố định trên mobile để không xô layout (CLS) */
 @media(max-width:720px){.console pre{min-height:345px}}@media(max-width:380px){.console pre{min-height:388px}}
+
+/* ảnh người sáng lập (ve-chung-toi) */
+.founder{position:relative;margin:0 auto;width:100%;max-width:440px;aspect-ratio:4/5;border-radius:22px;padding:2px;background:linear-gradient(140deg,rgba(0,229,255,.8),rgba(255,45,61,.8));box-shadow:0 40px 100px -30px rgba(0,0,0,.8),0 0 70px -25px rgba(0,229,255,.45),0 0 70px -25px rgba(255,45,61,.5)}
+.founder picture,.founder img{display:block;width:100%;height:100%;border-radius:20px;object-fit:cover}
+.founder::after{content:"";position:absolute;inset:2px;border-radius:20px;background:linear-gradient(to bottom,transparent 60%,rgba(5,8,20,.85));pointer-events:none}
+.founder figcaption{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);z-index:1;white-space:nowrap;font-size:.85rem;padding:7px 14px;border-radius:999px;background:rgba(10,14,30,.7);border:1px solid rgba(0,229,255,.45);color:#fff;backdrop-filter:blur(6px)}
+@media(max-width:900px){.founder{max-width:360px}}
