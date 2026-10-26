@@ -4,7 +4,7 @@
    zaloPhone : số Zalo, chỉ chữ số, vd 0901234567
    gaId      : Google Analytics 4 Measurement ID (vd G-ABC123XYZ). Để 'G-XXXXXXXXXX' = tắt. */
 window.MYAGENT_CONFIG = {
-  siteUrl: 'https://peterpark108.github.io/my-agent-site/',
+  siteUrl: 'https://myagentvn.com/',
   formEmail: 'PETER_EMAIL_HERE',
   zaloPhone: 'PHONE_HERE',
   gaId: 'G-XXXXXXXXXX'

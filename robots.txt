@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://peterpark108.github.io/my-agent-site/sitemap.xml
+Sitemap: https://myagentvn.com/sitemap.xml

@@ -1,6 +1,6 @@
 # My Agent – website tĩnh (GitHub Pages)
 
-Live: https://peterpark108.github.io/my-agent-site/ (deploy từ nhánh `main`, thư mục gốc).
+Live: https://myagentvn.com/ (deploy từ nhánh `main`, thư mục gốc).
 
 ## Cấu hình (một chỗ duy nhất): `js/config.js`
 - `siteUrl` – URL gốc; dùng cho canonical / og / sitemap / robots / JSON-LD. Đổi bằng `scripts/set-domain.sh <domain>`.
