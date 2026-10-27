@@ -12,16 +12,22 @@ pages=sorted([p for p in R.glob('*.html')]+list(R.glob('dich-vu/*.html'))+list(R
 # redirect stubs (noindex) are skipped: no head injection, not in sitemap
 pages=[p for p in pages if 'http-equiv="refresh"' not in p.read_text() and p.name!='404.html']
 urls=[]
-ORG={"@type":"ProfessionalService","@id":BASE+"#org","name":"My Agent","alternateName":"Công ty TNHH Thương mại và Dịch vụ My Agent","url":BASE,"logo":BASE+"assets/icon-512.png","image":BASE+"assets/og-image.png","telephone":"+84328439972","email":"vantungn044@gmail.com",
- "address":{"@type":"PostalAddress","addressLocality":"Thành phố Hồ Chí Minh","addressCountry":"VN"},
+# Thực thể (v0.9.7, bản chốt SEO My Agent 28/10/2026): chỉ dùng tên "My Agent" (không tên pháp nhân/MST),
+# không địa chỉ, không giá; Organization.sameAs để trống tới khi có kênh chính thức thật; link cá nhân nằm ở founder.
+ORG={"@type":"ProfessionalService","@id":BASE+"#org","name":"My Agent","url":BASE,
+ "logo":{"@type":"ImageObject","@id":BASE+"#logo","url":BASE+"assets/logo.png","contentUrl":BASE+"assets/logo.png","width":780,"height":192,"caption":"My Agent"},
+ "image":BASE+"assets/og-image.png","telephone":"+84328439972","email":"vantungn044@gmail.com","founder":{"@id":BASE+"#founder"},
  "areaServed":[{"@type":"City","name":"Thành phố Hồ Chí Minh"},{"@type":"Country","name":"Việt Nam"}],
+ "contactPoint":{"@type":"ContactPoint","telephone":"+84328439972","contactType":"customer service","areaServed":"VN","availableLanguage":["vi"]},
+ "sameAs":[]}
+FOUNDER={"@type":"Person","@id":BASE+"#founder","name":"Nguyễn Văn Tùng","alternateName":"Peter","jobTitle":"Nhà sáng lập","worksFor":{"@id":BASE+"#org"},
  "sameAs":["https://www.facebook.com/nguyen.van.tung.109588","https://www.linkedin.com/in/peterpark108/"]}
 def txt(x): return re.sub(r'\s+',' ',html.unescape(re.sub(r'<[^>]+>','',x))).strip()
 def jsonld(rel,url,s,desc):
   out=[]; C="https://schema.org"
   if rel=='index.html':
     o=dict(ORG,description=desc)
-    out.append({"@context":C,"@graph":[o,{"@type":"WebSite","@id":BASE+"#website","url":BASE,"name":"My Agent","inLanguage":"vi","publisher":{"@id":BASE+"#org"}}]})
+    out.append({"@context":C,"@graph":[o,FOUNDER,{"@type":"WebSite","@id":BASE+"#website","url":BASE,"name":"My Agent","inLanguage":"vi","publisher":{"@id":BASE+"#org"}}]})
     return out+faqld(s)
   h1=txt(re.search(r'<h1[^>]*>(.*?)</h1>',s,re.S).group(1))
   crumbs=[("Trang chủ",BASE)]
@@ -30,6 +36,7 @@ def jsonld(rel,url,s,desc):
   if rel.startswith('blog/'): crumbs.append(("Blog kiến thức",BASE+"blog.html"))
   crumbs.append((h1,url))
   out.append({"@context":C,"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":i+1,"name":n,"item":u} for i,(n,u) in enumerate(crumbs)]})
+  if rel in ('ve-chung-toi.html','lien-he.html'): out.append({"@context":C,"@type":"AboutPage" if rel=='ve-chung-toi.html' else "ContactPage","name":h1,"url":url,"inLanguage":"vi","isPartOf":{"@id":BASE+"#website"},"mainEntity":{"@id":BASE+"#org"}})
   if rel=='bang-gia.html': out.append({"@context":C,"@type":"WebPage","name":h1,"url":url,"description":desc,"inLanguage":"vi","isPartOf":{"@id":BASE+"#website"},"publisher":{"@id":BASE+"#org"}})
   kw=PAGES.get(rel,{}).get('kw')
   if kw: out.append({"@context":C,"@type":"Service","name":kw,"serviceType":kw,"description":desc,"url":url,"provider":{"@id":BASE+"#org"},"areaServed":ORG["areaServed"]})

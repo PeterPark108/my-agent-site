@@ -1,5 +1,10 @@
 # Nhật ký thay đổi
 
+## 0.9.7 - 2026-10-28
+- Schema thực thể (bản chốt SEO My Agent): `#org` là ProfessionalService (chuỗi), chỉ tên "My Agent"; **bỏ alternateName "Công ty TNHH…"** khỏi JSON-LD (Peter chốt 28/10) ở index.html và hằng ORG trong tech_pass.py; logo = assets/logo.png (780×192, ImageObject `#logo`); contactPoint 0328 439 972; areaServed TP.HCM + Việt Nam; bỏ address; Organization.sameAs để trống. Thêm Person `#founder` (Nguyễn Văn Tùng, sameAs Facebook + LinkedIn cá nhân, không ảnh).
+- Về chúng tôi: AboutPage, Liên hệ: ContactPage, cùng `mainEntity` → `#org`. Bài blog/tin tức: author/publisher cùng `#org` (ProfessionalService, logo.png), không còn khai báo Organization lệch kiểu/logo.
+- ci_check chặn cụm "TNHH" / "Thương mại và Dịch vụ My Agent" quay lại trong repo.
+
 ## 0.9.6 - 2026-10-28
 - On-page SEO theo kế hoạch từ khóa 28/10/2026 (SEO My Agent). Title/meta/H1/lead mới cho thiet-ke-website ("thiết kế web chuyên nghiệp theo yêu cầu"), thiet-ke-app ("thiết kế app trọn gói iOS, Android tại TP.HCM"), phan-mem-noi-bo ("thiết kế web app & phần mềm nội bộ"), combo ("combo website trọn gói và marketing"); trang chủ giữ title/meta/H1.
 - Gộp nội dung "thiết kế web app" vào dich-vu/phan-mem-noi-bo.html (không tạo trang thiet-ke-web-app): đoạn mở đầu + 3 H2 (so sánh website/web app/app, loại web app có năng lực làm, khi nào nên làm), 7 FAQ thay toàn bộ FAQ cũ (`faq_replace`), giá/thời gian trong FAQ điền từ data/pricing.json. Thẻ "Dữ liệu thuộc về bạn" đổi trung tính "Xuất dữ liệu"; bỏ mục bàn giao "Mã nguồn và cơ sở dữ liệu" (chờ Peter chốt chính sách bàn giao).
