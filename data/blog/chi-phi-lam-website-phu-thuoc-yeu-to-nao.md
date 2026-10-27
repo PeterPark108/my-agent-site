@@ -1,6 +1,7 @@
 ---
 title: "Chi phí làm website phụ thuộc vào yếu tố nào?"
 date: 2026-10-27
+updated: 2026-10-27
 description: "Làm website bao nhiêu tiền? Các yếu tố quyết định chi phí làm website: loại web, số trang, tính năng, nội dung, tên miền, hosting, chăm sóc."
 category: website
 tags: [chi phí website, thiết kế web giá rẻ, báo giá]
@@ -49,9 +50,9 @@ Chi phí "đội lên" thường do phạm vi không rõ. Với [dịch vụ thi
 
 ## Bảng giá tham khảo của My Agent
 
-Để anh/chị dễ hình dung, đây là giá tham khảo theo [bảng giá trên trang dịch vụ thiết kế website](https://myagentvn.com/dich-vu/thiet-ke-website.html#bang-gia) (nguồn): **Gói Cơ bản** 1,5–4 triệu / gói, gồm tư vấn & khảo sát và triển khai thiết kế website; **Gói Chuyên nghiệp** 4–10 triệu / gói, thêm báo cáo định kỳ; **Gói Doanh nghiệp** 8–20 triệu / gói, thêm báo cáo định kỳ và hỗ trợ ưu tiên trong giờ làm việc.
+Để anh/chị dễ hình dung, đây là giá tham khảo theo [bảng giá dịch vụ của My Agent](https://myagentvn.com/bang-gia.html#gia-thiet-ke-website) (nguồn): **Landing page (1 trang)** 2–3,6 triệu; **Website giới thiệu (≤10 trang)** 4–7,2 triệu; **Website bán hàng** 7,2–14,4 triệu; **Web app theo yêu cầu** 20–48 triệu. Anh/chị có thể [tự tính giá combo](https://myagentvn.com/bang-gia.html#tinh-gia) để xem khoảng chi phí khi kết hợp nhiều dịch vụ.
 
-Đây là **giá tham khảo**. Giá thực tế tùy yêu cầu của từng website và được chốt sau khi trao đổi. Giá **chưa gồm** phí tên miền, hosting và phần mềm của nhà cung cấp: anh/chị đứng tên và thanh toán trực tiếp.
+Đây là **giá tham khảo theo khoảng** và **đã bao gồm VAT**. Giá thực tế tùy yêu cầu của từng website và được chốt sau khi trao đổi nhu cầu. Giá **chưa gồm** phí tên miền, hosting và phần mềm của nhà cung cấp: anh/chị đứng tên và thanh toán trực tiếp.
 
 ## Thiết kế web giá rẻ: nên hiểu thế nào?
 

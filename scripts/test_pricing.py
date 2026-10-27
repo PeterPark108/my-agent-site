@@ -41,6 +41,27 @@ ok('<a href="combo.html">Combo</a></li><li class=""><a href="bang-gia.html">Bả
 ok('https://myagentvn.com/bang-gia.html' in pathlib.Path('sitemap.xml').read_text(),'sitemap thiếu bang-gia.html')
 ok('bang-gia.html#tinh-gia' in pathlib.Path('combo.html').read_text(),'combo.html thiếu nút Tự tính giá')
 ok('js/lien-he-prefill.js' in pathlib.Path('lien-he.html').read_text(),'lien-he.html thiếu script điền sẵn')
+# đồng bộ giá các trang cũ (v0.9.1): trang dịch vụ khớp pricing.json, không còn giá cũ / cam kết 24 giờ
+sys.path.insert(0,str(R/'scripts')); import svc_pricing as SP
+for sv in P['services']:
+  pg=pathlib.Path(f'dich-vu/{sv["id"]}.html').read_text()
+  blk=re.search(r'<div class="plans" data-src="pricing">.*?</p>',pg,re.S)
+  ok(blk,f'dich-vu/{sv["id"]}.html: bảng giá chưa sinh từ pricing.json (chạy scripts/svc_pricing.py)')
+  if not blk: continue
+  blk=blk.group(0)
+  ok('Giá đã bao gồm VAT' in blk,f'dich-vu/{sv["id"]}.html: thiếu "Giá đã bao gồm VAT"')
+  for t in sv['tiers']:
+    ok(t['name'].replace('&','&amp;') in blk or t['name'] in blk,f'{sv["id"]}: thiếu mức "{t["name"]}"')
+    if sv.get('negotiable'): ok('Thương lượng' in blk and not re.search(r'\d\s*(triệu|nghìn)<small>',blk),f'{sv["id"]}: phải ghi Thương lượng')
+    else: ok(SP.rng(t['min'],t['max']) in blk,f'{sv["id"]}/{t["id"]}: giá trang khác pricing.json ({SP.rng(t["min"],t["max"])})')
+OLD=re.compile(r'1,5\s*[–-]\s*4\s*triệu|(?<![\d,])4\s*[–-]\s*10\s*triệu|8\s*[–-]\s*20\s*triệu\s*(?:<small>)?\s*/\s*gói|Gói Doanh nghiệp\W{0,6}\s*8\s*[–-]\s*20|(?<![\d,])300\s*(?:nghìn|ngàn|k\b)|(?<![\d,])600\s*(?:nghìn|ngàn|k\b)|(?<![\d,–-])1\s*triệu\s*(?:<small>)?\s*/\s*tháng',re.I)
+C24=re.compile(r'(?<![\d/])24\s*giờ|(?<![\d/])24h\b|24/7|24/24',re.I)
+PUB=[f for f in files if f.endswith(('.html','.js','.json','.xml','.md','.txt')) and not f.startswith(('scripts/','docs/','node_modules/')) and f not in ('CHANGELOG.md','README.md')]
+for f in PUB:
+  t=pathlib.Path(f).read_text(errors='ignore')
+  if f.startswith('js/chat'): t=re.sub(r'/[^/\n]{0,200}24[^/\n]{0,80}/[gimsuy]*','',t)  # bỏ qua regex chặn từ cấm trong mã chatbot
+  m=OLD.search(t); ok(not m,f'{f}: còn giá cũ "{m.group(0) if m else ""}" (không khớp data/pricing.json)')
+  m=C24.search(t); ok(not m,f'{f}: còn cam kết thời gian "{m.group(0) if m else ""}" (không dùng 24 giờ/24h/24/7)')
 # hàm tính
 if shutil.which('node'):
   js=r'''

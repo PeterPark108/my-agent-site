@@ -1,5 +1,13 @@
 # Nhật ký thay đổi
 
+## 0.9.1 - 2026-10-27
+- Đồng bộ giá các trang cũ theo `data/pricing.json`: khối "Bảng giá tham khảo" của 17 trang dịch vụ được sinh lại bằng `scripts/svc_pricing.py` (mức và khoảng giá như trang Bảng giá; hosting/VPS và quảng cáo ghi "Thương lượng"; ghi rõ "Giá đã bao gồm VAT" và giá tham khảo theo khoảng). Trang Traffic User vẫn không công khai giá.
+- Thiết kế website: 1,5–4 / 4–10 / 8–20 triệu → Landing 2–3,6, Giới thiệu 4–7,2, Bán hàng 7,2–14,4, Web app 20–48 triệu. Chăm sóc website: 300 nghìn / 600 nghìn / 1 triệu mỗi tháng → 0,64–1,2 / 1,4–2,4 / 2,4–4 triệu mỗi tháng.
+- Bài blog "Chi phí làm website phụ thuộc vào yếu tố nào?": cập nhật con số và trỏ về Bảng giá (`updated: 2026-10-27`).
+- Bỏ các cam kết "phản hồi trong 24 giờ", "Nhận báo giá trong 24h", "24/7" (trang dịch vụ, dich-vu.html, trang chủ, hiệu ứng terminal).
+- Chatbot: câu trả lời giá trang dịch vụ đọc đủ khoảng giá, kèm VAT và liên kết Bảng giá.
+- `test_pricing.py`: kiểm tra giá trang dịch vụ khớp pricing.json, chặn các mức giá cũ và cam kết 24 giờ/24h/24/7.
+
 ## 0.9.0 - 2026-10-27
 - Trang `/bang-gia.html`: bảng giá 5 nhóm dịch vụ (đã gồm VAT, giá tham khảo theo khoảng), công cụ tính giá combo `#tinh-gia` (trả trước theo tháng/6/12/24 tháng), hosting & quảng cáo "Thương lượng".
 - Nút gửi tạm tính sang `lien-he.html` (`?tam-tinh=&ngan-sach=`) + `js/lien-he-prefill.js`.

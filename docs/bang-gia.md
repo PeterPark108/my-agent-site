@@ -6,6 +6,7 @@ Nguồn dữ liệu: thư mục ngoài repo (`/workspace/bang-gia/pricing.json`)
 ```
 python3 scripts/pricing_publish.py /workspace/bang-gia   # lọc whitelist -> data/pricing.json, js/combo-calculator.js
 python3 scripts/bang_gia_build.py                         # dựng bang-gia.html
+python3 scripts/svc_pricing.py                            # bảng giá trên 17 trang dịch vụ
 python3 scripts/tech_pass.py                              # menu, footer, head, sitemap, ?v=
 python3 scripts/chatbot_build.py                          # KB chatbot
 python3 scripts/test_pricing.py                           # kiểm tra loại trừ + đối chiếu máy tính
@@ -22,3 +23,6 @@ Là "Thương lượng": không cộng vào tổng, hiển thị dòng riêng. G
 
 ## Gửi sang liên hệ
 Nút gửi mở `lien-he.html?tam-tinh=…&ngan-sach=…&dich-vu=…#form`; `js/lien-he-prefill.js` điền vào ô tin nhắn (không đổi form/endpoint), nếu không có ô thì hiện bản tóm tắt để copy.
+
+## Trang dịch vụ
+Khối "Bảng giá tham khảo" trên `dich-vu/*.html` được sinh từ `data/pricing.json` bằng `scripts/svc_pricing.py` — không sửa tay. `test_pricing.py` báo lỗi nếu giá trang lệch pricing.json, còn mức giá cũ (1,5–4 / 4–10 / 8–20 triệu/gói, 300/600 nghìn, 1 triệu/tháng) hoặc cam kết 24 giờ/24h/24/7.
