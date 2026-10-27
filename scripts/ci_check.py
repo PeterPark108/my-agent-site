@@ -38,6 +38,16 @@ if _tag:
 r = subprocess.run([sys.executable, 'server/contact-api/test_contact_api.py'], capture_output=True, text=True)
 print(r.stdout.strip().splitlines()[-1] if r.stdout.strip() else 'test_contact_api')
 if r.returncode: fail.append('test_contact_api.py lỗi:\n' + r.stdout.strip() + r.stderr[-500:])
+# v0.9.7: Peter chốt chỉ dùng tên "My Agent"; chặn tên pháp nhân cũ quay lại (html, js, json, generator, nội dung)
+_BAN = re.compile(r'TNHH|Thương mại và Dịch vụ My Agent', re.I)
+for _root, _dirs, _files in os.walk('.'):
+    _dirs[:] = [d for d in _dirs if d not in ('.git', 'node_modules')]
+    for _f in _files:
+        if _f.endswith(('.html', '.js', '.json', '.xml', '.md', '.py', '.txt')) and _f != 'CHANGELOG.md' and _f != 'ci_check.py':
+            _p = os.path.join(_root, _f)
+            try: _s = open(_p, encoding='utf-8').read()
+            except Exception: continue
+            if _BAN.search(_s): fail.append('còn tên pháp nhân cũ (TNHH) trong ' + _p)
 # sitemap chỉ chứa URL có file thật
 for loc in re.findall(r'<loc>https://myagentvn\.com/(.*?)</loc>', open('sitemap.xml', encoding='utf-8').read()):
     if not os.path.isfile(loc or 'index.html'): fail.append('sitemap có URL không tồn tại: ' + loc)

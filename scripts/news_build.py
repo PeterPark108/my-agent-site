@@ -262,7 +262,7 @@ def article_page(it,arts,items):
   img=BASE+it['img'][2] if it.get('img') else BASE+'assets/og-image.png'
   ldo={"@context":"https://schema.org","@type":"NewsArticle","headline":it['title'][:110],"description":it['summary'],"inLanguage":"vi",
     "datePublished":it['date']+"T08:00:00+07:00","dateModified":(upd or it['date'])+"T08:00:00+07:00","articleSection":TOPICS[t],
-    "author":{"@type":"Organization","name":"My Agent","url":BASE},"publisher":{"@type":"Organization","@id":BASE+"#org","name":"My Agent","logo":{"@type":"ImageObject","url":BASE+"assets/icon-512.png"}},
+    "author":{"@type":"ProfessionalService","@id":BASE+"#org","name":"My Agent","url":BASE},"publisher":{"@type":"ProfessionalService","@id":BASE+"#org","name":"My Agent","url":BASE,"logo":{"@type":"ImageObject","@id":BASE+"#logo","url":BASE+"assets/icon-512.png","width":512,"height":512}},
     "mainEntityOfPage":{"@type":"WebPage","@id":url},"url":url,"image":[img],"wordCount":it['words'],"citation":[s['url'] for s in it['sources']]}
   if it['tags']: ldo['keywords']=', '.join(it['tags'])
   head=(RSSL+f'<meta property="article:published_time" content="{it["date"]}T08:00:00+07:00"><meta property="article:modified_time" content="{(upd or it["date"])}T08:00:00+07:00">'
