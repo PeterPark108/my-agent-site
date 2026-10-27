@@ -58,3 +58,6 @@ bảng giá dịch vụ my agent | bang-gia,intent:price
 tự tính giá combo | bang-gia
 giá đã gồm vat chưa | bang-gia
 giá hosting bao nhiêu | intent:price,hosting-seo,bang-gia
+chăm sóc website thanh toán thế nào | bang-gia
+giá thiết kế đã gồm tên miền và hosting chưa | bang-gia
+đặt cọc bao nhiêu | bang-gia

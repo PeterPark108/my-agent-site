@@ -26,3 +26,6 @@ Nút gửi mở `lien-he.html?tam-tinh=…&ngan-sach=…&dich-vu=…#form`; `js/
 
 ## Trang dịch vụ
 Khối "Bảng giá tham khảo" trên `dich-vu/*.html` được sinh từ `data/pricing.json` bằng `scripts/svc_pricing.py` — không sửa tay. `test_pricing.py` báo lỗi nếu giá trang lệch pricing.json, còn mức giá cũ (1,5–4 / 4–10 / 8–20 triệu/gói, 300/600 nghìn, 1 triệu/tháng) hoặc cam kết 24 giờ/24h/24/7.
+
+## Điều khoản thanh toán
+Sinh theo `billing` trong pricing.json: `monthly`/`yearly` → thanh toán 100% trước theo kỳ đã chọn (tháng/6/12/24 tháng; tên miền theo năm), không đặt cọc; `one-time` → đặt cọc 30–50%, 2 lần chỉnh sửa, bảo hành 60 ngày.

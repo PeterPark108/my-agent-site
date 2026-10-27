@@ -37,7 +37,7 @@ WordPress phù hợp khi anh/chị muốn tự đăng bài, sản phẩm thườ
 
 ### Tên miền và hosting
 
-Đây là phí trả cho nhà cung cấp, thường tính theo năm và cần gia hạn. Tại My Agent, giá thiết kế **chưa gồm** tên miền và hosting: anh/chị đứng tên và thanh toán trực tiếp, chúng tôi hỗ trợ [đăng ký tên miền](../dich-vu/ten-mien.html) và cấu hình [hosting](../dich-vu/hosting-seo.html).
+Đây là phí trả cho nhà cung cấp, thường tính theo năm và cần gia hạn. Tại My Agent, giá thiết kế **chưa gồm** tên miền và hosting: [tên miền](../dich-vu/ten-mien.html) có giá riêng trong bảng giá (đăng ký đứng tên anh/chị), còn [hosting/VPS](../dich-vu/hosting-seo.html) là thương lượng theo cấu hình.
 
 ### Thủ tục và vận hành
 
@@ -52,7 +52,7 @@ Chi phí "đội lên" thường do phạm vi không rõ. Với [dịch vụ thi
 
 Để anh/chị dễ hình dung, đây là giá tham khảo theo [bảng giá dịch vụ của My Agent](https://myagentvn.com/bang-gia.html#gia-thiet-ke-website) (nguồn): **Landing page (1 trang)** 2–3,6 triệu; **Website giới thiệu (≤10 trang)** 4–7,2 triệu; **Website bán hàng** 7,2–14,4 triệu; **Web app theo yêu cầu** 20–48 triệu. Anh/chị có thể [tự tính giá combo](https://myagentvn.com/bang-gia.html#tinh-gia) để xem khoảng chi phí khi kết hợp nhiều dịch vụ.
 
-Đây là **giá tham khảo theo khoảng** và **đã bao gồm VAT**. Giá thực tế tùy yêu cầu của từng website và được chốt sau khi trao đổi nhu cầu. Giá **chưa gồm** phí tên miền, hosting và phần mềm của nhà cung cấp: anh/chị đứng tên và thanh toán trực tiếp.
+Đây là **giá tham khảo theo khoảng** và **đã bao gồm VAT**. Giá thực tế tùy yêu cầu của từng website và được chốt sau khi trao đổi nhu cầu. Giá thiết kế **chưa gồm** tên miền (có giá riêng trong bảng giá) và hosting/VPS (thương lượng); nếu chạy quảng cáo thì phí quản lý quảng cáo cũng thương lượng và chưa gồm tiền quảng cáo trả cho nền tảng.
 
 ## Thiết kế web giá rẻ: nên hiểu thế nào?
 
@@ -62,11 +62,11 @@ Giá thấp không xấu, miễn là anh/chị biết mình nhận được gì.
 
 ### Giá thiết kế đã gồm tên miền và hosting chưa?
 
-Chưa. My Agent hỗ trợ đăng ký; anh/chị đứng tên và thanh toán trực tiếp cho nhà cung cấp.
+Chưa. Tên miền có giá riêng trong [bảng giá](https://myagentvn.com/bang-gia.html#gia-ten-mien); hosting/VPS là thương lượng. Các khoản này tính riêng.
 
 ### Thanh toán thế nào?
 
-Đặt cọc 30–50%, phần còn lại thanh toán khi nghiệm thu (theo [điều khoản trên trang thiết kế website](https://myagentvn.com/dich-vu/thiet-ke-website.html#bang-gia)).
+Thiết kế website: đặt cọc 30–50%, phần còn lại thanh toán khi nghiệm thu (theo [điều khoản trên trang thiết kế website](https://myagentvn.com/dich-vu/thiet-ke-website.html#bang-gia)). Các dịch vụ tính theo tháng như [chăm sóc website](../dich-vu/cham-soc-website.html) thanh toán 100% trước theo kỳ đã chọn (tháng, 6, 12 hoặc 24 tháng), không đặt cọc.
 
 ### Sau bàn giao ai sở hữu website?
 

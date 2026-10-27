@@ -1,6 +1,7 @@
 ---
 title: "Thiết kế web trọn gói gồm những gì?"
 date: 2026-10-27
+updated: 2026-10-27
 description: "Thiết kế web trọn gói gồm những gì? Các bước từ tư vấn, giao diện, lập trình, SEO cơ bản đến bàn giao, tên miền, hosting và chăm sóc website."
 category: website
 tags: [thiết kế web trọn gói, TP.HCM, website]
@@ -51,7 +52,7 @@ Kèm theo đó là 2 lần chỉnh sửa trong phạm vi đã thống nhất và
 
 ### Tên miền, hosting và email
 
-Đây là "nền móng" của website. My Agent hỗ trợ đăng ký [tên miền](../dich-vu/ten-mien.html) đứng tên anh/chị, cấu hình [hosting SEO](../dich-vu/hosting-seo.html) và [email theo tên miền](../dich-vu/email-doanh-nghiep.html). Phí của nhà cung cấp do anh/chị thanh toán trực tiếp, không nằm trong giá thiết kế.
+Đây là "nền móng" của website. My Agent hỗ trợ đăng ký [tên miền](../dich-vu/ten-mien.html) đứng tên anh/chị, cấu hình [hosting SEO](../dich-vu/hosting-seo.html) và [email theo tên miền](../dich-vu/email-doanh-nghiep.html). Các khoản này không nằm trong giá thiết kế: tên miền có giá riêng trong [bảng giá](https://myagentvn.com/bang-gia.html), hosting/VPS là thương lượng.
 
 ### Thủ tục với Bộ Công Thương
 

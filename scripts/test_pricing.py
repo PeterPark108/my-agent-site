@@ -62,6 +62,20 @@ for f in PUB:
   if f.startswith('js/chat'): t=re.sub(r'/[^/\n]{0,200}24[^/\n]{0,80}/[gimsuy]*','',t)  # bỏ qua regex chặn từ cấm trong mã chatbot
   m=OLD.search(t); ok(not m,f'{f}: còn giá cũ "{m.group(0) if m else ""}" (không khớp data/pricing.json)')
   m=C24.search(t); ok(not m,f'{f}: còn cam kết thời gian "{m.group(0) if m else ""}" (không dùng 24 giờ/24h/24/7)')
+# điều khoản thanh toán theo loại tính phí + ghi chú tên miền/hosting mới (v0.9.1)
+for sv in P['services']:
+  pg=pathlib.Path(f'dich-vu/{sv["id"]}.html').read_text()
+  blk=re.search(r'<p class="muted rv" style="margin-top:18px"><small>(.*?)</small>',pg,re.S); blk=blk.group(1) if blk else ''
+  if SP.is_recurring(sv):
+    ok(not re.search(r'đặt cọc 30|30\s*[–-]\s*50\s*%',pg,re.I),f'{sv["id"]} (tính theo kỳ): không được có đặt cọc 30–50%')
+    ok('thanh toán 100% trước' in blk,f'{sv["id"]} (tính theo kỳ): thiếu "thanh toán 100% trước"')
+  else:
+    for need in ('Đặt cọc 30–50%','60 ngày','2 lần chỉnh sửa'): ok(need in blk,f'{sv["id"]} (làm một lần): thiếu điều khoản "{need}"')
+  ok('tên miền có giá riêng' in blk and 'Thương lượng' in blk,f'{sv["id"]}: thiếu ghi chú tên miền/hosting/quảng cáo mới')
+OLDNOTE=re.compile(r'chưa gồm phí tên miền, hosting|chưa gồm\*\* phí tên miền, hosting|khách đứng tên và thanh toán trực tiếp cho nhà cung cấp|anh/chị đứng tên và thanh toán trực tiếp|Phí của nhà cung cấp do anh/chị thanh toán trực tiếp',re.I)
+for f in PUB:
+  t=pathlib.Path(f).read_text(errors='ignore'); m=OLDNOTE.search(t)
+  ok(not m,f'{f}: còn ghi chú cũ "{m.group(0) if m else ""}"')
 # hàm tính
 if shutil.which('node'):
   js=r'''
