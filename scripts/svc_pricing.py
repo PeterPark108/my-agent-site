@@ -54,13 +54,17 @@ FAQ_DOMAIN=('Giá đã gồm tên miền và hosting chưa?','Chưa. My Agent h�
 FAQ_EDIT=('Được chỉnh sửa mấy lần?','Mỗi gói gồm 2 lần chỉnh sửa trong phạm vi đã thống nhất. Sửa thêm hoặc thêm tính năng ngoài phạm vi sẽ được báo giá trước khi làm.')
 FAQ_WS=('Phí bản quyền Google Workspace / Microsoft 365 trả cho ai?','Bạn đăng ký và thanh toán trực tiếp với nhà cung cấp, tài khoản đứng tên bạn. Tôi chỉ tính phí cấu hình, hỗ trợ.',
   'Phí bản quyền Google Workspace / Microsoft 365 tính thế nào?','Theo bảng giá, mức Google Workspace / Microsoft 365 tính theo người mỗi tháng, gồm phí bản quyền và hỗ trợ cài đặt; tài khoản đứng tên doanh nghiệp của bạn.')
+FAQ_INFRA=('Chi phí máy chủ, phần mềm tính thế nào?','Phí máy chủ, cơ sở dữ liệu hoặc phần mềm của nhà cung cấp do khách đứng tên và thanh toán trực tiếp, báo trước khi triển khai.',
+  'Chi phí máy chủ, phần mềm tính thế nào?','Chi phí hạ tầng/phần mềm bên thứ ba (máy chủ, cơ sở dữ liệu, phần mềm) được báo trong báo giá trước khi triển khai và thanh toán cho My Agent.')
+FAQ_STORE=('Tài khoản App Store / Google Play đứng tên ai?','Nên đứng tên doanh nghiệp của bạn. Phí tài khoản nhà phát triển do bạn trả trực tiếp cho Apple/Google.',
+  'Tài khoản App Store / Google Play đứng tên ai?','Nên đứng tên doanh nghiệp của bạn. Phí tài khoản nhà phát triển Apple/Google được báo trong báo giá và thanh toán cho My Agent.')
 def faq_swap(x,q0,a0,q1,a1):
   for Q0,A0,Q1,A1 in ((q0,a0,q1,a1),(q0,a0.replace('"','\\"'),q1,a1.replace('"','\\"'))):
     x=x.replace(f'<summary>{Q0}</summary><p>{A0}</p>',f'<summary>{Q1}</summary><p>{A1}</p>')
     x=x.replace(f'"name": "{Q0}", "acceptedAnswer": {{"@type": "Answer", "text": "{A0}"}}',f'"name": "{Q1}", "acceptedAnswer": {{"@type": "Answer", "text": "{A1}"}}')
   return x
 def faq_fix(x,s):
-  x=faq_swap(x,*FAQ_DOMAIN); x=faq_swap(x,*FAQ_WS)
+  x=faq_swap(x,*FAQ_DOMAIN); x=faq_swap(x,*FAQ_WS); x=faq_swap(x,*FAQ_INFRA); x=faq_swap(x,*FAQ_STORE)
   if s and is_recurring(s): x=faq_swap(x,*FAQ_EDIT,'Thanh toán thế nào?',terms(s))
   return x
 def commit_fix(x):

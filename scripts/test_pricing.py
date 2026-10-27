@@ -72,7 +72,7 @@ for sv in P['services']:
   else:
     for need in ('Đặt cọc 30–50%','60 ngày','2 lần chỉnh sửa'): ok(need in blk,f'{sv["id"]} (làm một lần): thiếu điều khoản "{need}"')
   ok('tên miền có giá riêng' in blk and 'Thương lượng' in blk,f'{sv["id"]}: thiếu ghi chú tên miền/hosting/quảng cáo mới')
-OLDNOTE=re.compile(r'chưa gồm phí tên miền, hosting|chưa gồm\*\* phí tên miền, hosting|khách đứng tên và thanh toán trực tiếp cho nhà cung cấp|anh/chị đứng tên và thanh toán trực tiếp|Phí của nhà cung cấp do anh/chị thanh toán trực tiếp',re.I)
+OLDNOTE=re.compile(r'tự thanh toán trực tiếp|thanh toán trực tiếp cho nhà cung cấp|thanh toán trực tiếp với nhà cung cấp|đứng tên và thanh toán trực tiếp|trả trực tiếp cho (Apple|Google|nhà cung cấp)|chưa gồm phí tên miền, hosting|chưa gồm\*\* phí tên miền, hosting|khách đứng tên và thanh toán trực tiếp cho nhà cung cấp|anh/chị đứng tên và thanh toán trực tiếp|Phí của nhà cung cấp do anh/chị thanh toán trực tiếp',re.I)
 for f in PUB:
   t=pathlib.Path(f).read_text(errors='ignore'); m=OLDNOTE.search(t)
   ok(not m,f'{f}: còn ghi chú cũ "{m.group(0) if m else ""}"')

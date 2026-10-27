@@ -10,7 +10,8 @@
 - Điều khoản thanh toán theo loại tính phí trong pricing.json (sinh bởi `svc_pricing.py`): dịch vụ tính theo tháng (hosting, email, chăm sóc website, SEO, quảng cáo, Fanpage) và theo năm (tên miền) thanh toán 100% trước theo kỳ đã chọn, không đặt cọc; dịch vụ làm một lần giữ "đặt cọc 30–50%, 2 lần chỉnh sửa, bảo hành 60 ngày". Câu hỏi thường gặp "Được chỉnh sửa mấy lần?" trên trang tính theo kỳ đổi thành "Thanh toán thế nào?".
 - Viết lại ghi chú "Giá chưa gồm phí tên miền, hosting… khách thanh toán trực tiếp" (trang dịch vụ, FAQ + JSON-LD, 2 bài blog, chatbot): tên miền có giá riêng; hosting/VPS và quảng cáo: Thương lượng; tiền quảng cáo trả cho nền tảng không nằm trong giá. FAQ Google Workspace/Microsoft 365 khớp bảng giá (tính theo người/tháng, gồm phí bản quyền và hỗ trợ cài đặt).
 - Bảng giá: thêm điều khoản thanh toán và 2 câu hỏi thường gặp; chatbot trả lời câu hỏi đặt cọc/thanh toán và "đã gồm tên miền, hosting chưa" theo Bảng giá (3 câu eval mới).
-- `test_pricing.py`: trang tính theo kỳ không có "đặt cọc 30–50%", trang làm một lần còn đủ điều khoản; chặn ghi chú tên miền/hosting cũ.
+- Chi phí bên thứ ba thanh toán qua My Agent: FAQ Kỹ thuật dữ liệu (máy chủ, cơ sở dữ liệu, phần mềm) và Thiết kế app (tài khoản nhà phát triển Apple/Google) đổi thành "được báo trong báo giá và thanh toán cho My Agent"; nguồn svc_data.py cũng được cập nhật.
+- `test_pricing.py`: trang tính theo kỳ không có "đặt cọc 30–50%", trang làm một lần còn đủ điều khoản; chặn ghi chú tên miền/hosting cũ và các câu "thanh toán trực tiếp cho nhà cung cấp".
 
 ## 0.9.0 - 2026-10-27
 - Trang `/bang-gia.html`: bảng giá 5 nhóm dịch vụ (đã gồm VAT, giá tham khảo theo khoảng), công cụ tính giá combo `#tinh-gia` (trả trước theo tháng/6/12/24 tháng), hosting & quảng cáo "Thương lượng".
