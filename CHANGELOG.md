@@ -1,6 +1,7 @@
 # Nhật ký thay đổi
 
-## 0.7.1 - 2026-10-27
+## 0.7.3 - 2026-10-27
+- (Số phiên bản 0.7.1/0.7.2 đã dùng cho tag của các thay đổi SEO trước đó.)
 - Dự án mẫu (`du-an.html`): thêm demo web app XN Linh Kiện Máy In (xnlinhkien.myagentvn.com); thẻ NhàĐất Việt có nút "Xem demo" (nhadat.myagentvn.com).
 - Cả 4 thẻ dự án dùng ảnh chụp bản chạy thật (WebP 16:9, 960px + 480px, srcset, width/height, lazy) trong `assets/projects/`, thay hình SVG trang trí.
 - Tài liệu `docs/du-an.md`: cách thêm dự án mới kèm thumbnail.
