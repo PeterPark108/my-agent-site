@@ -31,7 +31,7 @@ def plans(s):
     items=[x[0].upper()+x[1:] for x in items]
     lis=''.join(f'<li>{CHK}{html.escape(x,quote=False)}</li>' for x in items)
     btn='btn ' if i==1 else 'btn ghost'
-    out.append(f'<div class="plan glass rv{hl}">{badge}<h3>{html.escape(t["name"],quote=False)}</h3>{price}<ul>{lis}</ul><a class="{btn}" href="../lien-he.html">Đăng ký</a></div>')
+    out.append(f'<div class="plan glass rv{hl}">{badge}<h3>{html.escape(t["name"],quote=False)}</h3>{price}<ul>{lis}</ul><a class="{btn}" href="../lien-he.html?goi-dv={s["id"]}&amp;goi={t["id"]}#form">Đăng ký</a></div>')
   return '<div class="plans" data-src="pricing">'+''.join(out)+'</div>'
 RECUR={'monthly':'tháng','yearly':'năm'}
 ONEOFF_DEF='Đặt cọc 30–50%, phần còn lại thanh toán khi nghiệm thu. Mỗi gói gồm 2 lần chỉnh sửa trong phạm vi đã thống nhất; sửa thêm hoặc thêm tính năng sẽ báo giá trước. Bảo hành lỗi kỹ thuật 60 ngày sau bàn giao. Sau khi thanh toán đủ, khách sở hữu mã nguồn, nội dung và tài khoản liên quan.'

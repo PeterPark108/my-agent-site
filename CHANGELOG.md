@@ -1,5 +1,13 @@
 # Nhật ký thay đổi
 
+## 0.9.5 - 2026-10-28
+- Form liên hệ: báo lỗi tiếng Việt rõ ràng ngay dưới nút "Gửi yêu cầu" (`<p class="form-err" role="alert">`) khi thiếu họ tên, SĐT sai, email thiếu "@"/tên miền, chưa tick đồng ý; liệt kê mọi lỗi cùng lúc.
+- Tự focus + cuộn tới ô sai đầu tiên; ô sai viền đỏ (`.inv`) và `aria-invalid="true"`; sửa đúng ô nào thì tắt lỗi ô đó, hết lỗi thì ẩn khung báo.
+- Tắt tooltip tiếng Anh của trình duyệt (`novalidate` + chặn sự kiện `invalid`) nhưng vẫn dùng Constraint Validation để chặn gửi; luồng gửi /api/contact, timeout 5s và 3 nút dự phòng giữ nguyên.
+- Nút "Đăng ký" ở mọi gói trên 17 trang dịch vụ dẫn tới `lien-he.html?goi-dv=<dịch vụ>&goi=<gói>#form` (sinh bởi svc_pricing.py); `?combo=<id>` trên combo/trang chủ cũng được xử lý. js/lien-he-prefill.js tự chọn "Dịch vụ quan tâm", điền "Nội dung" (tên gói, giá tham khảo lấy từ data/pricing.json kèm "đã gồm VAT, tham khảo"; hosting/quảng cáo ghi "Thương lượng"; chu kỳ tháng/năm, tuỳ chọn `&ky=`), rồi cuộn tới form. Tham số chỉ nhận id `[a-z0-9-]{1,40}`, id lạ bị bỏ qua, chỉ gán `.value`; luồng `tam-tinh` của bảng giá được ưu tiên. Gửi qua field `page` + `message` sẵn có.
+- Thêm scripts/test_package_prefill.py (mọi gói, gói/dịch vụ lạ, HTML độc hại, quá dài, thương lượng, chu kỳ, combo, field gửi đi, desktop 1280 + mobile 390).
+- test_contact_form: thêm 11 trường hợp kiểm tra dữ liệu (desktop 1280 + mobile 390, nhiều lỗi cùng lúc, sửa ô tắt lỗi, không có request, tooltip gốc bị chặn).
+
 ## 0.9.4 - 2026-10-28
 - Đổi `?v=` cache-busting sang 0.9.4 trên mọi trang: `?v=0.9.3` từng trỏ tới 2 bản main.js khác nhau (timeout 15s/FormSubmit và /api/contact), trình duyệt đã cache bản cũ (max-age 7 ngày).
 - test_contact_form: báo lỗi nếu console có "Pattern attribute ... not a valid regular expression" và kiểm tra SĐT "abc" bị từ chối.

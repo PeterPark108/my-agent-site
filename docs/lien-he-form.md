@@ -78,3 +78,9 @@ Mã mẫu `server/contact-api/` (Python 3.8+ thư viện chuẩn, không cần p
 ## Kênh khác (chỉ đề xuất, không dùng)
 - Email (Brevo SMTP / Gmail App Password) có thể thêm sau làm kênh phụ; hiện bỏ để đơn giản.
 - FormSubmit: lỗi (treo, 500 khi kích hoạt) — để tắt. Web3Forms/Formspree: cần tài khoản bên ngoài, chưa đăng ký.
+
+## Báo lỗi nhập liệu (0.9.5)
+Form tắt tooltip gốc (novalidate + chặn `invalid`), tự kiểm tra bằng checkValidity; lỗi tiếng Việt hiện trong `.form-err[role=alert]` dưới nút gửi, ô sai có `.inv` + `aria-invalid`, focus/cuộn tới ô sai đầu tiên, sửa ô nào tắt lỗi ô đó. Thông báo nằm trong hàm `msg()` ở js/main.js.
+
+## Điền sẵn gói từ trang dịch vụ (0.9.5)
+`lien-he.html?goi-dv=<id dịch vụ>&goi=<id gói>[&ky=6|12|24 (tháng) hoặc 1|2 (năm)]` hoặc `?combo=<id>`. Giá lấy từ data/pricing.json lúc tải trang; id không có trong pricing.json thì bỏ qua. Kiểm tra: `python3 scripts/test_package_prefill.py`.
