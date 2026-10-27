@@ -1,5 +1,11 @@
 # Nhật ký thay đổi
 
+## 0.9.3 - 2026-10-27
+- Form liên hệ: thêm thời gian chờ 15 giây (AbortController, `formTimeoutMs`). Khi FormSubmit/máy chủ nhận form lỗi, hết giờ, trả HTTP lỗi hoặc `success:false`, hiện khung dự phòng tiếng Việt: nút "Gửi qua Email" (mailto điền sẵn họ tên, SĐT, email, dịch vụ, nội dung, kể cả số liệu từ công cụ tính giá), "Nhắn Zalo", "Gọi ngay"; nút gửi bật lại, dữ liệu giữ nguyên, chặn gửi trùng. Thành công giữ nguyên.
+- js/config.js: thêm `formEndpoint` (máy chủ nhận form riêng, POST JSON; trống = FormSubmit như cũ), `formSubmitEnabled`, `formTimeoutMs`.
+- Thêm `scripts/test_contact_form.py` (Chromium): thành công, timeout, lỗi mạng, HTTP 500, success:false, endpoint riêng, mailto đủ trường, điền sẵn từ công cụ tính giá, giao diện mobile.
+- Đề xuất endpoint tự chạy trên VPS (`/api/contact` → 127.0.0.1:8787, gửi mail Brevo SMTP + Telegram): mã mẫu chưa triển khai ở `server/contact-api/` kèm test (chạy trong ci_check), tài liệu `docs/lien-he-form.md`.
+
 ## 0.9.2 - 2026-10-27
 - Sửa lỗi giao diện trang Bảng giá: khối bảng giá theo nhóm dùng trùng class `.bg-grid` với lớp lưới nền cố định của toàn site (`position:fixed; inset:0; z-index:-2`), nên các bảng bị ghim chồng lên phần đầu trang. Đổi tên class thành `.bg-groups` trong bang_gia_build.py và style.css.
 - Thanh mục lục nhóm dịch vụ (01 · Nền tảng website …) dùng thẻ `<nav>` nên trên màn hình ≤960px bị quy tắc menu di động `nav{position:fixed}` ghim lên đầu trang, chồng lên hero. Đổi thành `<div role="navigation">`.

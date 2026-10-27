@@ -1,0 +1,19 @@
+# /etc/systemd/system/myagent-contact-api.service  (MẪU — agent VPS triển khai)
+[Unit]
+Description=My Agent contact form API (127.0.0.1:8787)
+After=network-online.target
+[Service]
+User=myagent-contact
+Group=myagent-contact
+WorkingDirectory=/opt/myagent-contact-api
+EnvironmentFile=/etc/myagent/contact-api.env
+ExecStart=/usr/bin/python3 /opt/myagent-contact-api/contact_api.py
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+MemoryMax=64M
+[Install]
+WantedBy=multi-user.target
