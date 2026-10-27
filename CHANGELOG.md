@@ -1,5 +1,10 @@
 # Nhật ký thay đổi
 
+## 0.9.2 - 2026-10-27
+- Sửa lỗi giao diện trang Bảng giá: khối bảng giá theo nhóm dùng trùng class `.bg-grid` với lớp lưới nền cố định của toàn site (`position:fixed; inset:0; z-index:-2`), nên các bảng bị ghim chồng lên phần đầu trang. Đổi tên class thành `.bg-groups` trong bang_gia_build.py và style.css.
+- Thanh mục lục nhóm dịch vụ (01 · Nền tảng website …) dùng thẻ `<nav>` nên trên màn hình ≤960px bị quy tắc menu di động `nav{position:fixed}` ghim lên đầu trang, chồng lên hero. Đổi thành `<div role="navigation">`.
+- Thêm `scripts/test_layout.py` (Chromium/Playwright): kiểm tra khối nhóm giá nằm dưới hero, không có `position:fixed`, không có phần tử position:fixed hiển thị trong <main>, không cuộn ngang ở 1440/1280/1024/768/390, và class bố cục không trùng với lớp nền.
+
 ## 0.9.1 - 2026-10-27
 - Đồng bộ giá các trang cũ theo `data/pricing.json`: khối "Bảng giá tham khảo" của 17 trang dịch vụ được sinh lại bằng `scripts/svc_pricing.py` (mức và khoảng giá như trang Bảng giá; hosting/VPS và quảng cáo ghi "Thương lượng"; ghi rõ "Giá đã bao gồm VAT" và giá tham khảo theo khoảng). Trang Traffic User vẫn không công khai giá.
 - Thiết kế website: 1,5–4 / 4–10 / 8–20 triệu → Landing 2–3,6, Giới thiệu 4–7,2, Bán hàng 7,2–14,4, Web app 20–48 triệu. Chăm sóc website: 300 nghìn / 600 nghìn / 1 triệu mỗi tháng → 0,64–1,2 / 1,4–2,4 / 2,4–4 triệu mỗi tháng.
