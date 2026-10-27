@@ -5,68 +5,74 @@
 - Peter có nhận thư kích hoạt của FormSubmit nhưng bấm **Activate** thì trang FormSubmit báo **lỗi 500** → lỗi phía FormSubmit. **Không dựa vào FormSubmit làm kênh chính nữa.**
 - Trước v0.9.3 code không có thời gian chờ nên nút treo ở "Đang gửi...".
 
+## Luồng mới (Peter quyết 27/10): khách gửi → thẳng về Telegram của Peter
+Khách bấm gửi → `POST /api/contact` (JSON) trên myagentvn.com → nginx → service `127.0.0.1:8787` → Telegram Bot API `sendMessage` tới chat của Peter.
+Nếu **không gửi được trong 5 giây** hoặc có bất kỳ lỗi nào → báo lỗi + 3 nút dự phòng: **Gửi qua Email** (mailto điền sẵn), **Nhắn Zalo**, **Gọi ngay**.
+FormSubmit **tắt hoàn toàn** (`formSubmitEnabled:false`, không có request nào tới formsubmit.co).
+
 ## Front-end (js/main.js, cấu hình ở js/config.js)
-| Khoá | Mặc định | Ý nghĩa |
+| Khoá | Giá trị | Ý nghĩa |
 |---|---|---|
-| `formEndpoint` | `''` | URL máy chủ nhận form riêng, vd `'/api/contact'` (POST JSON). Có giá trị → dùng nó, không gọi FormSubmit. |
-| `formSubmitEnabled` | `true` | Chỉ dùng khi `formEndpoint` trống. `false` = không gọi FormSubmit, bấm gửi là hiện ngay khung dự phòng. |
-| `formTimeoutMs` | `15000` | Thời gian chờ tối đa (AbortController). |
-| `formEmail`, `zaloPhone` | | Dùng cho nút "Gửi qua Email" (mailto điền sẵn), "Nhắn Zalo", "Gọi ngay". |
+| `formEndpoint` | `'/api/contact'` | Máy chủ nhận form trên VPS. Chỉ coi là gửi thành công khi trả **HTTP 2xx + Content-Type JSON + `{"ok":true}`**. |
+| `formSubmitEnabled` | `false` | `true` chỉ có tác dụng khi `formEndpoint` = `''` (dùng lại FormSubmit). |
+| `formTimeoutMs` | `5000` | Chờ tối đa 5 giây (AbortController). |
+| `formEmail`, `zaloPhone` | | Cho nút Email (mailto), Zalo, Gọi ngay. |
 
-Thứ tự: **máy chủ riêng (`formEndpoint`) → khung dự phòng Email/Zalo/Gọi**. Khi chưa bật máy chủ riêng: FormSubmit (tuỳ chọn) → khung dự phòng.
-Lỗi (timeout, lỗi mạng, HTTP ≠ 2xx, JSON `success:false`/không có `success:true`/`ok:true`, "chờ kích hoạt") → hiện thông báo tiếng Việt + nút `mailto:` (tiêu đề + nội dung gồm họ tên, SĐT, email, dịch vụ, nội dung — kể cả số liệu điền sẵn từ công cụ tính giá), Zalo và `tel:`; nút gửi bật lại; **dữ liệu trong form giữ nguyên**; chặn gửi trùng khi đang gửi. Thành công vẫn hiện "Cảm ơn anh/chị!" như cũ. Honeypot `_honey` giữ nguyên.
+Mọi trường hợp khác (404/405 HTML của nginx, 200 HTML trang tĩnh, JSON `ok:false`, 5xx, lỗi mạng, hết 5 giây) → thông báo lỗi + 3 nút; nút gửi bật lại; **dữ liệu giữ nguyên**; chặn gửi trùng; **không bao giờ hiện "Cảm ơn"**. Mailto gồm họ tên, SĐT, email, dịch vụ, nội dung (kể cả số liệu từ công cụ tính giá). Body JSON gửi thêm `estimate` (giá trị `?tam-tinh=` nếu có).
 
-Chuyển sang máy chủ riêng sau khi agent VPS triển khai xong = **sửa 1 dòng** trong js/config.js: `formEndpoint: '/api/contact',` rồi chạy `python3 scripts/tech_pass.py`.
+Hiện tại (27/10, trước khi VPS bật endpoint) `POST https://myagentvn.com/api/contact` trả **HTTP 404, `text/html`** (trang 404 của site, ~1,2 s) → khách thấy ngay 3 nút dự phòng. Sau khi agent VPS bật endpoint, form tự hoạt động, không cần sửa front-end.
 
-Kiểm thử: `python3 scripts/test_contact_form.py` (Chromium, tự chạy máy chủ tĩnh; giả lập thành công/timeout/lỗi mạng/500/success:false/endpoint riêng; `SHOT=/thu-muc` để lưu ảnh). Dịch vụ mẫu: `python3 server/contact-api/test_contact_api.py`.
+Kiểm thử: `python3 scripts/test_contact_form.py` (Chromium, ~30 s, timeout 5 s thật; `SHOT=/thu-muc` để lưu ảnh). Dịch vụ: `python3 server/contact-api/test_contact_api.py` (Telegram giả lập, chạy trong ci_check).
 
-## Phương án CHÍNH: endpoint tự chạy trên VPS (chưa triển khai)
-Mã mẫu ở `server/contact-api/` (Python 3 thư viện chuẩn, không cần pip): `contact_api.py`, `test_contact_api.py`, `contact-api.service`, `nginx-api-contact.conf`, `contact-api.env.example`. **Không** được deploy tự động (VPS chỉ phục vụ file tĩnh; thư mục `server/` không chứa bí mật).
+## Máy chủ nhận form trên VPS (chưa triển khai)
+Mã mẫu `server/contact-api/` (Python 3.8+ thư viện chuẩn, không cần pip): `contact_api.py`, `test_contact_api.py`, `contact-api.service`, `nginx-api-contact.conf`, `contact-api.env.example`. Không deploy tự động; repo không chứa bí mật.
 
 ### Hợp đồng API
 `POST /api/contact`, `Content-Type: application/json`, body ≤ 16 KB:
 ```json
-{"name":"Nguyễn Văn A","phone":"0328 439 972","email":"a@b.vn","service":"Thiết kế website","message":"...","consent":"Đồng ý","_honey":"","page":"https://myagentvn.com/lien-he.html"}
+{"name":"Nguyễn Văn A","phone":"0328 439 972","email":"a@b.vn","service":"Thiết kế website","message":"...","consent":"Đồng ý","_honey":"","page":"https://myagentvn.com/lien-he.html","estimate":"7.200.000đ"}
 ```
 | Mã | Body | Khi nào |
 |---|---|---|
-| 200 | `{"ok":true,"id":"a1b2c3d4"}` | Đã gửi mail và/hoặc Telegram (ít nhất 1 kênh thành công) |
+| 200 | `{"ok":true,"id":"a1b2c3d4"}` | Telegram `sendMessage` trả `ok:true` |
 | 200 | `{"ok":true,"id":"-"}` | Honeypot có giá trị (bot) — không gửi gì |
 | 400 | `{"ok":false,"error":"invalid","fields":["phone"]}` | Sai dữ liệu |
-| 403 | `{"ok":false,"error":"origin"}` | Origin không thuộc myagentvn.com |
+| 403 | `{"ok":false,"error":"origin"}` | Origin không phải myagentvn.com |
 | 413 / 415 | `too_large` / `json_required` | Body quá lớn / không phải JSON |
 | 429 | `{"ok":false,"error":"rate_limited"}` | Quá giới hạn |
-| 502 | `{"ok":false,"error":"delivery_failed"}` | Không gửi được kênh nào → front-end hiện dự phòng |
-`GET /api/contact/health` → `{"ok":true}` (chỉ cho 127.0.0.1 qua nginx).
+| 502 | `{"ok":false,"error":"delivery_failed"}` | Telegram lỗi/chưa cấu hình/hết 4 s |
+`GET /api/contact/health` → `{"ok":true}` (chỉ 127.0.0.1).
+
+### Tin nhắn Telegram
+`parse_mode=HTML`, mọi giá trị được `html.escape`; gồm: Tên, SĐT, Email, Dịch vụ, Tạm tính (nếu có), Trang nguồn, Thời gian (Asia/Ho_Chi_Minh), Nội dung; cắt ≤ 4096 ký tự (cắt trên văn bản gốc, thêm "…"). Gọi Telegram tối đa 4 s (`TELEGRAM_TIMEOUT`) để cả chuỗi < 5 s.
 
 ### Kiểm tra dữ liệu / chống spam
-- `name` 2–100 ký tự; `phone` khớp `[0-9 +().-]{8,20}` và ≥ 8 chữ số; `email` tuỳ chọn, đúng định dạng; `consent` bắt buộc; `service` ≤ 100, `message` ≤ 3000; bỏ ký tự điều khiển.
-- Honeypot `_honey`; giới hạn 5 lần/10 phút/IP trong service + `limit_req` 6 lần/phút (burst 3) ở nginx; `client_max_body_size 16k`.
-- CORS: cùng origin (form nằm trên myagentvn.com nên không cần CORS); service chỉ trả `Access-Control-Allow-Origin` cho `https://myagentvn.com`, `https://www.myagentvn.com`, từ chối origin khác.
+- `name` 2–100; `phone` `[0-9 +().-]{8,20}` và ≥ 8 chữ số; `email` tuỳ chọn; `consent` bắt buộc; `message` ≤ 3000; bỏ ký tự điều khiển.
+- Honeypot `_honey`; 5 lần/10 phút/IP trong service + nginx `limit_req` 6/phút (burst 3); `client_max_body_size 16k`; chỉ POST/OPTIONS.
+- Cùng origin (không cần CORS); service chỉ chấp nhận Origin `https://myagentvn.com`, `https://www.myagentvn.com`.
 
 ### Cần gì ở VPS
-- Python 3.8+ (có sẵn trên Ubuntu/Debian), user hệ thống `myagent-contact` (không shell), thư mục `/opt/myagent-contact-api/` (chỉ `contact_api.py`), file bí mật `/etc/myagent/contact-api.env` (chmod 600).
-- systemd unit `myagent-contact-api.service` (mẫu `server/contact-api/contact-api.service`), lắng nghe **127.0.0.1:8787** (không mở ra ngoài, **không đụng cổng 80**).
-- nginx: thêm `limit_req_zone` vào `http{}` và `location = /api/contact` vào server HTTPS (mẫu `nginx-api-contact.conf`).
+- Python 3.8+, user `myagent-contact` (nologin), `/opt/myagent-contact-api/contact_api.py`, `/etc/myagent/contact-api.env` (chmod 600: `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`).
+- systemd `myagent-contact-api.service`, lắng nghe **127.0.0.1:8787** (không mở ra ngoài, **không đụng cổng 80**).
+- nginx: `limit_req_zone` trong `http{}` + `location = /api/contact` trong server HTTPS (mẫu `nginx-api-contact.conf`, `proxy_read_timeout 6s`).
 
-### Gửi thông báo
-| Cách | Ưu | Nhược |
-|---|---|---|
-| Gmail SMTP + App Password | Miễn phí, gửi thẳng tới Gmail của Peter | Cần bật xác minh 2 bước; mật khẩu ứng dụng gắn với tài khoản cá nhân; giới hạn ~500 thư/ngày; Google có thể chặn đăng nhập từ IP VPS |
-| **Brevo SMTP (khuyến nghị)** | Gói free 300 thư/ngày, SMTP chuẩn (smtp-relay.brevo.com:587), không dùng mật khẩu Gmail, xác thực tên miền myagentvn.com (SPF/DKIM) → ít vào spam | Cần tạo tài khoản + thêm bản ghi DNS |
-| Mailgun / Resend free | API tốt | Mailgun free hạn chế/cần thẻ; Resend free 100 thư/ngày, cần xác thực tên miền |
-**Khuyến nghị:** Brevo SMTP (miễn phí đủ dùng, tách khỏi tài khoản Gmail cá nhân, có DKIM cho tên miền) + **Telegram bot** làm kênh thứ hai (BotFather tạo bot → `TELEGRAM_BOT_TOKEN`; Peter nhắn bot rồi lấy `TELEGRAM_CHAT_ID`). Service gửi cả hai; chỉ cần 1 kênh thành công là trả 200. Bí mật chỉ nằm trong `/etc/myagent/contact-api.env` trên VPS, không vào repo.
+### Peter tạo bot Telegram (chỉ hướng dẫn — bot chưa tạo)
+1. Trên Telegram mở **@BotFather** → `/newbot` → đặt tên (vd "My Agent Website") và username kết thúc bằng `bot` → BotFather trả **token** dạng `123456:ABC...`.
+2. Mở bot vừa tạo và gửi **`/start`** (bắt buộc, nếu không bot không nhắn được cho anh).
+3. Lấy **chat id**: mở `https://api.telegram.org/bot<TOKEN>/getUpdates` trong trình duyệt → tìm `"chat":{"id":123456789` (hoặc để agent VPS chạy lệnh này trên VPS).
+4. Gửi **token + chat id trực tiếp cho agent VPS** (không dán vào repo, PR hay nhóm chat). Token lộ thì vào @BotFather → `/revoke` để đổi.
 
-### Checklist triển khai cho agent VPS (9f628461-e88c-485f-b02f-55a599f871de)
-1. Peter tạo tài khoản Brevo (hoặc App Password Gmail) + bot Telegram, đưa bí mật trực tiếp cho agent VPS (không qua repo/chat công khai).
-2. `useradd -r -s /usr/sbin/nologin myagent-contact`; copy `contact_api.py` → `/opt/myagent-contact-api/`; tạo `/etc/myagent/contact-api.env` từ `.env.example` (chmod 600).
-3. Chạy `python3 test_contact_api.py` trên VPS; cài unit, `systemctl enable --now myagent-contact-api`; `curl -s 127.0.0.1:8787/api/contact/health`.
-4. Thêm khối nginx vào server HTTPS, `nginx -t && systemctl reload nginx`.
-5. Thử: `curl -s -X POST https://myagentvn.com/api/contact -H 'Content-Type: application/json' -d '{"name":"TEST My Agent bot - bỏ qua","phone":"0000000000","consent":"1"}'` → 200 và Peter nhận 1 thư + 1 tin Telegram; thử sai SĐT → 400; gửi 7 lần liên tiếp → 429.
-6. Mở PR đổi `formEndpoint: '/api/contact'` trong js/config.js (chờ Peter duyệt), chạy test_contact_form, deploy, gửi thử 1 lần trên web thật.
+### Checklist cho agent VPS (9f628461-e88c-485f-b02f-55a599f871de)
+1. Nhận token + chat id từ Peter; `useradd -r -s /usr/sbin/nologin myagent-contact`; copy `contact_api.py` → `/opt/myagent-contact-api/`; tạo `/etc/myagent/contact-api.env` từ `.env.example` (chmod 600).
+2. `python3 test_contact_api.py` trên VPS (Telegram giả lập) → OK.
+3. Cài unit, `systemctl enable --now myagent-contact-api`; `curl -s 127.0.0.1:8787/api/contact/health` → `{"ok":true}`.
+4. **Bật:** thêm khối nginx vào server HTTPS, `nginx -t && systemctl reload nginx`.
+5. **Kiểm tra:** `curl -s -X POST https://myagentvn.com/api/contact -H 'Content-Type: application/json' -H 'Origin: https://myagentvn.com' -d '{"name":"TEST My Agent bot - bỏ qua","phone":"0000000000","consent":"1"}'` → `{"ok":true,...}` và Peter nhận 1 tin Telegram; SĐT sai → 400; 7 lần liên tiếp → 429; gửi thử 1 lần trên lien-he.html → "Cảm ơn anh/chị!".
+6. **Dự phòng còn chạy:** `systemctl stop myagent-contact-api` → gửi thử trên web → trong ≤ 5 s hiện lỗi + 3 nút (nginx trả 502) → `systemctl start` lại.
 ### Rollback
-- Front-end: đặt lại `formEndpoint: ''` (và `formSubmitEnabled: false` nếu FormSubmit vẫn lỗi) → khách vẫn có khung Email/Zalo/Gọi.
-- VPS: xoá `location /api/contact`, `nginx -t && reload`; `systemctl disable --now myagent-contact-api`.
+- VPS: xoá `location /api/contact`, `nginx -t && reload`; `systemctl disable --now myagent-contact-api`. Front-end không cần sửa: 404 → 3 nút dự phòng.
+- Front-end (nếu cần): `formEndpoint: ''` → bấm gửi là hiện ngay 3 nút (FormSubmit vẫn tắt).
 
-## Phương án khác (chỉ đề xuất, chưa đăng ký)
-- Web3Forms (free 250 lần/tháng, cần access key) hoặc Formspree (free 50 lần/tháng): đổi `formEndpoint` + định dạng body; phụ thuộc bên thứ ba như FormSubmit.
+## Kênh khác (chỉ đề xuất, không dùng)
+- Email (Brevo SMTP / Gmail App Password) có thể thêm sau làm kênh phụ; hiện bỏ để đơn giản.
+- FormSubmit: lỗi (treo, 500 khi kích hoạt) — để tắt. Web3Forms/Formspree: cần tài khoản bên ngoài, chưa đăng ký.

@@ -22,20 +22,20 @@ d.addEventListener('keydown',e=>{if(e.key==='Escape')close(1)});
 d.addEventListener('click',e=>{if(pop&&!pop.hidden&&!pop.contains(e.target)&&!fb.contains(e.target))close()})}
 d.querySelectorAll('.form-alt').forEach(p=>{if(!okEM&&!ZP)p.hidden=true});
 d.querySelectorAll('form[data-contact]').forEach(f=>{const st=f.querySelector('.form-status'),bt=f.querySelector('button[type=submit]'),say=(m,c)=>{st.textContent=m;st.className='form-status '+(c||'')};
-/* Gửi form: formEndpoint (máy chủ riêng, JSON) nếu có; không có thì FormSubmit (formSubmitEnabled:false để tắt). Lỗi/timeout -> khung dự phòng mailto/Zalo/Gọi, giữ nguyên dữ liệu. Xem docs/lien-he-form.md */
-const TO=+C.formTimeoutMs||15000,EP=C.formEndpoint||'',FS=C.formSubmitEnabled!==false&&okEM,TP=(C.phone||ZP||'').replace(/[^\d+]/g,''),esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[c]);
+/* Gửi form: formEndpoint (máy chủ riêng -> Telegram, chỉ coi là thành công khi trả JSON {ok:true}); FormSubmit chỉ khi formEndpoint trống và formSubmitEnabled:true. Lỗi/timeout -> khung dự phòng mailto/Zalo/Gọi, giữ nguyên dữ liệu. Xem docs/lien-he-form.md */
+const TO=+C.formTimeoutMs||5000,EP=C.formEndpoint||'',FS=C.formSubmitEnabled===true&&okEM,TP=(C.phone||ZP||'').replace(/[^\d+]/g,''),esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[c]);
 const val=n=>{const x=f.elements[n];return x?(x.type=='checkbox'?(x.checked?x.value||'Có':''):String(x.value||'').trim()):''};
 const body=()=>['Họ tên: '+val('name'),'SĐT: '+val('phone'),'Email: '+val('email'),'Dịch vụ: '+val('service'),'Nội dung:\n'+val('message'),'','Gửi từ: '+location.href].join('\n');
 const fallback=why=>{const sub='Yêu cầu tư vấn từ website My Agent - '+val('name'),mt=okEM?'mailto:'+EM+'?subject='+encodeURIComponent(sub)+'&body='+encodeURIComponent(body()):'';
 st.className='form-status err fb';st.innerHTML='<b>'+esc(why)+'</b> Thông tin anh/chị nhập vẫn được giữ nguyên. Anh/chị vui lòng gửi qua một trong các cách sau, My Agent sẽ phản hồi trong giờ làm việc:<span class="fb-acts">'+(mt?'<a class="btn" data-fb="mailto" href="'+esc(mt)+'">Gửi qua Email</a>':'')+(ZP?'<a class="btn" data-fb="zalo" href="https://zalo.me/'+ZP+'" target="_blank" rel="noopener">Nhắn Zalo</a>':'')+(TP?'<a class="btn" data-fb="tel" href="tel:'+TP+'">Gọi ngay</a>':'')+'</span>'};
-const post=async(url,opt)=>{const ac=new AbortController(),t=setTimeout(()=>ac.abort(),TO);try{const r=await fetch(url,Object.assign({signal:ac.signal},opt));const j=await r.json().catch(()=>({}));
-if(!r.ok||j.success===false||j.success==='false'||(j.success!==true&&j.success!=='true'&&j.ok!==true))throw Error(/activat/i.test(j.message||'')?'act':'bad');return j}finally{clearTimeout(t)}};
+const post=async(url,opt,good)=>{const ac=new AbortController(),t=setTimeout(()=>ac.abort(),TO);try{const r=await fetch(url,Object.assign({signal:ac.signal},opt));
+if(!r.ok||!/json/i.test(r.headers.get('content-type')||''))throw Error('bad');const j=await r.json();if(!good(j))throw Error(/activat/i.test(j.message||'')?'act':'bad');return j}finally{clearTimeout(t)}};
 let busy=false;
 f.addEventListener('submit',async e=>{e.preventDefault();if(busy)return;if(f._honey&&f._honey.value)return;
 const bad=[...f.elements].find(x=>x.willValidate&&!x.checkValidity());if(bad){bad.focus();say(bad.type=='tel'?'Số điện thoại chưa hợp lệ.':bad.type=='email'?'Email chưa hợp lệ.':'Vui lòng điền đủ thông tin bắt buộc.','err');return}
 busy=true;bt.disabled=true;say('Đang gửi...');let ok=false,why='Gửi chưa thành công.';
-try{if(EP){const o={};['name','phone','email','service','message','consent','_honey'].forEach(n=>o[n]=val(n));o.page=location.href;await post(EP,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(o)});ok=true}
-else if(FS){const fd=new FormData(f);fd.delete('_honey');fd.append('_subject','Yêu cầu tư vấn mới từ website My Agent');fd.append('_template','table');fd.append('_captcha','false');fd.append('_url',location.href);await post('https://formsubmit.co/ajax/'+encodeURIComponent(EM),{method:'POST',headers:{Accept:'application/json'},body:fd});ok=true}
+try{if(EP){const o={};['name','phone','email','service','message','consent','_honey'].forEach(n=>o[n]=val(n));o.page=location.href;o.estimate=new URLSearchParams(location.search).get('tam-tinh')||'';await post(EP,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(o)},j=>j&&j.ok===true);ok=true}
+else if(FS){const fd=new FormData(f);fd.delete('_honey');fd.append('_subject','Yêu cầu tư vấn mới từ website My Agent');fd.append('_template','table');fd.append('_captcha','false');fd.append('_url',location.href);await post('https://formsubmit.co/ajax/'+encodeURIComponent(EM),{method:'POST',headers:{Accept:'application/json'},body:fd},j=>j&&(j.success===true||j.success==='true'));ok=true}
 else why='Form tạm thời chưa nhận được tin nhắn.'}
 catch(x){why=x&&x.name=='AbortError'?'Hệ thống nhận form phản hồi quá lâu.':x&&x.message=='act'?'Hệ thống nhận form đang chờ kích hoạt.':'Gửi chưa thành công.'}
 busy=false;if(ok){f.innerHTML='<span class="k">// đã gửi</span><h3>Cảm ơn anh/chị!</h3><p class="muted">My Agent sẽ liên hệ lại trong thời gian sớm nhất.</p>';return}

@@ -1,9 +1,9 @@
 /* ==== CẤU HÌNH WEBSITE MY AGENT — chỉ cần sửa ở đây ====
    siteUrl   : địa chỉ gốc của web (đổi bằng scripts/set-domain.sh <tên-miền>)
    formEmail : email nhận form liên hệ; dùng cho nút "Gửi qua Email" (mailto) khi form lỗi, và cho FormSubmit.co nếu chưa có formEndpoint.
-   formEndpoint: URL máy chủ nhận form riêng (vd '/api/contact', POST JSON). Để '' = chưa bật -> dùng FormSubmit. Xem docs/lien-he-form.md
-   formSubmitEnabled: false = không gọi FormSubmit nữa (lỗi -> hiện ngay khung dự phòng Email/Zalo/Gọi).
-   formTimeoutMs: thời gian chờ tối đa khi gửi form (mặc định 15000 = 15 giây).
+   formEndpoint: máy chủ nhận form trên VPS ('/api/contact', POST JSON -> Telegram của Peter). Chỉ báo "Đã gửi" khi trả JSON {ok:true}; mọi trường hợp khác -> 3 nút dự phòng Email/Zalo/Gọi. Xem docs/lien-he-form.md
+   formSubmitEnabled: true = dùng FormSubmit.co (chỉ khi formEndpoint = ''). Mặc định false = không gọi FormSubmit.
+   formTimeoutMs: thời gian chờ tối đa khi gửi form (5000 = 5 giây).
    zaloPhone : số Zalo, chỉ chữ số, vd 0901234567
    motionEnabled: true = bật hiệu ứng chuyển động toàn site, false = tắt (hoặc thêm ?motion=0 vào link). Xem docs/animation.md
    introEnabled: true = bật màn intro trang chủ (mỗi phiên 1 lần), false = tắt. Xem docs/intro.md
@@ -13,9 +13,9 @@ window.MYAGENT_CONFIG = {
   siteUrl: 'https://myagentvn.com/',
   formEmail: 'vantungn044@gmail.com',
   zaloPhone: '0328439972',
-  formEndpoint: '',
-  formSubmitEnabled: true,
-  formTimeoutMs: 15000,
+  formEndpoint: '/api/contact',
+  formSubmitEnabled: false,
+  formTimeoutMs: 5000,
   introEnabled: true,
   motionEnabled: true,
   chatbotEnabled: true,

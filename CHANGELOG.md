@@ -1,10 +1,11 @@
 # Nhật ký thay đổi
 
 ## 0.9.3 - 2026-10-27
-- Form liên hệ: thêm thời gian chờ 15 giây (AbortController, `formTimeoutMs`). Khi FormSubmit/máy chủ nhận form lỗi, hết giờ, trả HTTP lỗi hoặc `success:false`, hiện khung dự phòng tiếng Việt: nút "Gửi qua Email" (mailto điền sẵn họ tên, SĐT, email, dịch vụ, nội dung, kể cả số liệu từ công cụ tính giá), "Nhắn Zalo", "Gọi ngay"; nút gửi bật lại, dữ liệu giữ nguyên, chặn gửi trùng. Thành công giữ nguyên.
-- js/config.js: thêm `formEndpoint` (máy chủ nhận form riêng, POST JSON; trống = FormSubmit như cũ), `formSubmitEnabled`, `formTimeoutMs`.
-- Thêm `scripts/test_contact_form.py` (Chromium): thành công, timeout, lỗi mạng, HTTP 500, success:false, endpoint riêng, mailto đủ trường, điền sẵn từ công cụ tính giá, giao diện mobile.
-- Đề xuất endpoint tự chạy trên VPS (`/api/contact` → 127.0.0.1:8787, gửi mail Brevo SMTP + Telegram): mã mẫu chưa triển khai ở `server/contact-api/` kèm test (chạy trong ci_check), tài liệu `docs/lien-he-form.md`.
+- Form liên hệ gửi thẳng về Telegram của Peter qua máy chủ riêng `/api/contact` (`formEndpoint: '/api/contact'`); chỉ báo "Cảm ơn" khi máy chủ trả JSON `{ok:true}`.
+- Chờ tối đa 5 giây (`formTimeoutMs: 5000`, AbortController). Hết giờ hoặc bất kỳ lỗi nào (404/405/200 HTML, JSON ok:false, 5xx, lỗi mạng) → thông báo lỗi + 3 nút dự phòng: "Gửi qua Email" (mailto điền sẵn họ tên, SĐT, email, dịch vụ, nội dung, kể cả số liệu từ công cụ tính giá), "Nhắn Zalo", "Gọi ngay"; nút gửi bật lại, dữ liệu giữ nguyên, chặn gửi trùng.
+- Tắt FormSubmit (`formSubmitEnabled: false`, không còn request tới formsubmit.co; giữ làm tuỳ chọn).
+- Thêm `scripts/test_contact_form.py` (Chromium, 13 trường hợp, đo thời gian hiện dự phòng ≤ 5,5 s).
+- Mã mẫu máy chủ nhận form `server/contact-api/` (Python stdlib → Telegram sendMessage, HTML escape, cắt 4096 ký tự, validate, honeypot, rate limit, kiểm tra origin; systemd, nginx, env mẫu) + `test_contact_api.py` (Telegram giả lập, chạy trong ci_check). Chưa triển khai trên VPS. Tài liệu: `docs/lien-he-form.md`.
 
 ## 0.9.2 - 2026-10-27
 - Sửa lỗi giao diện trang Bảng giá: khối bảng giá theo nhóm dùng trùng class `.bg-grid` với lớp lưới nền cố định của toàn site (`position:fixed; inset:0; z-index:-2`), nên các bảng bị ghim chồng lên phần đầu trang. Đổi tên class thành `.bg-groups` trong bang_gia_build.py và style.css.

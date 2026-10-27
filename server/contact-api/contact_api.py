@@ -1,19 +1,20 @@
 #!/usr/bin/env python3
 """My Agent – dịch vụ nhận form liên hệ (MẪU, CHƯA TRIỂN KHAI). Python 3.8+ chỉ dùng thư viện chuẩn.
+Kênh nhận: Telegram Bot API sendMessage gửi thẳng tới Telegram của Peter (TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID).
 Lắng nghe 127.0.0.1:8787 (nginx proxy /api/contact). Cấu hình qua biến môi trường (file /etc/myagent/contact-api.env,
 KHÔNG đưa vào repo): xem docs/lien-he-form.md và contact-api.env.example.
-POST /api/contact  JSON {name, phone, email?, service?, message?, consent, _honey?, page?}
+POST /api/contact  JSON {name, phone, email?, service?, message?, consent, _honey?, page?, estimate?}
   200 {"ok":true,"id":"..."} | 400 {"ok":false,"error":"invalid","fields":[...]} | 413 | 415 | 429 {"ok":false,"error":"rate_limited"} | 502 {"ok":false,"error":"delivery_failed"}
 GET /api/contact/health -> 200 {"ok":true}"""
-import json,os,re,time,uuid,smtplib,ssl,threading,urllib.request,urllib.parse,logging
-from email.message import EmailMessage
+import json,os,re,time,uuid,threading,urllib.request,urllib.parse,logging,html,datetime
 from http.server import BaseHTTPRequestHandler,ThreadingHTTPServer
 E=os.environ.get
 HOST,PORT=E('CONTACT_HOST','127.0.0.1'),int(E('CONTACT_PORT','8787'))
 ORIGINS={o.strip() for o in E('CONTACT_ALLOWED_ORIGINS','https://myagentvn.com,https://www.myagentvn.com').split(',') if o.strip()}
 MAX_BODY=int(E('CONTACT_MAX_BODY','16384'))
 RL_N,RL_WIN=int(E('CONTACT_RATE_N','5')),int(E('CONTACT_RATE_WINDOW','600'))   # 5 lần / 10 phút / IP
-LIM={'name':100,'phone':20,'email':120,'service':100,'message':3000,'page':300}
+LIM={'name':100,'phone':20,'email':120,'service':100,'message':3000,'page':300,'estimate':200}
+TG_API=E('TELEGRAM_API','https://api.telegram.org'); TG_TIMEOUT=float(E('TELEGRAM_TIMEOUT','4'))
 PHONE=re.compile(r'^[0-9 +().-]{8,20}$'); MAIL=re.compile(r'^[^@\s]+@[^@\s]+\.[^@\s]+$')
 log=logging.getLogger('contact-api'); _hits={}; _lk=threading.Lock()
 def rate_ok(ip,now=None):
@@ -31,27 +32,30 @@ def validate(d):
   if v['email'] and not MAIL.match(v['email']): bad.append('email')
   if not d.get('consent'): bad.append('consent')
   return v,bad
-def text(v,i): return f"Mã: {i}\nHọ tên: {v['name']}\nSĐT: {v['phone']}\nEmail: {v['email'] or '-'}\nDịch vụ: {v['service'] or '-'}\nTrang: {v['page'] or '-'}\n\nNội dung:\n{v['message'] or '-'}\n"
-def send_mail(v,i):
-  h=E('SMTP_HOST');
-  if not h: return None
-  m=EmailMessage(); m['Subject']=f"[Website] Yêu cầu tư vấn - {v['name']} - {v['phone']}"; m['From']=E('MAIL_FROM'); m['To']=E('MAIL_TO','vantungn044@gmail.com')
-  if v['email']: m['Reply-To']=v['email']
-  m.set_content(text(v,i))
-  with smtplib.SMTP(h,int(E('SMTP_PORT','587')),timeout=15) as s:
-    s.starttls(context=ssl.create_default_context()); s.login(E('SMTP_USER'),E('SMTP_PASS')); s.send_message(m)
-  return True
+def now_vn():
+  try:
+    from zoneinfo import ZoneInfo; return datetime.datetime.now(ZoneInfo('Asia/Ho_Chi_Minh'))
+  except Exception: return datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=7)))
+def tg_text(v,i,limit=4096):
+  q=lambda s:html.escape(s or '-',quote=False)
+  head=(f"<b>Yêu cầu tư vấn mới</b> #{i}\n<b>Tên:</b> {q(v['name'])}\n<b>SĐT:</b> {q(v['phone'])}\n<b>Email:</b> {q(v['email'])}\n"
+        f"<b>Dịch vụ:</b> {q(v['service'])}\n"+(f"<b>Tạm tính:</b> {q(v['estimate'])}\n" if v.get('estimate') else '')+
+        f"<b>Trang:</b> {q(v['page'])}\n<b>Thời gian:</b> {now_vn():%H:%M %d/%m/%Y} (giờ VN)\n<b>Nội dung:</b>\n")
+  room=limit-len(head); msg=v['message'] or '-'
+  body=q(msg)
+  if len(body)>room:  # cắt trên văn bản gốc để không cắt đôi thực thể HTML
+    while len(body)>room-1 and msg: msg=msg[:max(0,len(msg)-max(1,len(body)-room+1))]; body=q(msg)
+    body+='…'
+  return head+body
 def send_tg(v,i):
   t,c=E('TELEGRAM_BOT_TOKEN'),E('TELEGRAM_CHAT_ID')
-  if not (t and c): return None
-  data=urllib.parse.urlencode({'chat_id':c,'text':'Yêu cầu tư vấn mới\n'+text(v,i)[:3900]}).encode()
-  with urllib.request.urlopen(f'https://api.telegram.org/bot{t}/sendMessage',data,timeout=10) as r: return r.status==200
+  if not (t and c): raise RuntimeError('telegram chưa cấu hình')
+  data=urllib.parse.urlencode({'chat_id':c,'text':tg_text(v,i),'parse_mode':'HTML','disable_web_page_preview':'true'}).encode()
+  with urllib.request.urlopen(f'{TG_API}/bot{t}/sendMessage',data,timeout=TG_TIMEOUT) as r:
+    return r.status==200 and json.loads(r.read()).get('ok') is True
 def deliver(v,i):
-  ok=False
-  for f in (send_mail,send_tg):
-    try: ok=bool(f(v,i)) or ok
-    except Exception as x: log.error('%s lỗi: %s',f.__name__,type(x).__name__)
-  return ok
+  try: return bool(send_tg(v,i))
+  except Exception as x: log.error('telegram lỗi: %s',type(x).__name__); return False
 class H(BaseHTTPRequestHandler):
   server_version='contact-api'
   def _j(self,code,o):

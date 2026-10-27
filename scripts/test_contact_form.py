@@ -2,10 +2,11 @@
 """Kiểm tra form liên hệ (lien-he.html) bằng Chromium/Playwright, giả lập máy chủ nhận form:
   python3 scripts/test_contact_form.py            # tự chạy máy chủ tĩnh tạm
   python3 scripts/test_contact_form.py http://127.0.0.1:8947/
-Trường hợp: thành công (200 {success:"true"}), timeout, lỗi mạng, HTTP 500, success:false, formEndpoint (JSON),
+Mặc định formEndpoint=/api/contact (chỉ JSON {ok:true} mới là thành công), FormSubmit tắt, timeout 5s thật.
+Trường hợp: thành công, timeout 5s, 404 HTML, 405, 200 HTML, 200 JSON ok:false, 500, lỗi mạng, FormSubmit tuỳ chọn,
 khung dự phòng mailto/Zalo/tel, nút bật lại, dữ liệu giữ nguyên, chống gửi trùng, điền sẵn từ công cụ tính giá.
 Tuỳ chọn: SHOT=/thu-muc -> lưu ảnh khung dự phòng desktop/mobile."""
-import sys,os,json,threading,functools,http.server,socketserver,pathlib,urllib.parse
+import sys,os,json,time,threading,functools,http.server,socketserver,pathlib,urllib.parse
 from playwright.sync_api import sync_playwright
 ROOT=pathlib.Path(__file__).resolve().parent.parent
 if len(sys.argv)>1: B=sys.argv[1].rstrip('/')+'/'
@@ -21,17 +22,21 @@ def chk(c,m):
 FIELDS={'name':'Nguyễn Văn Test','phone':'+84 328 439 972','email':'khach@vidu.vn','message':'Cần làm website bán hàng\ncó giỏ hàng'}
 def run(b,case,mode,vp=(1280,900),cfg=None,url='lien-he.html'):
   pg=b.new_page(viewport={'width':vp[0],'height':vp[1]}); err=[]; pg.on('pageerror',lambda e:err.append(str(e))); hits=[]
-  over=dict({'formTimeoutMs':1500},**(cfg or {}))
+  over=dict(cfg or {})
   pg.route('**/js/config.js*',lambda r:r.fulfill(status=200,content_type='application/javascript',body=(ROOT/'js/config.js').read_text()+'\nObject.assign(window.MYAGENT_CONFIG,'+json.dumps(over)+');'))
   def h(r):
     hits.append(r.request)
-    if mode=='ok': r.fulfill(status=200,content_type='application/json',body='{"success":"true","message":"The form was submitted successfully."}')
+    if mode in('ok','fsjson'): r.fulfill(status=200,content_type='application/json',body='{"success":"true","message":"The form was submitted successfully."}')
     elif mode=='okjson': r.fulfill(status=200,content_type='application/json',body='{"ok":true}')
     elif mode=='500': r.fulfill(status=500,content_type='text/html',body='Server Error')
+    elif mode=='404': r.fulfill(status=404,content_type='text/html',body='<!doctype html><title>404</title>')
+    elif mode=='405': r.fulfill(status=405,content_type='text/html',body='<html>405 Not Allowed</html>')
+    elif mode=='html200': r.fulfill(status=200,content_type='text/html',body='<!doctype html><html>trang tĩnh</html>')
+    elif mode=='okfalse': r.fulfill(status=200,content_type='application/json',body='{"ok":false}')
     elif mode=='false': r.fulfill(status=200,content_type='application/json',body='{"success":"false","message":"error"}')
     elif mode=='neterr': r.abort('failed')
     elif mode=='hang': pass
-  pg.route('https://formsubmit.co/**',h); pg.route('**/api/contact',h)
+  fs=[]; pg.route('https://formsubmit.co/**',lambda r:(fs.append(1),h(r))); pg.route('**/api/contact',h)
   pg.route('https://www.googletagmanager.com/**',lambda r:r.abort())
   pg.goto(B+url,wait_until='domcontentloaded'); pg.wait_for_timeout(300)
   f='form[data-contact]'
@@ -40,16 +45,19 @@ def run(b,case,mode,vp=(1280,900),cfg=None,url='lien-he.html'):
     pg.fill(f+f' [name={k}]',v)
   pg.select_option(f+' [name=service]','Thiết kế website'); pg.check(f+' [name=consent]')
   pg.evaluate("()=>{const f=document.querySelector('form[data-contact]');f.requestSubmit();f.requestSubmit();f.requestSubmit()}")
-  res={'err':err,'pg':pg}
+  t0=time.time(); res={'err':err,'pg':pg}
   if mode in('ok','okjson'):
     pg.wait_for_selector(f+' h3:has-text("Cảm ơn")',timeout=5000); res['done']=True
   else:
-    pg.wait_for_selector('.form-status.fb',timeout=8000)
+    pg.wait_for_selector('.form-status.fb',timeout=8000); res['t']=time.time()-t0
+    if res['t']>5.5: fail.append(f'{case}: hiện dự phòng sau {res["t"]:.1f}s (> 5,5s)')
+    chk(pg.locator('text=Cảm ơn').count()==0,f'{case}: hiện "Cảm ơn" khi lỗi')
     res.update(pg.evaluate("""()=>{const f=document.querySelector('form[data-contact]'),q=s=>f.querySelector(s);
       return {btn:q('button[type=submit]').disabled,status:q('.form-status').innerText,
         mailto:(q('[data-fb=mailto]')||{}).href||'',zalo:(q('[data-fb=zalo]')||{}).href||'',tel:(q('[data-fb=tel]')||{}).href||'',
         vals:Object.fromEntries(['name','phone','email','message','service'].map(n=>[n,f.elements[n].value])),hs:document.documentElement.scrollWidth-innerWidth}}"""))
   pg.wait_for_timeout(200); res['hits']=len(hits)
+  if fs and not (cfg or {}).get('formSubmitEnabled'): fail.append(f'{case}: có request tới formsubmit.co')
   if res['hits']!=1: fail.append(f'{case}: gửi {res["hits"]} lần (phải đúng 1, chống gửi trùng)')
   if err: fail.append(f'{case}: lỗi JS {err}')
   return res
@@ -69,18 +77,22 @@ def close(r):
   r['pg'].unroute_all(behavior='ignoreErrors'); r['pg'].close()
 def shot(r,n):
   pg=r['pg']; pg.evaluate("document.querySelectorAll('.rv').forEach(e=>e.classList.add('in'))")
-  pg.locator('.form-status').scroll_into_view_if_needed(); pg.evaluate('scrollBy(0,180)'); pg.wait_for_timeout(500); pg.screenshot(path=os.path.join(SHOT,n))
+  pg.evaluate("()=>{const c=document.querySelector('.chat-bubble,.mj-hint');document.querySelectorAll('[class*=chat]').forEach(e=>{if(e.closest('form'))return;e.style.visibility='hidden'})}")
+  f=pg.locator('form[data-contact]'); bb=f.bounding_box(); pg.set_viewport_size({'width':pg.viewport_size['width'],'height':int(bb['height'])+140})
+  pg.evaluate("()=>{const f=document.querySelector('form[data-contact]');scrollTo(0,f.getBoundingClientRect().top+scrollY-90)}"); pg.wait_for_timeout(500); pg.screenshot(path=os.path.join(SHOT,n))
 with sync_playwright() as p:
   b=p.chromium.launch()
-  r=run(b,'success','ok'); close(r)
-  r=run(b,'success-endpoint','okjson',cfg={'formEndpoint':'/api/contact'}); close(r)
-  for case,mode in [('timeout','hang'),('network-error','neterr'),('http-500','500'),('success-false','false')]:
+  r=run(b,'success-endpoint','okjson'); close(r)
+  r=run(b,'formsubmit-optional','ok',cfg={'formEndpoint':'','formSubmitEnabled':True}); close(r)
+  r=run(b,'endpoint-success-key-wrong','fsjson')  # {success:"true"} không phải {ok:true} -> phải là lỗi
+  fb_ok('endpoint-success-key-wrong',r); close(r)
+  for case,mode in [('timeout-5s','hang'),('http-404-html','404'),('http-405','405'),('http-200-html','html200'),('json-ok-false','okfalse'),('http-500','500'),('network-error','neterr')]:
     r=run(b,case,mode); fb_ok(case,r)
-    if case=='timeout': chk('quá lâu' in r['status'],'timeout: thiếu thông báo phản hồi quá lâu')
-    if case=='timeout' and SHOT: shot(r,'form-fallback-desktop.png')
+    if case=='timeout-5s':
+      chk('quá lâu' in r['status'],'timeout: thiếu thông báo phản hồi quá lâu'); chk(r['t']>=4.5,f'timeout: dự phòng quá sớm {r["t"]:.1f}s')
+      if SHOT: shot(r,'form-fallback-desktop.png')
     close(r)
-  r=run(b,'endpoint-500','500',cfg={'formEndpoint':'/api/contact'}); fb_ok('endpoint-500',r); close(r)
-  r=run(b,'mobile-timeout','hang',vp=(390,844)); fb_ok('mobile-timeout',r)
+  r=run(b,'mobile-404','404',vp=(390,844)); fb_ok('mobile-404',r)
   if SHOT: shot(r,'form-fallback-mobile.png')
   close(r)
   r=run(b,'prefill','neterr',url='lien-he.html?tam-tinh=7.200.000%C4%91&dich-vu=Thi%E1%BA%BFt+k%E1%BA%BF+website')
@@ -89,4 +101,4 @@ with sync_playwright() as p:
   b.close()
 fail=[x for x in fail if x]
 for f in fail: print('FAIL:',f)
-print('OK: test_contact_form đạt (9 trường hợp)' if not fail else f'{len(fail)} lỗi'); sys.exit(1 if fail else 0)
+print('OK: test_contact_form đạt (13 trường hợp)' if not fail else f'{len(fail)} lỗi'); sys.exit(1 if fail else 0)
