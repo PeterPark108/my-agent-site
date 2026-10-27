@@ -115,6 +115,17 @@ for f in pages:
   if '<footer' in s and f'<a href="{p}blog.html">Blog / Kiến thức</a>' not in s.split('<footer',1)[1]:
     a,b=s.split('<footer',1)
     s=a+'<footer'+b.replace(f'<a href="{p}tin-tuc.html">Tin tức công nghệ</a>',f'<a href="{p}tin-tuc.html">Tin tức công nghệ</a><a href="{p}blog.html">Blog / Kiến thức</a>',1)
+  # v0.8.1 menu gọn: "Về chúng tôi" chỉ ở footer, "Thiết kế website" nằm trong dropdown Dịch vụ (idempotent)
+  if '</nav>' in s:
+    hd,tl=s.split('</nav>',1)
+    hd=re.sub(rf'<li class="[^"]*"><a href="{re.escape(p)}ve-chung-toi.html"[^>]*>Về chúng tôi</a></li>','',hd)
+    hd=re.sub(rf'<li class="[^"]*"><a href="{re.escape(p)}dich-vu/thiet-ke-website.html"[^>]*>Thiết kế website</a></li>','',hd)
+    if rel=='dich-vu.html' or rel.startswith('dich-vu/'):
+      hd=hd.replace(f'<li class="has"><a href="{p}dich-vu.html">Dịch vụ<',f'<li class="has"><a href="{p}dich-vu.html" class=on>Dịch vụ<',1)
+    s=hd+'</nav>'+tl
+  if '<footer' in s and f'href="{p}ve-chung-toi.html"' not in s.split('<footer',1)[1]:
+    a,b=s.split('<footer',1)
+    s=a+'<footer'+b.replace(f'<a href="{p}index.html">Trang chủ</a>',f'<a href="{p}index.html">Trang chủ</a><a href="{p}ve-chung-toi.html">Về chúng tôi</a>',1)
   # tài nguyên AI agent: chỉ footer (menu trên đã chật) (idempotent)
   if f'<a href="{p}tai-nguyen-ai-agent.html">' not in s:
     s=s.replace(f'<a href="{p}tin-tuc.html">Tin tức công nghệ</a>',f'<a href="{p}tin-tuc.html">Tin tức công nghệ</a><a href="{p}tai-nguyen-ai-agent.html">Tài nguyên AI Agent</a>',1)

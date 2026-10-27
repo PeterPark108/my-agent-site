@@ -369,7 +369,6 @@ html.js .dg .bar{transform:scaleY(.15);transition:transform .8s cubic-bezier(.2,
 @media(min-width:961px){nav li>a{white-space:nowrap}header .wrap>.btn{white-space:nowrap}}
 @media(min-width:961px) and (max-width:1360px){nav ul{gap:0}nav li>a{padding:9px 8px;font-size:13.5px}}
 @media(min-width:961px) and (max-width:1140px){nav li>a{padding:8px 6px;font-size:12.5px}header .wrap>.btn{display:none}}
-@media(min-width:961px) and (max-width:1200px){nav>ul>li:nth-child(3){display:none}}
 @media(min-width:961px){nav li.has{position:static}header nav>ul:has(.mega){position:static}header nav>ul:has(.mega)>.mv-ind{bottom:auto;top:calc(50% + 24px)}}
 .nw-h{max-width:none;text-wrap:pretty}
 @media(max-width:600px){.nw-chips{gap:8px}.nw-chips .chip{padding:6px 12px}}

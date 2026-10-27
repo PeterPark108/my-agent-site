@@ -1,5 +1,11 @@
 # Nhật ký thay đổi
 
+## 0.8.2 - 2026-10-27
+(Số phiên bản 0.8.1 đã dùng cho tag phát hành blog 2 bài đầu, PR #23.)
+- Menu chính gọn hơn: bỏ mục "Về chúng tôi" (giữ link "Về chúng tôi" ở footer cột My Agent trên mọi trang) và bỏ mục riêng "Thiết kế website" (vẫn là mục đầu tiên trong dropdown Dịch vụ › 01 · Nền tảng website và trên trang Dịch vụ). Áp dụng cho cả menu mobile.
+- "Dịch vụ" được đánh dấu đang xem trên `dich-vu.html` và mọi trang `dich-vu/*` (gồm Thiết kế website).
+- Sửa tại nguồn trong `scripts/tech_pass.py` (idempotent) nên các lần dựng Tin tức/Blog sau không sinh lại menu cũ; bỏ CSS ẩn mục thứ 3 của menu ở 961–1200px (không còn cần).
+
 ## 0.8.0 - 2026-10-27
 - Mục mới **Blog / Kiến thức**: bài hướng dẫn do My Agent tự viết, mỗi bài 1 file `data/blog/<slug>.md`, dựng bằng `scripts/blog_build.py`, kiểm tra bằng `scripts/blog_publish.sh`.
 - `blog.html` (danh sách) + `blog/<slug>.html`: breadcrumb hiển thị + BreadcrumbList, Article JSON-LD (author/publisher My Agent), canonical/OG, mục lục, Dịch vụ liên quan + CTA Liên hệ, bài mới hơn/cũ hơn, bài liên quan; RSS `blog/feed.xml`; `blog/` chuyển về `blog.html`.
