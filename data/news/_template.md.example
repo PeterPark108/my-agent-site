@@ -1,0 +1,35 @@
+---
+# Mẫu bài Tin tức. Copy thành data/news/YYYY-MM-DD-slug-khong-dau.md (ngày = date bên dưới).
+# Dòng bắt đầu bằng # trong front-matter là ghi chú, được bỏ qua.
+title: "Tiêu đề tiếng Việt tự đặt, 20–70 ký tự"
+date: 2026-10-28
+# updated: 2026-10-29          # tuỳ chọn, ngày sửa bài (không trước date)
+topic: web-seo                  # ai | bao-mat | web-seo | du-lieu | nen-tang
+summary: "Tóm tắt 120–200 ký tự, tự viết bằng lời của mình, nói rõ chuyện gì xảy ra. Dùng cho thẻ tin, mô tả SEO, RSS và đoạn mở đầu bài."
+insight: "Góc nhìn My Agent: 1–3 câu, tin này có ý nghĩa gì với chủ website hay doanh nghiệp nhỏ."
+tags: [google, seo]             # tuỳ chọn
+# image: assets/news/2026-10-28-slug.webp   # tuỳ chọn, ảnh tự làm/được phép dùng, đặt trong assets/news/
+# image_alt: "Mô tả ảnh"                    # bắt buộc nếu có image
+# draft: true                   # bật thì bài KHÔNG được dựng/đăng
+sources:
+  - name: Google Search Central
+    url: https://developers.google.com/search/blog
+    date: 2026-10-27            # tuỳ chọn, ngày đăng của nguồn
+---
+## Chuyện gì đã xảy ra
+
+Viết bằng lời của mình, ít nhất 250 từ cho cả bài. Không chép nguyên câu từ nguồn.
+
+## Ảnh hưởng tới doanh nghiệp nhỏ
+
+- Ý thứ nhất
+- Ý thứ hai
+
+## Nên làm gì
+
+1. Bước một
+2. Bước hai
+
+> Trích ngắn (nếu cần) phải ghi rõ nguồn ở câu dẫn.
+
+Link nội bộ dùng đường dẫn tương đối từ thư mục tin-tuc/, ví dụ [dịch vụ SEO](../dich-vu/seo-tong-the.html).

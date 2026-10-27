@@ -11,7 +11,10 @@ def get(rel):
   f=R/rel; return f.read_text() if f.exists() else None
 sm=get('sitemap.xml') or ''; robots=get('robots.txt') or ''
 locs=re.findall(r'<loc>(.*?)</loc>',sm)
-rels=sorted({p.relative_to(R).as_posix() for p in list(R.glob('*.html'))+list(R.glob('dich-vu/*.html'))})
+rels=sorted({p.relative_to(R).as_posix() for p in list(R.glob('*.html'))+list(R.glob('dich-vu/*.html'))+list(R.glob('tin-tuc/**/*.html'))})
+def _ok(x):
+  try: json.loads(x); return True
+  except Exception: return False
 issues=[]; titles={}; descs={}; n=0
 def bad(r,m): issues.append(f'{r}: {m}')
 if f'Sitemap: {BASE}sitemap.xml' not in robots: bad('robots.txt','thiếu dòng Sitemap đúng domain')
@@ -36,7 +39,7 @@ for rel in rels:
   if f'<link rel="canonical" href="{url}">' not in s: bad(rel,'canonical sai')
   for k in ('peterpark108.github.io','/portfolio/'):  # chỉ bản cũ của site; link ngoài *.github.io hợp lệ
     if k in s.lower(): bad(rel,f'còn tham chiếu {k}')
-  for tag in (f'property="og:url" content="{url}"',f'property="og:image" content="{BASE}assets/og-image.png"','property="og:locale" content="vi_VN"','property="og:title"','property="og:description"','name="twitter:card" content="summary_large_image"',f'hreflang="vi" href="{url}"','hreflang="x-default"'):
+  for tag in (f'property="og:url" content="{url}"','property="og:image" content="'+BASE,'property="og:locale" content="vi_VN"','property="og:title"','property="og:description"','name="twitter:card" content="summary_large_image"',f'hreflang="vi" href="{url}"','hreflang="x-default"'):
     if tag not in s: bad(rel,'thiếu '+tag.split('"')[1])
   h=len(re.findall(r'<h1[\s>]',s))
   if h!=1: bad(rel,f'{h} thẻ H1')
@@ -56,6 +59,18 @@ for rel in rels:
         vis=html.unescape(re.sub(r'<[^>]+>','',s))
         for q in o['mainEntity']:
           if q['name'] not in re.sub(r'\s+',' ',vis): bad(rel,'FAQ JSON-LD không khớp chữ hiển thị: '+q['name'][:40])
+  if rel.startswith('tin-tuc/') and 'property="article:published_time"' in s:
+    if not 110<=len(d)<=155: bad(rel,f'bài viết: description {len(d)} ký tự (cần 110–155)')
+    arts=[o for x in lds for o in json.loads(x).get('@graph',[json.loads(x)]) if o.get('@type') in ('NewsArticle','Article')] if all(_ok(x) for x in lds) else []
+    if not arts: bad(rel,'bài viết thiếu NewsArticle JSON-LD')
+    for o in arts:
+      h1t=re.sub(r'\s+',' ',html.unescape(re.sub(r'<[^>]+>','',re.search(r'<h1[^>]*>(.*?)</h1>',s,re.S).group(1)))).replace('\xa0',' ').strip()
+      if o.get('headline','').replace('\xa0',' ')!=h1t[:110]: bad(rel,'headline JSON-LD khác H1')
+      for k in ('datePublished','dateModified','author','publisher','mainEntityOfPage','image'):
+        if not o.get(k): bad(rel,'NewsArticle thiếu '+k)
+      if o.get('datePublished','')[:10] not in s.split('<main',1)[-1]: bad(rel,'ngày đăng JSON-LD không hiện trên trang')
+    if 'Nguồn tham' not in s or not re.search(r'class="nwa-src.*?<a href="https://',s,re.S): bad(rel,'bài viết thiếu khối Nguồn tham khảo có link')
+    if 'application/rss+xml' not in s: bad(rel,'thiếu link RSS')
   if rel=='index.html':
     for need in ('ProfessionalService','WebSite'):
       if need not in types: bad(rel,'thiếu '+need)

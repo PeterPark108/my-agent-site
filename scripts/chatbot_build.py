@@ -13,7 +13,7 @@ def short(t,n=300):
   c=t[:n]; i=max(c.rfind('. '),c.rfind('; '))
   return (c[:i+1] if i>80 else c.rsplit(' ',1)[0]+'…')
 docs=[]
-pages=sorted(list(R.glob('*.html'))+list(R.glob('dich-vu/*.html')))
+pages=sorted(list(R.glob('*.html'))+list(R.glob('dich-vu/*.html'))+[p for p in R.glob('tin-tuc/*.html') if not re.match(r'trang-\d+\.html$',p.name)])
 for f in pages:
   s=f.read_text(); rel=str(f.relative_to(R))
   if rel in SKIP or 'http-equiv="refresh"' in s: continue
@@ -33,7 +33,7 @@ for f in pages:
   for sec in re.split(r'(?=<h2\b)',main2)[1:]:
     h2=txt(re.search(r'<h2[^>]*>(.*?)</h2>',sec,flags=re.S).group(1))
     body=re.sub(r'<h2[^>]*>.*?</h2>','',sec,count=1,flags=re.S)
-    if re.match(r'(Cùng nhóm|Câu hỏi thường gặp|Dịch vụ liên quan)',h2): continue
+    if re.match(r'(Cùng nhóm|Câu hỏi thường gặp|Dịch vụ liên quan|Nguồn tham|Bài liên)',h2): continue
     if 'bảng giá' in h2.lower() or 'bảng giá' in txt(body[:200]).lower():
       plans=[]
       for b in re.split(r'(?=<h3\b)',body)[1:]:

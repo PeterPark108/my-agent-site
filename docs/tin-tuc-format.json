@@ -1,0 +1,39 @@
+{
+  "name": "My Agent – định dạng bài Tin tức công nghệ",
+  "version": "0.7.0",
+  "file": "data/news/YYYY-MM-DD-<slug>.md  (slug: a-z, 0-9, '-', không dấu; ngày trong tên = date; slug là URL tin-tuc/<slug>.html)",
+  "template": "data/news/_template.md.example",
+  "format": "Front-matter (tập con YAML, giữa hai dòng ---) + nội dung Markdown",
+  "fields": {
+    "title":    {"required": true, "type": "string", "rule": "20–70 ký tự, không trùng bài khác; là H1 và tiêu đề trang"},
+    "date":     {"required": true, "type": "YYYY-MM-DD", "rule": "ngày đăng, không ở tương lai (giờ VN), trùng ngày trong tên file"},
+    "updated":  {"required": false, "type": "YYYY-MM-DD", "rule": "không trước date, không ở tương lai"},
+    "topic":    {"required": true, "enum": ["ai", "bao-mat", "web-seo", "du-lieu", "nen-tang"]},
+    "summary":  {"required": true, "type": "string", "rule": "120–200 ký tự, tự viết, không trùng bài khác; dùng cho thẻ, meta description (cắt ≤155), RSS, đoạn mở đầu"},
+    "insight":  {"required": true, "type": "string", "rule": "40–400 ký tự (1–3 câu) – khối 'Góc nhìn My Agent'"},
+    "sources":  {"required": true, "type": "list of {name, url, date?}", "rule": "≥1 nguồn; url bắt đầu https://, không mã affiliate/utm"},
+    "tags":     {"required": false, "type": "[a, b]"},
+    "image":    {"required": false, "type": "path", "rule": "file png/jpg/webp trong assets/news/ (ảnh được phép dùng); cần image_alt"},
+    "image_alt":{"required": "nếu có image", "type": "string"},
+    "type":     {"required": false, "enum": ["article", "link"], "default": "article", "rule": "link = chỉ thẻ trỏ ra nguồn (dùng cho tin cũ); bài mới dùng article"},
+    "draft":    {"required": false, "type": "true|false", "rule": "true = không dựng, không đăng"}
+  },
+  "body": {
+    "min_words": 250,
+    "allowed_markdown": ["## H2", "### H3 (không dùng # H1)", "đoạn văn", "- danh sách", "1. danh sách số", "> trích dẫn", "**đậm**", "*nghiêng*", "`code`", "```khối code```", "bảng | a | b |", "---", "[chữ](https://... | ../trang.html | #neo)", "![alt bắt buộc](assets/news/file.webp)"],
+    "html": "Mọi HTML trong bài bị hiển thị thành chữ (escape). Link javascript:/data: bị chặn và báo lỗi. Link ngoài tự có target=_blank rel=noopener noreferrer."
+  },
+  "forbidden_phrases": ["24/7", "FPT Polytechnic", "cam kết (lên) top / top 1 / trang 1", "đảm bảo / bảo đảm (lên) top", "100% (lên) top", "chắc chắn lên top"],
+  "content_rules": ["Tin có thật, đã mở đọc nguồn gốc", "Tự viết bằng lời của mình, không chép câu từ nguồn", "Không bịa số liệu, trích dẫn, ngày", "Không dùng ảnh của nguồn nếu không được phép", "Không hứa thứ hạng, không giá"],
+  "publish_command": "scripts/news_publish.sh   (thêm --check-urls để kiểm tra link nguồn)",
+  "git_flow": [
+    "git fetch origin && git switch -c news/YYYY-MM-DD origin/production",
+    "thêm file data/news/YYYY-MM-DD-<slug>.md",
+    "scripts/news_publish.sh --check-urls",
+    "git add -A && git commit -m 'news: <tiêu đề>'",
+    "git push -u origin news/YYYY-MM-DD",
+    "gh pr create --base production --head news/YYYY-MM-DD --title 'news: YYYY-MM-DD' --body '<danh sách bài + nguồn>'",
+    "(người duyệt) gh pr merge <số> --merge",
+    "(người duyệt) git fetch origin && git push origin origin/production:main   # VPS kéo main ~5 phút"
+  ]
+}
