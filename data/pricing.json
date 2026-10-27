@@ -1,0 +1,768 @@
+{
+ "version": "2026-10-27",
+ "currency": "VND",
+ "vatIncluded": true,
+ "vatNote": "Giá đã bao gồm VAT",
+ "disclaimer": "Giá chỉ mang tính tham khảo theo khoảng, báo giá chính xác sau khi trao đổi nhu cầu.",
+ "rules": {
+  "comboDiscount": [
+   {
+    "minServices": 2,
+    "percent": 5
+   },
+   {
+    "minServices": 3,
+    "percent": 8
+   },
+   {
+    "minServices": 4,
+    "percent": 10
+   },
+   {
+    "minServices": 5,
+    "percent": 12
+   }
+  ],
+  "maxDiscountPercent": 12,
+  "maxDiscountAmount": 15000000,
+  "complexity": {
+   "don-gian": {
+    "label": "Đơn giản",
+    "factor": 0.9
+   },
+   "tieu-chuan": {
+    "label": "Tiêu chuẩn",
+    "factor": 1.0
+   },
+   "phuc-tap": {
+    "label": "Phức tạp",
+    "factor": 1.3
+   }
+  },
+  "rush": {
+   "binh-thuong": {
+    "label": "Bình thường",
+    "percent": 0
+   },
+   "gap": {
+    "label": "Gấp (rút ~30% thời gian)",
+    "percent": 20
+   },
+   "rat-gap": {
+    "label": "Rất gấp (rút ~50%)",
+    "percent": 40
+   }
+  },
+  "roundTo": 100000,
+  "prepay": {
+   "monthly": {
+    "label": "Theo tháng",
+    "months": 1,
+    "percent": 0
+   },
+   "6m": {
+    "label": "Trả trước 6 tháng",
+    "months": 6,
+    "percent": 5
+   },
+   "12m": {
+    "label": "Trả trước 12 tháng",
+    "months": 12,
+    "percent": 10
+   },
+   "24m": {
+    "label": "Trả trước 24 tháng",
+    "months": 24,
+    "percent": 15
+   }
+  },
+  "maxLineDiscountPercent": 25,
+  "negotiableNote": "Chi phí hosting/VPS và phí quản lý quảng cáo sẽ được báo riêng sau khi trao đổi nhu cầu/ngân sách; chưa gồm tiền quảng cáo trả cho nền tảng."
+ },
+ "services": [
+  {
+   "id": "thiet-ke-website",
+   "category": "01 · Nền tảng website",
+   "name": "Thiết kế website",
+   "unit": "dự án",
+   "billing": "one-time",
+   "quantity": {
+    "label": "Số trang thêm ngoài gói",
+    "perUnitMin": 240000,
+    "perUnitMax": 480000,
+    "default": 0
+   },
+   "complexityApplies": true,
+   "discountable": true,
+   "tiers": [
+    {
+     "id": "landing",
+     "name": "Landing page (1 trang)",
+     "min": 2000000,
+     "max": 3600000,
+     "time": "3–5 ngày",
+     "includes": "1 trang, responsive, form, gắn Pixel/GA",
+     "excludes": "Nội dung, ảnh bản quyền, quảng cáo"
+    },
+    {
+     "id": "gioi-thieu",
+     "name": "Website giới thiệu (≤10 trang)",
+     "min": 4000000,
+     "max": 7200000,
+     "time": "7–14 ngày",
+     "includes": "Giao diện theo thương hiệu, CMS, SEO nền tảng, Maps/Zalo",
+     "excludes": "Viết bài số lượng lớn, tên miền/hosting"
+    },
+    {
+     "id": "ban-hang",
+     "name": "Website bán hàng",
+     "min": 7200000,
+     "max": 14400000,
+     "time": "14–25 ngày",
+     "includes": "Giỏ hàng, đơn hàng, VietQR, quản lý sản phẩm",
+     "excludes": "Cổng thanh toán trả phí, nhập hàng loạt >50 SP"
+    },
+    {
+     "id": "web-app",
+     "name": "Web app theo yêu cầu",
+     "min": 20000000,
+     "max": 48000000,
+     "time": "4–10 tuần",
+     "includes": "Phân tích nghiệp vụ, đăng nhập, phân quyền, dashboard",
+     "excludes": "Tích hợp ERP lớn, app mobile"
+    }
+   ]
+  },
+  {
+   "id": "hosting-seo",
+   "category": "01 · Nền tảng website",
+   "name": "Hosting SEO / VPS",
+   "unit": "tháng",
+   "billing": "monthly",
+   "complexityApplies": false,
+   "discountable": false,
+   "negotiable": true,
+   "priceLabel": "Thương lượng",
+   "negotiableNote": "Tùy cấu hình/nhu cầu",
+   "tiers": [
+    {
+     "id": "co-ban",
+     "name": "Hosting cơ bản",
+     "time": "Trong ngày",
+     "includes": "1 website, SSL, backup tuần",
+     "excludes": ""
+    },
+    {
+     "id": "tieu-chuan",
+     "name": "Hosting tốc độ cao",
+     "time": "Trong ngày",
+     "includes": "SSD/NVMe, backup ngày, CDN",
+     "excludes": ""
+    },
+    {
+     "id": "nang-cao",
+     "name": "VPS quản trị",
+     "time": "1–2 ngày",
+     "includes": "VPS riêng, cấu hình, giám sát, bảo mật cơ bản",
+     "excludes": ""
+    }
+   ]
+  },
+  {
+   "id": "ten-mien",
+   "category": "01 · Nền tảng website",
+   "name": "Tên miền",
+   "unit": "năm",
+   "billing": "yearly",
+   "quantity": null,
+   "complexityApplies": false,
+   "discountable": false,
+   "tiers": [
+    {
+     "id": "com",
+     "name": "Tên miền .com/.net",
+     "min": 280000,
+     "max": 360000,
+     "time": "Trong ngày",
+     "includes": "Đăng ký, trỏ DNS",
+     "excludes": ""
+    },
+    {
+     "id": "vn",
+     "name": "Tên miền .vn/.com.vn",
+     "min": 520000,
+     "max": 680000,
+     "time": "1–2 ngày",
+     "includes": "Đăng ký, hồ sơ, trỏ DNS",
+     "excludes": ""
+    },
+    {
+     "id": "bo",
+     "name": "Bộ 2–3 tên miền bảo vệ thương hiệu",
+     "min": 800000,
+     "max": 1600000,
+     "time": "1–3 ngày",
+     "includes": "Nhiều đuôi, chuyển hướng",
+     "excludes": ""
+    }
+   ]
+  },
+  {
+   "id": "email-doanh-nghiep",
+   "category": "01 · Nền tảng website",
+   "name": "Email doanh nghiệp",
+   "unit": "tháng",
+   "billing": "monthly",
+   "quantity": {
+    "label": "Số người dùng (gói Workspace)",
+    "multiplyTier": [
+     "nang-cao"
+    ],
+    "default": 1
+   },
+   "complexityApplies": false,
+   "discountable": false,
+   "tiers": [
+    {
+     "id": "co-ban",
+     "name": "Email theo tên miền (≤5 hộp thư)",
+     "min": 40000,
+     "max": 80000,
+     "time": "1 ngày",
+     "includes": "Cài đặt, SPF/DKIM",
+     "excludes": ""
+    },
+    {
+     "id": "tieu-chuan",
+     "name": "Email 10–20 hộp thư",
+     "min": 120000,
+     "max": 280000,
+     "time": "1–2 ngày",
+     "includes": "Chống spam, hỗ trợ Outlook/di động",
+     "excludes": ""
+    },
+    {
+     "id": "nang-cao",
+     "name": "Google Workspace / Microsoft 365 (theo người)",
+     "min": 120000,
+     "max": 160000,
+     "time": "1–2 ngày",
+     "includes": "Phí bản quyền/người/tháng + hỗ trợ cài đặt",
+     "excludes": "Nhân với số người"
+    }
+   ]
+  },
+  {
+   "id": "cham-soc-website",
+   "category": "01 · Nền tảng website",
+   "name": "Chăm sóc website",
+   "unit": "tháng",
+   "billing": "monthly",
+   "quantity": null,
+   "complexityApplies": true,
+   "discountable": false,
+   "tiers": [
+    {
+     "id": "co-ban",
+     "name": "Bảo trì kỹ thuật",
+     "min": 640000,
+     "max": 1200000,
+     "time": "Hằng tháng",
+     "includes": "Cập nhật, backup, sửa lỗi nhỏ, báo cáo",
+     "excludes": ""
+    },
+    {
+     "id": "tieu-chuan",
+     "name": "Bảo trì + 4–8 bài viết",
+     "min": 1400000,
+     "max": 2400000,
+     "time": "Hằng tháng",
+     "includes": "Gói cơ bản + nội dung, đăng sản phẩm",
+     "excludes": ""
+    },
+    {
+     "id": "nang-cao",
+     "name": "Quản trị toàn diện",
+     "min": 2400000,
+     "max": 4000000,
+     "time": "Hằng tháng",
+     "includes": "10–15 bài, ảnh, tối ưu tốc độ, SEO onpage",
+     "excludes": ""
+    }
+   ]
+  },
+  {
+   "id": "seo-tong-the",
+   "category": "02 · Marketing & tăng trưởng",
+   "name": "SEO tổng thể",
+   "unit": "tháng",
+   "billing": "monthly",
+   "quantity": null,
+   "complexityApplies": true,
+   "discountable": false,
+   "tiers": [
+    {
+     "id": "co-ban",
+     "name": "SEO local / ≤30 từ khóa",
+     "min": 2800000,
+     "max": 4800000,
+     "time": "Tối thiểu 3–6 tháng",
+     "includes": "Audit, onpage, 6–8 bài/tháng, báo cáo",
+     "excludes": "Không hứa thứ hạng cố định trên Google"
+    },
+    {
+     "id": "tieu-chuan",
+     "name": "SEO 30–80 từ khóa",
+     "min": 4800000,
+     "max": 8000000,
+     "time": "Tối thiểu 6 tháng",
+     "includes": "Cụm chủ đề, 12–15 bài/tháng, technical SEO",
+     "excludes": ""
+    },
+    {
+     "id": "nang-cao",
+     "name": "SEO ngành cạnh tranh",
+     "min": 8000000,
+     "max": 12800000,
+     "time": "6–12 tháng",
+     "includes": "Nội dung chuyên sâu, entity, đo chuyển đổi",
+     "excludes": ""
+    }
+   ]
+  },
+  {
+   "id": "quang-cao-google-facebook",
+   "category": "02 · Marketing & tăng trưởng",
+   "name": "Quảng cáo Google, Facebook",
+   "unit": "tháng",
+   "billing": "monthly",
+   "complexityApplies": false,
+   "discountable": false,
+   "negotiable": true,
+   "priceLabel": "Thương lượng",
+   "negotiableNote": "Tùy ngân sách của khách; chưa gồm tiền quảng cáo trả cho nền tảng",
+   "tiers": [
+    {
+     "id": "co-ban",
+     "name": "1 kênh (Google hoặc Facebook)",
+     "time": "Setup 2–3 ngày",
+     "includes": "Setup, 3–4 mẫu QC, tối ưu, báo cáo tháng",
+     "excludes": "Tiền quảng cáo trả Google/Facebook"
+    },
+    {
+     "id": "tieu-chuan",
+     "name": "2 kênh Google + Facebook",
+     "time": "Hằng tháng",
+     "includes": "6–8 mẫu QC, A/B test",
+     "excludes": "Tiền quảng cáo trả Google/Facebook"
+    },
+    {
+     "id": "nang-cao",
+     "name": "Đa kênh + remarketing + tracking",
+     "time": "Hằng tháng",
+     "includes": "Pixel/GA4 chuyển đổi, remarketing",
+     "excludes": "Tiền quảng cáo trả Google/Facebook"
+    }
+   ]
+  },
+  {
+   "id": "google-maps",
+   "category": "02 · Marketing & tăng trưởng",
+   "name": "Google Maps",
+   "unit": "địa điểm",
+   "billing": "one-time",
+   "quantity": {
+    "label": "Số địa điểm",
+    "multiplyAll": true,
+    "default": 1
+   },
+   "complexityApplies": false,
+   "discountable": true,
+   "tiers": [
+    {
+     "id": "co-ban",
+     "name": "Xác minh Google Business Profile",
+     "min": 800000,
+     "max": 1100000,
+     "time": "3–10 ngày",
+     "includes": "Tạo/xác minh hồ sơ, bảo hành 15–30 ngày",
+     "excludes": ""
+    },
+    {
+     "id": "tieu-chuan",
+     "name": "Xác minh + tối ưu hồ sơ",
+     "min": 1300000,
+     "max": 1800000,
+     "time": "7–14 ngày",
+     "includes": "Ảnh, mô tả từ khóa, bài đăng",
+     "excludes": ""
+    },
+    {
+     "id": "nang-cao",
+     "name": "Khôi phục / tranh chấp / nhiều chi nhánh",
+     "min": 1800000,
+     "max": 2800000,
+     "time": "7–21 ngày",
+     "includes": "Xử lý map bị khóa, mạo danh, chia địa điểm",
+     "excludes": ""
+    }
+   ]
+  },
+  {
+   "id": "video-ai",
+   "category": "03 · Mạng xã hội & nội dung",
+   "name": "Edit Video - Video AI",
+   "unit": "gói",
+   "billing": "one-time",
+   "quantity": null,
+   "complexityApplies": true,
+   "discountable": true,
+   "tiers": [
+    {
+     "id": "co-ban",
+     "name": "1–2 video ngắn (≤60s)",
+     "min": 480000,
+     "max": 1200000,
+     "time": "2–4 ngày",
+     "includes": "Kịch bản ngắn, dựng, phụ đề, giọng AI",
+     "excludes": ""
+    },
+    {
+     "id": "tieu-chuan",
+     "name": "4 video/tháng",
+     "min": 2000000,
+     "max": 4000000,
+     "time": "Theo tháng",
+     "includes": "Kịch bản, avatar/giọng AI, nhạc bản quyền",
+     "excludes": ""
+    },
+    {
+     "id": "nang-cao",
+     "name": "8–12 video/tháng hoặc TVC AI",
+     "min": 4000000,
+     "max": 8000000,
+     "time": "Theo tháng",
+     "includes": "Ý tưởng chiến dịch, AI hình ảnh nâng cao",
+     "excludes": ""
+    }
+   ]
+  },
+  {
+   "id": "cham-soc-fanpage",
+   "category": "03 · Mạng xã hội & nội dung",
+   "name": "Chăm sóc Fanpage",
+   "unit": "tháng",
+   "billing": "monthly",
+   "quantity": null,
+   "complexityApplies": true,
+   "discountable": false,
+   "tiers": [
+    {
+     "id": "co-ban",
+     "name": "8–12 bài/tháng",
+     "min": 2000000,
+     "max": 3200000,
+     "time": "Hằng tháng",
+     "includes": "Nội dung + ảnh thiết kế, lịch đăng",
+     "excludes": "Chạy quảng cáo"
+    },
+    {
+     "id": "tieu-chuan",
+     "name": "15–20 bài/tháng",
+     "min": 3200000,
+     "max": 5200000,
+     "time": "Hằng tháng",
+     "includes": "+ video ngắn, trả lời bình luận giờ hành chính",
+     "excludes": ""
+    },
+    {
+     "id": "nang-cao",
+     "name": "25–30 bài/tháng",
+     "min": 5200000,
+     "max": 8000000,
+     "time": "Hằng tháng",
+     "includes": "+ minigame, báo cáo insight",
+     "excludes": ""
+    }
+   ]
+  },
+  {
+   "id": "zalo-oa-mini-app",
+   "category": "03 · Mạng xã hội & nội dung",
+   "name": "Zalo OA - Mini App",
+   "unit": "dự án",
+   "billing": "one-time",
+   "quantity": null,
+   "complexityApplies": true,
+   "discountable": true,
+   "tiers": [
+    {
+     "id": "co-ban",
+     "name": "Thiết lập Zalo OA / Mini App mẫu",
+     "min": 2000000,
+     "max": 4000000,
+     "time": "5–10 ngày",
+     "includes": "Xác thực OA, menu, tin chào, mini app template",
+     "excludes": ""
+    },
+    {
+     "id": "tieu-chuan",
+     "name": "Mini App bán hàng/đặt lịch",
+     "min": 4800000,
+     "max": 8000000,
+     "time": "2–3 tuần",
+     "includes": "Đặt hàng/lịch, ZNS, voucher, tích điểm",
+     "excludes": ""
+    },
+    {
+     "id": "nang-cao",
+     "name": "Mini App theo yêu cầu",
+     "min": 12000000,
+     "max": 28000000,
+     "time": "4–8 tuần",
+     "includes": "UI riêng, API/CRM, thanh toán ZaloPay",
+     "excludes": "Phí ZNS/ZaloPay"
+    }
+   ]
+  },
+  {
+   "id": "profile-doanh-nghiep",
+   "category": "03 · Mạng xã hội & nội dung",
+   "name": "Profile doanh nghiệp",
+   "unit": "bộ",
+   "billing": "one-time",
+   "quantity": {
+    "label": "Số trang thêm",
+    "perUnitMin": 80000,
+    "perUnitMax": 200000,
+    "default": 0
+   },
+   "complexityApplies": true,
+   "discountable": true,
+   "tiers": [
+    {
+     "id": "co-ban",
+     "name": "Profile 8–12 trang (PDF)",
+     "min": 1200000,
+     "max": 2400000,
+     "time": "5–7 ngày",
+     "includes": "Bố cục, dàn trang, chỉnh sửa 2 lần",
+     "excludes": "In ấn"
+    },
+    {
+     "id": "tieu-chuan",
+     "name": "Profile 16–24 trang + viết nội dung",
+     "min": 2400000,
+     "max": 4800000,
+     "time": "7–12 ngày",
+     "includes": "Biên tập nội dung, infographic",
+     "excludes": ""
+    },
+    {
+     "id": "nang-cao",
+     "name": "Profile song ngữ / bản web tương tác",
+     "min": 4800000,
+     "max": 8000000,
+     "time": "2–3 tuần",
+     "includes": "Song ngữ, bản flipbook/web",
+     "excludes": ""
+    }
+   ]
+  },
+  {
+   "id": "phan-tich-du-lieu",
+   "category": "04 · Dữ liệu & phần mềm",
+   "name": "Data Analyst (phân tích dữ liệu, dashboard)",
+   "unit": "dự án",
+   "billing": "one-time",
+   "quantity": null,
+   "complexityApplies": true,
+   "discountable": true,
+   "tiers": [
+    {
+     "id": "co-ban",
+     "name": "Dashboard 1–2 trang, 1 nguồn",
+     "min": 960000,
+     "max": 2400000,
+     "time": "2–4 ngày",
+     "includes": "Làm sạch Excel/Sheets, KPI cơ bản (Power BI/Looker)",
+     "excludes": ""
+    },
+    {
+     "id": "tieu-chuan",
+     "name": "Dashboard 3–5 trang, 2–3 nguồn",
+     "min": 2400000,
+     "max": 6400000,
+     "time": "1–2 tuần",
+     "includes": "Power Query/DAX, bộ lọc, chia sẻ",
+     "excludes": ""
+    },
+    {
+     "id": "nang-cao",
+     "name": "Hệ thống báo cáo quản trị",
+     "min": 8000000,
+     "max": 20000000,
+     "time": "3–5 tuần",
+     "includes": "Nhiều nguồn, RLS, refresh tự động, báo cáo gửi Zalo/email",
+     "excludes": "Bản quyền Power BI Pro"
+    }
+   ]
+  },
+  {
+   "id": "ky-thuat-du-lieu",
+   "category": "04 · Dữ liệu & phần mềm",
+   "name": "Data Engineer (pipeline, kho dữ liệu)",
+   "unit": "dự án",
+   "billing": "one-time",
+   "quantity": null,
+   "complexityApplies": true,
+   "discountable": true,
+   "tiers": [
+    {
+     "id": "co-ban",
+     "name": "1 pipeline ETL đơn giản",
+     "min": 4800000,
+     "max": 9600000,
+     "time": "1–2 tuần",
+     "includes": "1–2 nguồn → Sheets/DB, lịch chạy tự động",
+     "excludes": ""
+    },
+    {
+     "id": "tieu-chuan",
+     "name": "Kho dữ liệu nhỏ, 3–5 nguồn",
+     "min": 12000000,
+     "max": 28000000,
+     "time": "3–6 tuần",
+     "includes": "ETL/ELT, mô hình dữ liệu, giám sát lỗi",
+     "excludes": ""
+    },
+    {
+     "id": "nang-cao",
+     "name": "Nền tảng dữ liệu đa nguồn",
+     "min": 28000000,
+     "max": 64000000,
+     "time": "6–12 tuần",
+     "includes": "Data warehouse cloud, orchestration, tài liệu",
+     "excludes": "Phí cloud"
+    }
+   ]
+  },
+  {
+   "id": "phan-mem-noi-bo",
+   "category": "04 · Dữ liệu & phần mềm",
+   "name": "Phần mềm nội bộ",
+   "unit": "dự án",
+   "billing": "one-time",
+   "quantity": null,
+   "complexityApplies": true,
+   "discountable": true,
+   "tiers": [
+    {
+     "id": "co-ban",
+     "name": "Công cụ nội bộ 1 module",
+     "min": 9600000,
+     "max": 20000000,
+     "time": "2–4 tuần",
+     "includes": "CRUD, đăng nhập, xuất Excel",
+     "excludes": ""
+    },
+    {
+     "id": "tieu-chuan",
+     "name": "Hệ thống 3–5 module",
+     "min": 24000000,
+     "max": 48000000,
+     "time": "1–2 tháng",
+     "includes": "Phân quyền, báo cáo, nhập/xuất CSV",
+     "excludes": ""
+    },
+    {
+     "id": "nang-cao",
+     "name": "Hệ thống vận hành (mini ERP)",
+     "min": 48000000,
+     "max": 96000000,
+     "time": "2–4 tháng",
+     "includes": "Nhiều module, tích hợp, nhật ký thao tác",
+     "excludes": ""
+    }
+   ]
+  },
+  {
+   "id": "thiet-ke-app",
+   "category": "04 · Dữ liệu & phần mềm",
+   "name": "Agency Thiết kế App",
+   "unit": "dự án",
+   "billing": "one-time",
+   "quantity": null,
+   "complexityApplies": true,
+   "discountable": true,
+   "tiers": [
+    {
+     "id": "co-ban",
+     "name": "App MVP ≤8 màn hình",
+     "min": 16000000,
+     "max": 28000000,
+     "time": "4–6 tuần",
+     "includes": "iOS + Android (đa nền tảng), quản trị cơ bản",
+     "excludes": "Phí Apple/Google Developer"
+    },
+    {
+     "id": "tieu-chuan",
+     "name": "App bán hàng/đặt lịch ≤15 màn hình",
+     "min": 28000000,
+     "max": 48000000,
+     "time": "6–10 tuần",
+     "includes": "Giỏ hàng/đặt lịch, push, đưa lên store",
+     "excludes": ""
+    },
+    {
+     "id": "nang-cao",
+     "name": "App tích hợp thanh toán/CRM",
+     "min": 48000000,
+     "max": 96000000,
+     "time": "3–5 tháng",
+     "includes": "Cổng thanh toán, CRM/ERP, phân quyền",
+     "excludes": ""
+    }
+   ]
+  },
+  {
+   "id": "bo-cong-thuong",
+   "category": "05 · Pháp lý & thủ tục",
+   "name": "Đăng ký Bộ Công Thương",
+   "unit": "website",
+   "billing": "one-time",
+   "quantity": null,
+   "complexityApplies": false,
+   "discountable": true,
+   "tiers": [
+    {
+     "id": "co-ban",
+     "name": "Thông báo website TMĐT bán hàng",
+     "min": 640000,
+     "max": 1200000,
+     "time": "7–15 ngày",
+     "includes": "Hồ sơ, rà soát chính sách website, gắn logo",
+     "excludes": ""
+    },
+    {
+     "id": "tieu-chuan",
+     "name": "Thông báo website – xử lý nhanh",
+     "min": 2000000,
+     "max": 3200000,
+     "time": "5–10 ngày",
+     "includes": "Ưu tiên, chỉnh sửa chính sách giúp",
+     "excludes": ""
+    },
+    {
+     "id": "nang-cao",
+     "name": "Đăng ký sàn TMĐT / website trung gian",
+     "min": 5600000,
+     "max": 8000000,
+     "time": "15–30 ngày",
+     "includes": "Đề án, quy chế sàn, theo dõi hồ sơ",
+     "excludes": ""
+    }
+   ]
+  }
+ ]
+}

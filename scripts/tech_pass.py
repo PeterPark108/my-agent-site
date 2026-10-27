@@ -30,6 +30,7 @@ def jsonld(rel,url,s,desc):
   if rel.startswith('blog/'): crumbs.append(("Blog kiến thức",BASE+"blog.html"))
   crumbs.append((h1,url))
   out.append({"@context":C,"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":i+1,"name":n,"item":u} for i,(n,u) in enumerate(crumbs)]})
+  if rel=='bang-gia.html': out.append({"@context":C,"@type":"WebPage","name":h1,"url":url,"description":desc,"inLanguage":"vi","isPartOf":{"@id":BASE+"#website"},"publisher":{"@id":BASE+"#org"}})
   kw=PAGES.get(rel,{}).get('kw')
   if kw: out.append({"@context":C,"@type":"Service","name":kw,"serviceType":kw,"description":desc,"url":url,"provider":{"@type":"ProfessionalService","@id":BASE+"#org","name":"My Agent","url":BASE},"areaServed":ORG["areaServed"]})
   qa=re.findall(r'<details[^>]*><summary>(.*?)</summary>(.*?)</details>',s,re.S)
@@ -126,6 +127,15 @@ for f in pages:
   if '<footer' in s and f'href="{p}ve-chung-toi.html"' not in s.split('<footer',1)[1]:
     a,b=s.split('<footer',1)
     s=a+'<footer'+b.replace(f'<a href="{p}index.html">Trang chủ</a>',f'<a href="{p}index.html">Trang chủ</a><a href="{p}ve-chung-toi.html">Về chúng tôi</a>',1)
+  # bảng giá: menu (sau Combo) + footer (sau Combo dịch vụ) + script điền sẵn trên lien-he (idempotent)
+  if f'href="{p}bang-gia.html"' not in s.split('<header',1)[-1].split('</nav>',1)[0]:
+    on=' class=on' if rel=='bang-gia.html' else ''
+    s=re.sub(rf'(<li class="[^"]*"><a href="{re.escape(p)}combo.html"[^>]*>Combo</a></li>)',rf'\1<li class=""><a href="{p}bang-gia.html"{on}>Bảng giá</a></li>',s,count=1)
+  if '<footer' in s and f'<a href="{p}bang-gia.html">Bảng giá</a>' not in s.split('<footer',1)[1]:
+    a,b=s.split('<footer',1)
+    s=a+'<footer'+b.replace(f'<a href="{p}combo.html">Combo dịch vụ</a>',f'<a href="{p}combo.html">Combo dịch vụ</a><a href="{p}bang-gia.html">Bảng giá</a>',1)
+  if rel=='lien-he.html' and 'js/lien-he-prefill.js' not in s:
+    s=s.replace('</body>','<script src="js/lien-he-prefill.js" defer></script></body>',1)
   # tài nguyên AI agent: chỉ footer (menu trên đã chật) (idempotent)
   if f'<a href="{p}tai-nguyen-ai-agent.html">' not in s:
     s=s.replace(f'<a href="{p}tin-tuc.html">Tin tức công nghệ</a>',f'<a href="{p}tin-tuc.html">Tin tức công nghệ</a><a href="{p}tai-nguyen-ai-agent.html">Tài nguyên AI Agent</a>',1)
@@ -151,4 +161,5 @@ for f in R.rglob('*.html'):
   t2=re.sub(r'(js/main\.js)(\?v=[^"]*)?"',r'\1?v='+_V+'"',t2)
   t2=re.sub(r'(js/chat\.js)(\?v=[^"]*)?"',r'\1?v='+_V+'"',t2)
   t2=re.sub(r'(js/motion\.js)(\?v=[^"]*)?"',r'\1?v='+_V+'"',t2)
+  t2=re.sub(r'(js/(?:combo-calculator|bang-gia|lien-he-prefill)\.js)(\?v=[^"]*)?"',r'\1?v='+_V+'"',t2)
   if t2!=t: f.write_text(t2)

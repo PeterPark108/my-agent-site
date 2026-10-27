@@ -24,6 +24,10 @@ for sc in ('news_build.py', 'blog_build.py'):
     r = subprocess.run([sys.executable, 'scripts/' + sc, '--validate-only'], capture_output=True, text=True)
     print(r.stdout.strip().splitlines()[-1] if r.stdout.strip() else sc)
     if r.returncode: fail.append(f'{sc} --validate-only lỗi:\n' + r.stdout.strip())
+# Bảng giá: chặn dữ liệu không công khai, bắt buộc câu VAT/tham khảo/quảng cáo
+r = subprocess.run([sys.executable, 'scripts/test_pricing.py'], capture_output=True, text=True)
+print(r.stdout.strip().splitlines()[-1] if r.stdout.strip() else 'test_pricing')
+if r.returncode: fail.append('test_pricing.py lỗi:\n' + r.stdout.strip())
 # sitemap chỉ chứa URL có file thật
 for loc in re.findall(r'<loc>https://myagentvn\.com/(.*?)</loc>', open('sitemap.xml', encoding='utf-8').read()):
     if not os.path.isfile(loc or 'index.html'): fail.append('sitemap có URL không tồn tại: ' + loc)
