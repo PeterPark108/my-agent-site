@@ -185,7 +185,7 @@ def article_page(it,items):
   img=BASE+it['img'][2] if it.get('img') else BASE+'assets/og-image.png'
   ldo={"@context":"https://schema.org","@type":"Article","headline":it['title'][:110],"description":it['description'],"inLanguage":"vi",
     "datePublished":it['date']+"T08:00:00+07:00","dateModified":(upd or it['date'])+"T08:00:00+07:00","articleSection":CATS[c],
-    "author":{"@type":"ProfessionalService","@id":BASE+"#org","name":"My Agent","url":BASE},"publisher":{"@type":"ProfessionalService","@id":BASE+"#org","name":"My Agent","url":BASE,"logo":{"@type":"ImageObject","@id":BASE+"#logo","url":BASE+"assets/logo.png","width":780,"height":192}},
+    "author":{"@type":"ProfessionalService","@id":BASE+"#org","name":"My Agent","url":BASE},"publisher":{"@type":"ProfessionalService","@id":BASE+"#org","name":"My Agent","url":BASE,"logo":{"@type":"ImageObject","@id":BASE+"#logo","url":BASE+"assets/icon-512.png","width":512,"height":512}},
     "mainEntityOfPage":{"@type":"WebPage","@id":url},"url":url,"image":[img],"wordCount":it['words']}
   if it['tags']: ldo['keywords']=', '.join(it['tags'])
   head=(RSSL+f'<meta property="article:published_time" content="{it["date"]}T08:00:00+07:00"><meta property="article:modified_time" content="{(upd or it["date"])}T08:00:00+07:00">'
