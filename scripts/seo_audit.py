@@ -11,7 +11,7 @@ def get(rel):
   f=R/rel; return f.read_text() if f.exists() else None
 sm=get('sitemap.xml') or ''; robots=get('robots.txt') or ''
 locs=re.findall(r'<loc>(.*?)</loc>',sm)
-rels=sorted({p.relative_to(R).as_posix() for p in list(R.glob('*.html'))+list(R.glob('dich-vu/*.html'))+list(R.glob('tin-tuc/**/*.html'))})
+rels=sorted({p.relative_to(R).as_posix() for p in list(R.glob('*.html'))+list(R.glob('dich-vu/*.html'))+list(R.glob('tin-tuc/**/*.html'))+list(R.glob('blog/**/*.html'))})
 def _ok(x):
   try: json.loads(x); return True
   except Exception: return False
@@ -70,6 +70,24 @@ for rel in rels:
         if not o.get(k): bad(rel,'NewsArticle thiếu '+k)
       if o.get('datePublished','')[:10] not in s.split('<main',1)[-1]: bad(rel,'ngày đăng JSON-LD không hiện trên trang')
     if 'Nguồn tham' not in s or not re.search(r'class="nwa-src.*?<a href="https://',s,re.S): bad(rel,'bài viết thiếu khối Nguồn tham khảo có link')
+    if 'application/rss+xml' not in s: bad(rel,'thiếu link RSS')
+  if rel.startswith('blog/'):
+    if 'property="article:published_time"' not in s: bad(rel,'bài blog thiếu article:published_time')
+    if not 110<=len(d)<=155: bad(rel,f'bài blog: description {len(d)} ký tự (cần 110–155)')
+    arts=[o for x in lds if _ok(x) for o in json.loads(x).get('@graph',[json.loads(x)]) if o.get('@type')=='Article']
+    if len(arts)!=1: bad(rel,'bài blog cần đúng 1 Article JSON-LD')
+    h1t=re.sub(r'\s+',' ',html.unescape(re.sub(r'<[^>]+>','',(re.search(r'<h1[^>]*>(.*?)</h1>',s,re.S) or [0,''])[1]))).replace('\xa0',' ').strip()
+    for o in arts:
+      if o.get('headline','').replace('\xa0',' ')!=h1t[:110]: bad(rel,'headline Article khác H1')
+      for k in ('headline','datePublished','dateModified','author','publisher','url','description','mainEntityOfPage','image'):
+        if not o.get(k): bad(rel,'Article thiếu '+k)
+      if o.get('url')!=url: bad(rel,'Article url khác canonical')
+      if o.get('description')!=d: bad(rel,'Article description khác meta description')
+      if (o.get('author') or {}).get('name')!='My Agent' or (o.get('publisher') or {}).get('name')!='My Agent': bad(rel,'author/publisher phải là Organization My Agent')
+      if o.get('datePublished','')[:10] not in s.split('<main',1)[-1]: bad(rel,'ngày đăng Article không hiện trên trang')
+    if not re.search(r'<nav class="crumb[^>]*>.*?href="\.\./blog\.html"',s,re.S): bad(rel,'thiếu breadcrumb hiển thị về blog.html')
+    if not re.search(r'id="dich-vu-lien-quan".*?href="\.\./dich-vu/[a-z0-9-]+\.html"',s,re.S): bad(rel,'thiếu khối Dịch vụ liên quan có link dịch vụ')
+    if 'href="../lien-he.html"' not in s.split('<main',1)[-1].split('</main>',1)[0]: bad(rel,'thiếu CTA tới lien-he.html')
     if 'application/rss+xml' not in s: bad(rel,'thiếu link RSS')
   if rel=='index.html':
     for need in ('ProfessionalService','WebSite'):

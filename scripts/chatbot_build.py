@@ -13,7 +13,7 @@ def short(t,n=300):
   c=t[:n]; i=max(c.rfind('. '),c.rfind('; '))
   return (c[:i+1] if i>80 else c.rsplit(' ',1)[0]+'…')
 docs=[]
-pages=sorted(list(R.glob('*.html'))+list(R.glob('dich-vu/*.html'))+[p for p in R.glob('tin-tuc/*.html') if not re.match(r'trang-\d+\.html$',p.name)])
+pages=sorted(list(R.glob('*.html'))+list(R.glob('dich-vu/*.html'))+[p for p in R.glob('tin-tuc/*.html') if not re.match(r'trang-\d+\.html$',p.name)]+sorted(R.glob('blog/*.html')))
 for f in pages:
   s=f.read_text(); rel=str(f.relative_to(R))
   if rel in SKIP or 'http-equiv="refresh"' in s: continue

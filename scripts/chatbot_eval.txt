@@ -51,3 +51,6 @@ giá làm logo | intent:price
 website có chuẩn seo không | thiet-ke-website,seo-tong-the
 sao lưu website hằng tháng | cham-soc-website
 mua iphone giá rẻ | intent:price,intent:fallback
+blog kiến thức của my agent | blog.html
+bài viết hướng dẫn website và seo | blog.html
+có bài kiến thức nào để đọc không | blog.html

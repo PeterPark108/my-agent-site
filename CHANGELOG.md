@@ -1,5 +1,14 @@
 # Nhật ký thay đổi
 
+## 0.8.0 - 2026-10-27
+- Mục mới **Blog / Kiến thức**: bài hướng dẫn do My Agent tự viết, mỗi bài 1 file `data/blog/<slug>.md`, dựng bằng `scripts/blog_build.py`, kiểm tra bằng `scripts/blog_publish.sh`.
+- `blog.html` (danh sách) + `blog/<slug>.html`: breadcrumb hiển thị + BreadcrumbList, Article JSON-LD (author/publisher My Agent), canonical/OG, mục lục, Dịch vụ liên quan + CTA Liên hệ, bài mới hơn/cũ hơn, bài liên quan; RSS `blog/feed.xml`; `blog/` chuyển về `blog.html`.
+- Chưa có bài: trạng thái "Bài viết đầu tiên sắp ra mắt", `noindex, follow`, không vào sitemap (tự gỡ khi có bài).
+- Menu "Blog" + footer "Blog / Kiến thức" trên mọi trang (tech_pass), sitemap/lastmod cho bài blog.
+- Validator: chặn 24/7, 24h, cam kết/đảm bảo top/thứ hạng, top 1, FPT Polytechnic, giá/số liệu chưa đánh dấu "ví dụ"/nguồn, độ dài title/description, thiếu/sai services, slug trùng, ngày sai. `ci_check.py` chạy validator Tin tức + Blog và kiểm tra sitemap không có URL chết; `seo_audit.py` kiểm tra Article/breadcrumb/dịch vụ liên quan/CTA cho bài blog.
+- `scripts/test_blog.py` (validator + dựng thử đầu-cuối trên bản sao tạm), trợ lý MJ đọc bài blog, thêm 3 câu eval.
+- Tài liệu `docs/blog.md`, `docs/blog-format.json`, mẫu `data/blog/_template.md.example` (không đăng).
+
 ## 0.7.3 - 2026-10-27
 - (Số phiên bản 0.7.1/0.7.2 đã dùng cho tag của các thay đổi SEO trước đó.)
 - Dự án mẫu (`du-an.html`): thêm demo web app XN Linh Kiện Máy In (xnlinhkien.myagentvn.com); thẻ NhàĐất Việt có nút "Xem demo" (nhadat.myagentvn.com).

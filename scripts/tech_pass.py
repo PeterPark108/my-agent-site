@@ -8,7 +8,7 @@ NOINDEX={'tra-cuu-tien-do.html'}  # tiện ích: noindex,follow + loại khỏi 
 R=pathlib.Path(__file__).resolve().parent.parent
 cfg=(R/'js/config.js').read_text()
 BASE=re.search(r"siteUrl:\s*'([^']+)'",cfg).group(1)
-pages=sorted([p for p in R.glob('*.html')]+list(R.glob('dich-vu/*.html'))+list(R.glob('tin-tuc/**/*.html')))
+pages=sorted([p for p in R.glob('*.html')]+list(R.glob('dich-vu/*.html'))+list(R.glob('tin-tuc/**/*.html'))+list(R.glob('blog/**/*.html')))
 # redirect stubs (noindex) are skipped: no head injection, not in sitemap
 pages=[p for p in pages if 'http-equiv="refresh"' not in p.read_text() and p.name!='404.html']
 urls=[]
@@ -27,6 +27,7 @@ def jsonld(rel,url,s,desc):
   crumbs=[("Trang chủ",BASE)]
   if rel.startswith('dich-vu/'): crumbs.append(("Dịch vụ",BASE+"dich-vu.html"))
   if rel.startswith('tin-tuc/'): crumbs.append(("Tin tức công nghệ",BASE+"tin-tuc.html"))
+  if rel.startswith('blog/'): crumbs.append(("Blog kiến thức",BASE+"blog.html"))
   crumbs.append((h1,url))
   out.append({"@context":C,"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":i+1,"name":n,"item":u} for i,(n,u) in enumerate(crumbs)]})
   kw=PAGES.get(rel,{}).get('kw')
@@ -42,6 +43,7 @@ def lastmod(rel):
 for f in pages:
   rel=f.relative_to(R).as_posix(); p='../'*rel.count('/'); s=f.read_text()
   url=BASE if rel=='index.html' else BASE+rel
+  if '<!-- blog:empty -->' in s: NOINDEX.add(rel)  # blog chưa có bài: noindex + không vào sitemap
   if rel not in NOINDEX: urls.append((url,rel))
   e=lambda x:html.escape(x,quote=True)
   sp=PAGES.get(rel,{})
@@ -106,11 +108,18 @@ for f in pages:
     s=re.sub(rf'(<li class="[^"]*"><a href="{re.escape(p)}tra-cuu-tien-do.html"[^>]*>Tra cứu đơn</a></li>)',rf'<li class=""><a href="{p}tin-tuc.html"{on}>Tin tức</a></li>\1',s,count=1)
   if f'<a href="{p}tin-tuc.html">Tin tức công nghệ</a>' not in s:
     s=s.replace(f'<a href="{p}tra-cuu-tien-do.html">Tra cứu tiến độ</a>',f'<a href="{p}tin-tuc.html">Tin tức công nghệ</a><a href="{p}tra-cuu-tien-do.html">Tra cứu tiến độ</a>',1)
+  # blog / kiến thức: menu (sau Tin tức) + footer (idempotent)
+  if f'href="{p}blog.html"' not in s.split('<header',1)[-1].split('</nav>',1)[0]:
+    on=' class=on' if rel=='blog.html' or rel.startswith('blog/') else ''
+    s=re.sub(rf'(<li class="[^"]*"><a href="{re.escape(p)}tin-tuc.html"[^>]*>Tin tức</a></li>)',rf'\1<li class=""><a href="{p}blog.html"{on}>Blog</a></li>',s,count=1)
+  if '<footer' in s and f'<a href="{p}blog.html">Blog / Kiến thức</a>' not in s.split('<footer',1)[1]:
+    a,b=s.split('<footer',1)
+    s=a+'<footer'+b.replace(f'<a href="{p}tin-tuc.html">Tin tức công nghệ</a>',f'<a href="{p}tin-tuc.html">Tin tức công nghệ</a><a href="{p}blog.html">Blog / Kiến thức</a>',1)
   # tài nguyên AI agent: chỉ footer (menu trên đã chật) (idempotent)
   if f'<a href="{p}tai-nguyen-ai-agent.html">' not in s:
     s=s.replace(f'<a href="{p}tin-tuc.html">Tin tức công nghệ</a>',f'<a href="{p}tin-tuc.html">Tin tức công nghệ</a><a href="{p}tai-nguyen-ai-agent.html">Tài nguyên AI Agent</a>',1)
   f.write_text(s)
-(R/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join(f'  <url><loc>{u}</loc><lastmod>{lastmod(r)}</lastmod><priority>{"1.0" if u==BASE else ("0.6" if r.startswith("tin-tuc/") else "0.7")}</priority></url>\n' for u,r in urls)+'</urlset>\n')
+(R/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join(f'  <url><loc>{u}</loc><lastmod>{lastmod(r)}</lastmod><priority>{"1.0" if u==BASE else ("0.6" if r.startswith(("tin-tuc/","blog/")) else "0.7")}</priority></url>\n' for u,r in urls)+'</urlset>\n')
 (R/'robots.txt').write_text(f'User-agent: *\nAllow: /\n\nSitemap: {BASE}sitemap.xml\n')
 # CSS rút gọn (giữ css/style.css làm bản nguồn dễ đọc)
 c=(R/'css/style.css').read_text(); c=re.sub(r'/\*.*?\*/','',c,flags=re.S); c=re.sub(r'\s+',' ',c); c=re.sub(r'\s*([{};,>])\s*',r'\1',c).replace(';}','}')

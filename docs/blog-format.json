@@ -1,0 +1,133 @@
+{
+  "name": "My Agent – định dạng bài Blog / Kiến thức",
+  "version": "0.8.0",
+  "file": "data/blog/<slug>.md  (slug: a-z, 0-9, '-', không dấu; URL blog/<slug>.html; cấm index, feed)",
+  "template": "data/blog/_template.md.example",
+  "docs": "docs/blog.md",
+  "format": "Front-matter (tập con YAML, giữa hai dòng ---) + nội dung Markdown",
+  "fields": {
+    "title": {
+      "required": true,
+      "type": "string",
+      "rule": "20–70 ký tự, không trùng; là H1 và tiêu đề trang"
+    },
+    "date": {
+      "required": true,
+      "type": "YYYY-MM-DD",
+      "rule": "ngày có thật, không ở tương lai (giờ VN)"
+    },
+    "updated": {
+      "required": false,
+      "type": "YYYY-MM-DD",
+      "rule": "không trước date"
+    },
+    "description": {
+      "required": true,
+      "type": "string",
+      "rule": "110–155 ký tự, không trùng; meta description + lead"
+    },
+    "category": {
+      "required": true,
+      "type": "enum",
+      "values": [
+        "website",
+        "seo",
+        "marketing",
+        "du-lieu",
+        "ai"
+      ]
+    },
+    "services": {
+      "required": true,
+      "type": "list",
+      "rule": "1–4 slug có file dich-vu/<slug>.html",
+      "values": [
+        "thiet-ke-website",
+        "hosting-seo",
+        "ten-mien",
+        "email-doanh-nghiep",
+        "cham-soc-website",
+        "seo-tong-the",
+        "quang-cao-google-facebook",
+        "traffic-user",
+        "google-maps",
+        "video-ai",
+        "cham-soc-fanpage",
+        "zalo-oa-mini-app",
+        "profile-doanh-nghiep",
+        "phan-tich-du-lieu",
+        "ky-thuat-du-lieu",
+        "phan-mem-noi-bo",
+        "thiet-ke-app",
+        "bo-cong-thuong"
+      ]
+    },
+    "tags": {
+      "required": false,
+      "type": "list"
+    },
+    "slug": {
+      "required": false,
+      "type": "string",
+      "rule": "nếu có phải trùng tên file"
+    },
+    "image": {
+      "required": false,
+      "type": "path",
+      "rule": "png/jpg/webp có thật trong assets/blog/"
+    },
+    "image_alt": {
+      "required": "nếu có image",
+      "type": "string"
+    },
+    "draft": {
+      "required": false,
+      "type": "bool",
+      "rule": "true = chưa đăng"
+    }
+  },
+  "unknown_fields": "lỗi",
+  "body": {
+    "min_words": 300,
+    "headings": "## và ### (không #)",
+    "allowed": [
+      "đoạn văn",
+      "**đậm**",
+      "*nghiêng*",
+      "`code`",
+      "danh sách - và 1.",
+      "> trích dẫn",
+      "``` code ```",
+      "bảng",
+      "---",
+      "link https/mailto/nội bộ tương đối/#neo",
+      "ảnh ../assets/blog/... có alt"
+    ],
+    "blocked": [
+      "HTML thô (bị escape)",
+      "javascript:",
+      "data:",
+      "//"
+    ]
+  },
+  "forbidden": [
+    "24/7",
+    "24/24",
+    "24h",
+    "top 1",
+    "cam kết/đảm bảo/bảo đảm/chắc chắn + top/thứ hạng/vị trí/lên trang",
+    "FPT Polytechnic"
+  ],
+  "numbers_rule": "đoạn có số + %/triệu/tỷ/nghìn/đ/đồng/VNĐ/USD/khách hàng/doanh nghiệp/dự án phải có 'ví dụ'/'giả định'/'minh hoạ' hoặc link https trong cùng đoạn",
+  "empty_state": "0 bài: blog.html hiện 'Bài viết đầu tiên sắp ra mắt', noindex,follow, không có trong sitemap",
+  "publish": "scripts/blog_publish.sh (phải PASS)",
+  "git_flow": [
+    "git checkout dev && git pull --ff-only",
+    "thêm data/blog/<slug>.md",
+    "scripts/blog_publish.sh",
+    "git add -A && git -c user.name=\"My Agent Bot\" -c user.email=\"bot@users.noreply.github.com\" commit -m \"blog: <tiêu đề>\"",
+    "git push origin dev",
+    "gh pr create --base production --head dev",
+    "KHÔNG tự merge; người duyệt merge rồi git push origin origin/production:main"
+  ]
+}
