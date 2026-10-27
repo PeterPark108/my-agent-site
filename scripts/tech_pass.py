@@ -8,13 +8,13 @@ NOINDEX={'tra-cuu-tien-do.html'}  # tiện ích: noindex,follow + loại khỏi 
 R=pathlib.Path(__file__).resolve().parent.parent
 cfg=(R/'js/config.js').read_text()
 BASE=re.search(r"siteUrl:\s*'([^']+)'",cfg).group(1)
-pages=sorted([p for p in R.glob('*.html')]+list(R.glob('dich-vu/*.html')))
+pages=sorted([p for p in R.glob('*.html')]+list(R.glob('dich-vu/*.html'))+list(R.glob('tin-tuc/**/*.html')))
 # redirect stubs (noindex) are skipped: no head injection, not in sitemap
 pages=[p for p in pages if 'http-equiv="refresh"' not in p.read_text() and p.name!='404.html']
 urls=[]
 ORG={"@type":"ProfessionalService","@id":BASE+"#org","name":"My Agent","alternateName":"Công ty TNHH Thương mại và Dịch vụ My Agent","url":BASE,"logo":BASE+"assets/icon-512.png","image":BASE+"assets/og-image.png","telephone":"+84328439972","email":"vantungn044@gmail.com",
  "address":{"@type":"PostalAddress","addressLocality":"Thành phố Hồ Chí Minh","addressCountry":"VN"},
- "areaServed":[{"@type":"City","name":"Thành phố Hồ Chí Minh"},{"@type":"Country","name":"Việt Nam"}],"sameAs":[]}
+ "areaServed":[{"@type":"City","name":"Thành phố Hồ Chí Minh"},{"@type":"Country","name":"Việt Nam"}]}
 def txt(x): return re.sub(r'\s+',' ',html.unescape(re.sub(r'<[^>]+>','',x))).strip()
 def jsonld(rel,url,s,desc):
   out=[]; C="https://schema.org"
@@ -25,6 +25,7 @@ def jsonld(rel,url,s,desc):
   h1=txt(re.search(r'<h1[^>]*>(.*?)</h1>',s,re.S).group(1))
   crumbs=[("Trang chủ",BASE)]
   if rel.startswith('dich-vu/'): crumbs.append(("Dịch vụ",BASE+"dich-vu.html"))
+  if rel.startswith('tin-tuc/'): crumbs.append(("Tin tức công nghệ",BASE+"tin-tuc.html"))
   crumbs.append((h1,url))
   out.append({"@context":C,"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":i+1,"name":n,"item":u} for i,(n,u) in enumerate(crumbs)]})
   kw=PAGES.get(rel,{}).get('kw')
@@ -33,6 +34,8 @@ def jsonld(rel,url,s,desc):
   if qa: out.append({"@context":C,"@type":"FAQPage","mainEntity":[{"@type":"Question","name":txt(q),"acceptedAnswer":{"@type":"Answer","text":txt(a)}} for q,a in qa]})
   return out
 def lastmod(rel):
+  m=re.search(r'property="article:modified_time" content="(\d{4}-\d{2}-\d{2})',(R/rel).read_text())
+  if m: return m.group(1)
   d=subprocess.run(['git','log','-1','--format=%cs','--',rel],cwd=R,capture_output=True,text=True).stdout.strip()
   return d or datetime.date.today().isoformat()
 for f in pages:
@@ -56,10 +59,12 @@ for f in pages:
   title=html.unescape(re.search(r'<title>(.*?)</title>',s).group(1))
   m=re.search(r'<meta name="description" content="([^"]*)"',s); desc=html.unescape(m.group(1)) if m else ''
   e=lambda x:html.escape(x,quote=True)
+  ogt='article' if 'property="article:published_time"' in s else 'website'
+  im=re.search(r'<link rel="image_src" href="([^"]+)">',s); ogi=im.group(1) if im else BASE+'assets/og-image.png'
   head=[f'<link rel="canonical" href="{url}"><link rel="alternate" hreflang="vi" href="{url}"><link rel="alternate" hreflang="x-default" href="{url}">',
    f'<link rel="icon" href="{p}assets/favicon.svg" type="image/svg+xml"><link rel="icon" href="{p}assets/favicon-32.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="{p}assets/apple-touch-icon.png"><link rel="manifest" href="{p}site.webmanifest">',
-   f'<meta property="og:type" content="website"><meta property="og:locale" content="vi_VN"><meta property="og:site_name" content="My Agent"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:url" content="{url}"><meta property="og:image" content="{BASE}assets/og-image.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">',
-   f'<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{e(title)}"><meta name="twitter:description" content="{e(desc)}"><meta name="twitter:image" content="{BASE}assets/og-image.png">',
+   f'<meta property="og:type" content="{ogt}"><meta property="og:locale" content="vi_VN"><meta property="og:site_name" content="My Agent"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:url" content="{url}"><meta property="og:image" content="{ogi}">'+('<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">' if not im else '')+f'',
+   f'<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{e(title)}"><meta name="twitter:description" content="{e(desc)}"><meta name="twitter:image" content="{ogi}">',
    f'<script src="{p}js/config.js"></script><script src="{p}js/motion.js" defer></script><script src="{p}js/chat.js" defer></script>']
   if rel=='index.html':
     # intro trang chủ: script nhỏ quyết định có chạy intro không (tránh nháy nội dung); failsafe 6.5s; không JS = trang hiện bình thường
@@ -104,7 +109,7 @@ for f in pages:
   if f'<a href="{p}tai-nguyen-ai-agent.html">' not in s:
     s=s.replace(f'<a href="{p}tin-tuc.html">Tin tức công nghệ</a>',f'<a href="{p}tin-tuc.html">Tin tức công nghệ</a><a href="{p}tai-nguyen-ai-agent.html">Tài nguyên AI Agent</a>',1)
   f.write_text(s)
-(R/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join(f'  <url><loc>{u}</loc><lastmod>{lastmod(r)}</lastmod><priority>{"1.0" if u==BASE else "0.7"}</priority></url>\n' for u,r in urls)+'</urlset>\n')
+(R/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join(f'  <url><loc>{u}</loc><lastmod>{lastmod(r)}</lastmod><priority>{"1.0" if u==BASE else ("0.6" if r.startswith("tin-tuc/") else "0.7")}</priority></url>\n' for u,r in urls)+'</urlset>\n')
 (R/'robots.txt').write_text(f'User-agent: *\nAllow: /\n\nSitemap: {BASE}sitemap.xml\n')
 # CSS rút gọn (giữ css/style.css làm bản nguồn dễ đọc)
 c=(R/'css/style.css').read_text(); c=re.sub(r'/\*.*?\*/','',c,flags=re.S); c=re.sub(r'\s+',' ',c); c=re.sub(r'\s*([{};,>])\s*',r'\1',c).replace(';}','}')

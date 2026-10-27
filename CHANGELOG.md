@@ -1,5 +1,12 @@
 # Nhật ký thay đổi
 
+## 0.7.0 - 2026-10-27
+- Tin tức công nghệ thành hệ thống đăng bài: mỗi bài là 1 file Markdown `data/news/YYYY-MM-DD-slug.md` (front-matter + nội dung), dựng bằng `scripts/news_build.py`, kiểm tra bằng `scripts/news_publish.sh`.
+- Trang bài viết `tin-tuc/<slug>.html`: breadcrumb, ngày đăng/cập nhật, chủ đề, thời gian đọc, mục lục (bài dài), Nguồn tham khảo, Góc nhìn My Agent, dịch vụ liên quan, bài trước/sau, bài liên quan; NewsArticle + BreadcrumbList JSON-LD, og:type article.
+- Danh sách phân trang 12 tin (`tin-tuc/trang-N.html`, rel prev/next), lọc chủ đề bằng trang riêng `tin-tuc/chu-de/<chủ-đề>.html` (chạy cả khi tắt JS), RSS `tin-tuc/feed.xml`, `tin-tuc/` chuyển về `tin-tuc.html`.
+- Bộ Markdown an toàn tự viết (`scripts/news_md.py`, escape HTML, chặn link javascript:), validator tiếng Việt, kiểm thử `scripts/test_news.py`. 10 tin cũ chuyển sang `data/news/` dạng thẻ link, nội dung giữ nguyên; bỏ `data/news.json`.
+- tech_pass/seo_audit/chatbot_build hỗ trợ trang trong `tin-tuc/`; tài liệu `docs/tin-tuc.md`, `docs/tin-tuc-format.json`, mẫu `data/news/_template.md.example`.
+
 ## 0.6.0 - 2026-10-27
 - Thêm trợ lý MJ (chatbot chạy trong trình duyệt, avatar bông hoa đỏ) góc dưới trái mọi trang: trả lời từ nội dung web (`data/chatbot-kb.json`), câu hỏi nhanh, gợi ý liên hệ khi chưa chắc.
 - Thêm `scripts/chatbot_build.py`, `scripts/chatbot_eval.py` (+ `chatbot_eval.txt`), `docs/chatbot.md`, `assets/mj-avatar.*`; cấu hình `chatbotEnabled` / `?chat=0`.
