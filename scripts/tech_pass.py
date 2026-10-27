@@ -22,7 +22,7 @@ def jsonld(rel,url,s,desc):
   if rel=='index.html':
     o=dict(ORG,description=desc)
     out.append({"@context":C,"@graph":[o,{"@type":"WebSite","@id":BASE+"#website","url":BASE,"name":"My Agent","inLanguage":"vi","publisher":{"@id":BASE+"#org"}}]})
-    return out
+    return out+faqld(s)
   h1=txt(re.search(r'<h1[^>]*>(.*?)</h1>',s,re.S).group(1))
   crumbs=[("Trang chủ",BASE)]
   if rel.startswith('dich-vu/'): crumbs.append(("Dịch vụ",BASE+"dich-vu.html"))
@@ -32,10 +32,11 @@ def jsonld(rel,url,s,desc):
   out.append({"@context":C,"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":i+1,"name":n,"item":u} for i,(n,u) in enumerate(crumbs)]})
   if rel=='bang-gia.html': out.append({"@context":C,"@type":"WebPage","name":h1,"url":url,"description":desc,"inLanguage":"vi","isPartOf":{"@id":BASE+"#website"},"publisher":{"@id":BASE+"#org"}})
   kw=PAGES.get(rel,{}).get('kw')
-  if kw: out.append({"@context":C,"@type":"Service","name":kw,"serviceType":kw,"description":desc,"url":url,"provider":{"@type":"ProfessionalService","@id":BASE+"#org","name":"My Agent","url":BASE},"areaServed":ORG["areaServed"]})
+  if kw: out.append({"@context":C,"@type":"Service","name":kw,"serviceType":kw,"description":desc,"url":url,"provider":{"@id":BASE+"#org"},"areaServed":ORG["areaServed"]})
+  return out+faqld(s)
+def faqld(s):
   qa=re.findall(r'<details[^>]*><summary>(.*?)</summary>(.*?)</details>',s,re.S)
-  if qa: out.append({"@context":C,"@type":"FAQPage","mainEntity":[{"@type":"Question","name":txt(q),"acceptedAnswer":{"@type":"Answer","text":txt(a)}} for q,a in qa]})
-  return out
+  return [{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":txt(q),"acceptedAnswer":{"@type":"Answer","text":txt(a)}} for q,a in qa]}] if qa else []
 def lastmod(rel):
   m=re.search(r'property="article:modified_time" content="(\d{4}-\d{2}-\d{2})',(R/rel).read_text())
   if m: return m.group(1)

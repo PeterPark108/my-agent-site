@@ -98,8 +98,26 @@ def svg(kind,L,desc,slug):
 def h1of(slug):
   s=(R/f'dich-vu/{slug}.html').read_text(); return html.unescape(re.sub('<[^>]+>','',re.search(r'<h1[^>]*>(.*?)</h1>',s,re.S).group(1))).replace('\xa0',' ')
 TT='<a class="btn sm ghost" href="../bang-gia.html#tinh-gia">Tự tính giá</a> '
+import json
+from svc_pricing import rng
+PJ={s['id']:s for s in json.loads((R/'data/pricing.json').read_text())['services']}
+def fillp(x):
+  # {gia:dv/goi} -> khoảng giá + đơn vị, {tg:dv/goi} -> thời gian; lấy từ data/pricing.json (id lạ -> lỗi)
+  def f(m):
+    s=PJ[m.group(2)]; t=[t for t in s['tiers'] if t['id']==m.group(3)][0]
+    if m.group(1)=='tg': return t['time']
+    if m.group(1)=='so': return rng(t['min'],t['max'])
+    return 'Thương lượng' if s.get('negotiable') else rng(t['min'],t['max'])+' / '+s['unit']
+  return re.sub(r'\{(gia|tg|so):([a-z0-9-]+)/([a-z0-9-]+)\}',f,x)
+def intro(slug,d):
+  o=''
+  for k,h,ps,li in d.get('intro',[]):
+    o+=f'<div class="gap"></div><div class="t rv"><span class="k">// {E(k)}</span><h2>{h}</h2></div><div class="card glass rv svi">'+''.join(f'<p>{fillp(x)}</p>' for x in ps)
+    if li: o+='<ul class="svi-l">'+''.join(f'<li>{CK}<span>{x}</span></li>' for x in li)+'</ul>'
+    o+='</div>'
+  return o
 def block(slug,d):
-  t,items=d['exp']; o=['<!-- svc-deep --><div class="gap"></div><div class="t rv"><span class="k">// chuyên môn</span><h2>Góc nhìn <span class="gt">chuyên&nbsp;môn</span></h2></div>']
+  t,items=d['exp']; o=['<!-- svc-deep -->'+intro(slug,d)+'<div class="gap"></div><div class="t rv"><span class="k">// chuyên môn</span><h2>Góc nhìn <span class="gt">chuyên&nbsp;môn</span></h2></div>']
   o.append('<div class="xp">'+svg(*d['vis'][:1],d['vis'][1],d['vis'][2],slug)+f'<div class="xpl glass rv"><h3>{E(t)}</h3><ul>'+''.join(f'<li>{CK}<div><b>{E(a)}</b><span>{E(b)}</span></div></li>' for a,b in items)+'</ul></div></div>')
   o.append('<div class="gap"></div><div class="t rv"><span class="k">// bàn giao</span><h2>Bạn nhận <span class="gt">được&nbsp;gì</span></h2></div><ul class="dlv">'+''.join(f'<li class="glass rv">{CK}<span>{E(x)}</span></li>' for x in d['deliv'])+'</ul>')
   o.append('<div class="gap"></div><div class="t rv"><span class="k">// stack</span><h2>Công nghệ <span class="gt">&amp;&nbsp;công&nbsp;cụ</span></h2></div><ul class="tch rv" aria-label="Công nghệ và công cụ">'+''.join(f'<li>{E(x)}</li>' for x in d['tech'])+'</ul><p class="muted rv"><small>Chọn công cụ theo nhu cầu và hệ thống bạn đang dùng; không phải dự án nào cũng dùng tất cả.</small></p>')
@@ -115,7 +133,9 @@ for slug,d in S.items():
   ol=f'<ol class="tl" style="--c:{len(d["steps"])}">'+''.join(f'<li class="rv"><span class="n mono">{i+1:02d}</span><h3>{E(a)}</h3><p>{E(b)}</p></li>' for i,(a,b) in enumerate(d['steps']))+'</ol>'
   s,k=re.subn(r'<ol class="tl"[^>]*>.*?</ol>',ol,s,count=1,flags=re.S); assert k,slug
   s=re.sub(r'<details class="glass fx">.*?</details>','',s,flags=re.S)
-  fx=''.join(f'<details class="glass fx"><summary>{E(q)}</summary><p>{E(a)}</p></details>' for q,a in d['faq'])
-  s,k=re.subn(r'<div class="faq">',lambda m:m.group(0)+fx,s,count=1); assert k,slug
+  fx=''.join(f'<details class="glass fx"><summary>{E(q)}</summary><p>{E(fillp(a))}</p></details>' for q,a in d['faq'])
+  if d.get('faq_replace'): s,k=re.subn(r'<div class="faq">.*?</div>',lambda m:'<div class="faq">'+fx+'</div>',s,count=1,flags=re.S)
+  else: s,k=re.subn(r'<div class="faq">',lambda m:m.group(0)+fx,s,count=1)
+  assert k,slug
   f.write_text(s); n+=1
 print('svc_deep:',n,'pages')

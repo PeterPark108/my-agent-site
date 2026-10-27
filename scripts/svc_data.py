@@ -182,3 +182,53 @@ S['traffic-user']=dict(
  nofit=['Muốn tăng số lượt ảo để "đẹp" số liệu hoặc mong lên top Google nhờ traffic ảo'],
  faq=[('Traffic có giúp lên top Google không?','Không có cách nào đảm bảo. Traffic thật giúp kiểm chứng nội dung và có thể tạo đơn hàng, nhưng thứ hạng chủ yếu dựa vào nội dung, kỹ thuật và uy tín website.')],
  rel=['seo-tong-the','quang-cao-google-facebook','phan-tich-du-lieu'])
+
+# --- v0.9.6 on-page SEO (kế hoạch từ khóa Peter 28/10/2026) ---
+# 'intro' = (kicker, tiêu đề H2, [đoạn văn], [gạch đầu dòng]) chèn đầu khối chuyên sâu.
+# Giá/thời gian viết bằng chỗ giữ {gia:<dịch vụ>/<gói>} và {tg:<dịch vụ>/<gói>}, svc_deep.py điền từ data/pricing.json.
+S['thiet-ke-website']['intro']=[('thiết kế theo yêu cầu','Thiết kế web chuyên nghiệp <span class="gt">theo&nbsp;yêu cầu</span>',[
+ 'Một website chuyên nghiệp không phải là website nhiều hiệu ứng, mà là website khách mở ra hiểu ngay bạn làm gì, tin được và liên hệ được. My Agent thiết kế web theo yêu cầu từng doanh nghiệp: cấu trúc trang theo hành trình khách hàng, giao diện theo nhận diện thương hiệu, tốc độ tải nhanh trên điện thoại và SEO nền tảng ngay từ đầu.',
+ 'Web mẫu thay logo và màu là xong; thiết kế theo yêu cầu bắt đầu từ việc hỏi: khách của bạn tìm gì, cần thấy gì để tin, và bạn muốn họ làm gì (gọi, nhắn Zalo, đặt hàng). Từ đó mới dựng bố cục, nội dung và tính năng. Mức tùy biến linh hoạt: không phải dự án nào cũng cần lập trình lại từ đầu.',
+ 'Cần hệ thống có đăng nhập, phân quyền, dashboard (web app)? Xem <a href="phan-mem-noi-bo.html">phần mềm nội bộ &amp; web app theo yêu cầu</a>. Muốn một đầu mối lo cả tên miền, email, marketing? Xem <a href="../index.html">thiết kế web trọn gói</a> và <a href="../combo.html">combo dịch vụ</a>.'],
+ ['Responsive, ưu tiên điện thoại; ảnh nén, tải trễ ảnh ngoài màn hình','SEO nền tảng: title/meta riêng từng trang, 1 H1, sitemap, schema, URL dễ đọc','Nút gọi, Zalo, form rõ ràng; gắn Google Maps','Hướng dẫn sử dụng và cập nhật nội dung sau bàn giao'])]
+S['thiet-ke-website']['faq']+= [
+ ('Thiết kế web theo yêu cầu có đắt hơn web mẫu?','Thường cao hơn vì có phân tích và thiết kế riêng. Khoảng giá từng loại có trong bảng giá tham khảo trên trang, báo giá chính xác sau khi trao đổi.'),
+ ('Tôi có tự sửa nội dung được không?','Website giới thiệu và website bán hàng có trang quản trị (CMS) và được hướng dẫn cách cập nhật.'),
+ ('Ở tỉnh khác có làm được không?','Có. Toàn bộ quy trình làm online: trao đổi, xem bản thử, duyệt và bàn giao từ xa.')]
+S['thiet-ke-app']['intro']=[('trọn gói','Thiết kế app trọn gói <span class="gt">iOS, Android</span>',[
+ 'Một ứng dụng đáng làm khi khách quay lại thường xuyên: đặt lịch, mua lại, tích điểm, theo dõi đơn. My Agent thiết kế app đa nền tảng (iOS + Android từ một mã nguồn), trọn gói từ phân tích tính năng, thiết kế giao diện, lập trình, trang quản trị đến hỗ trợ đưa lên store. Làm việc online từ TP.HCM, nhận khách toàn quốc.',
+ 'Trọn gói gồm: phân tích tính năng và luồng màn hình → thiết kế UI → lập trình đa nền tảng → trang quản trị → kiểm thử → hỗ trợ đưa lên App Store/Google Play (gói bán hàng/đặt lịch trở lên) → bàn giao, hướng dẫn.',
+ 'Khi nào nên làm web app thay vì app? Nếu người dùng chủ yếu là nhân viên nội bộ hoặc dùng trên máy tính, <a href="phan-mem-noi-bo.html">web app theo yêu cầu</a> thường nhanh và tiết kiệm hơn. Nếu chỉ cần kênh chăm sóc khách qua Zalo, cân nhắc <a href="zalo-oa-mini-app.html">Zalo Mini App</a>.'],[])]
+S['thiet-ke-app']['faq']+= [
+ ('Một app làm cho cả iOS và Android được không?','Được, dùng công nghệ đa nền tảng: một mã nguồn chạy trên cả iOS và Android.'),
+ ('Làm app mất bao lâu?','Theo bảng giá tham khảo: app MVP khoảng {tg:thiet-ke-app/co-ban}, app tích hợp thanh toán/CRM khoảng {tg:thiet-ke-app/nang-cao}, tùy phạm vi.'),
+ ('Ngoài TP.HCM có làm được không?','Có, làm việc online và nhận khách toàn quốc.')]
+S['phan-mem-noi-bo']['intro']=[('web app theo yêu cầu','Thiết kế <span class="gt">web app theo&nbsp;yêu cầu</span>',[
+ 'Khi công việc nằm rải rác trong nhiều file Excel và nhóm Zalo, một web app làm đúng theo quy trình của bạn thường gọn hơn việc cố uốn mình theo phần mềm đóng gói. Web app chạy trên trình duyệt, dùng được trên máy tính và điện thoại, có đăng nhập và phân quyền cho từng người. My Agent nhận thiết kế web app theo yêu cầu cho doanh nghiệp tại TP.HCM và trên toàn quốc. Chúng tôi bắt đầu bằng việc tìm hiểu cách đội ngũ đang làm việc, sau đó mới vẽ màn hình và viết mã.'],[]),
+ ('so sánh','Web app theo yêu cầu khác <span class="gt">website và app di&nbsp;động</span> thế nào?',[],[
+  '<b>Website:</b> dùng để giới thiệu và bán hàng, ai cũng xem được (xem <a href="thiet-ke-website.html">thiết kế website</a>).',
+  '<b>Web app / phần mềm nội bộ:</b> có tài khoản, phân quyền, dữ liệu riêng và màn hình thao tác nghiệp vụ.',
+  '<b>App di động:</b> cài từ kho ứng dụng, hợp khi khách dùng hằng ngày trên điện thoại (xem <a href="thiet-ke-app.html">thiết kế app</a>).']),
+ ('năng lực','Những loại web app <span class="gt">My Agent có thể&nbsp;làm</span>',['<small class="muted">Đây là các loại việc chúng tôi có năng lực thực hiện, không phải danh sách dự án đã làm.</small>'],[
+  '<b>Dashboard quản trị và báo cáo.</b> Tổng hợp doanh thu, đơn hàng và công việc lên một màn hình, có lọc theo thời gian và chi nhánh. Kết hợp được với <a href="phan-tich-du-lieu.html">dịch vụ Phân tích dữ liệu</a>.',
+  '<b>CRM và ERP nhỏ.</b> Quản lý khách hàng, lịch sử chăm sóc, báo giá, đơn hàng và tồn kho, theo đúng các bước doanh nghiệp đang làm.',
+  '<b>Cổng khách hàng.</b> Khách đăng nhập để xem tiến độ, tài liệu, hóa đơn hoặc gửi yêu cầu, thay cho việc hỏi lại qua tin nhắn.',
+  '<b>Quản lý công việc nội bộ.</b> Giao việc, duyệt đề xuất, chấm công đơn giản, theo dõi hạn chót và lưu nhật ký thao tác.',
+  '<b>Biểu mẫu và quy trình duyệt.</b> Thay giấy tờ bằng biểu mẫu có nhiều bước duyệt và thông báo cho người liên quan.']),
+ ('khi nào nên làm','Khi nào nên làm <span class="gt">web app&nbsp;riêng?</span>',[],[
+  'Nên làm khi dữ liệu nằm trong nhiều file rời rạc, khi quy trình đặc thù mà phần mềm có sẵn không đáp ứng, hoặc khi cần phân quyền rõ ai xem, ai sửa, ai duyệt.',
+  'Chưa nên làm khi phần mềm đóng gói đã đủ dùng. Trường hợp đó My Agent sẽ nói thẳng.',
+  'Cần nối dữ liệu nhiều nguồn: <a href="ky-thuat-du-lieu.html">Data Engineer</a>; máy chủ: <a href="hosting-seo.html">hosting/VPS</a>; bắt đầu: <a href="../lien-he.html">liên hệ</a> hoặc xem <a href="../bang-gia.html#gia-phan-mem-noi-bo">bảng giá</a>.'])]
+# Thẻ/mục có ý cam kết dữ liệu, mã nguồn: chờ Peter chốt chính sách bàn giao, tạm để trung tính / bỏ.
+S['phan-mem-noi-bo']['exp'][1][2]=('Xuất dữ liệu','Hỗ trợ xuất báo cáo ra Excel/CSV để dùng tiếp.')
+S['phan-mem-noi-bo']['deliv']=[x for x in S['phan-mem-noi-bo']['deliv'] if 'Mã nguồn' not in x]
+# FAQ riêng thay toàn bộ FAQ của trang (kể cả FAQ chung); giá/thời gian điền từ pricing.json.
+S['phan-mem-noi-bo']['faq_replace']=True
+S['phan-mem-noi-bo']['faq']=[
+ ('Web app khác phần mềm có sẵn ở điểm nào?','Phần mềm có sẵn triển khai nhanh nhưng bạn phải làm theo cách của nó. Web app theo yêu cầu được xây quanh quy trình đang chạy của bạn, đổi lại cần thời gian khảo sát và phát triển.'),
+ ('Web app có dùng được trên điện thoại không?','Có. Giao diện được thiết kế responsive, dùng ngay trên trình duyệt của máy tính và điện thoại mà không cần cài đặt.'),
+ ('Dữ liệu Excel cũ có đưa vào được không?','Thường là được. Dữ liệu được làm sạch và chuẩn hóa trước khi nhập để tránh trùng và sai.'),
+ ('Có kết nối với phần mềm đang dùng không?','Tùy phần mềm đó có cung cấp API hoặc cách xuất/nhập dữ liệu hay không. Việc này được kiểm tra ở bước khảo sát, và nếu cần tích hợp lớn thì sẽ báo giá riêng.'),
+ ('Mất bao lâu để triển khai?','Tùy số module. Theo bảng giá tham khảo, công cụ 1 module khoảng {tg:phan-mem-noi-bo/co-ban}, hệ thống 3–5 module khoảng {tg:phan-mem-noi-bo/tieu-chuan}, còn mini ERP khoảng {tg:phan-mem-noi-bo/nang-cao}. Mốc cụ thể được chốt sau khảo sát.'),
+ ('Chi phí làm web app khoảng bao nhiêu?','Theo bảng giá tham khảo trên trang (đã gồm VAT): {so:phan-mem-noi-bo/co-ban} cho công cụ 1 module, {so:phan-mem-noi-bo/tieu-chuan} cho hệ thống 3–5 module, và {so:phan-mem-noi-bo/nang-cao} cho mini ERP. Báo giá chính xác được gửi sau khi trao đổi phạm vi.'),
+ ('Làm sao để bắt đầu?','Gọi hoặc nhắn Zalo 0328 439 972, hoặc gửi form ở trang Liên hệ. Hãy mô tả ngắn quy trình đang gặp khó, My Agent sẽ hẹn buổi trao đổi để làm rõ nhu cầu.')]

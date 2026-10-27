@@ -27,7 +27,7 @@ Mỗi trang cần bố cục, nội dung và thẻ SEO riêng. Ai chuẩn bị n
 
 ## 3. Tính năng đặc biệt
 
-Form liên hệ là tính năng cơ bản. Những thứ như quản lý đơn hàng, đăng nhập thành viên, kết nối phần mềm bán hàng hay tra cứu tiến độ cần thêm công lập trình. Nên liệt kê rõ tính năng "bắt buộc phải có" và "có thì tốt" ngay từ đầu để báo giá sát thực tế.
+Form liên hệ là tính năng cơ bản. Những thứ như quản lý đơn hàng, đăng nhập thành viên, kết nối phần mềm bán hàng hay tra cứu tiến độ cần thêm công lập trình. Nên liệt kê rõ tính năng "bắt buộc phải có" và "có thì tốt" ngay từ đầu để báo giá sát thực tế. Nếu nhu cầu đã là một hệ thống có đăng nhập, phân quyền và dashboard, đó là [web app theo yêu cầu](../dich-vu/phan-mem-noi-bo.html) chứ không còn là website thông thường.
 
 ## 4. Công nghệ: WordPress hay code tay
 
