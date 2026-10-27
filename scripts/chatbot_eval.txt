@@ -17,7 +17,7 @@ giá thiết kế website bao nhiêu | thiet-ke-website
 bảng giá chăm sóc website | cham-soc-website
 báo giá làm app | intent:price
 chi phí chạy quảng cáo facebook | intent:price
-làm website mất bao lâu | thiet-ke-website
+làm website mất bao lâu | thiet-ke-website,blog/
 nên làm web bằng wordpress hay code tay | thiet-ke-website
 website mới làm có lên google ngay không | thiet-ke-website
 dịch vụ seo tổng thể gồm gì | seo-tong-the
