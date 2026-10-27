@@ -1,5 +1,10 @@
 # Nhật ký thay đổi
 
+## 0.7.1 - 2026-10-27
+- Dự án mẫu (`du-an.html`): thêm demo web app XN Linh Kiện Máy In (xnlinhkien.myagentvn.com); thẻ NhàĐất Việt có nút "Xem demo" (nhadat.myagentvn.com).
+- Cả 4 thẻ dự án dùng ảnh chụp bản chạy thật (WebP 16:9, 960px + 480px, srcset, width/height, lazy) trong `assets/projects/`, thay hình SVG trang trí.
+- Tài liệu `docs/du-an.md`: cách thêm dự án mới kèm thumbnail.
+
 ## 0.7.0 - 2026-10-27
 - Tin tức công nghệ thành hệ thống đăng bài: mỗi bài là 1 file Markdown `data/news/YYYY-MM-DD-slug.md` (front-matter + nội dung), dựng bằng `scripts/news_build.py`, kiểm tra bằng `scripts/news_publish.sh`.
 - Trang bài viết `tin-tuc/<slug>.html`: breadcrumb, ngày đăng/cập nhật, chủ đề, thời gian đọc, mục lục (bài dài), Nguồn tham khảo, Góc nhìn My Agent, dịch vụ liên quan, bài trước/sau, bài liên quan; NewsArticle + BreadcrumbList JSON-LD, og:type article.
