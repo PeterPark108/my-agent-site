@@ -1,6 +1,7 @@
 # Nhật ký thay đổi
 
-## 0.8.1 - 2026-10-27
+## 0.8.2 - 2026-10-27
+(Số phiên bản 0.8.1 đã dùng cho tag phát hành blog 2 bài đầu, PR #23.)
 - Menu chính gọn hơn: bỏ mục "Về chúng tôi" (giữ link "Về chúng tôi" ở footer cột My Agent trên mọi trang) và bỏ mục riêng "Thiết kế website" (vẫn là mục đầu tiên trong dropdown Dịch vụ › 01 · Nền tảng website và trên trang Dịch vụ). Áp dụng cho cả menu mobile.
 - "Dịch vụ" được đánh dấu đang xem trên `dich-vu.html` và mọi trang `dich-vu/*` (gồm Thiết kế website).
 - Sửa tại nguồn trong `scripts/tech_pass.py` (idempotent) nên các lần dựng Tin tức/Blog sau không sinh lại menu cũ; bỏ CSS ẩn mục thứ 3 của menu ở 961–1200px (không còn cần).
