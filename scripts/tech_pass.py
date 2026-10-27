@@ -14,7 +14,8 @@ pages=[p for p in pages if 'http-equiv="refresh"' not in p.read_text() and p.nam
 urls=[]
 ORG={"@type":"ProfessionalService","@id":BASE+"#org","name":"My Agent","alternateName":"Công ty TNHH Thương mại và Dịch vụ My Agent","url":BASE,"logo":BASE+"assets/icon-512.png","image":BASE+"assets/og-image.png","telephone":"+84328439972","email":"vantungn044@gmail.com",
  "address":{"@type":"PostalAddress","addressLocality":"Thành phố Hồ Chí Minh","addressCountry":"VN"},
- "areaServed":[{"@type":"City","name":"Thành phố Hồ Chí Minh"},{"@type":"Country","name":"Việt Nam"}]}
+ "areaServed":[{"@type":"City","name":"Thành phố Hồ Chí Minh"},{"@type":"Country","name":"Việt Nam"}],
+ "sameAs":["https://www.facebook.com/nguyen.van.tung.109588","https://www.linkedin.com/in/peterpark108/"]}
 def txt(x): return re.sub(r'\s+',' ',html.unescape(re.sub(r'<[^>]+>','',x))).strip()
 def jsonld(rel,url,s,desc):
   out=[]; C="https://schema.org"
