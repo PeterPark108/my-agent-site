@@ -1,5 +1,10 @@
 # Nhật ký thay đổi
 
+## 0.5.0 – 2026-10-27
+- Trang mới **Lộ trình học AI Agent** (`tai-nguyen-ai-agent.html`): 49 tài nguyên công khai chia 6 nhóm (Video, GitHub, Tài liệu hướng dẫn, Sách, Bài nghiên cứu, Khóa học), tab theo nhóm, ô tìm kiếm, mô tả tiếng Việt, link gốc.
+- Dữ liệu ở `data/ai-agent-resources.json`, dựng bằng `scripts/resources_build.py` (có `--check-urls`, chặn link affiliate/theo dõi); hướng dẫn ở `docs/tai-nguyen-ai-agent.md`.
+- Link khóa học dùng trang Coursera chính thức, đã bỏ link affiliate và mã theo dõi. Có trong chân trang và sitemap; CollectionPage/ItemList + BreadcrumbList JSON-LD.
+
 ## 0.4.0 – 2026-10-27
 - Mục mới **Tin tức công nghệ** (`tin-tuc.html`): 10 tin có thật kèm nguồn, bộ lọc theo chủ đề và Góc nhìn My Agent; trang chủ có khối "Tin công nghệ mới nhất".
 - Dữ liệu tin nằm ở `data/news.json`, dựng bằng `scripts/news_build.py` (có `--check-urls`); hướng dẫn ở `docs/tin-tuc.md`.

@@ -34,8 +34,8 @@ for rel in rels:
   if not d or len(d)>155: bad(rel,f'description dài {len(d)} ký tự')
   titles.setdefault(t,[]).append(rel); descs.setdefault(d,[]).append(rel)
   if f'<link rel="canonical" href="{url}">' not in s: bad(rel,'canonical sai')
-  for k in ('github.io','/portfolio/'):
-    if k in s: bad(rel,f'còn tham chiếu {k}')
+  for k in ('peterpark108.github.io','/portfolio/'):  # chỉ bản cũ của site; link ngoài *.github.io hợp lệ
+    if k in s.lower(): bad(rel,f'còn tham chiếu {k}')
   for tag in (f'property="og:url" content="{url}"',f'property="og:image" content="{BASE}assets/og-image.png"','property="og:locale" content="vi_VN"','property="og:title"','property="og:description"','name="twitter:card" content="summary_large_image"',f'hreflang="vi" href="{url}"','hreflang="x-default"'):
     if tag not in s: bad(rel,'thiếu '+tag.split('"')[1])
   h=len(re.findall(r'<h1[\s>]',s))

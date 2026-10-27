@@ -20,6 +20,7 @@ PAGES={
 'cong-cu.html':dict(title='Công cụ miễn phí cho website'+B,desc='Bộ công cụ miễn phí từ My Agent hỗ trợ chủ website và người làm marketing, dùng ngay trên trình duyệt, không cần cài đặt.'),
 'chinh-sach-bao-mat.html':dict(title='Chính sách bảo mật'+B,desc='Chính sách bảo mật của My Agent: cách chúng tôi thu thập, sử dụng và bảo vệ thông tin khi bạn liên hệ hoặc sử dụng dịch vụ.'),
 'tin-tuc.html':dict(title='Tin tức công nghệ: AI, bảo mật, SEO'+B,desc='Tin công nghệ chọn lọc về AI, bảo mật, web & SEO, dữ liệu và Zalo, có link nguồn gốc và góc nhìn My Agent cho doanh nghiệp nhỏ, cập nhật thường xuyên.'),
+'tai-nguyen-ai-agent.html':dict(title='Lộ trình học AI Agent: tài nguyên từ A đến Z'+B,desc='Tổng hợp tài nguyên học AI agent: video, GitHub, hướng dẫn, sách, bài nghiên cứu và khóa học, kèm mô tả tiếng Việt và link gốc tới từng nguồn.'),
 'ghi-nguon.html':dict(title='Ghi nguồn và giấy phép'+B,desc='Ghi nguồn và giấy phép font, hình ảnh, biểu tượng được dùng trên website My Agent.'),
 'tra-cuu-tien-do.html':dict(title='Tra cứu tiến độ đơn hàng'+B,desc='Khách hàng My Agent nhập mã đơn để xem tiến độ dự án.'),
 }
