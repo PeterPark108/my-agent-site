@@ -89,7 +89,7 @@ for f in pages:
   if '<form class="card glass rv">' in s:
     s=s.replace('<form class="card glass rv">','<form class="card glass rv" data-contact method="POST" action="#" novalidate>')
     s=s.replace('<input required placeholder="Nguyễn Văn A">','<input name="name" required autocomplete="name" maxlength="100" placeholder="Nguyễn Văn A">')
-    s=s.replace('<input required type="tel" placeholder="09xx xxx xxx">','<input name="phone" required type="tel" inputmode="tel" autocomplete="tel" pattern="[0-9 +().-]{8,20}" placeholder="09xx xxx xxx">')
+    s=s.replace('<input required type="tel" placeholder="09xx xxx xxx">','<input name="phone" required type="tel" inputmode="tel" autocomplete="tel" pattern="[0-9 +.\\(\\)\\-]{8,20}" placeholder="09xx xxx xxx">')
     s=s.replace('<input type="email" placeholder="ban@congty.vn">','<input name="email" type="email" autocomplete="email" placeholder="ban@congty.vn">')
     s=re.sub(r'(<form class="card glass rv" data-contact.*?)<select>',r'\1<select name="service">',s,count=1,flags=re.S)
     s=s.replace('<textarea rows="4" placeholder','<textarea name="message" rows="4" maxlength="3000" placeholder')

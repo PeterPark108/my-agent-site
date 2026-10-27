@@ -28,6 +28,13 @@ for sc in ('news_build.py', 'blog_build.py'):
 r = subprocess.run([sys.executable, 'scripts/test_pricing.py'], capture_output=True, text=True)
 print(r.stdout.strip().splitlines()[-1] if r.stdout.strip() else 'test_pricing')
 if r.returncode: fail.append('test_pricing.py lỗi:\n' + r.stdout.strip())
+# js/css đổi so với tag phát hành gần nhất mà VERSION chưa bump -> trình duyệt dùng bản cache cũ (?v= trùng)
+_tag = subprocess.run(['git', 'describe', '--tags', '--abbrev=0', '--match', 'v*'], capture_output=True, text=True).stdout.strip()
+if _tag:
+    _ver = open('VERSION').read().strip()
+    _chg = subprocess.run(['git', 'diff', '--name-only', _tag, '--', 'js', 'css'], capture_output=True, text=True).stdout.split()
+    if _chg and _ver == _tag.lstrip('v'):
+        fail.append(f'js/css đổi so với {_tag} ({", ".join(_chg[:5])}) nhưng VERSION vẫn {_ver}: bump VERSION rồi chạy tech_pass.py (cache-busting ?v=)')
 r = subprocess.run([sys.executable, 'server/contact-api/test_contact_api.py'], capture_output=True, text=True)
 print(r.stdout.strip().splitlines()[-1] if r.stdout.strip() else 'test_contact_api')
 if r.returncode: fail.append('test_contact_api.py lỗi:\n' + r.stdout.strip() + r.stderr[-500:])
