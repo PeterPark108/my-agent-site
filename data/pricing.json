@@ -1,5 +1,5 @@
 {
- "version": "2026-10-27",
+ "version": "2026-10-28",
  "currency": "VND",
  "vatIncluded": true,
  "vatNote": "Giá đã bao gồm VAT",
@@ -121,15 +121,6 @@
      "time": "14–25 ngày",
      "includes": "Giỏ hàng, đơn hàng, VietQR, quản lý sản phẩm",
      "excludes": "Cổng thanh toán trả phí, nhập hàng loạt >50 SP"
-    },
-    {
-     "id": "web-app",
-     "name": "Web app theo yêu cầu",
-     "min": 20000000,
-     "max": 48000000,
-     "time": "4–10 tuần",
-     "includes": "Phân tích nghiệp vụ, đăng nhập, phân quyền, dashboard",
-     "excludes": "Tích hợp ERP lớn, app mobile"
     }
    ]
   },

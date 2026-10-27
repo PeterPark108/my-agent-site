@@ -25,6 +25,8 @@
   if (q.get('tam-tinh')) return; // luồng công cụ tính giá được ưu tiên
   var id = function (k) { var v = String(q.get(k) || '').toLowerCase(); return /^[a-z0-9-]{1,40}$/.test(v) ? v : ''; };
   var sv = id('goi-dv'), tr = id('goi'), cb = id('combo'), ky = parseInt(q.get('ky'), 10);
+  // v0.9.8: gói web-app (Thiết kế website) đã gộp vào Phần mềm nội bộ gói 2; link/bookmark cũ vẫn điền sẵn đúng gói mới
+  if (tr === 'web-app' && (!sv || sv === 'thiet-ke-website')) { sv = 'phan-mem-noi-bo'; tr = 'tieu-chuan'; }
   if (!(sv && tr) && !cb) return;
   var norm = function (s) { return String(s).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/đ/g, 'd').replace(/[^a-z0-9]+/g, ' ').trim(); };
   var ALIAS = { 'quang-cao-google-facebook': 'ads google facebook' };

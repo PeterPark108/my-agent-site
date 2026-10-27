@@ -50,7 +50,7 @@ Chi phí "đội lên" thường do phạm vi không rõ. Với [dịch vụ thi
 
 ## Bảng giá tham khảo của My Agent
 
-Để anh/chị dễ hình dung, đây là giá tham khảo theo [bảng giá dịch vụ của My Agent](https://myagentvn.com/bang-gia.html#gia-thiet-ke-website) (nguồn): **Landing page (1 trang)** 2–3,6 triệu; **Website giới thiệu (≤10 trang)** 4–7,2 triệu; **Website bán hàng** 7,2–14,4 triệu; **Web app theo yêu cầu** 20–48 triệu. Anh/chị có thể [tự tính giá combo](https://myagentvn.com/bang-gia.html#tinh-gia) để xem khoảng chi phí khi kết hợp nhiều dịch vụ.
+Để anh/chị dễ hình dung, đây là giá tham khảo theo [bảng giá dịch vụ của My Agent](https://myagentvn.com/bang-gia.html#gia-thiet-ke-website) (nguồn): **Landing page (1 trang)** 2–3,6 triệu; **Website giới thiệu (≤10 trang)** 4–7,2 triệu; **Website bán hàng** 7,2–14,4 triệu. Web app/phần mềm có đăng nhập, phân quyền: xem bảng [Phần mềm nội bộ](../dich-vu/phan-mem-noi-bo.html). Anh/chị có thể [tự tính giá combo](https://myagentvn.com/bang-gia.html#tinh-gia) để xem khoảng chi phí khi kết hợp nhiều dịch vụ.
 
 Đây là **giá tham khảo theo khoảng** và **đã bao gồm VAT**. Giá thực tế tùy yêu cầu của từng website và được chốt sau khi trao đổi nhu cầu. Giá thiết kế **chưa gồm** tên miền (có giá riêng trong bảng giá) và hosting/VPS (thương lượng); nếu chạy quảng cáo thì phí quản lý quảng cáo cũng thương lượng và chưa gồm tiền quảng cáo trả cho nền tảng.
 
