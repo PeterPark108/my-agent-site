@@ -99,7 +99,43 @@ with sync_playwright() as p:
   r=run(b,'prefill','neterr',url='lien-he.html?tam-tinh=7.200.000%C4%91&dich-vu=Thi%E1%BA%BFt+k%E1%BA%BF+website')
   body=urllib.parse.unquote(r['mailto'])
   chk('Tạm tính: 7.200.000đ' in body,'prefill: mailto thiếu số liệu công cụ tính giá'); close(r)
+  # --- kiểm tra dữ liệu (không gửi request nào) ---
+  V={'name':'Nguyễn Văn Test','phone':'0328 439 972','email':'khach@vidu.vn'}
+  def vpage(vp=(1280,900)):
+    pg=b.new_page(viewport={'width':vp[0],'height':vp[1]}); hits=[]; err=[]
+    pg.on('pageerror',lambda e:err.append(str(e))); pg.route('**/api/contact',lambda r:(hits.append(1),r.abort()))
+    pg.route('https://formsubmit.co/**',lambda r:(hits.append(1),r.abort()))
+    pg.goto(B+'lien-he.html',wait_until='domcontentloaded'); pg.wait_for_timeout(300); return pg,hits,err
+  def state(pg): return pg.evaluate("""()=>{const f=document.querySelector('form[data-contact]'),e=f.querySelector('.form-err');
+    return {shown:!e.hidden,text:e.innerText,role:e.getAttribute('role'),inv:[...f.elements].filter(x=>x.getAttribute('aria-invalid')=='true').map(x=>x.name),
+      red:[...f.querySelectorAll('.inv')].length,focus:document.activeElement&&document.activeElement.name,below:e.getBoundingClientRect().top>=f.querySelector('button[type=submit]').getBoundingClientRect().bottom,
+      nv:f.noValidate}}""")
+  CASES=[('ho-ten-trong',dict(V,name=''),True,['name'],'họ và tên'),('sdt-sai',dict(V,phone='abc'),True,['phone'],'Số điện thoại chưa đúng'),
+         ('email-thieu-@',dict(V,email='khachvidu.vn'),True,['email'],'thiếu ký tự "@"'),('chua-tick',V,False,['consent'],'tick ô đồng ý'),
+         ('nhieu-loi',{'name':'','phone':'12','email':'abc'},False,['name','phone','email','consent'],'Chưa gửi được')]
+  for case,vals,tick,want,txt in CASES:
+    for vp,tag in [((1280,900),''),((390,844),'@390')]:
+      pg,hits,err=vpage(vp)
+      for k,v in vals.items(): pg.fill(f'form[data-contact] [name={k}]',v)
+      if tick: pg.check('form[data-contact] [name=consent]')
+      pg.click('form[data-contact] button[type=submit]'); pg.wait_for_timeout(400); s=state(pg); c=case+tag
+      chk(s['shown'] and s['role']=='alert' and s['below'],f'{c}: không hiện dòng lỗi role=alert dưới nút gửi')
+      chk(sorted(s['inv'])==sorted(want),f'{c}: aria-invalid {s["inv"]} != {want}'); chk(s['red']==len(want),f'{c}: viền đỏ {s["red"]}')
+      chk(txt in s['text'],f'{c}: thiếu thông báo "{txt}"'); chk(s['focus']==want[0],f'{c}: focus {s["focus"]} != {want[0]}')
+      chk(s['nv'],f'{c}: form chưa novalidate (tooltip gốc)'); chk(not hits,f'{c}: vẫn gửi request khi dữ liệu sai'); chk(not err,f'{c}: lỗi JS {err}')
+      chk(pg.evaluate("()=>{const i=document.querySelector('form[data-contact] [name=email]');let p=null;i.addEventListener('invalid',e=>p=e.defaultPrevented);i.value='x';i.reportValidity();return p}"),f'{c}: tooltip gốc chưa bị chặn')
+      if case=='nhieu-loi' and SHOT: shot({'pg':pg},'form-validation-'+('mobile' if tag else 'desktop')+'.png')
+      pg.unroute_all(behavior='ignoreErrors'); pg.close()
+  # sửa ô thì lỗi tắt dần
+  pg,hits,err=vpage(); pg.fill('form[data-contact] [name=name]',''); pg.fill('form[data-contact] [name=phone]','12'); pg.fill('form[data-contact] [name=email]','abc')
+  pg.click('form[data-contact] button[type=submit]'); pg.wait_for_timeout(300)
+  pg.wait_for_timeout(3000); chk(state(pg)['shown'],'lỗi biến mất sớm (sau 3s)')
+  pg.fill('form[data-contact] [name=name]','Nguyễn Văn Test'); s=state(pg); chk('name' not in s['inv'] and s['shown'] and 'họ và tên' not in s['text'],'sửa họ tên: lỗi họ tên chưa tắt')
+  pg.fill('form[data-contact] [name=phone]','1234'); s=state(pg); chk('phone' in s['inv'],'SĐT vẫn sai mà lỗi đã tắt')
+  pg.fill('form[data-contact] [name=phone]','0328 439 972'); pg.fill('form[data-contact] [name=email]','khach@vidu.vn'); pg.check('form[data-contact] [name=consent]')
+  s=state(pg); chk(not s['shown'] and not s['inv'] and s['red']==0,f'sửa hết: lỗi chưa tắt {s}')
+  pg.unroute_all(behavior='ignoreErrors'); pg.close()
   b.close()
 fail=[x for x in fail if x]
 for f in fail: print('FAIL:',f)
-print('OK: test_contact_form đạt (13 trường hợp)' if not fail else f'{len(fail)} lỗi'); sys.exit(1 if fail else 0)
+print('OK: test_contact_form đạt (13 trường hợp gửi + 11 trường hợp kiểm tra dữ liệu)' if not fail else f'{len(fail)} lỗi'); sys.exit(1 if fail else 0)

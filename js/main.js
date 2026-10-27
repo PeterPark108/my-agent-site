@@ -30,9 +30,23 @@ const fallback=why=>{const sub='Yêu cầu tư vấn từ website My Agent - '+v
 st.className='form-status err fb';st.innerHTML='<b>'+esc(why)+'</b> Thông tin anh/chị nhập vẫn được giữ nguyên. Anh/chị vui lòng gửi qua một trong các cách sau, My Agent sẽ phản hồi trong giờ làm việc:<span class="fb-acts">'+(mt?'<a class="btn" data-fb="mailto" href="'+esc(mt)+'">Gửi qua Email</a>':'')+(ZP?'<a class="btn" data-fb="zalo" href="https://zalo.me/'+ZP+'" target="_blank" rel="noopener">Nhắn Zalo</a>':'')+(TP?'<a class="btn" data-fb="tel" href="tel:'+TP+'">Gọi ngay</a>':'')+'</span>'};
 const post=async(url,opt,good)=>{const ac=new AbortController(),t=setTimeout(()=>ac.abort(),TO);try{const r=await fetch(url,Object.assign({signal:ac.signal},opt));
 if(!r.ok||!/json/i.test(r.headers.get('content-type')||''))throw Error('bad');const j=await r.json();if(!good(j))throw Error(/activat/i.test(j.message||'')?'act':'bad');return j}finally{clearTimeout(t)}};
+/* Kiểm tra dữ liệu: tắt tooltip gốc (tiếng Anh) của trình duyệt, hiện lỗi tiếng Việt dưới nút gửi, viền đỏ + aria-invalid; lỗi chỉ tắt khi khách sửa đúng ô */
+f.noValidate=true;f.addEventListener('invalid',e=>e.preventDefault(),true);
+let er=f.querySelector('.form-err');if(!er){er=d.createElement('p');er.className='form-err';er.setAttribute('role','alert');er.hidden=true;st.before(er)}
+const msg=x=>{const v=x.validity,n=x.name;if(n=='consent')return'Vui lòng tick ô đồng ý để My Agent liên hệ tư vấn.';
+if(n=='name')return'Vui lòng nhập họ và tên.';if(n=='phone')return v.valueMissing?'Vui lòng nhập số điện thoại.':'Số điện thoại chưa đúng (8–20 chữ số, vd 0328 439 972).';
+if(x.type=='email')return'Email chưa đúng: thiếu ký tự "@" hoặc tên miền (vd ten@congty.vn).';return'Vui lòng kiểm tra lại ô "'+((x.closest('label')||{}).textContent||n).trim().split('\n')[0]+'".'};
+const fx=x=>x.type=='checkbox'?x.closest('label')||x:x;
+const mark=(x,bad)=>{fx(x).classList.toggle('inv',bad);bad?x.setAttribute('aria-invalid','true'):x.removeAttribute('aria-invalid')};
+const show=()=>{const l=[...f.elements].filter(x=>x.getAttribute&&x.getAttribute('aria-invalid')=='true');if(!l.length){er.hidden=true;er.textContent='';return}
+er.innerHTML='<b>Chưa gửi được, vui lòng kiểm tra lại:</b>'+l.map(x=>'<span>• '+esc(msg(x))+'</span>').join('');er.hidden=false};
+const check=focus=>{const bad=[...f.elements].filter(x=>x.willValidate&&x.name&&x.name!='_honey'&&!x.checkValidity());[...f.elements].forEach(x=>x.willValidate&&x.name&&mark(x,bad.includes(x)));show();
+if(bad.length&&focus){bad[0].focus({preventScroll:true});fx(bad[0]).scrollIntoView({block:'center',behavior:RM?'auto':'smooth'})}return!bad.length};
+const recheck=e=>{const x=e.target;if(x.getAttribute&&x.getAttribute('aria-invalid')=='true'&&x.checkValidity()){mark(x,false);show()}};
+f.addEventListener('input',recheck);f.addEventListener('change',recheck);
 let busy=false;
 f.addEventListener('submit',async e=>{e.preventDefault();if(busy)return;if(f._honey&&f._honey.value)return;
-const bad=[...f.elements].find(x=>x.willValidate&&!x.checkValidity());if(bad){bad.focus();say(bad.type=='tel'?'Số điện thoại chưa hợp lệ.':bad.type=='email'?'Email chưa hợp lệ.':'Vui lòng điền đủ thông tin bắt buộc.','err');return}
+if(!check(true))return;
 busy=true;bt.disabled=true;say('Đang gửi...');let ok=false,why='Gửi chưa thành công.';
 try{if(EP){const o={};['name','phone','email','service','message','consent','_honey'].forEach(n=>o[n]=val(n));o.page=location.href;o.estimate=new URLSearchParams(location.search).get('tam-tinh')||'';await post(EP,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(o)},j=>j&&j.ok===true);ok=true}
 else if(FS){const fd=new FormData(f);fd.delete('_honey');fd.append('_subject','Yêu cầu tư vấn mới từ website My Agent');fd.append('_template','table');fd.append('_captcha','false');fd.append('_url',location.href);await post('https://formsubmit.co/ajax/'+encodeURIComponent(EM),{method:'POST',headers:{Accept:'application/json'},body:fd},j=>j&&(j.success===true||j.success==='true'));ok=true}
