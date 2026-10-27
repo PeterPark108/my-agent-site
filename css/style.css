@@ -497,7 +497,7 @@ a.chip{text-decoration:none}
 /* bảng giá + công cụ tính giá (bang-gia.html) */
 .bg-note{padding:20px 24px;margin-bottom:22px}.bg-note p{margin:0 0 6px}.bg-note p:last-child{margin:0}
 .bg-toc{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 8px}.bg-toc a{padding:8px 14px;border:1px solid var(--ln);border-radius:999px;font-size:14px;color:var(--mu);min-height:40px;display:inline-flex;align-items:center}.bg-toc a:hover{color:#fff;border-color:var(--el)}
-.bg-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.bg-card{padding:20px;min-width:0}.bg-card h3{margin:0 0 10px;font-size:18px}.bg-card h3 a{color:#fff}
+.bg-groups{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.bg-card{padding:20px;min-width:0}.bg-card h3{margin:0 0 10px;font-size:18px}.bg-card h3 a{color:#fff}
 .bg-sc{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%}.bg-t{width:100%;border-collapse:collapse;font-size:14px;min-width:520px}.bg-t th,.bg-t td{text-align:left;vertical-align:top;padding:9px 8px;border-top:1px solid var(--ln)}.bg-t thead th{color:var(--mu);font-weight:600;font-size:12.5px;border-top:0}.bg-t tbody th{font-weight:600}.bg-p{white-space:nowrap;color:#fff;font-weight:600}
 .bg-neg,.bg-negl{color:#FFB4B9}.bg-neg{margin:0 0 8px}
 .bg-calc{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:20px;align-items:start}.bg-list{padding:18px;min-height:520px}.bg-list fieldset{border:0;padding:0;margin:0 0 14px}.bg-list legend{font:600 12.5px var(--m);color:#FFB4B9;margin-bottom:6px}
@@ -508,7 +508,7 @@ a.chip{text-decoration:none}
 .bg-total{font-size:24px;font-weight:700;color:#fff;margin:0 0 10px;min-height:1.4em}.bg-detail .row{display:flex;justify-content:space-between;gap:12px;font-size:14px;padding:6px 0;border-top:1px solid var(--ln)}.bg-detail .row>span:last-child{text-align:right;white-space:nowrap}.bg-detail hr{border:0;margin:4px 0}
 .bg-dis{color:var(--mu)}.bg-sum .btn{width:100%}.bg-sum .btn[aria-disabled=true]{opacity:.6}
 .bg-copy{padding:16px;margin:16px auto;max-width:900px}.bg-copy textarea{width:100%;background:var(--bg2);color:var(--tx);border:1px solid var(--ln);border-radius:10px;padding:10px}
-@media(max-width:960px){.bg-grid,.bg-calc{grid-template-columns:1fr}.bg-sum{position:static}.bg-list{min-height:0}}
+@media(max-width:960px){.bg-groups,.bg-calc{grid-template-columns:1fr}.bg-sum{position:static}.bg-list{min-height:0}}
 @media(max-width:560px){.bg-card{padding:16px}.bg-opts{padding-left:0}.bg-total{font-size:20px}}
 
 /* bảng giá trang dịch vụ sinh từ pricing.json */

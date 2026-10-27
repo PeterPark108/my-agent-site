@@ -32,10 +32,10 @@ NOTE=('<div class="bg-note glass rv" role="note"><p><b>Giá đã bao gồm VAT.<
 o=['<main><section class="hero sub"><canvas class="net" aria-hidden="true"></canvas><div class="wrap"><nav class="crumb mono" aria-label="breadcrumb"><a href="index.html">home</a> / bảng giá</nav>',
    '<h1 class="gt2">Bảng giá dịch vụ My&nbsp;Agent</h1><p class="lead">Khoảng giá tham khảo cho 5 nhóm dịch vụ và công cụ tự tính giá combo. Chọn dịch vụ, kỳ thanh toán để xem tạm tính, rồi gửi sang trang liên hệ để nhận báo giá chính xác.</p>',
    '<p class="acts"><a class="btn mag" href="#tinh-gia">Tự tính giá combo</a> <a class="btn ghost" href="lien-he.html">Nhận báo giá chính xác</a></p></div></section>',
-   '<section><div class="wrap">'+NOTE+'<nav class="bg-toc" aria-label="Nhóm dịch vụ">'+''.join(f'<a href="#{SLUG[c[:2]]}">{E(c)}</a>' for c,_ in groups)+'<a href="#tinh-gia">Tính giá combo</a></nav>']
+   '<section><div class="wrap">'+NOTE+'<div class="bg-toc" role="navigation" aria-label="Nhóm dịch vụ">'+''.join(f'<a href="#{SLUG[c[:2]]}">{E(c)}</a>' for c,_ in groups)+'<a href="#tinh-gia">Tính giá combo</a></div>']
 for c,ss in groups:
   num,name=c.split(' · ',1)
-  o.append(f'<div class="gap"></div><div class="t rv" id="{SLUG[num]}"><span class="k">// {num}</span><h2>Bảng giá {E(name)}</h2></div><div class="bg-grid">')
+  o.append(f'<div class="gap"></div><div class="t rv" id="{SLUG[num]}"><span class="k">// {num}</span><h2>Bảng giá {E(name)}</h2></div><div class="bg-groups">')
   for s in ss:
     unit=UNIT.get(s['billing'],'')
     o.append(f'<article class="bg-card glass rv" id="gia-{s["id"]}"><h3><a href="dich-vu/{s["id"]}.html">{E(s["name"])}</a></h3>')
