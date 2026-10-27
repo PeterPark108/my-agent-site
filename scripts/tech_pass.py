@@ -60,7 +60,7 @@ for f in pages:
    f'<link rel="icon" href="{p}assets/favicon.svg" type="image/svg+xml"><link rel="icon" href="{p}assets/favicon-32.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="{p}assets/apple-touch-icon.png"><link rel="manifest" href="{p}site.webmanifest">',
    f'<meta property="og:type" content="website"><meta property="og:locale" content="vi_VN"><meta property="og:site_name" content="My Agent"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:url" content="{url}"><meta property="og:image" content="{BASE}assets/og-image.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">',
    f'<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{e(title)}"><meta name="twitter:description" content="{e(desc)}"><meta name="twitter:image" content="{BASE}assets/og-image.png">',
-   f'<script src="{p}js/config.js"></script><script src="{p}js/motion.js" defer></script>']
+   f'<script src="{p}js/config.js"></script><script src="{p}js/motion.js" defer></script><script src="{p}js/chat.js" defer></script>']
   if rel=='index.html':
     # intro trang chủ: script nhỏ quyết định có chạy intro không (tránh nháy nội dung); failsafe 6.5s; không JS = trang hiện bình thường
     head.append('<script>(function(h){try{var c=window.MYAGENT_CONFIG||{},q=/[?&]intro=([01])/.exec(location.search),f=q&&q[1];if(f==="0")return;if(!f&&(c.introEnabled===false||sessionStorage.getItem("myagent_intro_seen")))return;if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;h.classList.add("intro-on");setTimeout(function(){h.classList.remove("intro-on");var o=document.getElementById("ma-intro");o&&o.remove()},6500)}catch(e){h.classList.remove("intro-on")}})(document.documentElement)</script><script src="js/intro.js" defer></script>')
@@ -123,5 +123,6 @@ for f in R.rglob('*.html'):
   t2=re.sub(r'(js/intro\.js)(\?v=[^"]*)?"',r'\1?v='+_V+'"',t2)
   t2=re.sub(r'(js/resources\.js)(\?v=[^"]*)?"',r'\1?v='+_V+'"',t2)
   t2=re.sub(r'(js/main\.js)(\?v=[^"]*)?"',r'\1?v='+_V+'"',t2)
+  t2=re.sub(r'(js/chat\.js)(\?v=[^"]*)?"',r'\1?v='+_V+'"',t2)
   t2=re.sub(r'(js/motion\.js)(\?v=[^"]*)?"',r'\1?v='+_V+'"',t2)
   if t2!=t: f.write_text(t2)
