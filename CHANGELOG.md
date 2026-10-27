@@ -1,5 +1,9 @@
 # Nhật ký thay đổi
 
+## 0.6.0 - 2026-10-27
+- Thêm trợ lý MJ (chatbot chạy trong trình duyệt, avatar bông hoa đỏ) góc dưới trái mọi trang: trả lời từ nội dung web (`data/chatbot-kb.json`), câu hỏi nhanh, gợi ý liên hệ khi chưa chắc.
+- Thêm `scripts/chatbot_build.py`, `scripts/chatbot_eval.py` (+ `chatbot_eval.txt`), `docs/chatbot.md`, `assets/mj-avatar.*`; cấu hình `chatbotEnabled` / `?chat=0`.
+
 ## 0.5.0 – 2026-10-27
 - Trang mới **Lộ trình học AI Agent** (`tai-nguyen-ai-agent.html`): 49 tài nguyên công khai chia 6 nhóm (Video, GitHub, Tài liệu hướng dẫn, Sách, Bài nghiên cứu, Khóa học), tab theo nhóm, ô tìm kiếm, mô tả tiếng Việt, link gốc.
 - Dữ liệu ở `data/ai-agent-resources.json`, dựng bằng `scripts/resources_build.py` (có `--check-urls`, chặn link affiliate/theo dõi); hướng dẫn ở `docs/tai-nguyen-ai-agent.md`.

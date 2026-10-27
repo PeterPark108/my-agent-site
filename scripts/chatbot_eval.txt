@@ -1,0 +1,53 @@
+# câu hỏi | kỳ vọng: intent:<tên> hoặc trang (một phần URL); nhiều lựa chọn cách bằng ,
+xin chào | intent:greet
+chào bạn | intent:greet
+cảm ơn nhé | intent:thanks
+bạn là ai | intent:who
+bạn có phải người thật không | intent:ai
+bạn là bot à | intent:ai
+cho mình xin số điện thoại | intent:contact
+liên hệ thế nào | intent:contact
+zalo của bên bạn là gì | intent:contact
+email liên hệ | intent:contact
+tra cứu tiến độ dự án | intent:tracking
+mã đơn hàng của tôi xem ở đâu | intent:tracking
+bên bạn có những dịch vụ gì | intent:services
+my agent làm được gì | intent:services
+giá thiết kế website bao nhiêu | thiet-ke-website
+bảng giá chăm sóc website | cham-soc-website
+báo giá làm app | intent:price
+chi phí chạy quảng cáo facebook | intent:price
+làm website mất bao lâu | thiet-ke-website
+nên làm web bằng wordpress hay code tay | thiet-ke-website
+website mới làm có lên google ngay không | thiet-ke-website
+dịch vụ seo tổng thể gồm gì | seo-tong-the
+hosting seo là gì | hosting-seo
+đăng ký tên miền | ten-mien
+email doanh nghiệp theo tên miền | email-doanh-nghiep
+chăm sóc fanpage | cham-soc-fanpage
+tạo zalo oa mini app | zalo-oa-mini-app
+làm video AI | video-ai
+đưa doanh nghiệp lên google maps | google-maps
+chạy quảng cáo google | quang-cao-google-facebook
+traffic user có dùng bot không | traffic-user
+backlink cho website | seo-tong-the,intent:fallback
+thông báo website với bộ công thương | bo-cong-thuong
+làm hồ sơ năng lực công ty | profile-doanh-nghiep
+phân tích dữ liệu power bi | phan-tich-du-lieu
+xây dựng data pipeline kho dữ liệu | ky-thuat-du-lieu
+phần mềm quản lý nội bộ | phan-mem-noi-bo
+thiết kế app mobile flutter | thiet-ke-app
+tổ chức sự kiện cho công ty | intent:fallback
+combo khởi nghiệp online | combo
+ai là người làm website | ve-chung-toi,index
+chính sách bảo mật thông tin | chinh-sach-bao-mat
+tài nguyên học ai agent | tai-nguyen-ai-agent
+tin tức công nghệ | tin-tuc
+công cụ miễn phí | cong-cu
+dự án mẫu đã làm | du-an
+thời tiết hôm nay thế nào | intent:fallback
+công thức nấu phở bò | intent:fallback
+giá làm logo | intent:price
+website có chuẩn seo không | thiet-ke-website,seo-tong-the
+sao lưu website hằng tháng | cham-soc-website
+mua iphone giá rẻ | intent:price,intent:fallback
