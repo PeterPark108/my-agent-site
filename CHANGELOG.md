@@ -1,5 +1,13 @@
 # Nhật ký thay đổi
 
+## 0.9.6 - 2026-10-28
+- On-page SEO theo kế hoạch từ khóa 28/10/2026 (SEO My Agent). Title/meta/H1/lead mới cho thiet-ke-website ("thiết kế web chuyên nghiệp theo yêu cầu"), thiet-ke-app ("thiết kế app trọn gói iOS, Android tại TP.HCM"), phan-mem-noi-bo ("thiết kế web app & phần mềm nội bộ"), combo ("combo website trọn gói và marketing"); trang chủ giữ title/meta/H1.
+- Gộp nội dung "thiết kế web app" vào dich-vu/phan-mem-noi-bo.html (không tạo trang thiet-ke-web-app): đoạn mở đầu + 3 H2 (so sánh website/web app/app, loại web app có năng lực làm, khi nào nên làm), 7 FAQ thay toàn bộ FAQ cũ (`faq_replace`), giá/thời gian trong FAQ điền từ data/pricing.json. Thẻ "Dữ liệu thuộc về bạn" đổi trung tính "Xuất dữ liệu"; bỏ mục bàn giao "Mã nguồn và cơ sở dữ liệu" (chờ Peter chốt chính sách bàn giao).
+- svc_deep.py: trường `intro` (nhiều khối H2) và chỗ giữ `{gia:}`/`{tg:}`/`{so:}` lấy từ pricing.json. Thêm scripts/seo_blocks.py: khối "Thiết kế web trọn gói gồm những gì?" + 3 FAQ trên trang chủ, đoạn giới thiệu + 2 FAQ trên combo (mức giảm combo đọc từ pricing.json).
+- tech_pass: FAQPage cho trang chủ; Service.provider chỉ tham chiếu `{"@id": "https://myagentvn.com/#org"}`; combo có Service. Không offers/giá, không Review/AggregateRating trong JSON-LD.
+- Blog: bài mới "Website chuyên nghiệp cần những gì? 10 tiêu chí"; `blog.html` là URL chuẩn duy nhất (index, sitemap), `blog/index.html` giữ noindex + canonical về blog.html (docs/blog.md). Link nội bộ tới web app từ bài chi phí, thiet-ke-website, thiet-ke-app.
+- docs/seo-tu-khoa.md cập nhật bản đồ từ khóa. Giá giữ nguyên.
+
 ## 0.9.5 - 2026-10-28
 - Form liên hệ: báo lỗi tiếng Việt rõ ràng ngay dưới nút "Gửi yêu cầu" (`<p class="form-err" role="alert">`) khi thiếu họ tên, SĐT sai, email thiếu "@"/tên miền, chưa tick đồng ý; liệt kê mọi lỗi cùng lúc.
 - Tự focus + cuộn tới ô sai đầu tiên; ô sai viền đỏ (`.inv`) và `aria-invalid="true"`; sửa đúng ô nào thì tắt lỗi ô đó, hết lỗi thì ẩn khung báo.

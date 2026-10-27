@@ -335,6 +335,8 @@ html.js:not(.mo) .rv{animation:mvFail 0s 3s forwards}@keyframes mvFail{to{opacit
 .relx{margin-top:28px;display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center}
 .relx a:not(.btn){color:var(--tx);border-bottom:1px dashed var(--neon);text-decoration:none}
 .relx .btn{margin-left:auto}
+.svi{padding:22px 24px}.svi p{margin:0 0 12px}.svi p:last-child{margin-bottom:0}.svi a{color:var(--tx);border-bottom:1px dashed var(--neon);text-decoration:none}
+.svi-l{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:10px}.svi-l li{display:flex;gap:10px;align-items:flex-start}.svi-l li .i{flex:none;margin-top:3px;color:var(--neon)}
 .tl p{text-wrap:pretty}
 @media(max-width:900px){.fitg,.xpl ul{grid-template-columns:1fr}.xpl li:nth-child(2){border-top:1px solid var(--ln)}.relx .btn{margin-left:0}}
 @media(prefers-reduced-motion:no-preference){

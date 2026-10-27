@@ -10,8 +10,8 @@ Quy tắc: từ khóa dùng tự nhiên trong title (≤60 ký tự), descriptio
 
 | Trang đích | Từ khóa chính | Từ khóa phụ / biến thể | Ý định tìm kiếm |
 |---|---|---|---|
-| `/` (trang chủ) | thiết kế web trọn gói | thiết kế web giá rẻ, thiết kế website HCM, dịch vụ thiết kế web TP.HCM, My Agent | Thương mại – tìm đơn vị làm web |
-| `/dich-vu/thiet-ke-website.html` | thiết kế website chuẩn SEO | thiết kế web bán hàng, thiết kế web doanh nghiệp, thiết kế web landing page, thiết kế web cho shop/cá nhân, làm website giá rẻ TPHCM, thiết kế web responsive, web có quản lý đơn hàng | Thương mại – so sánh, hỏi báo giá |
+| `/` (trang chủ) | thiết kế web trọn gói | thiết kế web HCM, công ty thiết kế web HCM, thiết kế web giá rẻ, thiết kế website HCM, dịch vụ thiết kế web TP.HCM, My Agent | Thương mại – tìm đơn vị làm web |
+| `/dich-vu/thiet-ke-website.html` | thiết kế web chuyên nghiệp (v0.9.6) | thiết kế web theo yêu cầu, thiết kế website chuẩn SEO, thiết kế web bán hàng, thiết kế web doanh nghiệp, thiết kế web landing page, thiết kế web cho shop/cá nhân, làm website giá rẻ TPHCM, thiết kế web responsive, web có quản lý đơn hàng | Thương mại – so sánh, hỏi báo giá |
 | `/dich-vu.html` | dịch vụ marketing online | dịch vụ marketing online tại HCM, dịch vụ số cho doanh nghiệp | Tìm hiểu tổng quan |
 | `/dich-vu/seo-tong-the.html` | dịch vụ SEO tổng thể | dịch vụ SEO tại HCM, SEO website | Thương mại |
 | `/dich-vu/quang-cao-google-facebook.html` | quảng cáo Google Ads, Facebook Ads | chạy quảng cáo Facebook tại HCM, dịch vụ Google Ads TP.HCM | Thương mại |
@@ -21,8 +21,8 @@ Quy tắc: từ khóa dùng tự nhiên trong title (≤60 ký tự), descriptio
 | `/dich-vu/google-maps.html` | đăng ký Google Maps doanh nghiệp | đưa doanh nghiệp lên Google Maps tại HCM | Thương mại / hướng dẫn |
 | `/dich-vu/hosting-seo.html` | hosting SEO | hosting tốc độ cao tại HCM | Thương mại |
 | `/dich-vu/ten-mien.html` | đăng ký tên miền | đăng ký tên miền .vn, .com tại HCM | Thương mại |
-| `/dich-vu/thiet-ke-app.html` | thiết kế app di động | thiết kế app iOS Android tại HCM | Thương mại |
-| `/dich-vu/phan-mem-noi-bo.html` | phần mềm quản lý nội bộ | phần mềm quản lý theo yêu cầu tại HCM | Thương mại |
+| `/dich-vu/thiet-ke-app.html` | thiết kế app HCM (v0.9.6) | thiết kế app trọn gói, thiết kế app chuyên nghiệp, app bán hàng, app mobile iOS Android | Thương mại |
+| `/dich-vu/phan-mem-noi-bo.html` | thiết kế web app HCM, web app theo yêu cầu, phần mềm nội bộ (v0.9.6) | phần mềm quản lý nội bộ, dashboard quản trị, cổng khách hàng, CRM nhỏ. **Không** tạo trang `thiet-ke-web-app.html` riêng (Peter chốt 28/10/2026) | Thương mại |
 | `/dich-vu/phan-tich-du-lieu.html` | dịch vụ Data Analyst | phân tích dữ liệu bán hàng, Data Analyst tại HCM, dashboard báo cáo | Thương mại |
 | `/dich-vu/ky-thuat-du-lieu.html` | dịch vụ Data Engineer | kỹ thuật dữ liệu, Data Engineer tại HCM, tự động hoá dữ liệu | Thương mại |
 | `/dich-vu/profile-doanh-nghiep.html` | thiết kế profile doanh nghiệp | thiết kế hồ sơ năng lực tại HCM, thiết kế đồ họa doanh nghiệp | Thương mại |
@@ -30,10 +30,12 @@ Quy tắc: từ khóa dùng tự nhiên trong title (≤60 ký tự), descriptio
 | `/dich-vu/traffic-user.html` | dịch vụ traffic user | traffic website tại HCM | Thương mại |
 | `/dich-vu/video-ai.html` | dịch vụ edit video, video AI | dựng video tại HCM | Thương mại |
 | `/dich-vu/zalo-oa-mini-app.html` | Zalo OA, Zalo Mini App | làm Zalo Mini App tại HCM | Thương mại |
-| `/combo.html` | combo dịch vụ website và marketing | gói website trọn gói kèm marketing | Thương mại |
+| `/combo.html` | combo website trọn gói và marketing (trang hỗ trợ cho trang chủ, không làm đích chính) | gói website trọn gói kèm marketing | Thương mại |
 | `/du-an.html`, `/ve-chung-toi.html`, `/lien-he.html` | thương hiệu "My Agent" | My Agent liên hệ, báo giá | Điều hướng |
 
 Ghi chú: "thiết kế đồ họa" hiện chỉ có dịch vụ gần nhất là Profile doanh nghiệp; nếu Peter muốn từ khóa riêng "thiết kế đồ họa / logo" thì cần một trang dịch vụ mới (MJ viết nội dung).
+
+Blog: "website chuyên nghiệp cần gì" → `/blog/website-chuyen-nghiep-can-gi.html` (link về trang thiết kế website). `/blog` không còn noindex: URL chuẩn là `blog.html` (xem docs/blog.md).
 
 ## 2. Kế hoạch bài viết (blog) cho MJ
 

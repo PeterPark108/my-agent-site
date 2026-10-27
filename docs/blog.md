@@ -13,6 +13,8 @@ Mục Blog (`blog.html`, `blog/<slug>.html`) là bài **hướng dẫn / kiến 
 | Trong bài | mục lục (khi có ≥2 tiêu đề `##`), Dịch vụ liên quan + nút Liên hệ, bài mới hơn/cũ hơn, Bài liên quan (cùng chuyên mục/tag) |
 | Trợ lý MJ | bài được đưa vào `data/chatbot-kb.json` |
 
+**URL chuẩn duy nhất (v0.9.6):** `blog.html` là trang danh sách được index (`index, follow`), canonical trỏ chính nó, có trong sitemap. `blog/index.html` chỉ là trang chuyển hướng giữ `noindex` với canonical về `blog.html` (không vào sitemap), để `/blog/` không thành bản trùng. Không thêm URL `/blog/` vào sitemap hay link nội bộ.
+
 **Khi chưa có bài nào:** `blog.html` hiện "Bài viết đầu tiên sắp ra mắt" và được đặt **`noindex, follow` + không có trong sitemap** (tránh Google index trang mỏng). Khi có ≥1 bài, `noindex` tự gỡ và trang vào sitemap. Sitemap chỉ chứa bài có file thật (ci_check kiểm tra).
 
 ## Các bước (SEO My Agent)
