@@ -10,6 +10,8 @@ Khách bấm gửi → `POST /api/contact` (JSON) trên myagentvn.com → nginx 
 Nếu **không gửi được trong 5 giây** hoặc có bất kỳ lỗi nào → báo lỗi + 3 nút dự phòng: **Gửi qua Email** (mailto điền sẵn), **Nhắn Zalo**, **Gọi ngay**.
 FormSubmit **tắt hoàn toàn** (`formSubmitEnabled:false`, không có request nào tới formsubmit.co).
 
+> **Cache:** nginx cache js/css 7 ngày theo `?v=VERSION`. Mỗi lần đổi nội dung js/css phải **bump VERSION** rồi chạy `python3 scripts/tech_pass.py` (ci_check báo lỗi nếu js/css khác tag phát hành gần nhất mà VERSION chưa đổi). Không bao giờ để một `?v=` trỏ tới hai nội dung khác nhau (sự cố v0.9.3: trình duyệt giữ main.js cũ).
+
 ## Front-end (js/main.js, cấu hình ở js/config.js)
 | Khoá | Giá trị | Ý nghĩa |
 |---|---|---|

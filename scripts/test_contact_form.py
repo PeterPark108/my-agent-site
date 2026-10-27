@@ -21,7 +21,7 @@ def chk(c,m):
   if not c: fail.append(m)
 FIELDS={'name':'Nguyễn Văn Test','phone':'+84 328 439 972','email':'khach@vidu.vn','message':'Cần làm website bán hàng\ncó giỏ hàng'}
 def run(b,case,mode,vp=(1280,900),cfg=None,url='lien-he.html'):
-  pg=b.new_page(viewport={'width':vp[0],'height':vp[1]}); err=[]; pg.on('pageerror',lambda e:err.append(str(e))); hits=[]
+  pg=b.new_page(viewport={'width':vp[0],'height':vp[1]}); err=[]; pg.on('pageerror',lambda e:err.append(str(e))); pg.on('console',lambda m:'Pattern attribute' in m.text and err.append(m.text)); hits=[]
   over=dict(cfg or {})
   pg.route('**/js/config.js*',lambda r:r.fulfill(status=200,content_type='application/javascript',body=(ROOT/'js/config.js').read_text()+'\nObject.assign(window.MYAGENT_CONFIG,'+json.dumps(over)+');'))
   def h(r):
@@ -40,6 +40,7 @@ def run(b,case,mode,vp=(1280,900),cfg=None,url='lien-he.html'):
   pg.route('https://www.googletagmanager.com/**',lambda r:r.abort())
   pg.goto(B+url,wait_until='domcontentloaded'); pg.wait_for_timeout(300)
   f='form[data-contact]'
+  if pg.evaluate("()=>{const i=document.querySelector('form[data-contact] [name=phone]');i.value='abc';const v=i.checkValidity();i.value='';return v}"): fail.append(f'{case}: SĐT "abc" vẫn hợp lệ (pattern hỏng)')
   for k,v in FIELDS.items():
     if 'tam-tinh' in url and k=='message': continue
     pg.fill(f+f' [name={k}]',v)

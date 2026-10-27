@@ -1,5 +1,11 @@
 # Nhật ký thay đổi
 
+## 0.9.4 - 2026-10-28
+- Đổi `?v=` cache-busting sang 0.9.4 trên mọi trang: `?v=0.9.3` từng trỏ tới 2 bản main.js khác nhau (timeout 15s/FormSubmit và /api/contact), trình duyệt đã cache bản cũ (max-age 7 ngày).
+- test_contact_form: báo lỗi nếu console có "Pattern attribute ... not a valid regular expression" và kiểm tra SĐT "abc" bị từ chối.
+- ci_check: báo lỗi nếu js/css khác tag phát hành gần nhất mà VERSION chưa bump. Ghi chú quy tắc trong docs/lien-he-form.md.
+- Sửa pattern số điện thoại form liên hệ thành `[0-9 +.\(\)\-]{8,20}` (Chromium biên dịch pattern với cờ `v`, bắt buộc escape `(`, `)`, `-` trong lớp ký tự; regex cũ không hợp lệ nên trình duyệt bỏ qua kiểm tra định dạng SĐT); sửa cả trong tech_pass.py.
+
 ## 0.9.3 - 2026-10-27
 - Form liên hệ gửi thẳng về Telegram của Peter qua máy chủ riêng `/api/contact` (`formEndpoint: '/api/contact'`); chỉ báo "Cảm ơn" khi máy chủ trả JSON `{ok:true}`.
 - Chờ tối đa 5 giây (`formTimeoutMs: 5000`, AbortController). Hết giờ hoặc bất kỳ lỗi nào (404/405/200 HTML, JSON ok:false, 5xx, lỗi mạng) → thông báo lỗi + 3 nút dự phòng: "Gửi qua Email" (mailto điền sẵn họ tên, SĐT, email, dịch vụ, nội dung, kể cả số liệu từ công cụ tính giá), "Nhắn Zalo", "Gọi ngay"; nút gửi bật lại, dữ liệu giữ nguyên, chặn gửi trùng.
