@@ -1,6 +1,7 @@
 # Nhật ký thay đổi
 
 ## 0.9.7 - 2026-10-28
+- Logo schema Organization/publisher dùng biểu tượng vuông assets/icon-512.png (512×512) thay logo ngang 780×192 (Peter quyết 28/10).
 - Schema thực thể (bản chốt SEO My Agent): `#org` là ProfessionalService (chuỗi), chỉ tên "My Agent"; **bỏ alternateName "Công ty TNHH…"** khỏi JSON-LD (Peter chốt 28/10) ở index.html và hằng ORG trong tech_pass.py; logo = assets/logo.png (780×192, ImageObject `#logo`); contactPoint 0328 439 972; areaServed TP.HCM + Việt Nam; bỏ address; Organization.sameAs để trống. Thêm Person `#founder` (Nguyễn Văn Tùng, sameAs Facebook + LinkedIn cá nhân, không ảnh).
 - Về chúng tôi: AboutPage, Liên hệ: ContactPage, cùng `mainEntity` → `#org`. Bài blog/tin tức: author/publisher cùng `#org` (ProfessionalService, logo.png), không còn khai báo Organization lệch kiểu/logo.
 - ci_check chặn cụm "TNHH" / "Thương mại và Dịch vụ My Agent" quay lại trong repo.

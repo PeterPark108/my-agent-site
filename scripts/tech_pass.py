@@ -15,7 +15,7 @@ urls=[]
 # Thực thể (v0.9.7, bản chốt SEO My Agent 28/10/2026): chỉ dùng tên "My Agent" (không tên pháp nhân/MST),
 # không địa chỉ, không giá; Organization.sameAs để trống tới khi có kênh chính thức thật; link cá nhân nằm ở founder.
 ORG={"@type":"ProfessionalService","@id":BASE+"#org","name":"My Agent","url":BASE,
- "logo":{"@type":"ImageObject","@id":BASE+"#logo","url":BASE+"assets/logo.png","contentUrl":BASE+"assets/logo.png","width":780,"height":192,"caption":"My Agent"},
+ "logo":{"@type":"ImageObject","@id":BASE+"#logo","url":BASE+"assets/icon-512.png","contentUrl":BASE+"assets/icon-512.png","width":512,"height":512,"caption":"My Agent"},
  "image":BASE+"assets/og-image.png","telephone":"+84328439972","email":"vantungn044@gmail.com","founder":{"@id":BASE+"#founder"},
  "areaServed":[{"@type":"City","name":"Thành phố Hồ Chí Minh"},{"@type":"Country","name":"Việt Nam"}],
  "contactPoint":{"@type":"ContactPoint","telephone":"+84328439972","contactType":"customer service","areaServed":"VN","availableLanguage":["vi"]},
