@@ -510,3 +510,7 @@ a.chip{text-decoration:none}
 .bg-copy{padding:16px;margin:16px auto;max-width:900px}.bg-copy textarea{width:100%;background:var(--bg2);color:var(--tx);border:1px solid var(--ln);border-radius:10px;padding:10px}
 @media(max-width:960px){.bg-grid,.bg-calc{grid-template-columns:1fr}.bg-sum{position:static}.bg-list{min-height:0}}
 @media(max-width:560px){.bg-card{padding:16px}.bg-opts{padding-left:0}.bg-total{font-size:20px}}
+
+/* bảng giá trang dịch vụ sinh từ pricing.json */
+.plans[data-src=pricing] .price{font-size:clamp(1.35rem,2vw,1.75rem);line-height:1.25}
+.plans[data-src=pricing] .price small{white-space:nowrap}

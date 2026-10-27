@@ -41,6 +41,41 @@ ok('<a href="combo.html">Combo</a></li><li class=""><a href="bang-gia.html">Bả
 ok('https://myagentvn.com/bang-gia.html' in pathlib.Path('sitemap.xml').read_text(),'sitemap thiếu bang-gia.html')
 ok('bang-gia.html#tinh-gia' in pathlib.Path('combo.html').read_text(),'combo.html thiếu nút Tự tính giá')
 ok('js/lien-he-prefill.js' in pathlib.Path('lien-he.html').read_text(),'lien-he.html thiếu script điền sẵn')
+# đồng bộ giá các trang cũ (v0.9.1): trang dịch vụ khớp pricing.json, không còn giá cũ / cam kết 24 giờ
+sys.path.insert(0,str(R/'scripts')); import svc_pricing as SP
+for sv in P['services']:
+  pg=pathlib.Path(f'dich-vu/{sv["id"]}.html').read_text()
+  blk=re.search(r'<div class="plans" data-src="pricing">.*?</p>',pg,re.S)
+  ok(blk,f'dich-vu/{sv["id"]}.html: bảng giá chưa sinh từ pricing.json (chạy scripts/svc_pricing.py)')
+  if not blk: continue
+  blk=blk.group(0)
+  ok('Giá đã bao gồm VAT' in blk,f'dich-vu/{sv["id"]}.html: thiếu "Giá đã bao gồm VAT"')
+  for t in sv['tiers']:
+    ok(t['name'].replace('&','&amp;') in blk or t['name'] in blk,f'{sv["id"]}: thiếu mức "{t["name"]}"')
+    if sv.get('negotiable'): ok('Thương lượng' in blk and not re.search(r'\d\s*(triệu|nghìn)<small>',blk),f'{sv["id"]}: phải ghi Thương lượng')
+    else: ok(SP.rng(t['min'],t['max']) in blk,f'{sv["id"]}/{t["id"]}: giá trang khác pricing.json ({SP.rng(t["min"],t["max"])})')
+OLD=re.compile(r'1,5\s*[–-]\s*4\s*triệu|(?<![\d,])4\s*[–-]\s*10\s*triệu|8\s*[–-]\s*20\s*triệu\s*(?:<small>)?\s*/\s*gói|Gói Doanh nghiệp\W{0,6}\s*8\s*[–-]\s*20|(?<![\d,])300\s*(?:nghìn|ngàn|k\b)|(?<![\d,])600\s*(?:nghìn|ngàn|k\b)|(?<![\d,–-])1\s*triệu\s*(?:<small>)?\s*/\s*tháng',re.I)
+C24=re.compile(r'(?<![\d/])24\s*giờ|(?<![\d/])24h\b|24/7|24/24',re.I)
+PUB=[f for f in files if f.endswith(('.html','.js','.json','.xml','.md','.txt')) and not f.startswith(('scripts/','docs/','node_modules/')) and f not in ('CHANGELOG.md','README.md')]
+for f in PUB:
+  t=pathlib.Path(f).read_text(errors='ignore')
+  if f.startswith('js/chat'): t=re.sub(r'/[^/\n]{0,200}24[^/\n]{0,80}/[gimsuy]*','',t)  # bỏ qua regex chặn từ cấm trong mã chatbot
+  m=OLD.search(t); ok(not m,f'{f}: còn giá cũ "{m.group(0) if m else ""}" (không khớp data/pricing.json)')
+  m=C24.search(t); ok(not m,f'{f}: còn cam kết thời gian "{m.group(0) if m else ""}" (không dùng 24 giờ/24h/24/7)')
+# điều khoản thanh toán theo loại tính phí + ghi chú tên miền/hosting mới (v0.9.1)
+for sv in P['services']:
+  pg=pathlib.Path(f'dich-vu/{sv["id"]}.html').read_text()
+  blk=re.search(r'<p class="muted rv" style="margin-top:18px"><small>(.*?)</small>',pg,re.S); blk=blk.group(1) if blk else ''
+  if SP.is_recurring(sv):
+    ok(not re.search(r'đặt cọc 30|30\s*[–-]\s*50\s*%',pg,re.I),f'{sv["id"]} (tính theo kỳ): không được có đặt cọc 30–50%')
+    ok('thanh toán 100% trước' in blk,f'{sv["id"]} (tính theo kỳ): thiếu "thanh toán 100% trước"')
+  else:
+    for need in ('Đặt cọc 30–50%','60 ngày','2 lần chỉnh sửa'): ok(need in blk,f'{sv["id"]} (làm một lần): thiếu điều khoản "{need}"')
+  ok('tên miền có giá riêng' in blk and 'Thương lượng' in blk,f'{sv["id"]}: thiếu ghi chú tên miền/hosting/quảng cáo mới')
+OLDNOTE=re.compile(r'tự thanh toán trực tiếp|thanh toán trực tiếp cho nhà cung cấp|thanh toán trực tiếp với nhà cung cấp|đứng tên và thanh toán trực tiếp|trả trực tiếp cho (Apple|Google|nhà cung cấp)|chưa gồm phí tên miền, hosting|chưa gồm\*\* phí tên miền, hosting|khách đứng tên và thanh toán trực tiếp cho nhà cung cấp|anh/chị đứng tên và thanh toán trực tiếp|Phí của nhà cung cấp do anh/chị thanh toán trực tiếp',re.I)
+for f in PUB:
+  t=pathlib.Path(f).read_text(errors='ignore'); m=OLDNOTE.search(t)
+  ok(not m,f'{f}: còn ghi chú cũ "{m.group(0) if m else ""}"')
 # hàm tính
 if shutil.which('node'):
   js=r'''

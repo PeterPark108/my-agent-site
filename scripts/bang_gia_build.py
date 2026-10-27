@@ -57,6 +57,7 @@ o.append(f'<div class="gap"></div><div class="t rv"><span class="k">// ưu đãi
   f'<li class="glass rv"><span>Combo khoản làm một lần: {E(cb)} (tối đa {Rr["maxDiscountPercent"]}% và {tr(Rr["maxDiscountAmount"])}).</span></li>'
   f'<li class="glass rv"><span>Khoản hằng tháng: {E(pp)}. Tên miền giảm 15% khi trả trước 2 năm.</span></li>'
   f'<li class="glass rv"><span>Mỗi khoản chỉ nhận một loại giảm, không cộng dồn, tối đa {Rr["maxLineDiscountPercent"]}% mỗi khoản.</span></li>'
+  '<li class="glass rv"><span>Thanh toán: dịch vụ tính theo tháng/năm thanh toán 100% trước theo kỳ đã chọn (tháng, 6, 12 hoặc 24 tháng; tên miền theo năm), không đặt cọc. Khoản làm một lần: đặt cọc 30–50%, phần còn lại khi nghiệm thu; 2 lần chỉnh sửa trong phạm vi đã thống nhất, bảo hành lỗi kỹ thuật 60 ngày sau bàn giao.</span></li>'
   '<li class="glass rv"><span>Cần gấp: phụ phí 20% (rút ~30% thời gian) hoặc 40% (rút ~50%) trên khoản làm một lần.</span></li></ul></div></section>')
 o.append('<section class="soft" id="tinh-gia"><div class="wrap"><div class="t rv"><span class="k">// tự tính giá</span><h2>Công cụ tính giá <span class="gt">combo</span></h2><p>Tích dịch vụ, chọn gói và kỳ thanh toán. Kết quả là khoảng giá tham khảo, đã gồm VAT.</p></div>'
   '<div class="bg-calc" id="bg-calc"><div class="bg-list glass" id="bg-list"><noscript><p>Công cụ cần bật JavaScript. Bạn có thể xem bảng giá phía trên hoặc <a href="lien-he.html">liên hệ</a> để nhận báo giá.</p></noscript></div>'
@@ -66,6 +67,8 @@ o.append('<section class="soft" id="tinh-gia"><div class="wrap"><div class="t rv
   '<a class="btn mag" id="bg-send" href="lien-he.html#form">Gửi số liệu sang liên hệ</a></aside></div></div></section>')
 FAQ=[('Giá trên trang đã gồm VAT chưa?','Đã gồm VAT. Giá chỉ mang tính tham khảo theo khoảng, báo giá chính xác sau khi trao đổi nhu cầu.'),
  ('Vì sao hosting và quảng cáo ghi Thương lượng?','Chi phí hosting/VPS phụ thuộc cấu hình; phí quản lý quảng cáo phụ thuộc ngân sách và số kênh. My Agent báo riêng sau khi trao đổi. Phí quảng cáo chưa gồm tiền quảng cáo trả cho nền tảng.'),
+ ('Thanh toán thế nào?','Dịch vụ tính theo tháng (chăm sóc website, hosting, email, SEO, quảng cáo, Fanpage) thanh toán 100% trước theo kỳ đã chọn: tháng, 6, 12 hoặc 24 tháng; tên miền thanh toán trước theo năm. Không đặt cọc với các dịch vụ này. Khoản làm một lần (website, app, phần mềm, dữ liệu…) đặt cọc 30–50%, phần còn lại thanh toán khi nghiệm thu.'),
+ ('Giá thiết kế đã gồm tên miền và hosting chưa?','Chưa. Tên miền có giá riêng trong bảng giá; hosting/VPS là Thương lượng. Các khoản này tính riêng, chọn thêm trong công cụ tính giá nếu cần.'),
  ('Kết quả công cụ tính giá có phải báo giá chính thức không?','Không. Đây là tạm tính theo khoảng để anh/chị dự trù ngân sách. Bấm "Gửi số liệu sang liên hệ" để My Agent báo giá chính xác.')]
 o.append('<section><div class="wrap"><div class="t rv"><span class="k">// faq</span><h2>Câu hỏi thường gặp</h2></div><div class="faq">'+''.join(f'<details class="glass fx"><summary>{E(q)}</summary><p>{E(a)}</p></details>' for q,a in FAQ)+'</div>'
   '<p class="relx rv"><span class="mono">Xem thêm:</span> <a href="dich-vu.html">Hệ thống dịch vụ</a> <a href="combo.html">Combo gợi ý</a> <a href="blog.html">Blog kiến thức</a> <a class="btn sm mag" href="lien-he.html">Nhận báo giá chính xác</a></p></div></section>\n')

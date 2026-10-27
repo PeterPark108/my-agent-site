@@ -15,8 +15,8 @@ bên bạn có những dịch vụ gì | intent:services
 my agent làm được gì | intent:services
 giá thiết kế website bao nhiêu | thiet-ke-website
 bảng giá chăm sóc website | cham-soc-website
-báo giá làm app | intent:price
-chi phí chạy quảng cáo facebook | intent:price
+báo giá làm app | intent:price,thiet-ke-app
+chi phí chạy quảng cáo facebook | intent:price,quang-cao-google-facebook
 làm website mất bao lâu | thiet-ke-website,blog/
 nên làm web bằng wordpress hay code tay | thiet-ke-website
 website mới làm có lên google ngay không | thiet-ke-website
@@ -49,7 +49,7 @@ thời tiết hôm nay thế nào | intent:fallback
 công thức nấu phở bò | intent:fallback
 giá làm logo | intent:price
 website có chuẩn seo không | thiet-ke-website,seo-tong-the
-sao lưu website hằng tháng | cham-soc-website
+sao lưu website hằng tháng | cham-soc-website,blog/thiet-ke-web-tron-goi-gom-nhung-gi
 mua iphone giá rẻ | intent:price,intent:fallback
 blog kiến thức của my agent | blog.html
 bài viết hướng dẫn website và seo | blog.html
@@ -58,3 +58,6 @@ bảng giá dịch vụ my agent | bang-gia,intent:price
 tự tính giá combo | bang-gia
 giá đã gồm vat chưa | bang-gia
 giá hosting bao nhiêu | intent:price,hosting-seo,bang-gia
+chăm sóc website thanh toán thế nào | bang-gia
+giá thiết kế đã gồm tên miền và hosting chưa | bang-gia
+đặt cọc bao nhiêu | bang-gia

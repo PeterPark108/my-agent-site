@@ -42,10 +42,13 @@ for f in pages:
         if ps:
           lo=ps[0].split(' – ')[0]; hi=ps[-1].split(' – ')[-1]
           plans.append((n,'thương lượng' if ps[0]=='Thương lượng' else f'khoảng {lo} – {hi}')); continue
+        dp=re.search(r'<div class="price"[^>]*>(.*?)</div>',b,flags=re.S)
+        if dp and re.search(r'\d|Thương lượng',txt(dp.group(1))):
+          plans.append((n,'thương lượng' if 'Thương lượng' in dp.group(1) else re.sub(r'\s*/\s*',' / ',txt(dp.group(1))))); continue
         pm=re.search(r'[\d][\d.,–-]*\s*(?:triệu|nghìn|đ|VNĐ)(?:\s*/\s*\w+)?',t)
         if pm: plans.append((n,pm.group(0)))
       if plans:
-        a='Bảng giá tham khảo trên trang: '+'; '.join(f'{n}: {p}' for n,p in plans)+'. Giá cuối cùng tùy phạm vi, nên liên hệ để được báo giá chính xác.'
+        a='Bảng giá tham khảo trên trang: '+'; '.join(f'{n}: {p}' for n,p in plans)+'. Giá đã bao gồm VAT, chỉ mang tính tham khảo theo khoảng; báo giá chính xác sau khi trao đổi nhu cầu.'
         if rel=='bang-gia.html': a='Khoảng giá tham khảo '+h2[9:]+': '+'; '.join(f'{n}: {p}' for n,p in plans)+'. Giá đã bao gồm VAT, chỉ mang tính tham khảo theo khoảng; báo giá chính xác sau khi trao đổi nhu cầu (trang Liên hệ). Hosting/VPS và quảng cáo: thương lượng.'
         docs.append(dict(u=url,p=name,h='Bảng giá '+name,a=a,x='price')); continue
     subs=re.split(r'(?=<h3\b)',body)
