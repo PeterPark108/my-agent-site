@@ -47,6 +47,7 @@ def note(s):
   b=f'<b>{P["vatNote"]}. {P["disclaimer"]}</b>'
   if s.get('negotiable'):
     b+=' '+('Chi phí quản lý quảng cáo được báo riêng theo ngân sách; chưa gồm tiền quảng cáo trả cho nền tảng.' if 'quang-cao' in s['id'] else 'Chi phí hosting/VPS được báo riêng sau khi trao đổi nhu cầu.')
+  if s['id']=='thiet-ke-website': b+=' Cần web app có đăng nhập, phân quyền, dashboard? Xem bảng giá <a href="phan-mem-noi-bo.html#bang-gia">Phần mềm nội bộ</a>.'
   return b+' '+terms(s)+' '+TAIL
 OLD_TAIL=re.compile(r'Giá chưa gồm phí [^<]*?\(khách đứng tên và thanh toán trực tiếp\)\.')
 FAQ_DOMAIN=('Giá đã gồm tên miền và hosting chưa?','Chưa. My Agent hỗ trợ đăng ký; khách đứng tên và thanh toán trực tiếp cho nhà cung cấp.',

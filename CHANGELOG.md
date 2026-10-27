@@ -1,5 +1,10 @@
 # Nhật ký thay đổi
 
+## 0.9.8 - 2026-10-28
+- Bảng giá: bỏ gói "Web app theo yêu cầu" (20–48 triệu, 4–10 tuần) khỏi Thiết kế website; web app báo giá theo Phần mềm nội bộ (9,6–20 / 24–48 / 48–96 triệu, đã gồm VAT; giữ sàn 24 triệu, giữ tên và slug `phan-mem-noi-bo`). Báo giá đã gửi trước ngày đổi giữ nguyên. Peter chốt phương án B 28/10/2026.
+- pricing.json version 2026-10-28; dựng lại bang-gia.html, trang thiết kế website (bỏ thẻ + nút `goi=web-app`, thêm dòng dẫn sang bảng Phần mềm nội bộ), blog "chi phí làm website", chatbot-kb; docs/bang-gia.md.
+- Link cũ `?goi-dv=thiet-ke-website&goi=web-app` (và `?goi=web-app`) được js/lien-he-prefill.js chuyển sang `phan-mem-noi-bo` / `tieu-chuan`; test_package_prefill kiểm tra. test_pricing chặn "20–48 triệu" quay lại.
+
 ## 0.9.7 - 2026-10-28
 - Schema thực thể (bản chốt SEO My Agent): `#org` là ProfessionalService (chuỗi), chỉ tên "My Agent"; **bỏ alternateName "Công ty TNHH…"** khỏi JSON-LD (Peter chốt 28/10) ở index.html và hằng ORG trong tech_pass.py; logo = assets/logo.png (780×192, ImageObject `#logo`); contactPoint 0328 439 972; areaServed TP.HCM + Việt Nam; bỏ address; Organization.sameAs để trống. Thêm Person `#founder` (Nguyễn Văn Tùng, sameAs Facebook + LinkedIn cá nhân, không ảnh).
 - Về chúng tôi: AboutPage, Liên hệ: ContactPage, cùng `mainEntity` → `#org`. Bài blog/tin tức: author/publisher cùng `#org` (ProfessionalService, logo.png), không còn khai báo Organization lệch kiểu/logo.

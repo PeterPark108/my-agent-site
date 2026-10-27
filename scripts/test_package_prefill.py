@@ -51,6 +51,11 @@ with sync_playwright() as p:
   EXP={'hosting-seo':'Hosting SEO','quang-cao-google-facebook':'ADS Google, Facebook','phan-tich-du-lieu':'Data Analyst','ky-thuat-du-lieu':'Data Engineer','phan-mem-noi-bo':'Phần mềm nội bộ Agency','thiet-ke-app':'Thiết kế App','video-ai':'Edit Video - Video AI','bo-cong-thuong':'Đăng ký Bộ Công Thương'}
   for s in P['services']:
     x=go(pg,f'?goi-dv={s["id"]}&goi={s["tiers"][0]["id"]}'); chk(x['svc']==EXP.get(s['id'],s['name']),f'{s["id"]}: option {x["svc"]!r}')
+  # v0.9.8: link cũ goi=web-app -> Phần mềm nội bộ gói tiêu chuẩn
+  _s=[s for s in P['services'] if s['id']=='phan-mem-noi-bo'][0]; _t=[t for t in _s['tiers'] if t['id']=='tieu-chuan'][0]
+  for qs in ('?goi-dv=thiet-ke-website&goi=web-app#form','?goi=web-app'):
+    x=go(pg,qs); chk(x['pre']=='phan-mem-noi-bo' and x['svc']=='Phần mềm nội bộ Agency',f'web-app cũ {qs}: không chuyển sang phần mềm nội bộ ({x})')
+    chk(f'gói {_t["name"]} của dịch vụ {_s["name"]}' in x['msg'] and rng(_t['min'],_t['max']) in x['msg'] and '20–48' not in x['msg'],f'web-app cũ {qs}: nội dung sai {x["msg"]!r}')
   base=go(pg,'')
   # 2) tham số xấu -> bỏ qua
   BAD={'gói không tồn tại':'?goi-dv=thiet-ke-website&goi=khong-co','dịch vụ không tồn tại':'?goi-dv=khong-co&goi=landing',
