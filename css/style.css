@@ -485,3 +485,13 @@ a.chip{text-decoration:none}
 .nwa-pn a small{color:var(--mu)}.nwa-pn a.nx{text-align:right}
 @media(max-width:600px){.nwa-body{font-size:16px}.nwa-pn{grid-template-columns:1fr}.nwa-pn a.nx{text-align:left}.nwa-insight,.nwa-src{padding:18px}.nwa-cta .btn{width:100%;justify-content:center}}
 .thumb img{width:100%;height:100%;display:block;object-fit:cover;object-position:top center;transition:transform .6s}.post:hover .thumb img{transform:scale(1.06)}
+
+/* ===== v0.8 Blog / Kiến thức (dùng lại khối .nw-* / .nwa-* của Tin tức) ===== */
+.bl-empty{max-width:720px;margin:0 auto;text-align:center;padding:40px 28px}
+.bl-empty h2{margin:10px 0 12px}
+.bl-empty p{color:var(--muted,#9aa3b8)}
+.bl-act{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:20px}
+.bl-svc ul{list-style:none;padding:0;margin:8px 0 14px;display:flex;flex-wrap:wrap;gap:8px}
+.bl-svc li a{display:inline-block;padding:6px 12px;border:1px solid rgba(255,255,255,.14);border-radius:999px;text-decoration:none}
+.bl-svc li a:hover,.bl-svc li a:focus-visible{border-color:currentColor}
+.bl-svc .nwa-cta{margin:0}

@@ -19,6 +19,14 @@ try:
         if bad: fail.append(f'trường lạ trong đơn {k[:8]}: {sorted(bad)}')
 except Exception as e:
     fail.append(f'orders.json lỗi: {e}')
+# nội dung Tin tức + Blog hợp lệ (từ cấm, độ dài, ngày, slug trùng, dịch vụ liên quan...)
+for sc in ('news_build.py', 'blog_build.py'):
+    r = subprocess.run([sys.executable, 'scripts/' + sc, '--validate-only'], capture_output=True, text=True)
+    print(r.stdout.strip().splitlines()[-1] if r.stdout.strip() else sc)
+    if r.returncode: fail.append(f'{sc} --validate-only lỗi:\n' + r.stdout.strip())
+# sitemap chỉ chứa URL có file thật
+for loc in re.findall(r'<loc>https://myagentvn\.com/(.*?)</loc>', open('sitemap.xml', encoding='utf-8').read()):
+    if not os.path.isfile(loc or 'index.html'): fail.append('sitemap có URL không tồn tại: ' + loc)
 H = functools.partial(http.server.SimpleHTTPRequestHandler, directory='.')
 H.log_message = lambda *a: None
 socketserver.TCPServer.allow_reuse_address = True

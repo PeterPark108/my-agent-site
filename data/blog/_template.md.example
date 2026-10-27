@@ -1,0 +1,38 @@
+---
+# MẪU bài Blog / Kiến thức – KHÔNG được đăng (đuôi .example nên bộ dựng bỏ qua).
+# Cách dùng: copy thành data/blog/<slug>.md (slug không dấu, a-z 0-9 -), sửa nội dung,
+# rồi chạy scripts/blog_publish.sh. Xem docs/blog.md.
+title: "Cách tự kiểm tra website hiển thị tốt trên điện thoại"   # 20–70 ký tự
+date: 2026-10-27            # YYYY-MM-DD, ngày đăng, không ở tương lai
+# updated: 2026-11-02       # tuỳ chọn, YYYY-MM-DD, không trước date
+description: "Hướng dẫn từng bước tự kiểm tra website trên điện thoại: chữ, nút bấm, ảnh, tốc độ và form liên hệ, giúp chủ doanh nghiệp nhỏ phát hiện lỗi sớm."   # 110–155 ký tự
+category: website           # website | seo | marketing | du-lieu | ai
+tags: [website, điện thoại, hướng dẫn]   # tuỳ chọn
+services: [thiet-ke-website, cham-soc-website]   # 1–4 slug trang dich-vu/<slug>.html
+# image: assets/blog/kiem-tra-mobile.webp   # tuỳ chọn, png/jpg/webp có thật trong assets/blog/
+# image_alt: "Điện thoại hiển thị trang chủ website"   # bắt buộc nếu có image
+# draft: true               # bật dòng này để tạm chưa đăng
+---
+Phần lớn khách tìm hiểu dịch vụ qua điện thoại, nên một website chỉ đẹp trên máy tính là chưa đủ. Bài này hướng dẫn cách tự kiểm tra nhanh bằng chính điện thoại của bạn, không cần công cụ phức tạp.
+
+## Kiểm tra chữ và khoảng cách
+
+Mở website bằng điện thoại, cầm dọc như bình thường. Chữ nội dung nên đọc được mà không phải phóng to. Nếu phải dùng hai ngón tay kéo to mới đọc được, cỡ chữ đang quá nhỏ. Các đoạn văn cũng không nên dính sát mép màn hình; cần có khoảng trống hai bên để mắt dễ theo dõi.
+
+## Kiểm tra nút bấm và menu
+
+Thử bấm từng nút quan trọng: gọi điện, nhắn Zalo, gửi form, mở menu. Nút phải đủ lớn để bấm bằng ngón cái mà không chạm nhầm nút bên cạnh. Menu mở ra phải đóng lại được dễ dàng, và mỗi mục trong menu dẫn đúng trang.
+
+- Nút gọi điện có mở đúng số không?
+- Nút Zalo có mở đúng tài khoản không?
+- Form liên hệ có báo gửi thành công không?
+
+## Kiểm tra ảnh và tốc độ
+
+Ảnh không được tràn ra ngoài màn hình hay làm trang bị kéo ngang. Hãy vuốt thử sang trái, sang phải: nếu trang trượt ngang được, có phần tử đang rộng hơn màn hình. Tiếp theo, tắt Wi-Fi và dùng mạng di động để mở lại trang. Nếu phải chờ khá lâu mới thấy nội dung đầu tiên, ảnh có thể đang quá nặng và nên được nén lại.
+
+## Ghi lại và xử lý
+
+Khi phát hiện lỗi, hãy chụp màn hình và ghi rõ trang nào, thao tác gì thì lỗi xuất hiện. Danh sách này giúp người làm web sửa nhanh và đúng chỗ. Nên lặp lại việc kiểm tra mỗi khi website thay đổi giao diện hoặc thêm trang mới, để khách luôn có trải nghiệm tốt trên điện thoại.
+
+Nếu bạn muốn một lượt rà soát kỹ hơn, có thể xem [dịch vụ chăm sóc website](../dich-vu/cham-soc-website.html) hoặc liên hệ My Agent để được tư vấn.
