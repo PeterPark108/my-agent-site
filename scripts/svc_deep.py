@@ -97,13 +97,14 @@ def svg(kind,L,desc,slug):
           f'<title id="dgt-{slug}">Sơ đồ minh hoạ</title><desc id="dgd-{slug}">{E(desc)}</desc>{V[kind](L)}</svg></div><figcaption class="mono">// {E(desc)}</figcaption></figure>')
 def h1of(slug):
   s=(R/f'dich-vu/{slug}.html').read_text(); return html.unescape(re.sub('<[^>]+>','',re.search(r'<h1[^>]*>(.*?)</h1>',s,re.S).group(1))).replace('\xa0',' ')
+TT='<a class="btn sm ghost" href="../bang-gia.html#tinh-gia">Tự tính giá</a> '
 def block(slug,d):
   t,items=d['exp']; o=['<!-- svc-deep --><div class="gap"></div><div class="t rv"><span class="k">// chuyên môn</span><h2>Góc nhìn <span class="gt">chuyên&nbsp;môn</span></h2></div>']
   o.append('<div class="xp">'+svg(*d['vis'][:1],d['vis'][1],d['vis'][2],slug)+f'<div class="xpl glass rv"><h3>{E(t)}</h3><ul>'+''.join(f'<li>{CK}<div><b>{E(a)}</b><span>{E(b)}</span></div></li>' for a,b in items)+'</ul></div></div>')
   o.append('<div class="gap"></div><div class="t rv"><span class="k">// bàn giao</span><h2>Bạn nhận <span class="gt">được&nbsp;gì</span></h2></div><ul class="dlv">'+''.join(f'<li class="glass rv">{CK}<span>{E(x)}</span></li>' for x in d['deliv'])+'</ul>')
   o.append('<div class="gap"></div><div class="t rv"><span class="k">// stack</span><h2>Công nghệ <span class="gt">&amp;&nbsp;công&nbsp;cụ</span></h2></div><ul class="tch rv" aria-label="Công nghệ và công cụ">'+''.join(f'<li>{E(x)}</li>' for x in d['tech'])+'</ul><p class="muted rv"><small>Chọn công cụ theo nhu cầu và hệ thống bạn đang dùng; không phải dự án nào cũng dùng tất cả.</small></p>')
   o.append('<div class="gap"></div><div class="t rv"><span class="k">// phù hợp?</span><h2>Phù hợp <span class="gt">với&nbsp;ai</span></h2></div><div class="fitg"><div class="glass rv fit"><h3>Phù hợp khi</h3><ul>'+''.join(f'<li>{CK}{E(x)}</li>' for x in d['fit'])+'</ul></div><div class="glass rv fit no"><h3>Chưa phù hợp khi</h3><ul>'+''.join(f'<li>{XX}{E(x)}</li>' for x in d['nofit'])+'</ul></div></div>')
-  o.append('<p class="relx rv"><span class="mono">Dịch vụ liên quan:</span> '+' '.join(f'<a href="{r}.html">{E(h1of(r))}</a>' for r in d['rel'])+f' <a class="btn sm mag" href="../lien-he.html">Trao đổi dự án {AR}</a></p><!-- /svc-deep -->')
+  o.append('<p class="relx rv"><span class="mono">Dịch vụ liên quan:</span> '+' '.join(f'<a href="{r}.html">{E(h1of(r))}</a>' for r in d['rel'])+f' {TT if slug!='traffic-user' else ''}<a class="btn sm mag" href="../lien-he.html">Trao đổi dự án {AR}</a></p><!-- /svc-deep -->')
   return ''.join(o)
 n=0
 for slug,d in S.items():

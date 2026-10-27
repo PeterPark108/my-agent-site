@@ -54,3 +54,7 @@ mua iphone giá rẻ | intent:price,intent:fallback
 blog kiến thức của my agent | blog.html
 bài viết hướng dẫn website và seo | blog.html
 có bài kiến thức nào để đọc không | blog.html
+bảng giá dịch vụ my agent | bang-gia,intent:price
+tự tính giá combo | bang-gia
+giá đã gồm vat chưa | bang-gia
+giá hosting bao nhiêu | intent:price,hosting-seo,bang-gia

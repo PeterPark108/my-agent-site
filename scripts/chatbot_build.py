@@ -38,10 +38,15 @@ for f in pages:
       plans=[]
       for b in re.split(r'(?=<h3\b)',body)[1:]:
         n=txt(re.search(r'<h3[^>]*>(.*?)</h3>',b,flags=re.S).group(1)); t=txt(b)
+        ps=[txt(x) for x in re.findall(r'<td class="bg-p">(.*?)</td>',b)]
+        if ps:
+          lo=ps[0].split(' – ')[0]; hi=ps[-1].split(' – ')[-1]
+          plans.append((n,'thương lượng' if ps[0]=='Thương lượng' else f'khoảng {lo} – {hi}')); continue
         pm=re.search(r'[\d][\d.,–-]*\s*(?:triệu|nghìn|đ|VNĐ)(?:\s*/\s*\w+)?',t)
         if pm: plans.append((n,pm.group(0)))
       if plans:
         a='Bảng giá tham khảo trên trang: '+'; '.join(f'{n}: {p}' for n,p in plans)+'. Giá cuối cùng tùy phạm vi, nên liên hệ để được báo giá chính xác.'
+        if rel=='bang-gia.html': a='Khoảng giá tham khảo '+h2[9:]+': '+'; '.join(f'{n}: {p}' for n,p in plans)+'. Giá đã bao gồm VAT, chỉ mang tính tham khảo theo khoảng; báo giá chính xác sau khi trao đổi nhu cầu (trang Liên hệ). Hosting/VPS và quảng cáo: thương lượng.'
         docs.append(dict(u=url,p=name,h='Bảng giá '+name,a=a,x='price')); continue
     subs=re.split(r'(?=<h3\b)',body)
     lead=txt(subs[0])

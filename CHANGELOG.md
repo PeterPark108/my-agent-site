@@ -1,5 +1,11 @@
 # Nhật ký thay đổi
 
+## 0.9.0 - 2026-10-27
+- Trang `/bang-gia.html`: bảng giá 5 nhóm dịch vụ (đã gồm VAT, giá tham khảo theo khoảng), công cụ tính giá combo `#tinh-gia` (trả trước theo tháng/6/12/24 tháng), hosting & quảng cáo "Thương lượng".
+- Nút gửi tạm tính sang `lien-he.html` (`?tam-tinh=&ngan-sach=`) + `js/lien-he-prefill.js`.
+- Menu "Bảng giá", link footer, nút "Tự tính giá" ở combo và trang dịch vụ; sitemap, schema WebPage + Breadcrumb; chatbot KB + 4 câu eval.
+- `scripts/pricing_publish.py`, `scripts/bang_gia_build.py`, `scripts/test_pricing.py` (chạy trong ci_check), `docs/bang-gia.md`.
+
 ## 0.8.2 - 2026-10-27
 (Số phiên bản 0.8.1 đã dùng cho tag phát hành blog 2 bài đầu, PR #23.)
 - Menu chính gọn hơn: bỏ mục "Về chúng tôi" (giữ link "Về chúng tôi" ở footer cột My Agent trên mọi trang) và bỏ mục riêng "Thiết kế website" (vẫn là mục đầu tiên trong dropdown Dịch vụ › 01 · Nền tảng website và trên trang Dịch vụ). Áp dụng cho cả menu mobile.

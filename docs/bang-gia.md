@@ -1,0 +1,24 @@
+# Bảng giá & công cụ tính giá (`/bang-gia.html`)
+
+Nguồn dữ liệu: thư mục ngoài repo (`/workspace/bang-gia/pricing.json`). **Không** copy file `.xlsx` hay sheet "Nội bộ" vào repo.
+
+## Cập nhật giá
+```
+python3 scripts/pricing_publish.py /workspace/bang-gia   # lọc whitelist -> data/pricing.json, js/combo-calculator.js
+python3 scripts/bang_gia_build.py                         # dựng bang-gia.html
+python3 scripts/tech_pass.py                              # menu, footer, head, sitemap, ?v=
+python3 scripts/chatbot_build.py                          # KB chatbot
+python3 scripts/test_pricing.py                           # kiểm tra loại trừ + đối chiếu máy tính
+```
+
+## Không bao giờ công khai
+- Giá Traffic User; sheet Nội bộ, nguồn tham khảo, định vị giá so với thị trường, chi phí/biên lợi nhuận; file .xlsx.
+- Cam kết "24/7", "24h", hứa thứ hạng; nhắc FPT Polytechnic.
+
+`test_pricing.py` (chạy trong `ci_check.py`) tự động chặn các mục trên.
+
+## Hosting/VPS & quảng cáo
+Là "Thương lượng": không cộng vào tổng, hiển thị dòng riêng. Giá quảng cáo chưa gồm tiền quảng cáo trả cho nền tảng.
+
+## Gửi sang liên hệ
+Nút gửi mở `lien-he.html?tam-tinh=…&ngan-sach=…&dich-vu=…#form`; `js/lien-he-prefill.js` điền vào ô tin nhắn (không đổi form/endpoint), nếu không có ô thì hiện bản tóm tắt để copy.
