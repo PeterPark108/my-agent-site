@@ -50,7 +50,7 @@ def home():
    f'<div class="card glass rv svi"><p>Landing page khoảng {tg("landing")}, website giới thiệu {tg("gioi-thieu")}, website bán hàng {tg("ban-hang")}. Thời gian tính từ khi chốt nội dung và nhận đủ tư liệu (logo, chữ, ảnh); trang nhiều hoặc tính năng riêng sẽ được báo trước.</p></div>'
    +gap+head('quy trình','Quy trình <span class="gt">6&nbsp;bước</span>')+steps
    +gap+head('bàn giao','Bạn nhận được gì <span class="gt">khi bàn&nbsp;giao</span>')+
-   ul(['Website chạy trên tên miền của bạn, có HTTPS','Sitemap đã gửi Google, SEO nền tảng','Form liên hệ, nút Zalo, Google Maps hoạt động','Hướng dẫn cập nhật nội dung (CMS với web giới thiệu, bán hàng)','2 lần chỉnh sửa trong phạm vi đã thống nhất','Bảo hành lỗi kỹ thuật 60 ngày'])
+   ul(['Website chạy trên tên miền của bạn, có HTTPS','Sitemap đã gửi Google, SEO nền tảng','Form liên hệ, nút Zalo, Google Maps hoạt động','Hướng dẫn cập nhật nội dung (CMS với web giới thiệu, bán hàng)','Mã nguồn, giao sau khi thanh toán đủ; sau bàn giao mã nguồn và dữ liệu thuộc về bạn','2 lần chỉnh sửa trong phạm vi đã thống nhất','Bảo hành lỗi kỹ thuật 60 ngày'])
    +gap+head('thanh toán','Thanh toán <span class="gt">&amp; cam&nbsp;kết</span>')+
    '<div class="card glass rv svi"><p>My Agent là thương hiệu dịch vụ cá nhân của Nguyễn Văn Tùng (Peter), hiện chưa đăng ký pháp nhân. Mỗi dự án có báo giá ghi rõ hạng mục và hợp đồng bằng văn bản, đặt cọc 30–50%, thanh toán phần còn lại sau khi ký biên bản nghiệm thu.</p><p>Người trao đổi, làm và bàn giao là tôi, từ đầu đến cuối. Xem thêm <a href="ve-chung-toi.html">về Peter và My Agent</a>.</p></div>'
    +gap+head('sản phẩm mẫu','Sản phẩm <span class="gt">mẫu</span>')+

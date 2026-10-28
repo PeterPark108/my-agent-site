@@ -2,13 +2,14 @@
 
 ## 0.9.12 - 2026-10-29
 - Trang chủ theo brief SEO 01 "thiết kế web trọn gói TP.HCM": title "Thiết kế web trọn gói TP.HCM, giá từ 2 triệu", meta mới, H1 "Thiết kế web trọn gói TP.HCM – một đầu mối từ tên miền đến bàn giao", đoạn mở đầu nêu 3 mức giá (lấy từ pricing.json), chưa bao gồm VAT.
-- Khối trọn gói (seo_blocks.home) mở rộng: gồm gì / tính riêng, bảng giá 3 gói + trang thêm, thời gian, quy trình 6 bước, bàn giao, thanh toán & cam kết (hợp đồng + biên bản nghiệm thu bằng văn bản, cọc 30–50%, thương hiệu cá nhân chưa đăng ký pháp nhân), sản phẩm mẫu NHỊP/NhàĐất Việt, combo, 8 FAQ (+ FAQPage).
+- Khối trọn gói (seo_blocks.home) mở rộng: gồm gì / tính riêng, bảng giá 3 gói + trang thêm, thời gian, quy trình 6 bước, bàn giao (có mã nguồn, giao sau khi thanh toán đủ; sau bàn giao mã nguồn và dữ liệu thuộc về khách – chốt của Peter), thanh toán & cam kết (hợp đồng + biên bản nghiệm thu bằng văn bản, cọc 30–50%, thương hiệu cá nhân chưa đăng ký pháp nhân), sản phẩm mẫu NHỊP/NhàĐất Việt, combo, 8 FAQ (+ FAQPage).
 - JSON-LD trang chủ thêm Service "Thiết kế web trọn gói TP.HCM" không có offers/giá (seo_audit cấm giá trong JSON-LD).
 
 ## 0.9.11 - 2026-10-29
 - Giá **chưa bao gồm VAT** (Peter chốt): đổi mọi câu "đã gồm/đã bao gồm VAT" thành "chưa gồm/chưa bao gồm VAT" trên bảng giá, trang dịch vụ, combo, FAQ + FAQPage, blog, chatbot, công cụ tính giá, câu điền sẵn form liên hệ; `pricing.json` `vatIncluded: false`, `vatNote: "Giá chưa bao gồm VAT"`. Không đổi con số giá. Các mục CHANGELOG cũ giữ nguyên làm lịch sử.
 - ci_check + test_pricing chặn "đã gồm VAT / đã bao gồm VAT" quay lại (câu hỏi "Giá trên trang đã gồm VAT chưa?" được giữ, trả lời "Chưa gồm VAT").
 - Thiết kế app: bỏ FAQ chung "Bao lâu thì triển khai xong? … 7–30 ngày" (mâu thuẫn bảng giá 4–6 tuần / 6–10 tuần / 3–5 tháng); thời gian app ở FAQ "Làm app mất bao lâu?".
+- Theo audit 3 trang dịch vụ (29/10): trang Thiết kế website đổi FAQ "Bao lâu thì triển khai xong?" từ "7–30 ngày" sang thời gian theo bảng giá (3–5 / 7–14 / 14–25 ngày); trang Thiết kế app đổi FAQ chung "Sau bàn giao ai sở hữu website?" thành "Sau bàn giao ai sở hữu app?" theo chốt của Peter: sau khi bàn giao, mã nguồn và dữ liệu thuộc về khách; mã nguồn giao sau khi thanh toán đủ. FAQPage JSON-LD sinh lại theo nội dung hiển thị.
 - Chính sách bảo mật mục 3: form liên hệ gửi tới máy chủ của website (/api/contact) rồi chuyển thành tin Telegram tới My Agent, không qua FormSubmit.
 
 ## 0.9.10 - 2026-10-28
