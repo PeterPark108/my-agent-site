@@ -298,3 +298,50 @@ S['phan-mem-noi-bo']['faq']=[
  ('Có kết nối với phần mềm đang dùng không?','Tùy phần mềm đó có API hoặc cách xuất/nhập dữ liệu hay không. Việc này được kiểm tra khi khảo sát; tích hợp lớn sẽ báo giá riêng.'),
  ('Sau bàn giao ai sở hữu web app?',OWN_WA),
  ('Làm sao để bắt đầu?','Gửi mô tả quy trình hiện tại qua form ở trang Liên hệ, hoặc gọi/nhắn Zalo 0328 439 972 để đặt 15 phút tư vấn.')]
+
+# --- v0.9.15 brief 02: thiết kế web theo yêu cầu (không "trọn gói" ở title/H1/meta), bảng giá lên đầu trang ---
+TBL_W=('<div class="bg-sc" tabindex="0" role="region" aria-label="So sánh web mẫu, web theo yêu cầu và trọn gói, vuốt ngang nếu cần"><table class="bg-t"><thead><tr><th scope="col"></th><th scope="col">Web mẫu (template)</th><th scope="col">Theo yêu cầu</th><th scope="col">Trọn gói</th></tr></thead><tbody>'
+ '<tr><th scope="row">Là gì</th><td>Chọn giao diện có sẵn, thay logo, màu, nội dung</td><td>Bố cục và giao diện dựng riêng theo khách hàng, ngành và thương hiệu</td><td>Cách làm dịch vụ: một đầu mối lo từ đầu đến cuối, có thể dùng web mẫu hoặc theo yêu cầu</td></tr>'
+ '<tr><th scope="row">Bắt đầu từ</th><td>Giao diện</td><td>Brief và wireframe</td><td>Phạm vi gói</td></tr>'
+ '<tr><th scope="row">Hợp khi</th><td>Cần nhanh, nội dung đơn giản</td><td>Đã có thương hiệu, quy trình bán hàng hoặc tính năng đặc thù</td><td>Muốn ít đầu việc phải tự lo</td></tr>'
+ '<tr><th scope="row">Xem thêm</th><td colspan="3"><a href="../index.html">Thiết kế web trọn gói</a> · <a href="../bang-gia.html#gia-thiet-ke-website">bảng giá</a></td></tr>'
+ '</tbody></table></div>')
+OWN_W='Sau khi bàn giao, website là của khách: mã nguồn và dữ liệu thuộc về khách. Mã nguồn được giao sau khi thanh toán đủ, như ghi trong bảng giá.'
+W=S['thiet-ke-website']
+W['top_price']=True
+W['faq_replace']=True
+W['tech']=['Figma (wireframe, giao diện)','WordPress hoặc code tay','Google Search Console','GA4']
+W['deliv']=['Website chạy trên tên miền của bạn, có HTTPS','Giao diện máy tính và điện thoại','Sitemap, robots.txt, thẻ SEO từng trang','Form liên hệ gửi về email của bạn','Hướng dẫn cập nhật nội dung','Mã nguồn sau khi thanh toán đủ; 2 lần chỉnh sửa trong phạm vi; bảo hành lỗi kỹ thuật 60 ngày']
+W['exp']=('Một website chuyên nghiệp cần gì',S['thiet-ke-website']['exp'][1])
+W['intro']=[
+ ('là gì?','Thiết kế web theo yêu cầu <span class="gt">là&nbsp;gì?</span>',[
+  'Thiết kế web theo yêu cầu là làm website bắt đầu từ khách của bạn: họ tìm gì, cần thấy gì để tin, và bạn muốn họ làm gì (gọi, nhắn Zalo, đặt hàng). Trả lời xong ba câu đó mới dựng bố cục, nội dung, rồi mới đến giao diện theo nhận diện thương hiệu và tính năng cần thiết.',
+  'Peter làm trực tiếp từ wireframe đến lúc đưa web lên mạng, làm việc online từ TP.HCM và nhận khách toàn quốc.'],[]),
+ ('so sánh','Theo yêu cầu khác <span class="gt">web mẫu và trọn gói</span> thế nào?',[TBL_W,
+  'Đọc thêm về khác biệt chi phí và cách làm: <a href="../blog/thiet-ke-web-tron-goi-gom-nhung-gi.html">thiết kế web trọn gói gồm những gì</a>.'],[]),
+ ('mức tùy biến','Mức tùy biến linh hoạt: <span class="gt">không phải dự án nào cũng lập trình từ&nbsp;đầu</span>',[
+  'Theo yêu cầu nghĩa là bố cục, nội dung và trải nghiệm được làm riêng, không có nghĩa mọi dòng mã đều viết mới. Tùy cách bạn dùng web, có hai mức chính:'],[
+  '<b>Tùy biến giao diện trên WordPress:</b> hợp khi bạn tự đăng bài, sản phẩm thường xuyên; giao diện vẫn được thiết kế theo thương hiệu và hành trình khách.',
+  '<b>Code tay (HTML/CSS/JS):</b> nhẹ, tải nhanh, ít phụ thuộc plugin; hợp với web giới thiệu ít thay đổi hoặc landing page cần tốc độ.',
+  ]),
+ ('chuyên nghiệp','Một website chuyên nghiệp <span class="gt">cần&nbsp;gì?</span>',[
+  'Tốc độ, responsive, SEO kỹ thuật, bảo mật cơ bản và khả năng tiếp cận được làm ngay từ đầu, chi tiết ở phần góc nhìn chuyên môn bên dưới và bài <a href="../blog/website-chuyen-nghiep-can-gi.html">website chuyên nghiệp cần gì</a>.'],[]),
+ ('phần theo yêu cầu','Bước 1–2 là phần <span class="gt">“theo yêu cầu”</span>',[
+  'Trong quy trình 6 bước bên dưới, brief và wireframe quyết định web có khác web mẫu hay không: thống nhất mục tiêu, khách chính, rồi duyệt sơ đồ trang trước khi vẽ giao diện, khi sửa còn rẻ. Mỗi dự án có hợp đồng và biên bản nghiệm thu bằng văn bản.'],[]),
+ ('sản phẩm mẫu','Sản phẩm <span class="gt">mẫu</span>',['<small class="muted">Đây là sản phẩm mẫu do Peter làm để minh họa năng lực, dùng dữ liệu mẫu, không phải dự án khách.</small>'],[
+  '<b>NhàĐất Việt (sản phẩm mẫu):</b> website bất động sản có tìm kiếm, bộ lọc và so sánh tin đăng.',
+  '<b>NHỊP (sản phẩm mẫu):</b> website bán hàng có danh mục, giỏ hàng và đặt hàng.',
+  'Xem tất cả tại <a href="../du-an.html">sản phẩm mẫu</a>.']),
+ ('web app?','Cần đăng nhập, phân quyền, <span class="gt">dashboard?</span>',[
+  'Khi web cần tài khoản người dùng, phân quyền, báo cáo hay quy trình duyệt, đó là web app chứ không còn là website giới thiệu. Xem <a href="phan-mem-noi-bo.html">web app theo yêu cầu</a>.'],[])]
+W['faq']=[
+ ('Thiết kế web theo yêu cầu là gì?','Là làm website bắt đầu từ khách của bạn: họ tìm gì, cần thấy gì để tin và bạn muốn họ làm gì. Từ đó mới dựng bố cục, nội dung, giao diện theo thương hiệu và tính năng, thay vì chọn một giao diện có sẵn rồi thay chữ.'),
+ ('Thiết kế web theo yêu cầu có đắt hơn web mẫu không?','Thường cao hơn web mẫu vì có phân tích và thiết kế riêng. Theo bảng giá tham khảo (chưa bao gồm VAT): landing page {so:thiet-ke-website/landing}, website giới thiệu {so:thiet-ke-website/gioi-thieu}, website bán hàng {so:thiet-ke-website/ban-hang}; mỗi trang thêm {pq:thiet-ke-website/x}.'),
+ ('Có phải code từ đầu không?','Không phải dự án nào cũng lập trình lại từ đầu. Có thể tùy biến giao diện trên WordPress hoặc code tay HTML/CSS/JS; mức nào phù hợp được chọn theo cách bạn dùng và cập nhật web.'),
+ ('Nên làm web bằng WordPress hay code tay?','WordPress hợp khi bạn tự đăng bài, sản phẩm thường xuyên. Code tay nhẹ, tải nhanh và ít phụ thuộc plugin, hợp với web giới thiệu ít thay đổi. Lựa chọn được tư vấn dựa trên cách bạn sẽ dùng web.'),
+ ('Tôi có tự sửa nội dung được không?','Được. Website giới thiệu và website bán hàng có trang quản trị (CMS), và bạn được hướng dẫn cách cập nhật nội dung, hình ảnh, sản phẩm sau bàn giao.'),
+ ('Cần chuẩn bị gì trước khi làm web theo yêu cầu?','Ngành và sản phẩm chính, khách hàng chính của bạn, hành động muốn khách làm, logo và màu thương hiệu nếu có, cùng 3 website bạn thích và lý do.'),
+ ('Website mới có lên Google ngay không?','Không ngay: Google cần thời gian lập chỉ mục, sitemap được gửi qua Search Console. Thứ hạng phụ thuộc nội dung và mức cạnh tranh, My Agent không hứa thứ hạng.'),
+ ('Bao lâu thì xong?','Theo bảng giá tham khảo: landing page {tg:thiet-ke-website/landing}, website giới thiệu {tg:thiet-ke-website/gioi-thieu}, website bán hàng {tg:thiet-ke-website/ban-hang}, tính từ khi chốt nội dung và nhận đủ tư liệu.'),
+ ('Sau bàn giao ai sở hữu website?',OWN_W),
+ ('Thanh toán thế nào?','Có hợp đồng bằng văn bản. Đặt cọc 30–50%, phần còn lại thanh toán sau khi ký biên bản nghiệm thu. Có 2 lần chỉnh sửa trong phạm vi và bảo hành lỗi kỹ thuật 60 ngày. Giá chưa bao gồm VAT.')]

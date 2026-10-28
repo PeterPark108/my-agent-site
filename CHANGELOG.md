@@ -1,5 +1,9 @@
 # Nhật ký thay đổi
 
+## 0.9.15 - 2026-10-29
+- Brief SEO 02: trang /dich-vu/thiet-ke-website.html định vị "thiết kế web chuyên nghiệp theo yêu cầu" (không có "trọn gói" ở title/H1/meta). Bảng giá lên ngay dưới hero; thêm mục "là gì", bảng so sánh web mẫu / theo yêu cầu / trọn gói (link trang chủ), mức tùy biến WordPress / code tay, bước brief và wireframe, sản phẩm mẫu NhàĐất Việt và NHỊP (ghi rõ "sản phẩm mẫu"), mục web app; 10 câu FAQ thay FAQ cũ (FAQPage khớp trang), câu sở hữu theo chốt Peter.
+- svc_deep: thêm chỗ giữ {pq:dv/x} (giá mỗi trang thêm, lấy từ pricing.json). Bỏ liệt kê stack chi tiết (Nginx, Cloudflare, HTML5...) ở trang này.
+
 ## 0.9.14 - 2026-10-29
 - Brief SEO 04: nâng cấp bài blog "Thiết kế web trọn gói giá bao nhiêu? Gồm những gì? (2026)", giữ URL cũ. Bài có ô trả lời nhanh, bảng giá 3 gói, bảng các khoản tính riêng, ví dụ minh họa tổng chi phí năm đầu, yếu tố làm giá thay đổi, combo & thanh toán, web giá rẻ, checklist hỏi trước khi ký và 8 câu FAQ (có FAQPage).
 - blog_build: hỗ trợ chỗ giữ giá {so:}/{tg:}/{sum:}/{pp:}/{disc}/{discmax}, điền từ pricing.json (không gõ tay giá). Thêm trường `author: peter` (dòng tác giả hiển thị "Nguyễn Văn Tùng (Peter)", link trang giới thiệu; Article author trong JSON-LD vẫn là Organization theo seo_audit) và `faq: true` (FAQPage dựng từ mục "Câu hỏi thường gặp"). Bảng Markdown kiểm số liệu chung với dòng nguồn ngay trên bảng.
