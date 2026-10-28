@@ -107,4 +107,4 @@ Có thể. Một mẫu phổ biến được nhiều website dùng, nên bố c�
 
 ## Chưa chắc nên chọn hướng nào?
 
-Hãy gửi cho My Agent ngành của anh/chị, khách chính, và vài website anh/chị thích. Peter sẽ nói thẳng template có đủ không, hay nên làm [thiết kế web theo yêu cầu](../dich-vu/thiet-ke-website.html). Nếu template là đủ, anh/chị sẽ được khuyên như vậy.
+Hãy gửi cho My Agent ngành của anh/chị, khách chính, và vài website anh/chị thích. Peter sẽ nói thẳng template có đủ không, hay nên làm [thiết kế web theo yêu cầu](../dich-vu/thiet-ke-website.html). Nếu template là đủ, anh/chị sẽ được khuyên như vậy. Đang cân nhắc thuê cá nhân hay công ty? Đọc [làm web với freelancer hay công ty](lam-web-voi-freelancer-hay-cong-ty.html).
