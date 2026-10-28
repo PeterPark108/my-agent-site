@@ -1,5 +1,9 @@
 # Nhật ký thay đổi
 
+## 0.9.14 - 2026-10-29
+- Brief SEO 04: nâng cấp bài blog "Thiết kế web trọn gói giá bao nhiêu? Gồm những gì? (2026)", giữ URL cũ. Bài có ô trả lời nhanh, bảng giá 3 gói, bảng các khoản tính riêng, ví dụ minh họa tổng chi phí năm đầu, yếu tố làm giá thay đổi, combo & thanh toán, web giá rẻ, checklist hỏi trước khi ký và 8 câu FAQ (có FAQPage).
+- blog_build: hỗ trợ chỗ giữ giá {so:}/{tg:}/{sum:}/{pp:}/{disc}/{discmax}, điền từ pricing.json (không gõ tay giá). Thêm trường `author: peter` (dòng tác giả hiển thị "Nguyễn Văn Tùng (Peter)", link trang giới thiệu; Article author trong JSON-LD vẫn là Organization theo seo_audit) và `faq: true` (FAQPage dựng từ mục "Câu hỏi thường gặp"). Bảng Markdown kiểm số liệu chung với dòng nguồn ngay trên bảng.
+
 ## 0.9.13 - 2026-10-29
 - Theo trả lời của Peter (29/10): bỏ câu về nền tảng phân tích dữ liệu/an ninh mạng của Peter ở mục bảo mật trang phần mềm nội bộ; phần bảo mật giữ trung lập. Giữ không OfferCatalog, title "HCM", không thêm ảnh.
 - Brief SEO 03: trang thiết kế app (3A) và web app / phần mềm nội bộ (3B). Title và meta theo brief; H1 trang 3B là "Thiết kế web app & phần mềm quản lý theo yêu cầu (TP.HCM)". Bảng giá chuyển lên ngay dưới hero ở cả 2 trang.
