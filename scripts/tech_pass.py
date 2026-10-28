@@ -28,7 +28,9 @@ def jsonld(rel,url,s,desc):
   out=[]; C="https://schema.org"
   if rel=='index.html':
     o=dict(ORG,description=desc)
-    out.append({"@context":C,"@graph":[o,FOUNDER,{"@type":"WebSite","@id":BASE+"#website","url":BASE,"name":"My Agent","inLanguage":"vi","publisher":{"@id":BASE+"#org"}}]})
+    out.append({"@context":C,"@graph":[o,FOUNDER,{"@type":"WebSite","@id":BASE+"#website","url":BASE,"name":"My Agent","inLanguage":"vi","publisher":{"@id":BASE+"#org"}},
+      # v0.9.12 (brief 01): Service KHÔNG có offers/price — seo_audit cấm giá trong JSON-LD (giá nằm ở bảng HTML)
+      {"@type":"Service","@id":BASE+"#tron-goi","name":"Thiết kế web trọn gói TP.HCM","serviceType":"Thiết kế website","description":desc,"url":BASE,"provider":{"@id":BASE+"#org"},"areaServed":ORG["areaServed"]}]})
     return out+faqld(s)
   h1=txt(re.search(r'<h1[^>]*>(.*?)</h1>',s,re.S).group(1))
   crumbs=[("Trang chủ",BASE)]

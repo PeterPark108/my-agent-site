@@ -1,8 +1,8 @@
 {
  "version": "2026-10-28",
  "currency": "VND",
- "vatIncluded": true,
- "vatNote": "Giá đã bao gồm VAT",
+ "vatIncluded": false,
+ "vatNote": "Giá chưa bao gồm VAT",
  "disclaimer": "Giá chỉ mang tính tham khảo theo khoảng, báo giá chính xác sau khi trao đổi nhu cầu.",
  "rules": {
   "comboDiscount": [

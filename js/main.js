@@ -2,7 +2,7 @@
 const hdr=d.getElementById('hdr'),onS=()=>hdr.classList.toggle('sc',scrollY>10);onS();addEventListener('scroll',onS,{passive:true});
 const b=d.querySelector('.burger'),nav=d.querySelector('nav');b.onclick=()=>{const o=nav.classList.toggle('open');b.setAttribute('aria-expanded',o)};
 d.querySelectorAll('.has>a').forEach(a=>a.addEventListener('click',e=>{if(innerWidth<=960){e.preventDefault();a.parentNode.classList.toggle('open')}}));
-// contact form -> FormSubmit.co (config in js/config.js)
+// contact form -> formEndpoint /api/contact (Telegram); FormSubmit chỉ là dự phòng tắt sẵn (config in js/config.js)
 const C=window.MYAGENT_CONFIG||{},EM=C.formEmail||'',ZP=(C.zaloPhone||'').replace(/\D/g,''),okEM=/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(EM);
 d.querySelectorAll('a[data-mailto]').forEach(a=>{if(okEM)a.href='mailto:'+EM;else a.hidden=true});
 d.querySelectorAll('a[data-zalo]').forEach(a=>{if(ZP)a.href='https://zalo.me/'+ZP;else a.hidden=true});
