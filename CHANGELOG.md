@@ -1,5 +1,8 @@
 # Nhật ký thay đổi
 
+## 0.9.16 - 2026-10-29
+- Brief SEO 05A: bài blog mới "Web template hay web theo yêu cầu: chọn cái nào? (So sánh)" (/blog/web-template-hay-web-theo-yeu-cau.html): trả lời nhanh, định nghĩa, bảng so sánh 8 tiêu chí (cả mặt yếu của web theo yêu cầu), khi nào template là đủ, khi nào nên làm riêng, phương án tùy biến trên nền có sẵn, giá My Agent từ pricing.json (không nêu giá template thị trường), 5 FAQ (FAQPage). Trang thiết kế website link sang bài.
+
 ## 0.9.15 - 2026-10-29
 - Brief SEO 02: trang /dich-vu/thiet-ke-website.html định vị "thiết kế web chuyên nghiệp theo yêu cầu" (không có "trọn gói" ở title/H1/meta). Bảng giá lên ngay dưới hero; thêm mục "là gì", bảng so sánh web mẫu / theo yêu cầu / trọn gói (link trang chủ), mức tùy biến WordPress / code tay, bước brief và wireframe, sản phẩm mẫu NhàĐất Việt và NHỊP (ghi rõ "sản phẩm mẫu"), mục web app; 10 câu FAQ thay FAQ cũ (FAQPage khớp trang), câu sở hữu theo chốt Peter.
 - svc_deep: thêm chỗ giữ {pq:dv/x} (giá mỗi trang thêm, lấy từ pricing.json). Bỏ liệt kê stack chi tiết (Nginx, Cloudflare, HTML5...) ở trang này.
