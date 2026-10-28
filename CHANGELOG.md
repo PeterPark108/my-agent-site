@@ -1,5 +1,11 @@
 # Nhật ký thay đổi
 
+## 0.9.11 - 2026-10-29
+- Giá **chưa bao gồm VAT** (Peter chốt): đổi mọi câu "đã gồm/đã bao gồm VAT" thành "chưa gồm/chưa bao gồm VAT" trên bảng giá, trang dịch vụ, combo, FAQ + FAQPage, blog, chatbot, công cụ tính giá, câu điền sẵn form liên hệ; `pricing.json` `vatIncluded: false`, `vatNote: "Giá chưa bao gồm VAT"`. Không đổi con số giá. Các mục CHANGELOG cũ giữ nguyên làm lịch sử.
+- ci_check + test_pricing chặn "đã gồm VAT / đã bao gồm VAT" quay lại (câu hỏi "Giá trên trang đã gồm VAT chưa?" được giữ, trả lời "Chưa gồm VAT").
+- Thiết kế app: bỏ FAQ chung "Bao lâu thì triển khai xong? … 7–30 ngày" (mâu thuẫn bảng giá 4–6 tuần / 6–10 tuần / 3–5 tháng); thời gian app ở FAQ "Làm app mất bao lâu?".
+- Chính sách bảo mật mục 3: form liên hệ gửi tới máy chủ của website (/api/contact) rồi chuyển thành tin Telegram tới My Agent, không qua FormSubmit.
+
 ## 0.9.10 - 2026-10-28
 - Google Analytics 4: bật Measurement ID `G-BZ5E2WMZLJ` (Peter cung cấp) trong `js/config.js`, nguồn tải duy nhất cho mọi trang (tech_pass chèn vào head; 404 được chèn riêng; trang chuyển hướng noindex không tải). Tải async; ẩn danh IP, tắt Google signals và cá nhân hoá quảng cáo (Consent Mode: ad_* denied); không tải khi bật Do Not Track / Global Privacy Control hoặc khách đã tự tắt. `config.js` có `?v=` để trình duyệt nhận cấu hình mới.
 - Chính sách bảo mật: thêm mục 4 Google Analytics (dữ liệu, mục đích, không bán, cách từ chối, nút tắt đo lường trên trình duyệt).

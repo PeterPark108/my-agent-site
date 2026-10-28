@@ -63,6 +63,14 @@ for _f in files:
         for _o in json.loads(_ld).get('@graph', []):
             if _o.get('@id', '').endswith('#org') and _o.get('sameAs') != ['https://www.facebook.com/myagentvn']:
                 fail.append(f'{_f}: #org sameAs phải là ["https://www.facebook.com/myagentvn"], đang {_o.get("sameAs")}')
+# v0.9.11: Peter chốt giá CHƯA gồm VAT; chặn "đã gồm VAT / đã bao gồm VAT" quay lại (trừ câu hỏi "... đã gồm VAT chưa?")
+_VAT = re.compile(r'đã\s+(bao\s+)?gồm\s+(VAT|thuế\s*GTGT)(?!\s+chưa)', re.I)
+for _f in files:
+    if _f == 'CHANGELOG.md' or _f.startswith('scripts/ci_check') or not _f.endswith(('.html', '.js', '.json', '.md', '.py', '.txt', '.xml')): continue
+    try: _s = open(_f, encoding='utf-8').read()
+    except Exception: continue
+    _m = _VAT.search(_s)
+    if _m: fail.append(f'{_f}: còn "{_m.group(0)}" (giá phải là chưa gồm VAT)')
 # sitemap chỉ chứa URL có file thật
 for loc in re.findall(r'<loc>https://myagentvn\.com/(.*?)</loc>', open('sitemap.xml', encoding='utf-8').read()):
     if not os.path.isfile(loc or 'index.html'): fail.append('sitemap có URL không tồn tại: ' + loc)

@@ -137,5 +137,7 @@ for slug,d in S.items():
   if d.get('faq_replace'): s,k=re.subn(r'<div class="faq">.*?</div>',lambda m:'<div class="faq">'+fx+'</div>',s,count=1,flags=re.S)
   else: s,k=re.subn(r'<div class="faq">',lambda m:m.group(0)+fx,s,count=1)
   assert k,slug
+  # v0.9.11: FAQ chung "7–30 ngày" mâu thuẫn bảng giá app (4–6 tuần trở lên) -> bỏ trên trang app; thời gian app nằm ở FAQ "Làm app mất bao lâu?"
+  if slug=='thiet-ke-app': s=re.sub(r'<details class="glass"><summary>Bao lâu thì triển khai xong\?</summary><p>[^<]*7–30 ngày[^<]*</p></details>','',s)
   f.write_text(s); n+=1
 print('svc_deep:',n,'pages')
