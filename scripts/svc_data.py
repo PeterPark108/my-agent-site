@@ -318,7 +318,7 @@ W['intro']=[
   'Thiết kế web theo yêu cầu là làm website bắt đầu từ khách của bạn: họ tìm gì, cần thấy gì để tin, và bạn muốn họ làm gì (gọi, nhắn Zalo, đặt hàng). Trả lời xong ba câu đó mới dựng bố cục, nội dung, rồi mới đến giao diện theo nhận diện thương hiệu và tính năng cần thiết.',
   'Peter làm trực tiếp từ wireframe đến lúc đưa web lên mạng, làm việc online từ TP.HCM và nhận khách toàn quốc.'],[]),
  ('so sánh','Theo yêu cầu khác <span class="gt">web mẫu và trọn gói</span> thế nào?',[TBL_W,
-  'Đọc thêm về khác biệt chi phí và cách làm: <a href="../blog/thiet-ke-web-tron-goi-gom-nhung-gi.html">thiết kế web trọn gói gồm những gì</a>.'],[]),
+  'Đọc thêm: <a href="../blog/web-template-hay-web-theo-yeu-cau.html">web template hay web theo yêu cầu</a> và <a href="../blog/thiet-ke-web-tron-goi-gom-nhung-gi.html">thiết kế web trọn gói gồm những gì</a>.'],[]),
  ('mức tùy biến','Mức tùy biến linh hoạt: <span class="gt">không phải dự án nào cũng lập trình từ&nbsp;đầu</span>',[
   'Theo yêu cầu nghĩa là bố cục, nội dung và trải nghiệm được làm riêng, không có nghĩa mọi dòng mã đều viết mới. Tùy cách bạn dùng web, có hai mức chính:'],[
   '<b>Tùy biến giao diện trên WordPress:</b> hợp khi bạn tự đăng bài, sản phẩm thường xuyên; giao diện vẫn được thiết kế theo thương hiệu và hành trình khách.',
