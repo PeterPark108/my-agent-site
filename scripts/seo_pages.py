@@ -3,9 +3,8 @@ mỗi từ khóa chính chỉ gắn 1 trang. 'h1'/'lead' = (cũ, mới) chỉ kh
 'kw' = tên dịch vụ dùng cho Service schema."""
 B=' | My Agent'
 PAGES={
-'index.html':dict(title='Thiết kế web trọn gói TP.HCM, chi phí hợp lý'+B,
-  desc='Dịch vụ thiết kế web trọn gói tại TP.HCM: website, landing page, web bán hàng. Chi phí hợp lý, báo giá rõ ràng trước khi làm. Nhận khách toàn quốc.',
-  lead=('My Agent thiết kế và làm website, landing page, web bán hàng','My Agent nhận thiết kế web trọn gói tại TP.HCM: website, landing page, web bán hàng')),
+'index.html':dict(title='Thiết kế web trọn gói TP.HCM, giá từ 2 triệu'+B,
+  desc='Thiết kế web trọn gói TP.HCM: landing page 2–3,6 tr, web giới thiệu 4–7,2 tr, web bán hàng 7,2–14,4 tr. Bảng giá rõ, quy trình 6 bước, Peter làm trực tiếp.'),
 'dich-vu/thiet-ke-website.html':dict(title='Thiết kế web chuyên nghiệp theo yêu cầu'+B,kw='Thiết kế web chuyên nghiệp theo yêu cầu',
   desc='Thiết kế web chuyên nghiệp theo yêu cầu: website doanh nghiệp, bán hàng, landing page chuẩn SEO, responsive. Báo giá rõ theo phạm vi, nhận khách toàn quốc.',
   h1=('<h1 class="gt2">Thiết kế website chuẩn&nbsp;SEO</h1>','<h1 class="gt2">Thiết kế website chuyên nghiệp theo&nbsp;yêu cầu</h1>'),

@@ -1,5 +1,10 @@
 # Nhật ký thay đổi
 
+## 0.9.12 - 2026-10-29
+- Trang chủ theo brief SEO 01 "thiết kế web trọn gói TP.HCM": title "Thiết kế web trọn gói TP.HCM, giá từ 2 triệu", meta mới, H1 "Thiết kế web trọn gói TP.HCM – một đầu mối từ tên miền đến bàn giao", đoạn mở đầu nêu 3 mức giá (lấy từ pricing.json), chưa bao gồm VAT.
+- Khối trọn gói (seo_blocks.home) mở rộng: gồm gì / tính riêng, bảng giá 3 gói + trang thêm, thời gian, quy trình 6 bước, bàn giao, thanh toán & cam kết (hợp đồng + biên bản nghiệm thu bằng văn bản, cọc 30–50%, thương hiệu cá nhân chưa đăng ký pháp nhân), sản phẩm mẫu NHỊP/NhàĐất Việt, combo, 8 FAQ (+ FAQPage).
+- JSON-LD trang chủ thêm Service "Thiết kế web trọn gói TP.HCM" không có offers/giá (seo_audit cấm giá trong JSON-LD).
+
 ## 0.9.11 - 2026-10-29
 - Giá **chưa bao gồm VAT** (Peter chốt): đổi mọi câu "đã gồm/đã bao gồm VAT" thành "chưa gồm/chưa bao gồm VAT" trên bảng giá, trang dịch vụ, combo, FAQ + FAQPage, blog, chatbot, công cụ tính giá, câu điền sẵn form liên hệ; `pricing.json` `vatIncluded: false`, `vatNote: "Giá chưa bao gồm VAT"`. Không đổi con số giá. Các mục CHANGELOG cũ giữ nguyên làm lịch sử.
 - ci_check + test_pricing chặn "đã gồm VAT / đã bao gồm VAT" quay lại (câu hỏi "Giá trên trang đã gồm VAT chưa?" được giữ, trả lời "Chưa gồm VAT").
