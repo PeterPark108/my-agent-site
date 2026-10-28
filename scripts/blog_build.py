@@ -33,6 +33,7 @@ def fillp(x):
   x=x.replace('{disc}',' / '.join(f"{d['percent']}% ({d['minServices']} dịch vụ)" for d in PJ['rules']['comboDiscount']))
   x=x.replace('{discmax}',' '.join(num(PJ['rules']['maxDiscountAmount'])))
   return x
+# author trong JSON-LD vẫn là Organization My Agent (seo_audit bắt buộc); 'author' chỉ đổi dòng tác giả hiển thị.
 AUTHORS={'peter':('Nguyễn Văn Tùng (Peter)','Nguyễn Văn Tùng')}
 FORBID=N.FORBID+[r'\b24\s*/\s*24\b',r'\b24\s*h\b',r'\btop\s*(1|một)\b',r'(đảm\s*bảo|bảo\s*đảm|cam\s*kết|chắc\s*chắn)\s*(về\s*)?(vị\s*trí|thứ\s*hạng|lên\s*(trang|top|hạng))',r'fpt\s*poly']
 # số liệu/giá: phải đánh dấu là ví dụ/giả định hoặc có link nguồn trong cùng đoạn
@@ -208,7 +209,7 @@ def article_page(it,items):
   img=BASE+it['img'][2] if it.get('img') else BASE+'assets/og-image.png'
   ldo={"@context":"https://schema.org","@type":"Article","headline":it['title'][:110],"description":it['description'],"inLanguage":"vi",
     "datePublished":it['date']+"T08:00:00+07:00","dateModified":(upd or it['date'])+"T08:00:00+07:00","articleSection":CATS[c],
-    "author":({"@type":"Person","name":AUTHORS[it['author']][1],"url":BASE+"ve-chung-toi.html","worksFor":{"@id":BASE+"#org"}} if it.get('author') in AUTHORS else {"@type":"ProfessionalService","@id":BASE+"#org","name":"My Agent","url":BASE}),"publisher":{"@type":"ProfessionalService","@id":BASE+"#org","name":"My Agent","url":BASE,"logo":{"@type":"ImageObject","@id":BASE+"#logo","url":BASE+"assets/icon-512.png","width":512,"height":512}},
+    "author":{"@type":"ProfessionalService","@id":BASE+"#org","name":"My Agent","url":BASE},"publisher":{"@type":"ProfessionalService","@id":BASE+"#org","name":"My Agent","url":BASE,"logo":{"@type":"ImageObject","@id":BASE+"#logo","url":BASE+"assets/icon-512.png","width":512,"height":512}},
     "mainEntityOfPage":{"@type":"WebPage","@id":url},"url":url,"image":[img],"wordCount":it['words']}
   if it['tags']: ldo['keywords']=', '.join(it['tags'])
   faqld=''
