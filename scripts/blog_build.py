@@ -11,8 +11,29 @@ import news_md as M, news_build as N
 R=N.R; BASE=N.BASE; E=N.E; vn=N.vn; today=N.today
 CATS={'website':'Website','seo':'SEO','marketing':'Marketing online','du-lieu':'Dữ liệu','ai':'AI & tự động hoá'}
 CAT_ICON={'website':N.ICON['web-seo'],'seo':N.ICON['web-seo'],'marketing':N.ICON['nen-tang'],'du-lieu':N.ICON['du-lieu'],'ai':N.ICON['ai']}
-FIELDS={'title','slug','date','updated','description','category','tags','services','image','image_alt','draft'}
+FIELDS={'title','slug','date','updated','description','category','tags','services','image','image_alt','draft','author','faq'}
 MIN_WORDS=300
+# v0.9.14: giá trong bài lấy từ data/pricing.json qua chỗ giữ (không gõ tay):
+# {so:dv/goi} khoảng giá, {tg:dv/goi} thời gian, {sum:dv/goi+dv/goi*12} tổng khoảng (×n tháng), {pp:dv} giá mỗi trang thêm, {disc} mức giảm combo, {discmax} trần giảm.
+PJ=json.loads((R/'data/pricing.json').read_text())
+PS={s['id']:s for s in PJ['services']}
+def _tier(a,b): return [x for x in PS[a]['tiers'] if x['id']==b][0]
+def fillp(x):
+  from svc_pricing import rng,num
+  def sm(m):
+    lo=hi=0
+    for part in m.group(1).split('+'):
+      k=1
+      if '*' in part: part,k=part.split('*'); k=int(k)
+      a,b=part.split('/'); tt=_tier(a,b); lo+=tt['min']*k; hi+=tt['max']*k
+    return rng(lo,hi)
+  x=re.sub(r'\{sum:([a-z0-9/+*-]+)\}',sm,x)
+  x=re.sub(r'\{(so|tg):([a-z0-9-]+)/([a-z0-9-]+)\}',lambda m:_tier(m.group(2),m.group(3))['time'] if m.group(1)=='tg' else rng(_tier(m.group(2),m.group(3))['min'],_tier(m.group(2),m.group(3))['max']),x)
+  x=re.sub(r'\{pp:([a-z0-9-]+)\}',lambda m:rng(PS[m.group(1)]['quantity']['perUnitMin'],PS[m.group(1)]['quantity']['perUnitMax']),x)
+  x=x.replace('{disc}',' / '.join(f"{d['percent']}% ({d['minServices']} dịch vụ)" for d in PJ['rules']['comboDiscount']))
+  x=x.replace('{discmax}',' '.join(num(PJ['rules']['maxDiscountAmount'])))
+  return x
+AUTHORS={'peter':('Nguyễn Văn Tùng (Peter)','Nguyễn Văn Tùng')}
 FORBID=N.FORBID+[r'\b24\s*/\s*24\b',r'\b24\s*h\b',r'\btop\s*(1|một)\b',r'(đảm\s*bảo|bảo\s*đảm|cam\s*kết|chắc\s*chắn)\s*(về\s*)?(vị\s*trí|thứ\s*hạng|lên\s*(trang|top|hạng))',r'fpt\s*poly']
 # số liệu/giá: phải đánh dấu là ví dụ/giả định hoặc có link nguồn trong cùng đoạn
 NUMCLAIM=re.compile(r'\d[\d.,]*\s*(%|phần\s*trăm|triệu|tỷ|nghìn|ngàn|k\b|đ\b|đồng|vnđ|vnd|usd|\$|khách\s*hàng|doanh\s*nghiệp|dự\s*án)',re.I)
@@ -61,6 +82,8 @@ def load(d,errs):
     if meta.get('draft') is True: print(f'bỏ qua bản nháp: {name}'); continue
     for k in sorted(set(meta)-FIELDS): L(f'trường lạ "{k}" (chỉ dùng: {", ".join(sorted(FIELDS))})')
     it=dict(meta); it['slug']=m.group(1); it['file']=name
+    if meta.get('author') is not None and meta.get('author') not in AUTHORS: L(f'author không hợp lệ (chỉ dùng: {", ".join(AUTHORS)})')
+    if meta.get('faq') not in (None,True,False): L('faq phải là true hoặc false')
     if meta.get('slug') is not None and meta.get('slug')!=it['slug']: L(f'slug "{meta.get("slug")}" phải trùng tên file ({it["slug"]})')
     miss=[k for k in ('title','date','description','category') if not isinstance(it.get(k),str) or not it[k].strip()]
     for k in miss: L(f'thiếu trường bắt buộc "{k}"')
@@ -101,7 +124,7 @@ def load(d,errs):
       if not wh: L('image phải là file png/jpg/webp có thật trong assets/blog/')
       else: it['img']=wh
       if not str(it.get('image_alt','')).strip(): L('có image thì phải có image_alt (mô tả ảnh)')
-    body=body.strip(); it['body']=body
+    body=fillp(body.strip()); it['body']=body
     wc=M.words(body); it['words']=wc
     if wc<MIN_WORDS: L(f'nội dung chỉ có {wc} từ (tối thiểu {MIN_WORDS})')
     ctx=M.Ctx(img_size); it['html'],it['heads'],_=M.render(body,ctx)
@@ -110,7 +133,7 @@ def load(d,errs):
     for p in FORBID:
       mm=re.search(p,alltext,re.I)
       if mm: L(f'có cụm từ bị cấm: "{mm.group(0)}" (không dùng 24/7, 24h, FPT Polytechnic, cam kết/đảm bảo top hay thứ hạng)')
-    for blk in [it['title'],it['description']]+re.split(r'\n\s*\n|\n(?=\s*[-*|]|\s*\d+\.)',re.sub(r'```.*?```','',body,flags=re.S)):
+    for blk in [it['title'],it['description']]+re.split(r'\n\s*\n|\n(?=\s*[-*]|\s*\d+\.)',re.sub(r'```.*?```','',body,flags=re.S)):
       mm=NUMCLAIM.search(blk)
       if mm and not MARK.search(blk): L(f'có giá/số liệu "{mm.group(0).strip()}" chưa đánh dấu: ghi rõ "ví dụ"/"giả định" hoặc kèm link nguồn https trong cùng đoạn ("{blk.strip()[:60]}…")')
     if it['slug'] in slugs: L(f'slug "{it["slug"]}" trùng với {slugs[it["slug"]]}')
@@ -177,7 +200,7 @@ def article_page(it,items):
   related=('<section class="soft"><div class="wrap"><div class="t rv"><span class="k">// đọc tiếp</span><h2>Bài liên&nbsp;quan</h2></div><div class="grid nw-grid">'+''.join(card(x,pre,'h3') for x in rel_items)+'</div></div></section>') if rel_items else ''
   tags=('<p class="muted"><small>Từ khóa: '+' · '.join(E(x) for x in it['tags'])+'</small></p>') if it['tags'] else ''
   meta=(f'<p class="nwa-meta mono"><span>Đăng <time datetime="{it["date"]}">{vn(it["date"])}</time></span>'+(f'<span>Cập nhật <time datetime="{upd}">{vn(upd)}</time></span>' if upd and upd!=it['date'] else '')
-    +f'<span>{rt} phút đọc</span><span>Tác giả: My Agent</span></p>')
+    +f'<span>{rt} phút đọc</span><span>Tác giả: '+(f'<a href="{pre}ve-chung-toi.html">{E(AUTHORS[it["author"]][0])}</a>' if it.get('author') in AUTHORS else 'My Agent')+'</span></p>')
   main=(f'<section class="hero sub nwa-hero"><canvas class="net" aria-hidden="true"></canvas><div class="wrap"><nav class="crumb mono" aria-label="breadcrumb"><a href="{pre}index.html">home</a> / <a href="{pre}blog.html">blog</a> / {E(it["slug"])}</nav>'
     f'<div class="nw-top nwa-top"><span class="nw-ic">{CAT_ICON[c]}</span><span class="nw-tg mono">{E(CATS[c])}</span></div><h1 class="gt2 nwa-h1">{E(it["title"])}</h1><p class="lead">{E(it["description"])}</p>{meta}</div></section>'
     f'<section><div class="wrap nwa-wrap"><article class="nwa" aria-labelledby="nwa-h">{fig}{toc}<div class="nwa-body rv" id="nwa-h">{it["html"]}{tags}</div>{svc}'
@@ -185,13 +208,19 @@ def article_page(it,items):
   img=BASE+it['img'][2] if it.get('img') else BASE+'assets/og-image.png'
   ldo={"@context":"https://schema.org","@type":"Article","headline":it['title'][:110],"description":it['description'],"inLanguage":"vi",
     "datePublished":it['date']+"T08:00:00+07:00","dateModified":(upd or it['date'])+"T08:00:00+07:00","articleSection":CATS[c],
-    "author":{"@type":"ProfessionalService","@id":BASE+"#org","name":"My Agent","url":BASE},"publisher":{"@type":"ProfessionalService","@id":BASE+"#org","name":"My Agent","url":BASE,"logo":{"@type":"ImageObject","@id":BASE+"#logo","url":BASE+"assets/icon-512.png","width":512,"height":512}},
+    "author":({"@type":"Person","name":AUTHORS[it['author']][1],"url":BASE+"ve-chung-toi.html","worksFor":{"@id":BASE+"#org"}} if it.get('author') in AUTHORS else {"@type":"ProfessionalService","@id":BASE+"#org","name":"My Agent","url":BASE}),"publisher":{"@type":"ProfessionalService","@id":BASE+"#org","name":"My Agent","url":BASE,"logo":{"@type":"ImageObject","@id":BASE+"#logo","url":BASE+"assets/icon-512.png","width":512,"height":512}},
     "mainEntityOfPage":{"@type":"WebPage","@id":url},"url":url,"image":[img],"wordCount":it['words']}
   if it['tags']: ldo['keywords']=', '.join(it['tags'])
+  faqld=''
+  if it.get('faq') is True:
+    sec=re.search(r'^## Câu hỏi thường gặp\s*$(.*?)(?=^## |\Z)',it['body'],re.S|re.M)
+    qa=re.findall(r'^### (.+?)\s*\n\s*\n(.+?)(?=\n\s*\n|\Z)',sec.group(1),re.S|re.M) if sec else []
+    strip=lambda x:re.sub(r'\s+',' ',re.sub(r'\[([^\]]+)\]\([^)]+\)',r'\1',x)).strip()
+    if qa: faqld=N.ld({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":strip(q),"acceptedAnswer":{"@type":"Answer","text":strip(a)}} for q,a in qa]})
   head=(RSSL+f'<meta property="article:published_time" content="{it["date"]}T08:00:00+07:00"><meta property="article:modified_time" content="{(upd or it["date"])}T08:00:00+07:00">'
     f'<meta property="article:section" content="{E(CATS[c])}">'+''.join(f'<meta property="article:tag" content="{E(x)}">' for x in it['tags'])
     +(f'<link rel="image_src" href="{img}">' if it.get('img') else ''))
-  return rel,shell_page(rel,N.ptitle(it['title']),it['description'],head,main+N.ld(ldo),on=True)
+  return rel,shell_page(rel,N.ptitle(it['title']),it['description'],head,main+N.ld(ldo)+faqld,on=True)
 
 def feed(items):
   X=lambda x:html.escape(str(x),quote=False)

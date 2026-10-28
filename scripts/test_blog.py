@@ -44,7 +44,7 @@ class Validator(unittest.TestCase):
   def test_required(self):
     for k in ('title','date','description','category'): self.err(f'thiếu trường bắt buộc "{k}"',**{k:None})
     self.err('ít nhất 1 dịch vụ',services=None); self.err('không có trang dich-vu/khong-co',services='[khong-co]')
-    self.err('category',category='linh-tinh'); self.err('trường lạ',author='Ai đó')
+    self.err('category',category='linh-tinh'); self.err('author không hợp lệ',author='Ai đó'); self.err('trường lạ',tacgia='Ai đó'); self.ok(author='peter',faq='true')
   def test_dates(self):
     for d in ('27/10/2026','2026-13-01','2026-1-5'): self.err('date',date=d)
     self.err('tương lai',date='2099-01-01'); self.err('updated không được trước date',updated='2026-01-01')
