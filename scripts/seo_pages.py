@@ -32,8 +32,8 @@ SV={ # file: (từ khóa chính trong title, tên dịch vụ schema, câu desc)
 'google-maps':('Đăng ký Google Maps doanh nghiệp tại HCM','Đăng ký Google Maps doanh nghiệp','Đăng ký Google Maps doanh nghiệp tại TP.HCM: tạo, xác minh và tối ưu hồ sơ để khách quanh khu vực tìm là thấy. Báo giá rõ ràng.'),
 'hosting-seo':('Hosting SEO tốc độ cao tại TP.HCM','Hosting SEO','Hosting SEO tốc độ cao: máy chủ riêng, SSD NVMe, sao lưu tự động, hỗ trợ kỹ thuật. Phục vụ khách TP.HCM và toàn quốc, báo giá rõ ràng.'),
 'ten-mien':('Đăng ký tên miền .com, .vn tại TP.HCM','Đăng ký tên miền','Đăng ký tên miền .com, .net, .vn dễ nhớ, đứng tên chính doanh nghiệp. Hỗ trợ trỏ DNS, phục vụ khách TP.HCM và toàn quốc.'),
-'thiet-ke-app':('Thiết kế app trọn gói iOS, Android tại TP.HCM','Thiết kế app trọn gói iOS, Android','Thiết kế app chuyên nghiệp, trọn gói iOS và Android: app bán hàng, đặt lịch, MVP. Báo giá theo số màn hình và tính năng, nhận khách toàn quốc.'),
-'phan-mem-noi-bo':('Thiết kế web app, phần mềm nội bộ tại TP.HCM','Thiết kế web app và phần mềm nội bộ theo yêu cầu','Thiết kế web app theo yêu cầu: dashboard, CRM nhỏ, cổng khách hàng, phần mềm quản lý nội bộ chạy trên trình duyệt. Phân tích nghiệp vụ trước, báo giá rõ.'),
+'thiet-ke-app':('Thiết kế app iOS, Android trọn gói tại TP.HCM','Thiết kế app trọn gói iOS, Android','Thiết kế app chuyên nghiệp đa nền tảng: MVP ≤8 màn hình 16–28 tr (4–6 tuần), app bán hàng/đặt lịch 28–48 tr. Phân tích tính năng trước, báo giá rõ.'),
+'phan-mem-noi-bo':('Thiết kế web app theo yêu cầu HCM: CRM, quản lý','Thiết kế web app và phần mềm nội bộ theo yêu cầu','Web app, phần mềm quản lý nội bộ theo quy trình riêng: 1 module 9,6–20 tr, 3–5 module 24–48 tr. CRM, dashboard, cổng khách hàng. Peter làm trực tiếp.'),
 'phan-tich-du-lieu':('Data Analyst – phân tích dữ liệu HCM','Data Analyst - Phân tích dữ liệu','Dịch vụ Data Analyst tại TP.HCM: gom dữ liệu bán hàng, quảng cáo, tồn kho từ Excel và phần mềm thành báo cáo, dashboard dễ đọc. Báo giá rõ ràng.'),
 'ky-thuat-du-lieu':('Data Engineer – kỹ thuật dữ liệu HCM','Data Engineer - Kỹ thuật dữ liệu','Dịch vụ Data Engineer tại TP.HCM: kết nối dữ liệu từ website, Google Sheets, quảng cáo, POS, CRM về một nơi, tự động cập nhật. Báo giá rõ ràng.'),
 'profile-doanh-nghiep':('Thiết kế profile doanh nghiệp tại TP.HCM','Thiết kế profile doanh nghiệp','Thiết kế profile, hồ sơ năng lực doanh nghiệp chuyên nghiệp tại TP.HCM, gửi đi là tạo ấn tượng với đối tác. Báo giá rõ ràng.'),
@@ -45,7 +45,7 @@ SV={ # file: (từ khóa chính trong title, tên dịch vụ schema, câu desc)
 for k,(t,n,d) in SV.items(): PAGES[f'dich-vu/{k}.html']=dict(title=t+B,desc=d,kw=n)
 PAGES['dich-vu/thiet-ke-app.html'].update(h1=('<h1 class="gt2">Thiết kế&nbsp;App</h1>','<h1 class="gt2">Thiết kế app trọn gói iOS, Android tại&nbsp;TP.HCM</h1>'),
   lead=('<p class="lead">Ứng dụng di động iOS/Android, máy tính bảng.</p>','<p class="lead">Thiết kế app chuyên nghiệp đa nền tảng iOS và Android: app bán hàng, đặt lịch, MVP, kèm trang quản trị. Nhận khách TP.HCM và toàn quốc.</p>'))
-PAGES['dich-vu/phan-mem-noi-bo.html'].update(h1=('<h1 class="gt2">Phần mềm nội bộ&nbsp;Agency</h1>','<h1 class="gt2">Thiết kế web app &amp; phần mềm nội&nbsp;bộ</h1>'),
+PAGES['dich-vu/phan-mem-noi-bo.html'].update(h1=('<h1 class="gt2">Thiết kế web app &amp; phần mềm nội&nbsp;bộ</h1>','<h1 class="gt2">Thiết kế web app &amp; phần mềm quản lý theo yêu cầu (TP.HCM)</h1>'),
   lead=('<p class="lead">Phần mềm quản lý theo quy trình riêng, chạy trên trình duyệt.</p>','<p class="lead">Web app theo yêu cầu cho doanh nghiệp tại TP.HCM và toàn quốc: phần mềm quản lý nội bộ, dashboard, cổng khách hàng, chạy trên trình duyệt.</p>'))
 PAGES['ve-chung-toi.html']['title']='Về My Agent – dịch vụ số tại TP.HCM'
 if __name__=='__main__':

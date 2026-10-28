@@ -112,7 +112,7 @@ def fillp(x):
 def intro(slug,d):
   o=''
   for k,h,ps,li in d.get('intro',[]):
-    o+=f'<div class="gap"></div><div class="t rv"><span class="k">// {E(k)}</span><h2>{h}</h2></div><div class="card glass rv svi">'+''.join(f'<p>{fillp(x)}</p>' for x in ps)
+    o+=f'<div class="gap"></div><div class="t rv"><span class="k">// {E(k)}</span><h2>{h}</h2></div><div class="card glass rv svi">'+''.join(fillp(x) if x.startswith('<div') else f'<p>{fillp(x)}</p>' for x in ps)
     if li: o+='<ul class="svi-l">'+''.join(f'<li>{CK}<span>{x}</span></li>' for x in li)+'</ul>'
     o+='</div>'
   return o
@@ -143,6 +143,12 @@ for slug,d in S.items():
   if slug=='thiet-ke-app': s=re.sub(r'<details class="glass"><summary>Sau bàn giao ai sở hữu website\?</summary><p>[^<]*</p></details>','<details class="glass"><summary>Sau bàn giao ai sở hữu app?</summary><p>Sau khi bàn giao, app là của khách: mã nguồn và dữ liệu thuộc về khách. Mã nguồn được giao sau khi thanh toán đủ, như ghi trong bảng giá.</p></details>',s)
   # v0.9.11 (audit 29/10): trang thiết kế website: "7–30 ngày" -> thời gian theo bảng giá
   if slug=='thiet-ke-website': s=re.sub(r'(<details class="glass"><summary>Bao lâu thì triển khai xong\?</summary><p>)[^<]*7–30 ngày[^<]*(</p>)',lambda m:m.group(1)+fillp('Theo bảng giá tham khảo: landing page {tg:thiet-ke-website/landing}, website giới thiệu {tg:thiet-ke-website/gioi-thieu}, website bán hàng {tg:thiet-ke-website/ban-hang}, tính từ khi chốt nội dung và nhận đủ tư liệu; tiến độ được báo rõ từng giai đoạn.')+m.group(2),s)
+  if d.get('top_price'):
+    i=s.find('<div class="gap" id="bang-gia"></div>'); j=s.find('<p class="muted rv" style="margin-top:18px">',i); j=s.find('</p>',j)+4
+    assert i>0 and j>i,slug
+    blk=s[i:j]; s=s[:i]+s[j:]
+    k=s.find('<div class="t rv"><span class="k">// lợi ích'); assert k>0,slug
+    s=s[:k]+blk+'<div class="gap"></div>'+s[k:] if not s[:k].endswith('<div class="gap"></div>') else s[:k]+blk+s[k:]
   f.write_text(s); n+=1
 # v0.9.11 (audit 29/10, mục 2–3 + chốt Peter): FAQ dùng chung trên mọi trang dịch vụ
 TIME_ALL='Tùy dịch vụ và phạm vi; thời gian tham khảo của từng gói ghi trong bảng giá, tiến độ được báo rõ từng giai đoạn.'
