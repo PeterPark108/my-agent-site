@@ -1,5 +1,8 @@
 # Nhật ký thay đổi
 
+## 0.9.17 - 2026-10-29
+- Brief SEO 05B: bài blog mới "Làm web với freelancer hay công ty? Ưu nhược điểm thật" (/blog/lam-web-voi-freelancer-hay-cong-ty.html): bảng so sánh 8 tiêu chí (cả mặt yếu của cá nhân), khi nào nên chọn công ty, khi nào cá nhân hợp lý, checklist tự bảo vệ, đoạn minh bạch "My Agent là thương hiệu cá nhân, chưa đăng ký pháp nhân", 5 FAQ (FAQPage). Không nói về hóa đơn. Bài 05A link sang bài.
+
 ## 0.9.16 - 2026-10-29
 - Brief SEO 05A: bài blog mới "Web template hay web theo yêu cầu: chọn cái nào? (So sánh)" (/blog/web-template-hay-web-theo-yeu-cau.html): trả lời nhanh, định nghĩa, bảng so sánh 8 tiêu chí (cả mặt yếu của web theo yêu cầu), khi nào template là đủ, khi nào nên làm riêng, phương án tùy biến trên nền có sẵn, giá My Agent từ pricing.json (không nêu giá template thị trường), 5 FAQ (FAQPage). Trang thiết kế website link sang bài.
 
