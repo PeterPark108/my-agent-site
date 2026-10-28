@@ -286,7 +286,7 @@ S['phan-mem-noi-bo']['intro']=_i[:3]+[
   'Phù hợp với 1 module đến 5 module hoặc mini ERP; hệ thống rất lớn hiện chưa phù hợp.',
   'Cần dashboard Power BI riêng: <a href="phan-tich-du-lieu.html">phân tích dữ liệu</a>; nối dữ liệu nhiều nguồn: <a href="ky-thuat-du-lieu.html">Data Engineer</a>; máy chủ: <a href="hosting-seo.html">hosting/VPS</a>.']),
  ('bảo mật','Bảo mật <span class="gt">&amp; dữ&nbsp;liệu</span>',[
-  'Peter có nền tảng phân tích dữ liệu và an ninh mạng cơ bản, nên web app được làm với các biện pháp bảo vệ cơ bản sau. Các biện pháp này giúp giảm rủi ro, không loại bỏ hoàn toàn.'],[
+  'Web app được làm với các biện pháp bảo vệ cơ bản sau. Các biện pháp này giúp giảm rủi ro, không loại bỏ hoàn toàn.'],[
   'HTTPS cho mọi kết nối','Mật khẩu được mã hoá, không lưu dạng đọc được','Phân quyền theo vai trò và nhật ký thao tác','Sao lưu định kỳ','Xuất dữ liệu ra Excel/CSV bất cứ lúc nào', OWN_WA])]
 S['phan-mem-noi-bo']['faq']=[
  ('Web app là gì?','Web app là phần mềm chạy trên trình duyệt, có đăng nhập, phân quyền và dữ liệu riêng, dùng trên máy tính và điện thoại mà không cần cài đặt.'),
