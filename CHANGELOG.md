@@ -1,8 +1,8 @@
 # Nhật ký thay đổi
 
 ## 0.9.12 - 2026-10-29
-- Trang chủ theo brief SEO 01 "thiết kế web trọn gói TP.HCM": title "Thiết kế web trọn gói TP.HCM, giá từ 2 triệu", meta mới, H1 "Thiết kế web trọn gói TP.HCM – một đầu mối từ tên miền đến bàn giao", đoạn mở đầu nêu 3 mức giá (lấy từ pricing.json), chưa bao gồm VAT.
-- Khối trọn gói (seo_blocks.home) mở rộng: gồm gì / tính riêng, bảng giá 3 gói + trang thêm, thời gian, quy trình 6 bước, bàn giao (có mã nguồn, giao sau khi thanh toán đủ; sau bàn giao mã nguồn và dữ liệu thuộc về khách – chốt của Peter), thanh toán & cam kết (hợp đồng + biên bản nghiệm thu bằng văn bản, cọc 30–50%, thương hiệu cá nhân chưa đăng ký pháp nhân), sản phẩm mẫu NHỊP/NhàĐất Việt, combo, 8 FAQ (+ FAQPage).
+- Trang chủ theo brief SEO 01 "thiết kế web trọn gói TP.HCM", rút gọn theo yêu cầu của Peter (≈1.994 từ hiển thị, đếm bằng innerText): title "Thiết kế web trọn gói TP.HCM, giá từ 2 triệu", meta mới, H1 "Thiết kế web trọn gói TP.HCM – một đầu mối từ tên miền đến bàn giao", đoạn mở đầu nêu 3 mức giá (lấy từ pricing.json), chưa bao gồm VAT.
+- Thứ tự: hero → bảng giá 3 gói (ngay dưới hero) → 18 dịch vụ → combo → sản phẩm mẫu → giới thiệu Peter → tin công nghệ → bài viết (trọn gói gồm gì, quy trình 6 bước, bàn giao có mã nguồn – giao sau khi thanh toán đủ, sau bàn giao mã nguồn và dữ liệu thuộc về khách, hợp đồng & thanh toán, 4 FAQ + FAQPage).
 - JSON-LD trang chủ thêm Service "Thiết kế web trọn gói TP.HCM" không có offers/giá (seo_audit cấm giá trong JSON-LD).
 
 ## 0.9.11 - 2026-10-29
