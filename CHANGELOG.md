@@ -1,5 +1,9 @@
 # Nhật ký thay đổi
 
+## 0.9.9 - 2026-10-28
+- Thiết kế app: phí tài khoản nhà phát triển (Apple Developer, Google Play Console) do chủ app tự trả; My Agent hỗ trợ đăng ký và cấu hình (Peter quyết 28/10). Sửa FAQ "Tài khoản App Store / Google Play đứng tên ai?" (trang + FAQPage JSON-LD, nguồn svc_data.py/svc_pricing.py, chatbot-kb). Giá app không đổi; bảng giá vốn ghi "Chưa gồm: Phí Apple/Google Developer".
+- `test_pricing.py` chặn câu cũ "phí nhà phát triển… thanh toán cho My Agent".
+
 ## 0.9.8 - 2026-10-28
 - Bảng giá: bỏ gói "Web app theo yêu cầu" (20–48 triệu, 4–10 tuần) khỏi Thiết kế website; web app báo giá theo Phần mềm nội bộ (9,6–20 / 24–48 / 48–96 triệu, đã gồm VAT; giữ sàn 24 triệu, giữ tên và slug `phan-mem-noi-bo`). Báo giá đã gửi trước ngày đổi giữ nguyên. Peter chốt phương án B 28/10/2026.
 - pricing.json version 2026-10-28; dựng lại bang-gia.html, trang thiết kế website (bỏ thẻ + nút `goi=web-app`, thêm dòng dẫn sang bảng Phần mềm nội bộ), blog "chi phí làm website", chatbot-kb; docs/bang-gia.md.
