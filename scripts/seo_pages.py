@@ -5,8 +5,8 @@ B=' | My Agent'
 PAGES={
 'index.html':dict(title='Thiết kế web trọn gói TP.HCM, giá từ 2 triệu'+B,
   desc='Thiết kế web trọn gói TP.HCM: landing page 2–3,6 tr, web giới thiệu 4–7,2 tr, web bán hàng 7,2–14,4 tr. Bảng giá rõ, quy trình 6 bước, Peter làm trực tiếp.'),
-'dich-vu/thiet-ke-website.html':dict(title='Thiết kế web chuyên nghiệp theo yêu cầu'+B,kw='Thiết kế web chuyên nghiệp theo yêu cầu',
-  desc='Thiết kế web chuyên nghiệp theo yêu cầu: website doanh nghiệp, bán hàng, landing page chuẩn SEO, responsive. Báo giá rõ theo phạm vi, nhận khách toàn quốc.',
+'dich-vu/thiet-ke-website.html':dict(title='Thiết kế web chuyên nghiệp theo yêu cầu TP.HCM'+B,kw='Thiết kế web chuyên nghiệp theo yêu cầu',
+  desc='Thiết kế website theo yêu cầu: bố cục riêng theo ngành, giao diện theo thương hiệu, chuẩn SEO. Khác web mẫu ra sao, giá 2–14,4 triệu (chưa VAT), 6 bước.',
   h1=('<h1 class="gt2">Thiết kế website chuẩn&nbsp;SEO</h1>','<h1 class="gt2">Thiết kế website chuyên nghiệp theo&nbsp;yêu cầu</h1>'),
   lead=('giữ chân khách và thúc đẩy mua hàng.</p>','giữ chân khách và thúc đẩy mua hàng. Nhận làm web doanh nghiệp, web bán hàng có quản lý đơn hàng, landing page và web cho shop/cá nhân, hiển thị tốt trên mọi thiết bị.</p>')),
 'dich-vu.html':dict(title='Dịch vụ marketing online, dữ liệu và website'+B,

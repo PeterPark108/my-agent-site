@@ -104,11 +104,12 @@ PJ={s['id']:s for s in json.loads((R/'data/pricing.json').read_text())['services
 def fillp(x):
   # {gia:dv/goi} -> khoảng giá + đơn vị, {tg:dv/goi} -> thời gian; lấy từ data/pricing.json (id lạ -> lỗi)
   def f(m):
-    s=PJ[m.group(2)]; t=[t for t in s['tiers'] if t['id']==m.group(3)][0]
+    s=PJ[m.group(2)]; t=None if m.group(1)=='pq' else [t for t in s['tiers'] if t['id']==m.group(3)][0]
+    if m.group(1)=='pq': q=s['quantity']; return rng(q['perUnitMin'],q['perUnitMax'])
     if m.group(1)=='tg': return t['time']
     if m.group(1)=='so': return rng(t['min'],t['max'])
     return 'Thương lượng' if s.get('negotiable') else rng(t['min'],t['max'])+' / '+s['unit']
-  return re.sub(r'\{(gia|tg|so):([a-z0-9-]+)/([a-z0-9-]+)\}',f,x)
+  return re.sub(r'\{(gia|tg|so|pq):([a-z0-9-]+)/([a-z0-9-]+)\}',f,x)
 def intro(slug,d):
   o=''
   for k,h,ps,li in d.get('intro',[]):
