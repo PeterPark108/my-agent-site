@@ -139,8 +139,8 @@ for slug,d in S.items():
   assert k,slug
   # v0.9.11: FAQ chung "7–30 ngày" mâu thuẫn bảng giá app (4–6 tuần trở lên) -> bỏ trên trang app; thời gian app nằm ở FAQ "Làm app mất bao lâu?"
   if slug=='thiet-ke-app': s=re.sub(r'<details class="glass"><summary>Bao lâu thì triển khai xong\?</summary><p>[^<]*7–30 ngày[^<]*</p></details>','',s)
-  # v0.9.11 (audit 29/10): FAQ chung "ai sở hữu website?" không đúng ngữ cảnh trang app -> bỏ trên trang app (không viết chính sách sở hữu mới; Peter chưa chốt)
-  if slug=='thiet-ke-app': s=re.sub(r'<details class="glass"><summary>Sau bàn giao ai sở hữu website\?</summary><p>[^<]*</p></details>','',s)
+  # v0.9.11 (audit 29/10 + Peter chốt "sau khi bàn giao thì là của khách"): FAQ chung "ai sở hữu website?" trên trang app -> hỏi về app, cùng ý, không thêm điều khoản
+  if slug=='thiet-ke-app': s=re.sub(r'<details class="glass"><summary>Sau bàn giao ai sở hữu website\?</summary><p>[^<]*</p></details>','<details class="glass"><summary>Sau bàn giao ai sở hữu app?</summary><p>Sau khi bàn giao, app là của khách: mã nguồn và dữ liệu thuộc về khách. Mã nguồn được giao sau khi thanh toán đủ, như ghi trong bảng giá.</p></details>',s)
   # v0.9.11 (audit 29/10): trang thiết kế website: "7–30 ngày" -> thời gian theo bảng giá
   if slug=='thiet-ke-website': s=re.sub(r'(<details class="glass"><summary>Bao lâu thì triển khai xong\?</summary><p>)[^<]*7–30 ngày[^<]*(</p>)',lambda m:m.group(1)+fillp('Theo bảng giá tham khảo: landing page {tg:thiet-ke-website/landing}, website giới thiệu {tg:thiet-ke-website/gioi-thieu}, website bán hàng {tg:thiet-ke-website/ban-hang}, tính từ khi chốt nội dung và nhận đủ tư liệu; tiến độ được báo rõ từng giai đoạn.')+m.group(2),s)
   f.write_text(s); n+=1
