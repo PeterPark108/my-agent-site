@@ -232,3 +232,69 @@ S['phan-mem-noi-bo']['faq']=[
  ('Mất bao lâu để triển khai?','Tùy số module. Theo bảng giá tham khảo, công cụ 1 module khoảng {tg:phan-mem-noi-bo/co-ban}, hệ thống 3–5 module khoảng {tg:phan-mem-noi-bo/tieu-chuan}, còn mini ERP khoảng {tg:phan-mem-noi-bo/nang-cao}. Mốc cụ thể được chốt sau khảo sát.'),
  ('Chi phí làm web app khoảng bao nhiêu?','Theo bảng giá tham khảo trên trang (chưa gồm VAT): {so:phan-mem-noi-bo/co-ban} cho công cụ 1 module, {so:phan-mem-noi-bo/tieu-chuan} cho hệ thống 3–5 module, và {so:phan-mem-noi-bo/nang-cao} cho mini ERP. Báo giá chính xác được gửi sau khi trao đổi phạm vi.'),
  ('Làm sao để bắt đầu?','Gọi hoặc nhắn Zalo 0328 439 972, hoặc gửi form ở trang Liên hệ. Hãy mô tả ngắn quy trình đang gặp khó, My Agent sẽ hẹn buổi trao đổi để làm rõ nhu cầu.')]
+
+# --- v0.9.13 brief 03 (app 3A / web app 3B), Peter chốt 29/10: bảng giá lên đầu trang, stack chỉ ghi "công nghệ đa nền tảng" ---
+TBL=('<div class="bg-sc" tabindex="0" role="region" aria-label="So sánh app, web app và Zalo Mini App, vuốt ngang nếu cần"><table class="bg-t"><thead><tr><th scope="col"></th><th scope="col">App di động</th><th scope="col">Web app</th><th scope="col">Zalo Mini App</th></tr></thead><tbody>'
+ '<tr><th scope="row">Người dùng</th><td>Khách dùng thường xuyên trên điện thoại</td><td>Nhân viên, quản lý, khách đăng nhập trên máy tính hoặc điện thoại</td><td>Khách đang dùng Zalo</td></tr>'
+ '<tr><th scope="row">Tính năng máy</th><td>Camera, thông báo đẩy, chạy offline</td><td>Hạn chế, chạy trên trình duyệt</td><td>Theo giới hạn của Zalo</td></tr>'
+ '<tr><th scope="row">Giá tham khảo</th><td>Từ {so:thiet-ke-app/co-ban}</td><td>Từ {so:phan-mem-noi-bo/co-ban}</td><td>Từ {so:zalo-oa-mini-app/tieu-chuan} (bán hàng/đặt lịch)</td></tr>'
+ '<tr><th scope="row">Thời gian</th><td>{tg:thiet-ke-app/co-ban} (MVP)</td><td>{tg:phan-mem-noi-bo/co-ban} (1 module)</td><td>{tg:zalo-oa-mini-app/tieu-chuan}</td></tr>'
+ '</tbody></table></div>')
+OWN_APP='Sau khi bàn giao, app là của khách: mã nguồn và dữ liệu thuộc về khách. Mã nguồn được giao sau khi thanh toán đủ, như ghi trong bảng giá.'
+OWN_WA='Sau khi bàn giao, web app là của khách: mã nguồn và dữ liệu thuộc về khách. Mã nguồn được giao sau khi thanh toán đủ, như ghi trong bảng giá.'
+S['thiet-ke-app']['top_price']=True
+S['thiet-ke-app']['tech']=['Figma','Công nghệ đa nền tảng','Trang quản trị','API','Cơ sở dữ liệu']
+S['thiet-ke-app']['deliv']=['Bản thiết kế Figma','Ứng dụng iOS / Android','Phần máy chủ và tài liệu','Mã nguồn sau khi thanh toán đủ','Tài khoản App Store / Google Play đứng tên bạn']
+S['thiet-ke-app']['intro']=[
+ ('nên làm app?','Có nên <span class="gt">làm app&nbsp;không?</span>',[
+  'Nên làm app khi khách dùng thường xuyên (đặt lịch, mua lại, tích điểm, theo dõi đơn) hoặc khi cần tính năng của điện thoại như camera, thông báo đẩy, chạy offline. Nếu người dùng chủ yếu là nhân viên, hoặc khách chỉ dùng thỉnh thoảng, <a href="phan-mem-noi-bo.html">thiết kế web app theo yêu cầu</a> hoặc <a href="zalo-oa-mini-app.html">Zalo Mini App</a> thường nhanh và rẻ hơn.'],[]),
+ ('trọn gói','Thiết kế app trọn gói <span class="gt">gồm&nbsp;gì</span>',[
+  'My Agent thiết kế app bằng công nghệ đa nền tảng: một mã nguồn chạy cả iOS và Android. Peter làm trực tiếp, online từ TP.HCM, nhận khách toàn quốc. Phù hợp app MVP và app vừa, nhỏ; sàn nhiều người bán hay hệ thống rất lớn hiện chưa phù hợp.'],
+  ['Phân tích tính năng và luồng màn hình','Thiết kế giao diện (UI)','Lập trình đa nền tảng','Trang quản trị','Kiểm thử trên nhiều máy','Đưa lên App Store / Google Play bằng tài khoản của bạn (gói bán hàng/đặt lịch trở lên)']),
+ ('so sánh','App, web app hay <span class="gt">Zalo Mini&nbsp;App?</span>',[TBL,
+  'Giá chưa bao gồm VAT. Chi tiết: <a href="phan-mem-noi-bo.html">thiết kế web app theo yêu cầu</a>, <a href="zalo-oa-mini-app.html">Zalo OA &amp; Mini App</a>, <a href="../bang-gia.html">bảng giá</a>.'],[]),
+ ('ví dụ','Ví dụ loại app <span class="gt">làm&nbsp;được</span>',['<small class="muted">Đây là các loại việc có năng lực làm, chưa phải dự án khách.</small>'],[
+  '<b>App đặt lịch:</b> spa, phòng khám, salon; khách chọn giờ, nhận nhắc lịch, chủ xem lịch trong trang quản trị.',
+  '<b>App bán hàng:</b> danh mục, giỏ hàng, theo dõi đơn, thông báo khuyến mãi.',
+  '<b>App tích điểm:</b> thẻ thành viên, điểm thưởng, ưu đãi cho khách quay lại.',
+  '<b>Sản phẩm mẫu:</b> Hướng Nghiệp 360 là web app mẫu do Peter làm (mở lần đầu mất khoảng 30 giây). Xem tại <a href="../du-an.html">sản phẩm mẫu</a>.']),
+ ('quyền sở hữu','Bàn giao &amp; <span class="gt">quyền sở&nbsp;hữu</span>',[OWN_APP],[
+  'Bản thiết kế Figma, ứng dụng iOS/Android, phần máy chủ kèm tài liệu','Mã nguồn được giao sau khi thanh toán đủ','Tài khoản App Store / Google Play đứng tên bạn; chủ app tự trả phí tài khoản nhà phát triển'])]
+S['thiet-ke-app']['faq_replace']=True
+S['thiet-ke-app']['faq']=[
+ ('Thiết kế app giá bao nhiêu?','Theo bảng giá tham khảo (chưa bao gồm VAT): app MVP ≤8 màn hình {so:thiet-ke-app/co-ban}, app bán hàng/đặt lịch ≤15 màn hình {so:thiet-ke-app/tieu-chuan}, app tích hợp thanh toán/CRM {so:thiet-ke-app/nang-cao}. Báo giá chính xác sau khi phân tích tính năng.'),
+ ('Làm app mất bao lâu?','Theo bảng giá tham khảo: app MVP {tg:thiet-ke-app/co-ban}, app bán hàng/đặt lịch {tg:thiet-ke-app/tieu-chuan}, app tích hợp thanh toán/CRM {tg:thiet-ke-app/nang-cao}. Mốc cụ thể được chốt sau khi thống nhất phạm vi.'),
+ ('Một app chạy cả iOS và Android được không?','Được. App dùng công nghệ đa nền tảng: một mã nguồn chạy trên cả iOS và Android, giúp giảm chi phí so với làm hai app riêng.'),
+ ('Tài khoản App Store / Google Play đứng tên ai?','Nên đứng tên doanh nghiệp của bạn. Chủ app tự trả phí tài khoản nhà phát triển (Apple Developer, Google Play Console); My Agent hỗ trợ đăng ký và cấu hình.'),
+ ('Nên làm app hay web app?','Làm app khi khách dùng thường xuyên trên điện thoại hoặc cần camera, thông báo đẩy, chạy offline. Nếu người dùng chủ yếu là nhân viên hoặc dùng trên máy tính, web app thường nhanh và rẻ hơn.'),
+ ('Làm MVP là gì?','MVP là phiên bản đầu chỉ gồm các chức năng bắt buộc, để đưa cho người dùng thật dùng thử rồi mới mở rộng. Cách này giúp giảm chi phí và rủi ro ban đầu.'),
+ ('Sau bàn giao ai sở hữu app?',OWN_APP),
+ ('Thanh toán thế nào?','Có hợp đồng bằng văn bản. Đặt cọc 30–50%, phần còn lại thanh toán sau khi ký biên bản nghiệm thu. Bảo hành lỗi kỹ thuật 60 ngày. Giá chưa bao gồm VAT.')]
+S['phan-mem-noi-bo']['top_price']=True
+S['phan-mem-noi-bo']['tech']=['Công nghệ đa nền tảng','Cơ sở dữ liệu','Phân quyền','Sao lưu','Xuất Excel/CSV']
+S['phan-mem-noi-bo']['deliv']=['Phần mềm web chạy trên trình duyệt','Phân quyền người dùng','Tài liệu hướng dẫn sử dụng','Mã nguồn sau khi thanh toán đủ; dữ liệu thuộc về bạn']
+_i=S['phan-mem-noi-bo']['intro']
+_i[0]=('web app là gì?','Web app theo yêu cầu <span class="gt">là&nbsp;gì?</span>',[
+ 'Web app là phần mềm chạy trên trình duyệt, có đăng nhập, phân quyền và dữ liệu riêng, dùng được trên máy tính và điện thoại mà không cần cài đặt. Khi công việc nằm rải rác trong nhiều file Excel và nhóm Zalo, một web app làm đúng quy trình của bạn thường gọn hơn việc cố uốn mình theo phần mềm đóng gói.'],[])
+_i[1]=('so sánh',_i[1][1],_i[1][2],_i[1][3]+['Cần chọn giữa app, web app hay Zalo Mini App? Xem bảng so sánh ở trang <a href="thiet-ke-app.html">thiết kế app di động</a>.'])
+S['phan-mem-noi-bo']['intro']=_i[:3]+[
+ ('ví dụ minh hoạ','Ví dụ: <span class="gt">XN Linh Kiện Máy&nbsp;In</span>',[
+  'Bản demo web app quản lý xưởng gia công linh kiện máy in: tổng quan sản lượng, lệnh sản xuất dạng Kanban, kho, QC, báo giá và công nợ. Đây là <b>sản phẩm mẫu, toàn bộ là dữ liệu mẫu</b>, không phải dự án khách. Xem <a href="https://xnlinhkien.myagentvn.com" target="_blank" rel="noopener">bản demo</a> hoặc <a href="../du-an.html">các sản phẩm mẫu</a>.'],[]),
+ ('khi nào nên làm','Khi nào nên, <span class="gt">chưa nên&nbsp;làm?</span>',[],[
+  'Nên làm khi dữ liệu nằm trong nhiều file rời rạc, quy trình đặc thù mà phần mềm có sẵn không đáp ứng, hoặc cần phân quyền rõ ai xem, ai sửa, ai duyệt.',
+  '<b>Nếu phần mềm đóng gói đủ dùng, tôi nói thẳng</b>: bạn không cần làm riêng.',
+  'Phù hợp với 1 module đến 5 module hoặc mini ERP; hệ thống rất lớn hiện chưa phù hợp.',
+  'Cần dashboard Power BI riêng: <a href="phan-tich-du-lieu.html">phân tích dữ liệu</a>; nối dữ liệu nhiều nguồn: <a href="ky-thuat-du-lieu.html">Data Engineer</a>; máy chủ: <a href="hosting-seo.html">hosting/VPS</a>.']),
+ ('bảo mật','Bảo mật <span class="gt">&amp; dữ&nbsp;liệu</span>',[
+  'Peter có nền tảng phân tích dữ liệu và an ninh mạng cơ bản, nên web app được làm với các biện pháp bảo vệ cơ bản sau. Các biện pháp này giúp giảm rủi ro, không loại bỏ hoàn toàn.'],[
+  'HTTPS cho mọi kết nối','Mật khẩu được mã hoá, không lưu dạng đọc được','Phân quyền theo vai trò và nhật ký thao tác','Sao lưu định kỳ','Xuất dữ liệu ra Excel/CSV bất cứ lúc nào', OWN_WA])]
+S['phan-mem-noi-bo']['faq']=[
+ ('Web app là gì?','Web app là phần mềm chạy trên trình duyệt, có đăng nhập, phân quyền và dữ liệu riêng, dùng trên máy tính và điện thoại mà không cần cài đặt.'),
+ ('Làm phần mềm quản lý theo yêu cầu giá bao nhiêu?','Theo bảng giá tham khảo (chưa bao gồm VAT): {so:phan-mem-noi-bo/co-ban} cho công cụ 1 module, {so:phan-mem-noi-bo/tieu-chuan} cho hệ thống 3–5 module, {so:phan-mem-noi-bo/nang-cao} cho mini ERP. Báo giá chính xác sau khi tìm hiểu quy trình.'),
+ ('Có nên thay Excel bằng web app?','Nên khi nhiều người cùng sửa một file, dữ liệu hay trùng hoặc sai, hoặc cần phân quyền và báo cáo tự động. Nếu chỉ một hai người dùng và Excel vẫn đủ, chưa cần làm.'),
+ ('Có dùng được trên điện thoại không?','Có. Giao diện responsive, dùng ngay trên trình duyệt của máy tính và điện thoại mà không cần cài đặt.'),
+ ('Dữ liệu có xuất ra Excel được không?','Được. Dữ liệu xuất ra Excel/CSV bất cứ lúc nào; dữ liệu Excel cũ cũng được làm sạch và nhập vào khi bắt đầu.'),
+ ('Mất bao lâu?','Theo bảng giá tham khảo: công cụ 1 module {tg:phan-mem-noi-bo/co-ban}, hệ thống 3–5 module {tg:phan-mem-noi-bo/tieu-chuan}, mini ERP {tg:phan-mem-noi-bo/nang-cao}. Mốc cụ thể được chốt sau khảo sát.'),
+ ('Có kết nối với phần mềm đang dùng không?','Tùy phần mềm đó có API hoặc cách xuất/nhập dữ liệu hay không. Việc này được kiểm tra khi khảo sát; tích hợp lớn sẽ báo giá riêng.'),
+ ('Sau bàn giao ai sở hữu web app?',OWN_WA),
+ ('Làm sao để bắt đầu?','Gửi mô tả quy trình hiện tại qua form ở trang Liên hệ, hoặc gọi/nhắn Zalo 0328 439 972 để đặt 15 phút tư vấn.')]
