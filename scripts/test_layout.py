@@ -11,7 +11,7 @@ with sync_playwright() as p:
   b=p.chromium.launch()
   for w,h in [(1440,900),(1280,800),(1024,640),(768,1024),(390,844)]:
     for u in PAGES:
-      pg=b.new_page(viewport={'width':w,'height':h}); err=[]; pg.on('pageerror',lambda e:err.append(str(e)))
+      pg=b.new_page(viewport={'width':w,'height':h}); pg.route(__import__('re').compile(r'https://([a-z0-9-]+\.)*(googletagmanager|google-analytics)\.com/'),lambda r:r.abort()); err=[]; pg.on('pageerror',lambda e:err.append(str(e)))
       pg.goto(B+u,wait_until='networkidle'); pg.wait_for_timeout(400)
       r=pg.evaluate('''()=>{const hero=document.querySelector('.hero');const hb=hero?hero.getBoundingClientRect().bottom+scrollY:0;
         const bad=[...document.querySelectorAll('main *, section *')].filter(e=>e.querySelector('table,.plans,.bg-card')&&getComputedStyle(e).position==='fixed').map(e=>e.className);

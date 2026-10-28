@@ -48,6 +48,21 @@ for _root, _dirs, _files in os.walk('.'):
             try: _s = open(_p, encoding='utf-8').read()
             except Exception: continue
             if _BAN.search(_s): fail.append('còn tên pháp nhân cũ (TNHH) trong ' + _p)
+# v0.9.10: GA4 bật với ID thật, chặn placeholder quay lại; mọi trang có head tải config.js (một nguồn GA duy nhất)
+_cfg = open('js/config.js', encoding='utf-8').read()
+_m = re.search(r"gaId:\s*'([^']*)'", _cfg)
+if not _m or not re.fullmatch(r'G-[A-Z0-9]{6,}', _m.group(1)) or _m.group(1) == 'G-XXXXXXXXXX':
+    fail.append('js/config.js: gaId phải là Measurement ID thật (không để placeholder G-XXXXXXXXXX)')
+for _f in files:
+    if not _f.endswith('.html'): continue
+    _s = open(_f, encoding='utf-8').read()
+    if 'http-equiv="refresh"' in _s: continue  # trang chuyển hướng noindex: bỏ qua
+    if _s.count('js/config.js') != 1: fail.append(f'{_f}: cần đúng 1 lần tải js/config.js (GA), có {_s.count("js/config.js")}')
+    if 'googletagmanager.com/gtag' in _s: fail.append(f'{_f}: gtag chèn trực tiếp, chỉ tải qua js/config.js')
+    for _ld in re.findall(r'<script type="application/ld\+json">(.*?)</script>', _s, re.S):
+        for _o in json.loads(_ld).get('@graph', []):
+            if _o.get('@id', '').endswith('#org') and _o.get('sameAs') != ['https://www.facebook.com/myagentvn']:
+                fail.append(f'{_f}: #org sameAs phải là ["https://www.facebook.com/myagentvn"], đang {_o.get("sameAs")}')
 # sitemap chỉ chứa URL có file thật
 for loc in re.findall(r'<loc>https://myagentvn\.com/(.*?)</loc>', open('sitemap.xml', encoding='utf-8').read()):
     if not os.path.isfile(loc or 'index.html'): fail.append('sitemap có URL không tồn tại: ' + loc)

@@ -18,7 +18,7 @@ def intent(a):
   return ''
 ok=0
 with sync_playwright() as p:
-  b=p.chromium.launch();pg=b.new_page();pg.goto(f'http://127.0.0.1:{port}/lien-he.html?chat=1')
+  b=p.chromium.launch();pg=b.new_page();pg.route(__import__('re').compile(r'https://([a-z0-9-]+\.)*(googletagmanager|google-analytics)\.com/'),lambda r:r.abort()); pg.goto(f'http://127.0.0.1:{port}/lien-he.html?chat=1')
   for q,exp in cases:
     q=q.strip();exp=[e.strip() for e in exp.split(',')]
     a=pg.evaluate('q=>MJ_answer(q)',q)

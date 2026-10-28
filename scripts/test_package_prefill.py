@@ -19,7 +19,7 @@ def chk(c,m):
   if not c: fail.append(m)
 BAN=re.compile(r'24/7|24h|24 giờ|cam kết',re.I)
 def page(b,vp=(1280,900)):
-  pg=b.new_page(viewport={'width':vp[0],'height':vp[1]}); pg._err=[]; pg._post=[]; pg._dlg=[]
+  pg=b.new_page(viewport={'width':vp[0],'height':vp[1]}); pg.route(__import__('re').compile(r'https://([a-z0-9-]+\.)*(googletagmanager|google-analytics)\.com/'),lambda r:r.abort()); pg._err=[]; pg._post=[]; pg._dlg=[]
   pg.on('pageerror',lambda e:pg._err.append(str(e))); pg.on('dialog',lambda d:(pg._dlg.append(d.message),d.dismiss()))
   pg.route('**/api/contact',lambda r:(pg._post.append(r.request.post_data),r.fulfill(status=200,content_type='application/json',body='{"ok":true}')))
   pg.route('https://**',lambda r:r.abort())

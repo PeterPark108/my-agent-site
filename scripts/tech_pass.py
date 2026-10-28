@@ -13,13 +13,14 @@ pages=sorted([p for p in R.glob('*.html')]+list(R.glob('dich-vu/*.html'))+list(R
 pages=[p for p in pages if 'http-equiv="refresh"' not in p.read_text() and p.name!='404.html']
 urls=[]
 # Thực thể (v0.9.7, bản chốt SEO My Agent 28/10/2026): chỉ dùng tên "My Agent" (không tên pháp nhân/MST),
-# không địa chỉ, không giá; Organization.sameAs để trống tới khi có kênh chính thức thật; link cá nhân nằm ở founder.
+# không địa chỉ, không giá; Organization.sameAs chỉ chứa kênh chính thức thật (v0.9.10: Fanpage facebook.com/myagentvn); link cá nhân nằm ở founder.
+FB_PAGE="https://www.facebook.com/myagentvn"
 ORG={"@type":"ProfessionalService","@id":BASE+"#org","name":"My Agent","url":BASE,
  "logo":{"@type":"ImageObject","@id":BASE+"#logo","url":BASE+"assets/icon-512.png","contentUrl":BASE+"assets/icon-512.png","width":512,"height":512,"caption":"My Agent"},
  "image":BASE+"assets/og-image.png","telephone":"+84328439972","email":"vantungn044@gmail.com","founder":{"@id":BASE+"#founder"},
  "areaServed":[{"@type":"City","name":"Thành phố Hồ Chí Minh"},{"@type":"Country","name":"Việt Nam"}],
  "contactPoint":{"@type":"ContactPoint","telephone":"+84328439972","contactType":"customer service","areaServed":"VN","availableLanguage":["vi"]},
- "sameAs":[]}
+ "sameAs":[FB_PAGE]}
 FOUNDER={"@type":"Person","@id":BASE+"#founder","name":"Nguyễn Văn Tùng","alternateName":"Peter","jobTitle":"Nhà sáng lập","worksFor":{"@id":BASE+"#org"},
  "sameAs":["https://www.facebook.com/nguyen.van.tung.109588","https://www.linkedin.com/in/peterpark108/"]}
 def txt(x): return re.sub(r'\s+',' ',html.unescape(re.sub(r'<[^>]+>','',x))).strip()
@@ -147,7 +148,16 @@ for f in pages:
   # tài nguyên AI agent: chỉ footer (menu trên đã chật) (idempotent)
   if f'<a href="{p}tai-nguyen-ai-agent.html">' not in s:
     s=s.replace(f'<a href="{p}tin-tuc.html">Tin tức công nghệ</a>',f'<a href="{p}tin-tuc.html">Tin tức công nghệ</a><a href="{p}tai-nguyen-ai-agent.html">Tài nguyên AI Agent</a>',1)
+  # footer: Fanpage chính thức (v0.9.10, idempotent)
+  if '<footer' in s and FB_PAGE not in s.split('<footer',1)[1]:
+    a,b=s.split('<footer',1)
+    s=a+'<footer'+b.replace('rel="noopener">Chat Zalo</a></p>','rel="noopener">Chat Zalo</a> · <a href="'+FB_PAGE+'" target="_blank" rel="noopener" aria-label="Fanpage Facebook My Agent (mở tab mới)">Facebook</a></p>',1)
   f.write_text(s)
+# 404: không qua head tech, chỉ cần config.js để đo lường (GA) – nguồn tải duy nhất (idempotent)
+f404=R/'404.html'
+if f404.exists():
+  t=f404.read_text()
+  if 'js/config.js' not in t: f404.write_text(t.replace('</head>','<script src="/js/config.js"></script></head>',1))
 (R/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join(f'  <url><loc>{u}</loc><lastmod>{lastmod(r)}</lastmod><priority>{"1.0" if u==BASE else ("0.6" if r.startswith(("tin-tuc/","blog/")) else "0.7")}</priority></url>\n' for u,r in urls)+'</urlset>\n')
 (R/'robots.txt').write_text(f'User-agent: *\nAllow: /\n\nSitemap: {BASE}sitemap.xml\n')
 # CSS rút gọn (giữ css/style.css làm bản nguồn dễ đọc)
@@ -167,6 +177,7 @@ for f in R.rglob('*.html'):
   t2=re.sub(r'(js/intro\.js)(\?v=[^"]*)?"',r'\1?v='+_V+'"',t2)
   t2=re.sub(r'(js/resources\.js)(\?v=[^"]*)?"',r'\1?v='+_V+'"',t2)
   t2=re.sub(r'(js/main\.js)(\?v=[^"]*)?"',r'\1?v='+_V+'"',t2)
+  t2=re.sub(r'(js/config\.js)(\?v=[^"]*)?"',r'\1?v='+_V+'"',t2)
   t2=re.sub(r'(js/chat\.js)(\?v=[^"]*)?"',r'\1?v='+_V+'"',t2)
   t2=re.sub(r'(js/motion\.js)(\?v=[^"]*)?"',r'\1?v='+_V+'"',t2)
   t2=re.sub(r'(js/(?:combo-calculator|bang-gia|lien-he-prefill)\.js)(\?v=[^"]*)?"',r'\1?v='+_V+'"',t2)
