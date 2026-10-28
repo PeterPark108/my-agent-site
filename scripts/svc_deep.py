@@ -151,5 +151,6 @@ for f in sorted(pathlib.Path('dich-vu').glob('*.html')):
   s=f.read_text(); o=s
   s=re.sub(r'(<summary>Bao lâu thì triển khai xong\?</summary><p>)[^<]*7–30 ngày[^<]*(</p>)',lambda m:m.group(1)+TIME_ALL+m.group(2),s)
   s=re.sub(r'(<summary>Sau bàn giao ai sở hữu website\?</summary><p>)[^<]*(</p>)',lambda m:m.group(1)+OWN_ALL+m.group(2),s)
+  s=s.replace('Sau khi thanh toán đủ, khách sở hữu mã nguồn, nội dung và tài khoản liên quan.','Sau khi bàn giao, mã nguồn và dữ liệu thuộc về khách; mã nguồn được giao sau khi thanh toán đủ.')
   if s!=o: f.write_text(s)
 print('svc_deep:',n,'pages')
