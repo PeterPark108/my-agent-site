@@ -5,6 +5,7 @@
 - blog_build: hỗ trợ chỗ giữ giá {so:}/{tg:}/{sum:}/{pp:}/{disc}/{discmax}, điền từ pricing.json (không gõ tay giá). Thêm trường `author: peter` (dòng tác giả hiển thị "Nguyễn Văn Tùng (Peter)", link trang giới thiệu; Article author trong JSON-LD vẫn là Organization theo seo_audit) và `faq: true` (FAQPage dựng từ mục "Câu hỏi thường gặp"). Bảng Markdown kiểm số liệu chung với dòng nguồn ngay trên bảng.
 
 ## 0.9.13 - 2026-10-29
+- Theo trả lời của Peter (29/10): bỏ câu về nền tảng phân tích dữ liệu/an ninh mạng của Peter ở mục bảo mật trang phần mềm nội bộ; phần bảo mật giữ trung lập. Giữ không OfferCatalog, title "HCM", không thêm ảnh.
 - Brief SEO 03: trang thiết kế app (3A) và web app / phần mềm nội bộ (3B). Title và meta theo brief; H1 trang 3B là "Thiết kế web app & phần mềm quản lý theo yêu cầu (TP.HCM)". Bảng giá chuyển lên ngay dưới hero ở cả 2 trang.
 - 3A thêm các mục: Có nên làm app không?, trọn gói gồm gì, bảng so sánh app / web app / Zalo Mini App (giá và thời gian lấy từ pricing.json, chưa bao gồm VAT), ví dụ loại app (Hướng Nghiệp 360 ghi là sản phẩm mẫu, mở lần đầu ~30 giây), bàn giao & quyền sở hữu theo chốt của Peter. FAQ viết lại 8 câu.
 - 3B thêm các mục: web app là gì, ví dụ XN Linh Kiện Máy In (sản phẩm mẫu, dữ liệu mẫu), khi nào nên / chưa nên làm, bảo mật & dữ liệu. FAQ viết lại 9 câu, có câu sở hữu theo chốt của Peter.
