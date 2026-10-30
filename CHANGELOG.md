@@ -1,5 +1,8 @@
 # Nhật ký thay đổi
 
+## 0.9.18 - 2026-10-30
+- Blog: thêm 2 bài "Checklist SEO cơ bản cho website doanh nghiệp nhỏ" (seo) và "Google Business Profile cho dịch vụ tại TP.HCM" (marketing, nguồn trang hỗ trợ Google). Nhánh độc lập từ production 0.9.10.
+
 ## 0.9.10 - 2026-10-28
 - Google Analytics 4: bật Measurement ID `G-BZ5E2WMZLJ` (Peter cung cấp) trong `js/config.js`, nguồn tải duy nhất cho mọi trang (tech_pass chèn vào head; 404 được chèn riêng; trang chuyển hướng noindex không tải). Tải async; ẩn danh IP, tắt Google signals và cá nhân hoá quảng cáo (Consent Mode: ad_* denied); không tải khi bật Do Not Track / Global Privacy Control hoặc khách đã tự tắt. `config.js` có `?v=` để trình duyệt nhận cấu hình mới.
 - Chính sách bảo mật: thêm mục 4 Google Analytics (dữ liệu, mục đích, không bán, cách từ chối, nút tắt đo lường trên trình duyệt).
