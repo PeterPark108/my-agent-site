@@ -1,6 +1,18 @@
 (()=>{const d=document,RM=matchMedia('(prefers-reduced-motion:reduce)').matches,FINE=matchMedia('(pointer:fine)').matches;d.documentElement.classList.add('js');
 const hdr=d.getElementById('hdr'),onS=()=>hdr.classList.toggle('sc',scrollY>10);onS();addEventListener('scroll',onS,{passive:true});
-const b=d.querySelector('.burger'),nav=d.querySelector('nav');b.onclick=()=>{const o=nav.classList.toggle('open');b.setAttribute('aria-expanded',o)};
+const b=d.querySelector('.burger'),nav=d.querySelector('nav');
+// header cố định: đo chiều cao thật cho scroll-padding (anchor, hash khi mở trang)
+const setH=()=>d.documentElement.style.setProperty('--hh',hdr.offsetHeight+'px');setH();addEventListener('resize',setH,{passive:true});if(window.ResizeObserver)new ResizeObserver(setH).observe(hdr);
+if(location.hash.length>1)addEventListener('load',()=>{let t;try{t=d.getElementById(decodeURIComponent(location.hash.slice(1)))}catch(e){}if(t&&!d.documentElement.classList.contains('intro-on'))t.scrollIntoView({block:'start',behavior:'auto'})});
+const setNav=o=>{nav.classList.toggle('open',o);b.setAttribute('aria-expanded',o);b.setAttribute('aria-label',o?'Đóng menu':'Mở menu')};
+if(!nav.id)nav.id='menu-chinh';b.setAttribute('aria-controls',nav.id);
+b.onclick=e=>{e.stopPropagation();setNav(!nav.classList.contains('open'))};
+d.addEventListener('keydown',e=>{if(e.key==='Escape'&&nav.classList.contains('open')){setNav(false);b.focus()}});
+d.addEventListener('click',e=>{if(nav.classList.contains('open')&&!nav.contains(e.target)&&!b.contains(e.target))setNav(false)});
+nav.addEventListener('click',e=>{const a=e.target.closest('a');if(a&&!(innerWidth<=960&&a.parentNode.classList.contains('has')))setNav(false)});
+// logo: ở trang chủ thì cuộn lên đầu, trang khác giữ link về trang chủ
+const lg=d.querySelector('#hdr .logo'),hp=u=>u.replace(/index\.html$/,'');
+if(lg)lg.addEventListener('click',e=>{const u=new URL(lg.href,location.href);if(u.origin===location.origin&&hp(u.pathname)===hp(location.pathname)&&!e.ctrlKey&&!e.metaKey&&!e.shiftKey&&e.button===0){e.preventDefault();setNav(false);if(location.hash)history.replaceState(null,'',location.pathname+location.search);scrollTo({top:0,behavior:RM?'auto':'smooth'})}});
 d.querySelectorAll('.has>a').forEach(a=>a.addEventListener('click',e=>{if(innerWidth<=960){e.preventDefault();a.parentNode.classList.toggle('open')}}));
 // contact form -> FormSubmit.co (config in js/config.js)
 const C=window.MYAGENT_CONFIG||{},EM=C.formEmail||'',ZP=(C.zaloPhone||'').replace(/\D/g,''),okEM=/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(EM);
