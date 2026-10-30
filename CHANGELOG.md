@@ -1,5 +1,8 @@
 # Nhật ký thay đổi
 
+## 0.9.19 - 2026-10-30
+- Địa chỉ MY AGENT "262/22 Liên Khu 4-5, Bình Tân, TP. Hồ Chí Minh" (Peter xác nhận): thêm vào footer mọi trang và khung thông tin trang Liên hệ (tech_pass), PostalAddress trong schema #org (không geo, không giá), câu trả lời liên hệ của trợ lý MJ (thêm từ khoá "địa chỉ").
+
 ## 0.9.18 - 2026-10-30
 - Blog: thêm 2 bài "Checklist SEO cơ bản cho website doanh nghiệp nhỏ" (seo) và "Google Business Profile cho dịch vụ tại TP.HCM" (marketing, nguồn trang hỗ trợ Google). Nhánh độc lập từ production 0.9.10.
 

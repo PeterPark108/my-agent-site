@@ -238,7 +238,7 @@ svg.web a:hover text{fill:#fff;text-decoration:underline}
 .trk-home{margin:14px 0 0}.trk-home a{display:inline-flex;align-items:center;min-height:44px;color:#AFC3F5;font-weight:600;border-bottom:1px dashed rgba(175,195,245,.4)}.trk-home a:hover{color:#fff}
 /* floating call / zalo */
 .fab-zalo{bottom:84px;width:48px;height:48px;right:23px;background:linear-gradient(135deg,#0068ff,#5b8cff);animation:none;color:#fff;font-size:12px;font-weight:700;line-height:1;letter-spacing:.02em;text-decoration:none}
-.ct-ph{margin:.6em 0}.ct-ph a{color:#fff;font-weight:600}
+.ct-ph{margin:.6em 0}.ct-ad{margin:.6em 0;line-height:1.5}.ct-ph a{color:#fff;font-weight:600}
 .fab-pop{position:fixed;right:20px;bottom:150px;z-index:41;width:min(340px,calc(100vw - 40px));padding:18px;border-radius:16px;background:rgba(10,14,30,.94);border:1px solid rgba(255,45,61,.45);box-shadow:0 0 32px rgba(255,45,61,.25),0 10px 40px rgba(0,0,0,.5);backdrop-filter:blur(12px);color:#fff;opacity:0;transform:translateY(8px);transition:opacity .18s,transform .18s}
 .fab-pop.on{opacity:1;transform:none}.fab-pop[hidden]{display:none}
 .fab-pop .k{font-size:12px;opacity:.7}.fab-pop .num{display:block;font-size:28px;font-weight:700;letter-spacing:.03em;margin:4px 0 14px}
