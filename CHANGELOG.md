@@ -1,5 +1,8 @@
 # Nhật ký thay đổi
 
+## 0.9.22 - 2026-10-30
+- Dự án mẫu: thêm "Nhà Gió – Web khách sạn, homestay" (bản demo, https://gio.myagentvn.com/, mã nguồn GitHub nha-gio-hotel-demo). Ảnh đại diện từ ảnh chụp trang chủ demo (webp 480/960/1200).
+
 ## 0.9.21 - 2026-10-30
 - Phát hành PR #47 (địa chỉ, nội dung bản 0.9.19 bên dưới) trên nền 0.9.20 (header cố định #48). Bump để đổi `?v=` vì css/js thay đổi.
 
