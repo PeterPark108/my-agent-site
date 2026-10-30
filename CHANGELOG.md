@@ -1,7 +1,13 @@
 # Nhật ký thay đổi
 
+## 0.9.21 - 2026-10-30
+- Phát hành PR #47 (địa chỉ, nội dung bản 0.9.19 bên dưới) trên nền 0.9.20 (header cố định #48). Bump để đổi `?v=` vì css/js thay đổi.
+
 ## 0.9.20 - 2026-10-30
 - Header cố định khi cuộn (Peter yêu cầu): đo chiều cao header thật (`--hh`) cho scroll-padding-top để anchor/hash không bị che; `overflow-x:clip` thay `hidden` để sticky ổn định trên Safari; logo ở trang chủ cuộn lên đầu (mượt, trừ khi prefers-reduced-motion), trang khác vẫn về trang chủ; menu mobile có aria-controls, đóng bằng Esc, bấm ngoài hoặc chọn mục; focus-visible cho nút menu/logo; menu mobile và thanh tab danh mục bám theo chiều cao header thật.
+
+## 0.9.19 - 2026-10-30
+- Địa chỉ MY AGENT "262/22 Liên Khu 4-5, Bình Tân, TP. Hồ Chí Minh" (Peter xác nhận): thêm vào footer mọi trang và khung thông tin trang Liên hệ (tech_pass), PostalAddress trong schema #org (không geo, không giá). Cập nhật 10:00 30/10 theo Peter: dòng địa chỉ ghi nguyên văn "Công Ty Thiết Kế - In Ấn NASA, 262/22 Liên Khu 4-5, Bình Tân, Hồ Chí Minh, Việt Nam"; schema thêm `location` (Place, name NASA + PostalAddress), name của #org vẫn là My Agent, câu trả lời liên hệ của trợ lý MJ (thêm từ khoá "địa chỉ").
 
 ## 0.9.18 - 2026-10-30
 - Blog: thêm 2 bài "Checklist SEO cơ bản cho website doanh nghiệp nhỏ" (seo) và "Google Business Profile cho dịch vụ tại TP.HCM" (marketing, nguồn trang hỗ trợ Google). Nhánh độc lập từ production 0.9.10.
