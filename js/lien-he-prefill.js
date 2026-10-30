@@ -5,7 +5,7 @@
   var q = new URLSearchParams(location.search), t = q.get('tam-tinh'); if (!t) return;
   var clip = function (s) { return String(s || '').replace(/[\u0000-\u001f<>]/g, ' ').slice(0, 400).trim(); };
   var dv = clip(q.get('dich-vu')), ns = clip(q.get('ngan-sach'));
-  var txt = 'Tôi đã dùng công cụ tính giá trên website (bang-gia.html).\nTạm tính: ' + clip(t) + ' (đã gồm VAT, tham khảo)' +
+  var txt = 'Tôi đã dùng công cụ tính giá trên website (bang-gia.html).\nTạm tính: ' + clip(t) + ' (chưa gồm VAT, tham khảo)' +
     (dv ? '\nDịch vụ: ' + dv : '') + (ns ? '\nNgân sách quảng cáo dự kiến: ' + ns : '') + '\nNhờ My Agent báo giá chính xác. Nhu cầu cụ thể: ';
   function go() {
     var m = document.querySelector('form[data-contact] textarea[name="message"]') || document.querySelector('form textarea');
@@ -51,14 +51,14 @@
       var o = null, sel = document.querySelector('form[data-contact] select[name="service"]');
       var opts = sel ? [].filter.call(sel.options, function (x) { return /^Combo /.test(x.value) && norm(x.value.slice(6)) === cb.replace(/-/g, ' '); }) : [];
       if (!opts.length) return; o = opts[0].value;
-      return fill('Tôi muốn đăng ký ' + o + '. Nhờ My Agent báo giá chính xác (giá đã gồm VAT, tham khảo). Nhu cầu cụ thể: ', o, cb);
+      return fill('Tôi muốn đăng ký ' + o + '. Nhờ My Agent báo giá chính xác (giá chưa gồm VAT, tham khảo). Nhu cầu cụ thể: ', o, cb);
     }
     fetch('data/pricing.json', { cache: 'no-cache' }).then(function (r) { return r.ok ? r.json() : null; }).then(function (P) {
       if (!P || !P.services) return;
       var s = P.services.filter(function (x) { return x.id === sv; })[0]; if (!s) return;
       var t = (s.tiers || []).filter(function (x) { return x.id === tr; })[0]; if (!t) return;
       var unit = s.unit ? ' / ' + s.unit : '';
-      var price = s.negotiable ? 'Thương lượng' : rng(t.min, t.max) + unit + (P.vatIncluded ? ' (đã gồm VAT, tham khảo)' : ' (tham khảo)');
+      var price = s.negotiable ? 'Thương lượng' : rng(t.min, t.max) + unit + ' (chưa gồm VAT, tham khảo)';
       var cyc = '';
       if (s.billing === 'monthly') cyc = '\nChu kỳ: theo tháng' + ([6, 12, 24].indexOf(ky) >= 0 ? ', đăng ký ' + ky + ' tháng' : '') + ' (thanh toán trước theo kỳ).';
       else if (s.billing === 'yearly') cyc = '\nChu kỳ: theo năm' + ([1, 2].indexOf(ky) >= 0 ? ', đăng ký ' + ky + ' năm' : '') + ' (thanh toán trước theo kỳ).';

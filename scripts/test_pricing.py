@@ -17,7 +17,7 @@ P=json.loads(pathlib.Path('data/pricing.json').read_text()); raw=json.dumps(P,en
 ok(not re.search(r'traffic',raw,re.I),'data/pricing.json có Traffic User')
 for k in ('positioning','sources','formula','cost','margin','internal'): ok(k not in raw,f'data/pricing.json có trường "{k}"')
 ok(len(P['services'])==17,'số dịch vụ công khai khác 17')
-ok(P.get('vatIncluded') is True,'thiếu vatIncluded')
+ok(P.get('vatIncluded') is False,'vatIncluded phải là false (giá chưa gồm VAT)')
 for s in P['services']:
   ok(set(s)<= {'id','category','name','unit','billing','quantity','complexityApplies','discountable','negotiable','priceLabel','negotiableNote','tiers'},f'{s["id"]}: trường lạ {set(s)}')
   for t in s['tiers']:
@@ -29,7 +29,7 @@ for f in ('js/combo-calculator.js','js/bang-gia.js','js/lien-he-prefill.js'):
   ok(not re.search(r'traffic',pathlib.Path(f).read_text(),re.I),f+' có Traffic')
 # trang
 s=pathlib.Path('bang-gia.html').read_text(); main=re.search(r'<main\b.*?</main>',s,re.S).group(0)
-for need in ('Giá đã bao gồm VAT','Giá chỉ mang tính tham khảo theo khoảng, báo giá chính xác sau khi trao đổi nhu cầu','chưa gồm tiền quảng cáo trả cho nền tảng','Thương lượng','id="tinh-gia"','Gửi số liệu sang liên hệ'):
+for need in ('Giá chưa bao gồm VAT','Giá chỉ mang tính tham khảo theo khoảng, báo giá chính xác sau khi trao đổi nhu cầu','chưa gồm tiền quảng cáo trả cho nền tảng','Thương lượng','id="tinh-gia"','Gửi số liệu sang liên hệ'):
   ok(need in main,'bang-gia.html thiếu: '+need)
 ok(not re.search(r'traffic',main,re.I),'bang-gia.html (main) có Traffic User')
 ok(not re.search(r'24/7|24h\b|24 giờ|cam kết (lên )?top|đảm bảo (lên )?top|top 1|fpt poly',main,re.I),'bang-gia.html có từ cấm')
@@ -49,7 +49,7 @@ for sv in P['services']:
   ok(blk,f'dich-vu/{sv["id"]}.html: bảng giá chưa sinh từ pricing.json (chạy scripts/svc_pricing.py)')
   if not blk: continue
   blk=blk.group(0)
-  ok('Giá đã bao gồm VAT' in blk,f'dich-vu/{sv["id"]}.html: thiếu "Giá đã bao gồm VAT"')
+  ok('Giá chưa bao gồm VAT' in blk,f'dich-vu/{sv["id"]}.html: thiếu "Giá chưa bao gồm VAT"')
   for t in sv['tiers']:
     ok(t['name'].replace('&','&amp;') in blk or t['name'] in blk,f'{sv["id"]}: thiếu mức "{t["name"]}"')
     if sv.get('negotiable'): ok('Thương lượng' in blk and not re.search(r'\d\s*(triệu|nghìn)<small>',blk),f'{sv["id"]}: phải ghi Thương lượng')

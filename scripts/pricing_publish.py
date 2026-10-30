@@ -17,7 +17,7 @@ def clean(t):
 RULES=('comboDiscount','maxDiscountPercent','maxDiscountAmount','complexity','rush','roundTo','prepay','maxLineDiscountPercent','negotiableNote')
 TIER=('id','name','min','max','time','includes','excludes')
 SVC=('id','category','name','unit','billing','quantity','complexityApplies','discountable','negotiable','priceLabel','negotiableNote')
-out={'version':P['version'],'currency':P.get('currency','VND'),'vatIncluded':True,'vatNote':'Giá đã bao gồm VAT',
+out={'version':P['version'],'currency':P.get('currency','VND'),'vatIncluded':False,'vatNote':'Giá chưa bao gồm VAT',
      'disclaimer':'Giá chỉ mang tính tham khảo theo khoảng, báo giá chính xác sau khi trao đổi nhu cầu.',
      'rules':{k:P['rules'][k] for k in RULES if k in P['rules']},'services':[]}
 out['rules']['negotiableNote']=clean(out['rules'].get('negotiableNote',''))

@@ -1,5 +1,8 @@
 # Nhật ký thay đổi
 
+## 0.9.23 - 2026-10-30
+- Giá CHƯA bao gồm VAT (Peter chốt 22:59 30/10): đổi mọi câu "đã (bao) gồm VAT" thành "chưa (bao) gồm VAT" ở bảng giá, ghi chú gói trên trang dịch vụ, FAQ + FAQPage JSON-LD, mô tả meta, công cụ tính combo, nội dung điền sẵn form Liên hệ, trợ lý MJ (chat.js + chatbot-kb), blog, docs; pricing.json `vatIncluded:false`, `vatNote:"Giá chưa bao gồm VAT"`. Không cộng VAT vào giá hiển thị. ci_check chặn câu "đã gồm VAT" quay lại.
+
 ## 0.9.21 - 2026-10-30
 - Phát hành PR #47 (địa chỉ, nội dung bản 0.9.19 bên dưới) trên nền 0.9.20 (header cố định #48). Bump để đổi `?v=` vì css/js thay đổi.
 
