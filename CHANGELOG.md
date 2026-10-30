@@ -1,5 +1,8 @@
 # Nhật ký thay đổi
 
+## 0.9.20 - 2026-10-30
+- Header cố định khi cuộn (Peter yêu cầu): đo chiều cao header thật (`--hh`) cho scroll-padding-top để anchor/hash không bị che; `overflow-x:clip` thay `hidden` để sticky ổn định trên Safari; logo ở trang chủ cuộn lên đầu (mượt, trừ khi prefers-reduced-motion), trang khác vẫn về trang chủ; menu mobile có aria-controls, đóng bằng Esc, bấm ngoài hoặc chọn mục; focus-visible cho nút menu/logo; menu mobile và thanh tab danh mục bám theo chiều cao header thật.
+
 ## 0.9.18 - 2026-10-30
 - Blog: thêm 2 bài "Checklist SEO cơ bản cho website doanh nghiệp nhỏ" (seo) và "Google Business Profile cho dịch vụ tại TP.HCM" (marketing, nguồn trang hỗ trợ Google). Nhánh độc lập từ production 0.9.10.
 

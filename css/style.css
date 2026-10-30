@@ -516,3 +516,8 @@ a.chip{text-decoration:none}
 /* bảng giá trang dịch vụ sinh từ pricing.json */
 .plans[data-src=pricing] .price{font-size:clamp(1.35rem,2vw,1.75rem);line-height:1.25}
 .plans[data-src=pricing] .price small{white-space:nowrap}
+
+/* header cố định 0.9.20: anchor không bị header che; sticky an toàn trên Safari (clip thay hidden) */
+html{scroll-padding-top:calc(var(--hh,73px) + 8px)}body{overflow-x:clip}.burger:focus-visible,header .logo:focus-visible{outline:2px solid #3DF5FF;outline-offset:3px}
+@media(max-width:960px){nav{inset:var(--hh,72px) 0 auto;max-height:calc(100vh - var(--hh,72px))}}
+.cat-tabs{top:var(--hh,72px)}
