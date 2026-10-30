@@ -19,6 +19,7 @@ ORG={"@type":"ProfessionalService","@id":BASE+"#org","name":"My Agent","url":BAS
  "logo":{"@type":"ImageObject","@id":BASE+"#logo","url":BASE+"assets/icon-512.png","contentUrl":BASE+"assets/icon-512.png","width":512,"height":512,"caption":"My Agent"},
  "image":BASE+"assets/og-image.png","telephone":"+84328439972","email":"vantungn044@gmail.com","founder":{"@id":BASE+"#founder"},
  "address":{"@type":"PostalAddress","streetAddress":"262/22 Liên Khu 4-5","addressLocality":"Bình Tân","addressRegion":"Hồ Chí Minh","addressCountry":"VN"},
+ "location":{"@type":"Place","name":"Công Ty Thiết Kế - In Ấn NASA","address":{"@type":"PostalAddress","streetAddress":"262/22 Liên Khu 4-5","addressLocality":"Bình Tân","addressRegion":"Hồ Chí Minh","addressCountry":"VN"}},
  "areaServed":[{"@type":"City","name":"Thành phố Hồ Chí Minh"},{"@type":"Country","name":"Việt Nam"}],
  "contactPoint":{"@type":"ContactPoint","telephone":"+84328439972","contactType":"customer service","areaServed":"VN","availableLanguage":["vi"]},
  "sameAs":[FB_PAGE]}
@@ -119,14 +120,15 @@ for f in pages:
     s=re.sub(rf'(<li class="[^"]*"><a href="{re.escape(p)}tra-cuu-tien-do.html"[^>]*>Tra cứu đơn</a></li>)',rf'<li class=""><a href="{p}tin-tuc.html"{on}>Tin tức</a></li>\1',s,count=1)
   if f'<a href="{p}tin-tuc.html">Tin tức công nghệ</a>' not in s:
     s=s.replace(f'<a href="{p}tra-cuu-tien-do.html">Tra cứu tiến độ</a>',f'<a href="{p}tin-tuc.html">Tin tức công nghệ</a><a href="{p}tra-cuu-tien-do.html">Tra cứu tiến độ</a>',1)
-  # địa chỉ MY AGENT: footer + trang Liên hệ (idempotent)
-  ADDR='262/22 Liên Khu 4-5, Bình Tân, TP. Hồ Chí Minh'
-  if '<footer' in s and ADDR not in s.split('<footer',1)[1]:
+  # địa chỉ (Peter 30/10): footer + trang Liên hệ (idempotent, thay dòng cũ)
+  ADDR='Công Ty Thiết Kế - In Ấn NASA, 262/22 Liên Khu 4-5, Bình Tân, Hồ Chí Minh, Việt Nam'
+  s=re.sub(r'<p class="ct-ad">.*?</p>','',s)
+  if '<footer' in s:
     a,b=s.split('<footer',1)
-    b=b.replace('(mở tab mới)">Facebook</a></p>','(mở tab mới)">Facebook</a></p><p class="ct-ad">Địa chỉ: '+ADDR+'</p>',1)
+    b=b.replace('(mở tab mới)">Facebook</a></p>','(mở tab mới)">Facebook</a></p><p class="ct-ad">'+ADDR+'</p>',1)
     s=a+'<footer'+b
-  if rel=='lien-he.html' and 'class="ct-ad"' not in s.split('<footer',1)[0]:
-    s=s.replace('>Chat Zalo</a></p><div class="radar"','>Chat Zalo</a></p><p class="ct-ad">Địa chỉ: '+ADDR+'</p><div class="radar"',1)
+  if rel=='lien-he.html':
+    s=s.replace('>Chat Zalo</a></p><div class="radar"','>Chat Zalo</a></p><p class="ct-ad">'+ADDR+'</p><div class="radar"',1)
   # blog / kiến thức: menu (sau Tin tức) + footer (idempotent)
   if f'href="{p}blog.html"' not in s.split('<header',1)[-1].split('</nav>',1)[0]:
     on=' class=on' if rel=='blog.html' or rel.startswith('blog/') else ''
