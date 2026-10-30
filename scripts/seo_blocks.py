@@ -31,7 +31,7 @@ def combo():
   q=[('Combo có bắt buộc không?','Không, có thể chọn từng dịch vụ.'),
      ('Giảm giá áp dụng cho dịch vụ nào?','Giảm theo combo áp dụng cho các dịch vụ làm một lần được đánh dấu giảm theo combo (ví dụ thiết kế website, app, phần mềm nội bộ). Tên miền, hosting và dịch vụ tính theo tháng/năm không giảm theo combo; dịch vụ theo tháng có ưu đãi riêng khi trả trước.')]
   return ('<section id="gioi-thieu-combo"><div class="wrap">'+head('combo trọn gói','Một đầu mối cho <span class="gt">website và&nbsp;marketing</span>')+
-   f'<div class="card glass rv svi"><p>Combo dành cho ai muốn một đầu mối lo trọn: website, tên miền, email theo tên miền, Google Maps, quảng cáo. Mức giảm theo số dịch vụ trong combo (theo bảng giá tham khảo, chưa gồm VAT): {parts} (tối đa {vnd(r["maxDiscountAmount"])}). {E(r["negotiableNote"])}</p>'
+   f'<div class="card glass rv svi"><p>Combo dành cho ai muốn một đầu mối lo trọn: website, tên miền, email theo tên miền, Google Maps, quảng cáo. Mức giảm theo số dịch vụ trong combo (theo bảng giá tham khảo, chưa bao gồm VAT): {parts} (tối đa {vnd(r["maxDiscountAmount"])}). {E(r["negotiableNote"])}</p>'
    '<p>Xem thêm <a href="index.html#tron-goi">thiết kế web trọn gói gồm những gì</a> và <a href="dich-vu/thiet-ke-website.html">thiết kế web chuyên nghiệp theo yêu cầu</a>.</p></div>'
    '<div class="gap"></div>'+head('faq','Câu hỏi <span class="gt">về&nbsp;combo</span>')+faq(q)+'</div></section>')
 def put(f,bid,body):

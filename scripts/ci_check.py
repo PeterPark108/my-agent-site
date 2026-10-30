@@ -28,8 +28,8 @@ for sc in ('news_build.py', 'blog_build.py'):
 r = subprocess.run([sys.executable, 'scripts/test_pricing.py'], capture_output=True, text=True)
 print(r.stdout.strip().splitlines()[-1] if r.stdout.strip() else 'test_pricing')
 if r.returncode: fail.append('test_pricing.py lỗi:\n' + r.stdout.strip())
-# v0.9.23: Peter chốt giá CHƯA bao gồm VAT; chặn "đã (bao) gồm VAT" quay lại (trừ câu hỏi "... đã gồm VAT chưa?")
-_VAT = re.compile(r'đã\s+(bao\s+)?gồm\s+(VAT|thuế\s*GTGT)(?!\s+chưa)', re.I)
+# v0.9.23: Peter chốt giá CHƯA bao gồm VAT, mọi chỗ ghi đúng "chưa bao gồm VAT"; chặn mọi cách nói đã gồm/đã có VAT/thuế (không ngoại lệ)
+_VAT = re.compile(r'(đã\s+(bao\s+)?(gồm|có)\s+(VAT|thuế)|(?<!chưa )(?<!bao )gồm\s+(VAT|thuế\s*GTGT)|VAT\s+included|incl\.?\s+VAT|chưa\s+gồm\s+VAT|da\s+(bao\s+)?gom\s+vat|\d\s*%\s*VAT|VAT\s*\d+\s*%)', re.I)
 for _f in subprocess.run(['git', 'ls-files', '*.html', '*.js', '*.json', '*.md', '*.py', '*.xml', '*.txt'], capture_output=True, text=True).stdout.split():
     if _f in ('CHANGELOG.md', 'scripts/ci_check.py') or _f.startswith('data/private/'): continue
     try: _s = open(_f, encoding='utf-8').read()

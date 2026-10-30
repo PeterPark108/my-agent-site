@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Đồng bộ khối "Bảng giá tham khảo" trên các trang dịch vụ theo data/pricing.json (nguồn sự thật).
 Idempotent. Chạy: python3 scripts/svc_pricing.py  (sau pricing_publish.py, trước tech_pass.py).
-- Thay 3 gói cũ bằng các mức trong pricing.json (giá theo khoảng, chưa gồm VAT; hosting/quảng cáo: Thương lượng).
+- Thay 3 gói cũ bằng các mức trong pricing.json (giá theo khoảng, chưa bao gồm VAT; hosting/quảng cáo: Thương lượng).
 - Không đụng trang traffic-user (không công khai giá Traffic User), chỉ bỏ cam kết "24 giờ".
 - Bỏ các cam kết "phản hồi trong 24 giờ" / "báo giá trong 24h" trên trang dịch vụ và dich-vu.html.
 """
@@ -67,7 +67,7 @@ def faq_swap(x,q0,a0,q1,a1):
     x=x.replace(f'"name": "{Q0}", "acceptedAnswer": {{"@type": "Answer", "text": "{A0}"}}',f'"name": "{Q1}", "acceptedAnswer": {{"@type": "Answer", "text": "{A1}"}}')
   return x
 def faq_fix(x,s):
-  x=x.replace('Các khoản này tính riêng. Giá trên trang đã bao '+'gồm VAT.','Các khoản này tính riêng. Giá trên trang chưa bao gồm VAT.')  # v0.9.23: giá chưa bao gồm VAT
+  x=x.replace('Các khoản này tính riêng. Giá trên trang đã bao g\u1ed3m VAT.','Các khoản này tính riêng. Giá trên trang chưa bao gồm VAT.')  # v0.9.23: giá chưa bao gồm VAT
   x=faq_swap(x,*FAQ_DOMAIN); x=faq_swap(x,*FAQ_WS); x=faq_swap(x,*FAQ_INFRA); x=faq_swap(x,*FAQ_STORE); x=faq_swap(x,*FAQ_STORE2)
   if s and is_recurring(s): x=faq_swap(x,*FAQ_EDIT,'Thanh toán thế nào?',terms(s))
   return x

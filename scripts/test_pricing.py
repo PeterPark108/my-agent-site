@@ -17,7 +17,7 @@ P=json.loads(pathlib.Path('data/pricing.json').read_text()); raw=json.dumps(P,en
 ok(not re.search(r'traffic',raw,re.I),'data/pricing.json có Traffic User')
 for k in ('positioning','sources','formula','cost','margin','internal'): ok(k not in raw,f'data/pricing.json có trường "{k}"')
 ok(len(P['services'])==17,'số dịch vụ công khai khác 17')
-ok(P.get('vatIncluded') is False,'vatIncluded phải là false (giá chưa gồm VAT)')
+ok(P.get('vatIncluded') is False,'vatIncluded phải là false (giá chưa bao gồm VAT)')
 for s in P['services']:
   ok(set(s)<= {'id','category','name','unit','billing','quantity','complexityApplies','discountable','negotiable','priceLabel','negotiableNote','tiers'},f'{s["id"]}: trường lạ {set(s)}')
   for t in s['tiers']:
