@@ -14,7 +14,7 @@ nav.addEventListener('click',e=>{const a=e.target.closest('a');if(a&&!(innerWidt
 const lg=d.querySelector('#hdr .logo'),hp=u=>u.replace(/index\.html$/,'');
 if(lg)lg.addEventListener('click',e=>{const u=new URL(lg.href,location.href);if(u.origin===location.origin&&hp(u.pathname)===hp(location.pathname)&&!e.ctrlKey&&!e.metaKey&&!e.shiftKey&&e.button===0){e.preventDefault();setNav(false);if(location.hash)history.replaceState(null,'',location.pathname+location.search);scrollTo({top:0,behavior:RM?'auto':'smooth'})}});
 d.querySelectorAll('.has>a').forEach(a=>a.addEventListener('click',e=>{if(innerWidth<=960){e.preventDefault();a.parentNode.classList.toggle('open')}}));
-// contact form -> FormSubmit.co (config in js/config.js)
+// contact form -> formEndpoint /api/contact (Telegram); FormSubmit chỉ là dự phòng tắt sẵn (config in js/config.js)
 const C=window.MYAGENT_CONFIG||{},EM=C.formEmail||'',ZP=(C.zaloPhone||'').replace(/\D/g,''),okEM=/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(EM);
 d.querySelectorAll('a[data-mailto]').forEach(a=>{if(okEM)a.href='mailto:'+EM;else a.hidden=true});
 d.querySelectorAll('a[data-zalo]').forEach(a=>{if(ZP)a.href='https://zalo.me/'+ZP;else a.hidden=true});

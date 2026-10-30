@@ -1,5 +1,12 @@
 # Nhật ký thay đổi
 
+## 0.9.24 - 2026-10-30 (PR #37, trước là 0.9.11)
+- Thiết kế app: bỏ FAQ chung "Bao lâu thì triển khai xong? … 7–30 ngày" (mâu thuẫn bảng giá 4–6 tuần / 6–10 tuần / 3–5 tháng); thời gian app ở FAQ "Làm app mất bao lâu?".
+- Theo audit 3 trang dịch vụ (29/10): trang Thiết kế website đổi FAQ "Bao lâu thì triển khai xong?" từ "7–30 ngày" sang thời gian theo bảng giá (3–5 / 7–14 / 14–25 ngày); trang Thiết kế app đổi FAQ chung "Sau bàn giao ai sở hữu website?" thành "Sau bàn giao ai sở hữu app?" theo chốt của Peter: sau khi bàn giao, mã nguồn và dữ liệu thuộc về khách; mã nguồn giao sau khi thanh toán đủ. FAQPage JSON-LD sinh lại theo nội dung hiển thị.
+- Chính sách bảo mật mục 3: form liên hệ gửi tới máy chủ của website (/api/contact) rồi chuyển thành tin Telegram tới My Agent, không qua FormSubmit.
+
+- Phần VAT của PR này đã bỏ: dùng nguyên bản từ PR #50 (v0.9.23, giá chưa bao gồm VAT) qua merge production, để #50 là nguồn duy nhất.
+
 ## 0.9.23 - 2026-10-30
 - Giá CHƯA bao gồm VAT (Peter chốt 22:59 30/10): đổi mọi câu "đã (bao) gồm VAT" thành "chưa (bao) gồm VAT" ở bảng giá, ghi chú gói trên trang dịch vụ, FAQ + FAQPage JSON-LD, mô tả meta, công cụ tính combo, nội dung điền sẵn form Liên hệ, trợ lý MJ (chat.js + chatbot-kb), blog, docs; pricing.json `vatIncluded:false`, `vatNote:"Giá chưa bao gồm VAT"`. Không cộng VAT vào giá hiển thị. ci_check chặn mọi cách nói đã gồm/đã có VAT/thuế, "VAT included", "chưa gồm VAT" và mức % VAT. Cập nhật 23:29 30/10 theo Peter: câu FAQ đổi thành "Giá trên trang có bao gồm VAT không?" – "Chưa bao gồm VAT." (HTML, FAQPage JSON-LD, chatbot-kb); mọi chỗ thống nhất "chưa bao gồm VAT"; không ghi mức % VAT.
 

@@ -70,7 +70,7 @@ Thiết kế website: đặt cọc 30–50%, phần còn lại thanh toán khi n
 
 ### Sau bàn giao ai sở hữu website?
 
-Khi đã thanh toán đủ, anh/chị sở hữu mã nguồn, nội dung và các tài khoản liên quan.
+Sau khi bàn giao, website là của anh/chị: mã nguồn và dữ liệu thuộc về anh/chị. Mã nguồn được giao sau khi thanh toán đủ, như ghi trong bảng giá.
 
 ### Có cách nào tiết kiệm hơn không?
 

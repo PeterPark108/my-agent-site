@@ -70,7 +70,7 @@ Nếu anh/chị muốn một nơi lo website, hạ tầng, email, SEO và Fanpag
 
 ### Bao lâu thì làm xong website?
 
-Tùy phạm vi, thông thường từ 7–30 ngày làm việc; tiến độ được báo rõ từng giai đoạn.
+Theo bảng giá tham khảo: landing page 3–5 ngày, website giới thiệu 7–14 ngày, website bán hàng 14–25 ngày, tính từ khi chốt nội dung; tiến độ được báo rõ từng giai đoạn.
 
 ### Web mới làm có lên Google ngay không?
 

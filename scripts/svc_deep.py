@@ -137,5 +137,20 @@ for slug,d in S.items():
   if d.get('faq_replace'): s,k=re.subn(r'<div class="faq">.*?</div>',lambda m:'<div class="faq">'+fx+'</div>',s,count=1,flags=re.S)
   else: s,k=re.subn(r'<div class="faq">',lambda m:m.group(0)+fx,s,count=1)
   assert k,slug
+  # v0.9.11: FAQ chung "7–30 ngày" mâu thuẫn bảng giá app (4–6 tuần trở lên) -> bỏ trên trang app; thời gian app nằm ở FAQ "Làm app mất bao lâu?"
+  if slug=='thiet-ke-app': s=re.sub(r'<details class="glass"><summary>Bao lâu thì triển khai xong\?</summary><p>[^<]*7–30 ngày[^<]*</p></details>','',s)
+  # v0.9.11 (audit 29/10 + Peter chốt "sau khi bàn giao thì là của khách"): FAQ chung "ai sở hữu website?" trên trang app -> hỏi về app, cùng ý, không thêm điều khoản
+  if slug=='thiet-ke-app': s=re.sub(r'<details class="glass"><summary>Sau bàn giao ai sở hữu website\?</summary><p>[^<]*</p></details>','<details class="glass"><summary>Sau bàn giao ai sở hữu app?</summary><p>Sau khi bàn giao, app là của khách: mã nguồn và dữ liệu thuộc về khách. Mã nguồn được giao sau khi thanh toán đủ, như ghi trong bảng giá.</p></details>',s)
+  # v0.9.11 (audit 29/10): trang thiết kế website: "7–30 ngày" -> thời gian theo bảng giá
+  if slug=='thiet-ke-website': s=re.sub(r'(<details class="glass"><summary>Bao lâu thì triển khai xong\?</summary><p>)[^<]*7–30 ngày[^<]*(</p>)',lambda m:m.group(1)+fillp('Theo bảng giá tham khảo: landing page {tg:thiet-ke-website/landing}, website giới thiệu {tg:thiet-ke-website/gioi-thieu}, website bán hàng {tg:thiet-ke-website/ban-hang}, tính từ khi chốt nội dung và nhận đủ tư liệu; tiến độ được báo rõ từng giai đoạn.')+m.group(2),s)
   f.write_text(s); n+=1
+# v0.9.11 (audit 29/10, mục 2–3 + chốt Peter): FAQ dùng chung trên mọi trang dịch vụ
+TIME_ALL='Tùy dịch vụ và phạm vi; thời gian tham khảo của từng gói ghi trong bảng giá, tiến độ được báo rõ từng giai đoạn.'
+OWN_ALL='Sau khi bàn giao, website là của khách: mã nguồn và dữ liệu thuộc về khách. Mã nguồn được giao sau khi thanh toán đủ, như ghi trong bảng giá.'
+for f in sorted(pathlib.Path('dich-vu').glob('*.html')):
+  s=f.read_text(); o=s
+  s=re.sub(r'(<summary>Bao lâu thì triển khai xong\?</summary><p>)[^<]*7–30 ngày[^<]*(</p>)',lambda m:m.group(1)+TIME_ALL+m.group(2),s)
+  s=re.sub(r'(<summary>Sau bàn giao ai sở hữu website\?</summary><p>)[^<]*(</p>)',lambda m:m.group(1)+OWN_ALL+m.group(2),s)
+  s=s.replace('Sau khi thanh toán đủ, khách sở hữu mã nguồn, nội dung và tài khoản liên quan.','Sau khi bàn giao, mã nguồn và dữ liệu thuộc về khách; mã nguồn được giao sau khi thanh toán đủ.')
+  if s!=o: f.write_text(s)
 print('svc_deep:',n,'pages')
