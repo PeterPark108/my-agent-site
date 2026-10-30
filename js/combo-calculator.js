@@ -1,4 +1,4 @@
-/* My Agent – Tính giá combo tham khảo (JS thuần, giá đã gồm VAT).
+/* My Agent – Tính giá combo tham khảo (JS thuần, giá chưa bao gồm VAT).
  * calculateCombo({items:[{serviceId,tierId,complexity,quantity,budgetNote}], rush, prepay}[, pricing])
  * -> {min,max,discountPercent,items[], ...} */
 (function (root) {
@@ -75,8 +75,8 @@
       monthlyRunRate: { min: tot.monthly[0], max: tot.monthly[1] },
       discountAmount: { min: tot.disc[0], max: tot.disc[1] },
       rushPercent: rush.percent, rushAmount: { min: Math.round(rushAmt[0]), max: Math.round(rushAmt[1]) },
-      vatIncluded: true,
-      note: 'Giá chỉ mang tính tham khảo theo khoảng, báo giá chính xác sau khi trao đổi nhu cầu. Giá đã bao gồm VAT.' };
+      vatIncluded: false,
+      note: 'Giá chỉ mang tính tham khảo theo khoảng, báo giá chính xác sau khi trao đổi nhu cầu. Giá chưa bao gồm VAT.' };
   }
   function setPricing(p) { DEFAULT = p; }
   if (typeof module !== 'undefined' && module.exports) {
