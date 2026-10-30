@@ -1,11 +1,26 @@
 # Nhật ký thay đổi
 
-## 0.9.11 - 2026-10-29
-- Giá **chưa bao gồm VAT** (Peter chốt): đổi mọi câu "đã gồm/đã bao gồm VAT" thành "chưa gồm/chưa bao gồm VAT" trên bảng giá, trang dịch vụ, combo, FAQ + FAQPage, blog, chatbot, công cụ tính giá, câu điền sẵn form liên hệ; `pricing.json` `vatIncluded: false`, `vatNote: "Giá chưa bao gồm VAT"`. Không đổi con số giá. Các mục CHANGELOG cũ giữ nguyên làm lịch sử.
-- ci_check + test_pricing chặn "đã gồm VAT / đã bao gồm VAT" quay lại (câu hỏi "Giá trên trang đã gồm VAT chưa?" được giữ, trả lời "Chưa gồm VAT").
+## 0.9.24 - 2026-10-30 (PR #37, trước là 0.9.11)
 - Thiết kế app: bỏ FAQ chung "Bao lâu thì triển khai xong? … 7–30 ngày" (mâu thuẫn bảng giá 4–6 tuần / 6–10 tuần / 3–5 tháng); thời gian app ở FAQ "Làm app mất bao lâu?".
 - Theo audit 3 trang dịch vụ (29/10): trang Thiết kế website đổi FAQ "Bao lâu thì triển khai xong?" từ "7–30 ngày" sang thời gian theo bảng giá (3–5 / 7–14 / 14–25 ngày); trang Thiết kế app đổi FAQ chung "Sau bàn giao ai sở hữu website?" thành "Sau bàn giao ai sở hữu app?" theo chốt của Peter: sau khi bàn giao, mã nguồn và dữ liệu thuộc về khách; mã nguồn giao sau khi thanh toán đủ. FAQPage JSON-LD sinh lại theo nội dung hiển thị.
 - Chính sách bảo mật mục 3: form liên hệ gửi tới máy chủ của website (/api/contact) rồi chuyển thành tin Telegram tới My Agent, không qua FormSubmit.
+
+- Phần VAT của PR này đã bỏ: dùng nguyên bản từ PR #50 (v0.9.23, giá chưa bao gồm VAT) qua merge production, để #50 là nguồn duy nhất.
+
+## 0.9.23 - 2026-10-30
+- Giá CHƯA bao gồm VAT (Peter chốt 22:59 30/10): đổi mọi câu "đã (bao) gồm VAT" thành "chưa (bao) gồm VAT" ở bảng giá, ghi chú gói trên trang dịch vụ, FAQ + FAQPage JSON-LD, mô tả meta, công cụ tính combo, nội dung điền sẵn form Liên hệ, trợ lý MJ (chat.js + chatbot-kb), blog, docs; pricing.json `vatIncluded:false`, `vatNote:"Giá chưa bao gồm VAT"`. Không cộng VAT vào giá hiển thị. ci_check chặn mọi cách nói đã gồm/đã có VAT/thuế, "VAT included", "chưa gồm VAT" và mức % VAT. Cập nhật 23:29 30/10 theo Peter: câu FAQ đổi thành "Giá trên trang có bao gồm VAT không?" – "Chưa bao gồm VAT." (HTML, FAQPage JSON-LD, chatbot-kb); mọi chỗ thống nhất "chưa bao gồm VAT"; không ghi mức % VAT.
+
+## 0.9.21 - 2026-10-30
+- Phát hành PR #47 (địa chỉ, nội dung bản 0.9.19 bên dưới) trên nền 0.9.20 (header cố định #48). Bump để đổi `?v=` vì css/js thay đổi.
+
+## 0.9.20 - 2026-10-30
+- Header cố định khi cuộn (Peter yêu cầu): đo chiều cao header thật (`--hh`) cho scroll-padding-top để anchor/hash không bị che; `overflow-x:clip` thay `hidden` để sticky ổn định trên Safari; logo ở trang chủ cuộn lên đầu (mượt, trừ khi prefers-reduced-motion), trang khác vẫn về trang chủ; menu mobile có aria-controls, đóng bằng Esc, bấm ngoài hoặc chọn mục; focus-visible cho nút menu/logo; menu mobile và thanh tab danh mục bám theo chiều cao header thật.
+
+## 0.9.19 - 2026-10-30
+- Địa chỉ MY AGENT "262/22 Liên Khu 4-5, Bình Tân, TP. Hồ Chí Minh" (Peter xác nhận): thêm vào footer mọi trang và khung thông tin trang Liên hệ (tech_pass), PostalAddress trong schema #org (không geo, không giá). Cập nhật 10:00 30/10 theo Peter: dòng địa chỉ ghi nguyên văn "Công Ty Thiết Kế - In Ấn NASA, 262/22 Liên Khu 4-5, Bình Tân, Hồ Chí Minh, Việt Nam"; schema thêm `location` (Place, name NASA + PostalAddress), name của #org vẫn là My Agent, câu trả lời liên hệ của trợ lý MJ (thêm từ khoá "địa chỉ").
+
+## 0.9.18 - 2026-10-30
+- Blog: thêm 2 bài "Checklist SEO cơ bản cho website doanh nghiệp nhỏ" (seo) và "Google Business Profile cho dịch vụ tại TP.HCM" (marketing, nguồn trang hỗ trợ Google). Nhánh độc lập từ production 0.9.10.
 
 ## 0.9.10 - 2026-10-28
 - Google Analytics 4: bật Measurement ID `G-BZ5E2WMZLJ` (Peter cung cấp) trong `js/config.js`, nguồn tải duy nhất cho mọi trang (tech_pass chèn vào head; 404 được chèn riêng; trang chuyển hướng noindex không tải). Tải async; ẩn danh IP, tắt Google signals và cá nhân hoá quảng cáo (Consent Mode: ad_* denied); không tải khi bật Do Not Track / Global Privacy Control hoặc khách đã tự tắt. `config.js` có `?v=` để trình duyệt nhận cấu hình mới.

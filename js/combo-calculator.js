@@ -1,4 +1,4 @@
-/* My Agent – Tính giá combo tham khảo (JS thuần, giá chưa gồm VAT).
+/* My Agent – Tính giá combo tham khảo (JS thuần, giá chưa bao gồm VAT).
  * calculateCombo({items:[{serviceId,tierId,complexity,quantity,budgetNote}], rush, prepay}[, pricing])
  * -> {min,max,discountPercent,items[], ...} */
 (function (root) {

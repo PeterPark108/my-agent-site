@@ -17,7 +17,7 @@ P=json.loads(pathlib.Path('data/pricing.json').read_text()); raw=json.dumps(P,en
 ok(not re.search(r'traffic',raw,re.I),'data/pricing.json có Traffic User')
 for k in ('positioning','sources','formula','cost','margin','internal'): ok(k not in raw,f'data/pricing.json có trường "{k}"')
 ok(len(P['services'])==17,'số dịch vụ công khai khác 17')
-ok(P.get('vatIncluded') is False,'vatIncluded phải là false (giá chưa gồm VAT)')
+ok(P.get('vatIncluded') is False,'vatIncluded phải là false (giá chưa bao gồm VAT)')
 for s in P['services']:
   ok(set(s)<= {'id','category','name','unit','billing','quantity','complexityApplies','discountable','negotiable','priceLabel','negotiableNote','tiers'},f'{s["id"]}: trường lạ {set(s)}')
   for t in s['tiers']:
@@ -73,11 +73,9 @@ for sv in P['services']:
     for need in ('Đặt cọc 30–50%','60 ngày','2 lần chỉnh sửa'): ok(need in blk,f'{sv["id"]} (làm một lần): thiếu điều khoản "{need}"')
   ok('tên miền có giá riêng' in blk and 'Thương lượng' in blk,f'{sv["id"]}: thiếu ghi chú tên miền/hosting/quảng cáo mới')
 OLDNOTE=re.compile(r'tự thanh toán trực tiếp|thanh toán trực tiếp cho nhà cung cấp|thanh toán trực tiếp với nhà cung cấp|đứng tên và thanh toán trực tiếp|trả trực tiếp cho (Apple|Google|nhà cung cấp)|chưa gồm phí tên miền, hosting|chưa gồm\*\* phí tên miền, hosting|khách đứng tên và thanh toán trực tiếp cho nhà cung cấp|anh/chị đứng tên và thanh toán trực tiếp|Phí của nhà cung cấp do anh/chị thanh toán trực tiếp',re.I)
-OLDVAT=re.compile(r'đã\s+(bao\s+)?gồm\s+VAT(?!\s+chưa)',re.I)
 OLDDEV=re.compile(r'nhà phát triển Apple/Google được báo trong báo giá|Developer[^.]{0,40}thanh toán cho My Agent',re.I)
 for f in PUB:
   t=pathlib.Path(f).read_text(errors='ignore'); m=OLDNOTE.search(t)
-  v=OLDVAT.search(t); ok(not v,f'{f}: giá chưa gồm VAT, còn "{v.group(0) if v else ""}"')
   d=OLDDEV.search(t); ok(not d,f'{f}: phí App Developer phải do chủ app tự trả, còn "{d.group(0) if d else ""}"')
   ok(not m,f'{f}: còn ghi chú cũ "{m.group(0) if m else ""}"')
 # hàm tính

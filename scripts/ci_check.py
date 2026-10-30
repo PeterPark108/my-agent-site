@@ -28,6 +28,14 @@ for sc in ('news_build.py', 'blog_build.py'):
 r = subprocess.run([sys.executable, 'scripts/test_pricing.py'], capture_output=True, text=True)
 print(r.stdout.strip().splitlines()[-1] if r.stdout.strip() else 'test_pricing')
 if r.returncode: fail.append('test_pricing.py lỗi:\n' + r.stdout.strip())
+# v0.9.23: Peter chốt giá CHƯA bao gồm VAT, mọi chỗ ghi đúng "chưa bao gồm VAT"; chặn mọi cách nói đã gồm/đã có VAT/thuế (không ngoại lệ)
+_VAT = re.compile(r'(đã\s+(bao\s+)?(gồm|có)\s+(VAT|thuế)|(?<!chưa )(?<!bao )gồm\s+(VAT|thuế\s*GTGT)|VAT\s+included|incl\.?\s+VAT|chưa\s+gồm\s+VAT|da\s+(bao\s+)?gom\s+vat|\d\s*%\s*VAT|VAT\s*\d+\s*%)', re.I)
+for _f in subprocess.run(['git', 'ls-files', '*.html', '*.js', '*.json', '*.md', '*.py', '*.xml', '*.txt'], capture_output=True, text=True).stdout.split():
+    if _f in ('CHANGELOG.md', 'scripts/ci_check.py') or _f.startswith('data/private/'): continue
+    try: _s = open(_f, encoding='utf-8').read()
+    except Exception: continue
+    _m = _VAT.search(_s)
+    if _m: fail.append(f'{_f}: còn "{_m.group(0)}" (giá phải là chưa bao gồm VAT)')
 # js/css đổi so với tag phát hành gần nhất mà VERSION chưa bump -> trình duyệt dùng bản cache cũ (?v= trùng)
 _tag = subprocess.run(['git', 'describe', '--tags', '--abbrev=0', '--match', 'v*'], capture_output=True, text=True).stdout.strip()
 if _tag:
@@ -63,14 +71,6 @@ for _f in files:
         for _o in json.loads(_ld).get('@graph', []):
             if _o.get('@id', '').endswith('#org') and _o.get('sameAs') != ['https://www.facebook.com/myagentvn']:
                 fail.append(f'{_f}: #org sameAs phải là ["https://www.facebook.com/myagentvn"], đang {_o.get("sameAs")}')
-# v0.9.11: Peter chốt giá CHƯA gồm VAT; chặn "đã gồm VAT / đã bao gồm VAT" quay lại (trừ câu hỏi "... đã gồm VAT chưa?")
-_VAT = re.compile(r'đã\s+(bao\s+)?gồm\s+(VAT|thuế\s*GTGT)(?!\s+chưa)', re.I)
-for _f in files:
-    if _f == 'CHANGELOG.md' or _f.startswith('scripts/ci_check') or not _f.endswith(('.html', '.js', '.json', '.md', '.py', '.txt', '.xml')): continue
-    try: _s = open(_f, encoding='utf-8').read()
-    except Exception: continue
-    _m = _VAT.search(_s)
-    if _m: fail.append(f'{_f}: còn "{_m.group(0)}" (giá phải là chưa gồm VAT)')
 # sitemap chỉ chứa URL có file thật
 for loc in re.findall(r'<loc>https://myagentvn\.com/(.*?)</loc>', open('sitemap.xml', encoding='utf-8').read()):
     if not os.path.isfile(loc or 'index.html'): fail.append('sitemap có URL không tồn tại: ' + loc)

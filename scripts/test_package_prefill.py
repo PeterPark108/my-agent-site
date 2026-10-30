@@ -40,7 +40,7 @@ with sync_playwright() as p:
       a.click(); pg.wait_for_url('**/lien-he.html?*'); x=st(pg); c=f'{s["id"]}/{t["id"]}'
       chk(x['pre']==s['id'],f'{c}: không điền sẵn'); chk(x['svc'] and x['svc']!='Thiết kế website' or s['id']=='thiet-ke-website',f'{c}: chưa chọn đúng dịch vụ ({x["svc"]})')
       chk(f'Tôi muốn đăng ký gói {t["name"]} của dịch vụ {s["name"]}.' in x['msg'],f'{c}: nội dung thiếu tên gói/dịch vụ')
-      want='Thương lượng' if s.get('negotiable') else rng(t['min'],t['max'])+' / '+s['unit']+' (chưa gồm VAT, tham khảo)'
+      want='Thương lượng' if s.get('negotiable') else rng(t['min'],t['max'])+' / '+s['unit']+' (chưa bao gồm VAT, tham khảo)'
       chk('Giá tham khảo: '+want+'.' in x['msg'],f'{c}: giá sai, cần "{want}" -> {x["msg"]!r}')
       if s.get('billing')=='monthly': chk('Chu kỳ: theo tháng' in x['msg'],f'{c}: thiếu chu kỳ tháng')
       elif s.get('billing')=='yearly': chk('Chu kỳ: theo năm' in x['msg'],f'{c}: thiếu chu kỳ năm')
