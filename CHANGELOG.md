@@ -1,11 +1,12 @@
 # Nhật ký thay đổi
 
-## 0.10.0 - 2026-11-01 (redesign-v1, PR nháp, chưa phát hành)
+## 0.10.0 - 2026-11-01 (redesign-v1, PR #52)
 - Giao diện sáng tiết chế cho toàn bộ trang: nền #FFF/#F6F7F9, chữ #14161B/#4A5060, màu nhấn teal #0F766E (#0B5C56), chỉ Be Vietnam Pro (tự host), bo 14px, nút viên thuốc, bỏ lưới nền/glow/marquee/canvas trang trí, bỏ tiền tố "// ". Lớp CSS ở cuối css/style.css (khối "redesign-v1").
 - Nội dung luôn hiện không cần JS (bỏ ẩn .rv/.mv khi chờ hiệu ứng); tắt màn intro (config introEnabled:false).
 - Trang chủ viết lại, ngắn hơn: banner ảnh thuần 16:5 (mobile 4:3, picture/source), tự chuyển ~5s, chấm + trước/sau dưới ảnh, dừng khi hover/focus/chạm, tôn trọng prefers-reduced-motion; giới thiệu + H1 giữ từ khoá; 18 dịch vụ gom 6 nhóm; 3 dự án mẫu; quy trình 4 bước (Bảo hành lỗi kỹ thuật 60 ngày sau bàn giao); 3 gói giá + chăm sóc từ 640 nghìn/tháng, chưa bao gồm VAT; khối trọn gói + FAQ (FAQPage giữ nguyên); 3 bài blog mới nhất thay khối tin công nghệ; liên hệ "phản hồi trong giờ làm việc" (giữ luật ci_check cấm cam kết 24 giờ – chờ Peter xác nhận).
 - Khối cảm nhận khách hàng: khung có sẵn nhưng ẩn (hidden) cho tới khi data/testimonials.json có mục thật.
 - Mobile: gộp nút nổi thành 1 nút liên hệ (Gọi / Sao chép số / Zalo / Hỏi trợ lý MJ), ẩn nút Zalo và MJ riêng ≤960px.
+- Vòng 2 (Peter duyệt): logo đổi sang teal #0F766E (giữ hình, tên file, alt) cho logo.svg/png/webp, logo-dark, favicon, apple-touch, icon-192/512, og-image; menu chính, footer, dich-vu.html, combo, bảng giá (data/pricing.json), form liên hệ, chatbot-kb đồng bộ 6 nhóm như trang chủ: Nền tảng website · Marketing & tăng trưởng · Mạng xã hội & nội dung · Dữ liệu · Phần mềm & app · Pháp lý & thủ tục. Không đổi URL; neo cũ #du-lieu-phan-mem vẫn mở tab Dữ liệu. Giữ "phản hồi trong giờ làm việc".
 - Script: blog_build.py cập nhật <!-- blog:home -->; news_build.py chỉ cập nhật khối tin trang chủ nếu marker còn; seo_blocks.py sinh khối trọn gói theo giao diện mới. Ảnh banner tạo từ ảnh Unsplash (ghi nguồn ở ghi-nguon.html).
 
 ## 0.9.26 - 2026-10-31 (trước là 0.9.25)

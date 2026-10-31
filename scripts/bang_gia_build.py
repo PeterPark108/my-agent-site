@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Dựng bang-gia.html (bảng giá 5 nhóm + công cụ tính giá #tinh-gia) từ data/pricing.json (bản công khai).
+"""Dựng bang-gia.html (bảng giá 6 nhóm + công cụ tính giá #tinh-gia) từ data/pricing.json (bản công khai).
 Khung header/footer lấy từ combo.html. Chạy: python3 scripts/bang_gia_build.py && python3 scripts/tech_pass.py"""
 import json,re,html,pathlib
 R=pathlib.Path(__file__).resolve().parent.parent
@@ -10,7 +10,7 @@ def tr(v):
   return f'{v//1000:,}'.replace(',','.')+' nghìn'
 def rng(t): return f'{tr(t["min"])} – {tr(t["max"])}'
 UNIT={'one-time':'','monthly':' / tháng','yearly':' / năm'}
-SLUG={'01':'nen-tang-website','02':'marketing-tang-truong','03':'mang-xa-hoi-noi-dung','04':'du-lieu-phan-mem','05':'phap-ly-thu-tuc'}
+SLUG={'01':'nen-tang-website','02':'marketing-tang-truong','03':'mang-xa-hoi-noi-dung','04':'du-lieu','05':'phan-mem-app','06':'phap-ly-thu-tuc'}
 DV={'quang-cao-google-facebook':'quang-cao-google-facebook'}
 base=(R/'combo.html').read_text()
 head=re.sub(r'<!-- tech:head -->.*?<!-- /tech:head -->','',base[:base.find('<main')],flags=re.S)
@@ -30,7 +30,7 @@ for s in P['services']:
 NOTE=('<div class="bg-note glass rv" role="note"><p><b>Giá chưa bao gồm VAT.</b> Giá chỉ mang tính tham khảo theo khoảng, báo giá chính xác sau khi trao đổi nhu cầu.</p>'
       '<p class="muted">Hosting/VPS và quảng cáo Google, Facebook: <b>Thương lượng</b> (tùy cấu hình, ngân sách). Phí quảng cáo chưa gồm tiền quảng cáo trả cho nền tảng (Google, Facebook).</p></div>')
 o=['<main><section class="hero sub"><canvas class="net" aria-hidden="true"></canvas><div class="wrap"><nav class="crumb mono" aria-label="breadcrumb"><a href="index.html">home</a> / bảng giá</nav>',
-   '<h1 class="gt2">Bảng giá dịch vụ My&nbsp;Agent</h1><p class="lead">Khoảng giá tham khảo cho 5 nhóm dịch vụ và công cụ tự tính giá combo. Chọn dịch vụ, kỳ thanh toán để xem tạm tính, rồi gửi sang trang liên hệ để nhận báo giá chính xác.</p>',
+   '<h1 class="gt2">Bảng giá dịch vụ My&nbsp;Agent</h1><p class="lead">Khoảng giá tham khảo cho 6 nhóm dịch vụ và công cụ tự tính giá combo. Chọn dịch vụ, kỳ thanh toán để xem tạm tính, rồi gửi sang trang liên hệ để nhận báo giá chính xác.</p>',
    '<p class="acts"><a class="btn mag" href="#tinh-gia">Tự tính giá combo</a> <a class="btn ghost" href="lien-he.html">Nhận báo giá chính xác</a></p></div></section>',
    '<section><div class="wrap">'+NOTE+'<div class="bg-toc" role="navigation" aria-label="Nhóm dịch vụ">'+''.join(f'<a href="#{SLUG[c[:2]]}">{E(c)}</a>' for c,_ in groups)+'<a href="#tinh-gia">Tính giá combo</a></div>']
 for c,ss in groups:

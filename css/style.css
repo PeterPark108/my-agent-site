@@ -698,4 +698,5 @@ footer .ct-ph a{display:inline}
  .h-sec{padding:56px 0}.h-g3,.h-steps{grid-template-columns:1fr}.h-contact{flex-direction:column;align-items:flex-start;padding:26px}.h-contact .h-cta{justify-content:flex-start}.cta-box{padding:26px}}
 footer{padding-bottom:24px}@media (max-width:640px){footer .grid4>div:nth-child(3){columns:2;column-gap:16px}footer .grid4>div:nth-child(3) .h4{column-span:all}}
 
+@media (min-width:1081px){.mega.mega5{grid-template-columns:repeat(6,minmax(0,1fr));width:min(1240px,96vw)}}
 /* ===== /redesign-v1 ===== */
