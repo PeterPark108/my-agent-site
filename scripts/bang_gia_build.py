@@ -19,7 +19,7 @@ foot=base[base.find('</main>'):]
 foot=re.sub(r'<script src="js/he-thong\.js[^"]*" defer></script>','',foot)
 foot=foot.replace('</body>','<script src="js/combo-calculator.js?v=0" defer></script><script src="js/bang-gia.js?v=0" defer></script></body>',1)
 TITLE='Bảng giá dịch vụ website, SEO, dữ liệu | My Agent'
-DESC='Bảng giá tham khảo theo khoảng (đã gồm VAT) cho website, SEO, mạng xã hội, dữ liệu, pháp lý và công cụ tự tính giá combo. Báo giá chính xác sau trao đổi.'
+DESC='Bảng giá tham khảo theo khoảng (chưa bao gồm VAT) cho website, SEO, mạng xã hội, dữ liệu, pháp lý, kèm công cụ tính combo. Báo giá chính xác sau trao đổi.'
 head=re.sub(r'<title>.*?</title>',f'<title>{E(TITLE)}</title>',head,count=1)
 head=re.sub(r'<meta name="description" content="[^"]*">',f'<meta name="description" content="{E(DESC)}">',head,count=1)
 groups=[]
@@ -27,7 +27,7 @@ for s in P['services']:
   c=s['category']
   if not groups or groups[-1][0]!=c: groups.append((c,[]))
   groups[-1][1].append(s)
-NOTE=('<div class="bg-note glass rv" role="note"><p><b>Giá đã bao gồm VAT.</b> Giá chỉ mang tính tham khảo theo khoảng, báo giá chính xác sau khi trao đổi nhu cầu.</p>'
+NOTE=('<div class="bg-note glass rv" role="note"><p><b>Giá chưa bao gồm VAT.</b> Giá chỉ mang tính tham khảo theo khoảng, báo giá chính xác sau khi trao đổi nhu cầu.</p>'
       '<p class="muted">Hosting/VPS và quảng cáo Google, Facebook: <b>Thương lượng</b> (tùy cấu hình, ngân sách). Phí quảng cáo chưa gồm tiền quảng cáo trả cho nền tảng (Google, Facebook).</p></div>')
 o=['<main><section class="hero sub"><canvas class="net" aria-hidden="true"></canvas><div class="wrap"><nav class="crumb mono" aria-label="breadcrumb"><a href="index.html">home</a> / bảng giá</nav>',
    '<h1 class="gt2">Bảng giá dịch vụ My&nbsp;Agent</h1><p class="lead">Khoảng giá tham khảo cho 5 nhóm dịch vụ và công cụ tự tính giá combo. Chọn dịch vụ, kỳ thanh toán để xem tạm tính, rồi gửi sang trang liên hệ để nhận báo giá chính xác.</p>',
@@ -59,13 +59,13 @@ o.append(f'<div class="gap"></div><div class="t rv"><span class="k">// ưu đãi
   f'<li class="glass rv"><span>Mỗi khoản chỉ nhận một loại giảm, không cộng dồn, tối đa {Rr["maxLineDiscountPercent"]}% mỗi khoản.</span></li>'
   '<li class="glass rv"><span>Thanh toán: dịch vụ tính theo tháng/năm thanh toán 100% trước theo kỳ đã chọn (tháng, 6, 12 hoặc 24 tháng; tên miền theo năm), không đặt cọc. Khoản làm một lần: đặt cọc 30–50%, phần còn lại khi nghiệm thu; 2 lần chỉnh sửa trong phạm vi đã thống nhất, bảo hành lỗi kỹ thuật 60 ngày sau bàn giao.</span></li>'
   '<li class="glass rv"><span>Cần gấp: phụ phí 20% (rút ~30% thời gian) hoặc 40% (rút ~50%) trên khoản làm một lần.</span></li></ul></div></section>')
-o.append('<section class="soft" id="tinh-gia"><div class="wrap"><div class="t rv"><span class="k">// tự tính giá</span><h2>Công cụ tính giá <span class="gt">combo</span></h2><p>Tích dịch vụ, chọn gói và kỳ thanh toán. Kết quả là khoảng giá tham khảo, đã gồm VAT.</p></div>'
+o.append('<section class="soft" id="tinh-gia"><div class="wrap"><div class="t rv"><span class="k">// tự tính giá</span><h2>Công cụ tính giá <span class="gt">combo</span></h2><p>Tích dịch vụ, chọn gói và kỳ thanh toán. Kết quả là khoảng giá tham khảo, chưa bao gồm VAT.</p></div>'
   '<div class="bg-calc" id="bg-calc"><div class="bg-list glass" id="bg-list"><noscript><p>Công cụ cần bật JavaScript. Bạn có thể xem bảng giá phía trên hoặc <a href="lien-he.html">liên hệ</a> để nhận báo giá.</p></noscript></div>'
   '<aside class="bg-sum glass" aria-live="polite"><div class="bg-ctl"><label>Kỳ thanh toán khoản tháng<select id="bg-prepay"></select></label><label>Tiến độ<select id="bg-rush"></select></label></div>'
   '<p class="mono k">Tạm tính</p><p class="bg-total" id="bg-total">Chưa chọn dịch vụ</p><div id="bg-detail" class="bg-detail"></div>'
-  '<p class="bg-dis"><small>Giá đã bao gồm VAT. Giá chỉ mang tính tham khảo theo khoảng, báo giá chính xác sau khi trao đổi nhu cầu. Quảng cáo: chưa gồm tiền quảng cáo trả cho nền tảng.</small></p>'
+  '<p class="bg-dis"><small>Giá chưa bao gồm VAT. Giá chỉ mang tính tham khảo theo khoảng, báo giá chính xác sau khi trao đổi nhu cầu. Quảng cáo: chưa gồm tiền quảng cáo trả cho nền tảng.</small></p>'
   '<a class="btn mag" id="bg-send" href="lien-he.html#form">Gửi số liệu sang liên hệ</a></aside></div></div></section>')
-FAQ=[('Giá trên trang đã gồm VAT chưa?','Đã gồm VAT. Giá chỉ mang tính tham khảo theo khoảng, báo giá chính xác sau khi trao đổi nhu cầu.'),
+FAQ=[('Giá trên trang có bao gồm VAT không?','Chưa bao gồm VAT. Giá chỉ mang tính tham khảo theo khoảng, báo giá chính xác sau khi trao đổi nhu cầu.'),
  ('Vì sao hosting và quảng cáo ghi Thương lượng?','Chi phí hosting/VPS phụ thuộc cấu hình; phí quản lý quảng cáo phụ thuộc ngân sách và số kênh. My Agent báo riêng sau khi trao đổi. Phí quảng cáo chưa gồm tiền quảng cáo trả cho nền tảng.'),
  ('Thanh toán thế nào?','Dịch vụ tính theo tháng (chăm sóc website, hosting, email, SEO, quảng cáo, Fanpage) thanh toán 100% trước theo kỳ đã chọn: tháng, 6, 12 hoặc 24 tháng; tên miền thanh toán trước theo năm. Không đặt cọc với các dịch vụ này. Khoản làm một lần (website, app, phần mềm, dữ liệu…) đặt cọc 30–50%, phần còn lại thanh toán khi nghiệm thu.'),
  ('Giá thiết kế đã gồm tên miền và hosting chưa?','Chưa. Tên miền có giá riêng trong bảng giá; hosting/VPS là Thương lượng. Các khoản này tính riêng, chọn thêm trong công cụ tính giá nếu cần.'),

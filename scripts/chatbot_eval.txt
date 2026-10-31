@@ -56,7 +56,7 @@ bài viết hướng dẫn website và seo | blog.html
 có bài kiến thức nào để đọc không | blog.html
 bảng giá dịch vụ my agent | bang-gia,intent:price
 tự tính giá combo | bang-gia
-giá đã gồm vat chưa | bang-gia
+giá có bao gồm vat không | bang-gia
 giá hosting bao nhiêu | intent:price,hosting-seo,bang-gia
 chăm sóc website thanh toán thế nào | bang-gia
 giá thiết kế đã gồm tên miền và hosting chưa | bang-gia

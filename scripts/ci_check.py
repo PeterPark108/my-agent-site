@@ -28,6 +28,14 @@ for sc in ('news_build.py', 'blog_build.py'):
 r = subprocess.run([sys.executable, 'scripts/test_pricing.py'], capture_output=True, text=True)
 print(r.stdout.strip().splitlines()[-1] if r.stdout.strip() else 'test_pricing')
 if r.returncode: fail.append('test_pricing.py lỗi:\n' + r.stdout.strip())
+# v0.9.23: Peter chốt giá CHƯA bao gồm VAT, mọi chỗ ghi đúng "chưa bao gồm VAT"; chặn mọi cách nói đã gồm/đã có VAT/thuế (không ngoại lệ)
+_VAT = re.compile(r'(đã\s+(bao\s+)?(gồm|có)\s+(VAT|thuế)|(?<!chưa )(?<!bao )gồm\s+(VAT|thuế\s*GTGT)|VAT\s+included|incl\.?\s+VAT|chưa\s+gồm\s+VAT|da\s+(bao\s+)?gom\s+vat|\d\s*%\s*VAT|VAT\s*\d+\s*%)', re.I)
+for _f in subprocess.run(['git', 'ls-files', '*.html', '*.js', '*.json', '*.md', '*.py', '*.xml', '*.txt'], capture_output=True, text=True).stdout.split():
+    if _f in ('CHANGELOG.md', 'scripts/ci_check.py') or _f.startswith('data/private/'): continue
+    try: _s = open(_f, encoding='utf-8').read()
+    except Exception: continue
+    _m = _VAT.search(_s)
+    if _m: fail.append(f'{_f}: còn "{_m.group(0)}" (giá phải là chưa bao gồm VAT)')
 # js/css đổi so với tag phát hành gần nhất mà VERSION chưa bump -> trình duyệt dùng bản cache cũ (?v= trùng)
 _tag = subprocess.run(['git', 'describe', '--tags', '--abbrev=0', '--match', 'v*'], capture_output=True, text=True).stdout.strip()
 if _tag:

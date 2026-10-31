@@ -48,8 +48,8 @@ for f in pages:
         pm=re.search(r'[\d][\d.,–-]*\s*(?:triệu|nghìn|đ|VNĐ)(?:\s*/\s*\w+)?',t)
         if pm: plans.append((n,pm.group(0)))
       if plans:
-        a='Bảng giá tham khảo trên trang: '+'; '.join(f'{n}: {p}' for n,p in plans)+'. Giá đã bao gồm VAT, chỉ mang tính tham khảo theo khoảng; báo giá chính xác sau khi trao đổi nhu cầu.'
-        if rel=='bang-gia.html': a='Khoảng giá tham khảo '+h2[9:]+': '+'; '.join(f'{n}: {p}' for n,p in plans)+'. Giá đã bao gồm VAT, chỉ mang tính tham khảo theo khoảng; báo giá chính xác sau khi trao đổi nhu cầu (trang Liên hệ). Hosting/VPS và quảng cáo: thương lượng.'
+        a='Bảng giá tham khảo trên trang: '+'; '.join(f'{n}: {p}' for n,p in plans)+'. Giá chưa bao gồm VAT, chỉ mang tính tham khảo theo khoảng; báo giá chính xác sau khi trao đổi nhu cầu.'
+        if rel=='bang-gia.html': a='Khoảng giá tham khảo '+h2[9:]+': '+'; '.join(f'{n}: {p}' for n,p in plans)+'. Giá chưa bao gồm VAT, chỉ mang tính tham khảo theo khoảng; báo giá chính xác sau khi trao đổi nhu cầu (trang Liên hệ). Hosting/VPS và quảng cáo: thương lượng.'
         docs.append(dict(u=url,p=name,h='Bảng giá '+name,a=a,x='price')); continue
     subs=re.split(r'(?=<h3\b)',body)
     lead=txt(subs[0])

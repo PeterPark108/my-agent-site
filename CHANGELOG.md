@@ -1,7 +1,10 @@
 # Nhật ký thay đổi
 
-## 0.9.22 - 2026-10-30
-- Dự án mẫu: thêm "Nhà Gió – Web khách sạn, homestay" (bản demo, https://gio.myagentvn.com/, mã nguồn GitHub nha-gio-hotel-demo). Ảnh đại diện từ ảnh chụp trang chủ demo (webp 480/960/1200).
+## 0.9.25 - 2026-10-31
+- Dự án mẫu Nhà Gió (web khách sạn, homestay – PR #49) trên nền production v0.9.23: thêm thẻ thứ 5 vào du-an.html (ảnh assets/projects/nhagio-480/960/1200.webp), ghi rõ "DỰ ÁN MẪU – bản demo", phòng/giá/nội dung là dữ liệu minh hoạ, không nhận đặt phòng thật; link demo https://gio.myagentvn.com/ và GitHub PeterPark108/nha-gio-hotel-demo (tab mới, rel="noopener noreferrer"). Bảng giá và mọi nơi giữ "chưa bao gồm VAT" từ #50.
+
+## 0.9.23 - 2026-10-30
+- Giá CHƯA bao gồm VAT (Peter chốt 22:59 30/10): đổi mọi câu "đã (bao) gồm VAT" thành "chưa (bao) gồm VAT" ở bảng giá, ghi chú gói trên trang dịch vụ, FAQ + FAQPage JSON-LD, mô tả meta, công cụ tính combo, nội dung điền sẵn form Liên hệ, trợ lý MJ (chat.js + chatbot-kb), blog, docs; pricing.json `vatIncluded:false`, `vatNote:"Giá chưa bao gồm VAT"`. Không cộng VAT vào giá hiển thị. ci_check chặn mọi cách nói đã gồm/đã có VAT/thuế, "VAT included", "chưa gồm VAT" và mức % VAT. Cập nhật 23:29 30/10 theo Peter: câu FAQ đổi thành "Giá trên trang có bao gồm VAT không?" – "Chưa bao gồm VAT." (HTML, FAQPage JSON-LD, chatbot-kb); mọi chỗ thống nhất "chưa bao gồm VAT"; không ghi mức % VAT.
 
 ## 0.9.21 - 2026-10-30
 - Phát hành PR #47 (địa chỉ, nội dung bản 0.9.19 bên dưới) trên nền 0.9.20 (header cố định #48). Bump để đổi `?v=` vì css/js thay đổi.
