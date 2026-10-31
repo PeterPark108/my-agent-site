@@ -23,10 +23,10 @@ const TEL=ZP||'0328439972',TF=TEL.replace(/^(\d{4})(\d{3})(\d+)$/,'$1 $2 $3');
 d.querySelectorAll('a[data-tel]').forEach(a=>{a.href='tel:'+TEL});
 const fb=d.getElementById('fab-call');if(fb){fb.setAttribute('aria-label','Gọi '+TF);let pop;
 const close=(f)=>{if(!pop||pop.hidden)return;pop.classList.remove('on');pop.hidden=true;fb.setAttribute('aria-expanded','false');if(f)fb.focus()};
-fb.addEventListener('click',e=>{if(!(matchMedia('(pointer:fine)').matches&&innerWidth>960))return;e.preventDefault();
+fb.addEventListener('click',e=>{e.preventDefault();
 if(!pop){pop=d.createElement('div');pop.className='fab-pop';pop.id='fab-pop';pop.setAttribute('role','dialog');pop.setAttribute('aria-label','Số điện thoại My Agent');pop.hidden=true;
-pop.innerHTML='<button type="button" class="x" aria-label="Đóng">×</button><span class="k mono">// Điện thoại / Zalo</span><strong class="num">'+TF+'</strong><div class="acts"><button type="button" class="cp">Sao chép số</button><a class="pri" href="tel:'+TEL+'">Gọi</a><a href="https://zalo.me/'+TEL+'" target="_blank" rel="noopener">Chat Zalo</a></div><span class="sr" aria-live="polite" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)"></span>';
-d.body.appendChild(pop);pop.querySelector('.x').onclick=()=>close(1);
+pop.innerHTML='<button type="button" class="x" aria-label="Đóng">×</button><span class="k">Liên hệ My Agent</span><strong class="num">'+TF+'</strong><div class="acts"><button type="button" class="cp">Sao chép số</button><a class="pri" href="tel:'+TEL+'">Gọi</a><a href="https://zalo.me/'+TEL+'" target="_blank" rel="noopener">Chat Zalo</a>'+(d.querySelector('.mj-btn')?'<button type="button" class="mj-go">Hỏi trợ lý MJ</button>':'')+'</div><span class="sr" aria-live="polite" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)"></span>';
+d.body.appendChild(pop);pop.querySelector('.x').onclick=()=>close(1);const mg=pop.querySelector('.mj-go');if(mg)mg.onclick=()=>{close();const b=d.querySelector('.mj-btn');if(b)b.click()};
 const cp=pop.querySelector('.cp');cp.onclick=async()=>{let ok=false;try{await navigator.clipboard.writeText(TEL);ok=true}catch(_){const ta=d.createElement('textarea');ta.value=TEL;d.body.appendChild(ta);ta.select();try{ok=d.execCommand('copy')}catch(_){}ta.remove()}
 cp.textContent=ok?'✓ Đã sao chép':'Không sao chép được';cp.classList.toggle('ok',ok);pop.querySelector('.sr').textContent=ok?'Đã sao chép số '+TF:'';setTimeout(()=>{cp.textContent='Sao chép số';cp.classList.remove('ok')},2000)}}
 if(!pop.hidden){close(1);return}pop.hidden=false;fb.setAttribute('aria-expanded','true');requestAnimationFrame(()=>pop.classList.add('on'));pop.querySelector('.cp').focus()});
@@ -64,7 +64,7 @@ try{if(EP){const o={};['name','phone','email','service','message','consent','_ho
 else if(FS){const fd=new FormData(f);fd.delete('_honey');fd.append('_subject','Yêu cầu tư vấn mới từ website My Agent');fd.append('_template','table');fd.append('_captcha','false');fd.append('_url',location.href);await post('https://formsubmit.co/ajax/'+encodeURIComponent(EM),{method:'POST',headers:{Accept:'application/json'},body:fd},j=>j&&(j.success===true||j.success==='true'));ok=true}
 else why='Form tạm thời chưa nhận được tin nhắn.'}
 catch(x){why=x&&x.name=='AbortError'?'Hệ thống nhận form phản hồi quá lâu.':x&&x.message=='act'?'Hệ thống nhận form đang chờ kích hoạt.':'Gửi chưa thành công.'}
-busy=false;if(ok){f.innerHTML='<span class="k">// đã gửi</span><h3>Cảm ơn anh/chị!</h3><p class="muted">My Agent sẽ liên hệ lại trong thời gian sớm nhất.</p>';return}
+busy=false;if(ok){f.innerHTML='<span class="k">đã gửi</span><h3>Cảm ơn anh/chị!</h3><p class="muted">My Agent sẽ liên hệ lại trong thời gian sớm nhất.</p>';return}
 bt.disabled=false;fallback(why)});
 f.addEventListener('input',()=>{if(!busy&&st.classList.contains('err')&&!st.classList.contains('fb'))say('')})});
 // reveal + counters
@@ -90,4 +90,13 @@ let i=0,j=0,out='';const step=()=>{if(i>=L.length){t.innerHTML=out+'<span class=
 new IntersectionObserver(([e],o)=>{if(e.isIntersecting){o.disconnect();step()}}).observe(t)}
 // tin tức: lọc theo chủ đề (không JS = hiện tất cả)
 d.querySelectorAll('.nw-chips').forEach(g=>{const bs=[...g.querySelectorAll('button[data-f]')],cs=[...d.querySelectorAll('#news-list .news')],em=d.querySelector('.nw-empty');bs.forEach(b=>b.addEventListener('click',()=>{const f=b.dataset.f;bs.forEach(x=>x.setAttribute('aria-pressed',x===b));let n=0;cs.forEach(c=>{const on=f==='all'||c.dataset.topic===f;c.hidden=!on;if(on){n++;c.classList.add('in')}});if(em)em.hidden=n>0}))});
+/* redesign-v1: slider banner trang chủ (tự chạy ~5s, dừng khi hover/focus/chạm, tôn trọng prefers-reduced-motion) */
+d.querySelectorAll('[data-slider]').forEach(r=>{const ss=[...r.querySelectorAll('.hs-s')],dw=r.querySelector('.hs-d'),n=ss.length;if(n<2)return;let i=0,t=0,hold=0,stop=RM;const ds=ss.map((s,k)=>{const b=d.createElement('button');b.type='button';b.setAttribute('aria-label','Ảnh '+(k+1)+' / '+n);b.onclick=()=>{go(k);stop=1;st()};dw.appendChild(b);return b});
+const go=k=>{i=(k+n)%n;ss.forEach((s,j)=>{s.classList.toggle('on',j===i);s.setAttribute('aria-hidden',j!==i)});ds.forEach((b,j)=>b.setAttribute('aria-current',j===i))};
+const st=()=>{clearInterval(t);t=0;r.dataset.playing='0';if(!stop&&!hold&&!d.hidden){t=setInterval(()=>go(i+1),5000);r.dataset.playing='1'}};
+r.querySelector('.hs-p').onclick=()=>{go(i-1);stop=1;st()};r.querySelector('.hs-n').onclick=()=>{go(i+1);stop=1;st()};
+const H=v=>()=>{hold=v;st()};r.addEventListener('mouseenter',H(1));r.addEventListener('mouseleave',H(0));r.addEventListener('focusin',H(1));r.addEventListener('focusout',H(0));r.addEventListener('touchstart',()=>{stop=1;st()},{passive:true});d.addEventListener('visibilitychange',st);
+r.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'){go(i-1);stop=1;st()}if(e.key==='ArrowRight'){go(i+1);stop=1;st()}});go(0);st()});
+/* redesign-v1: khối cảm nhận khách hàng chỉ hiện khi data/testimonials.json có mục thật (không bịa) */
+d.querySelectorAll('[data-testimonials]').forEach(s=>{fetch(s.dataset.testimonials,{cache:'no-cache'}).then(r=>r.ok?r.json():null).then(j=>{const it=(j&&Array.isArray(j.items)?j.items:[]).filter(x=>x&&x.quote&&x.name);if(!it.length)return;const tp=s.querySelector('template');if(!tp)return;s.appendChild(tp.content.cloneNode(true));const g=s.querySelector('.h-g3'),E=x=>String(x).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[c]);g.innerHTML=it.slice(0,3).map(x=>'<figure class="h-card"><blockquote><p>'+E(x.quote)+'</p></blockquote><figcaption><b>'+E(x.name)+'</b>'+(x.role?'<br><span class="muted">'+E(x.role)+'</span>':'')+'</figcaption></figure>').join('');s.hidden=false}).catch(()=>{})});
 })();

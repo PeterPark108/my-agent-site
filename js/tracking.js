@@ -16,10 +16,10 @@ function tick(){var l=lockLeft();clearTimeout(tmr);if(l>0){btn.disabled=true;say
 function say(t,c){msg.textContent=t;msg.className='trk-msg'+(c?' '+c:'')}
 function render(o,code){
  var p=Math.max(0,Math.min(100,+o.percent||0)),h='';
- h+='<div class="trk-head"><div><span class="k mono">// mã đơn</span><p class="trk-code mono">'+esc(code)+'</p></div><span class="trk-badge">'+(p>=100?'Hoàn tất':'Đang xử lý')+'</span></div>';
+ h+='<div class="trk-head"><div><span class="k mono">mã đơn</span><p class="trk-code mono">'+esc(code)+'</p></div><span class="trk-badge">'+(p>=100?'Hoàn tất':'Đang xử lý')+'</span></div>';
  h+='<ol class="trk-steps">'+STEPS.map(function(n,i){var s=(o.steps||[])[i]||'pending',lb={done:'Đã xong',current:'Đang làm',pending:'Chưa bắt đầu'}[s];return '<li class="'+s+'"'+(s==='current'?' aria-current="step"':'')+'><i aria-hidden="true">'+(s==='done'?'✓':i+1)+'</i><span>'+n+'<small class="sr">: '+lb+'</small></span></li>'}).join('')+'</ol>';
  h+='<div class="trk-pct"><div class="trk-row"><b>'+esc(o.status||'')+'</b><span class="mono">'+p+'%</span></div><div class="trk-bar" role="progressbar" aria-label="Tiến độ tổng" aria-valuemin="0" aria-valuemax="100" aria-valuenow="'+p+'"><span style="width:'+p+'%"></span></div></div>';
- h+='<div class="trk-last"><span class="k mono">// cập nhật mới nhất · '+fd(o.updated)+'</span><p>'+esc(o.note||'')+'</p></div>';
+ h+='<div class="trk-last"><span class="k mono">cập nhật mới nhất · '+fd(o.updated)+'</span><p>'+esc(o.note||'')+'</p></div>';
  var hs=(o.history||[]).slice(0,8);
  if(hs.length>1){h+='<button type="button" class="trk-tg" aria-expanded="false" aria-controls="trk-hist">Xem lịch sử <span aria-hidden="true">▾</span></button><ul class="trk-hist" id="trk-hist" hidden>'+hs.map(function(x){return '<li><time class="mono">'+fd(x.d)+'</time><span>'+esc(x.n)+'</span></li>'}).join('')+'</ul>'}
  out.innerHTML='<div class="card glass trk-card">'+h+'</div>';
