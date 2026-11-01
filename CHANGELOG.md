@@ -1,5 +1,8 @@
 # Nhật ký thay đổi
 
+## 0.9.29 - 2026-11-01 (NHÁP, chờ Peter duyệt)
+- Trang chủ, intro 3D, cảnh cuối "Liên hệ" (Peter báo lệch): class `.copy` của intro trùng `.copy` của footer site (flex, space-between, viền trên) nên nhãn, 2 nút và dòng "Cuộn xuống" lệch trái. Đặt lại riêng `#s-end .copy` thành một cột căn giữa (nhãn, tiêu đề, mô tả, nút, hàng link, dòng cuộn cùng tâm, trùng tâm vòng quỹ đạo trên desktop). Chỉ sửa css/intro3d.css; nội dung chữ và các cảnh khác giữ nguyên. Bump VERSION để đổi `?v=`.
+
 ## 0.9.28 - 2026-11-01 (NHÁP, chờ Peter duyệt)
 - Trang chủ: thay hero cũ (cụm thiết bị SVG) bằng intro 3D v4 (`#i3d`, three.js tự host trong js/intro3d.js, nguồn src/intro3d.js, css/intro3d.css). Giữ nguyên h1, lead, nút cũ; 4 cảnh dịch vụ (h2 + "Xem chi tiết" tới trang dịch vụ thật), cảnh cuối có liên hệ, Zalo và 9 link chính. Tải lười sau `load`, tự giảm chất lượng (lite), tôn trọng giảm chuyển động, dừng vẽ khi khuất/ẩn tab, có bản noscript và bản không WebGL. Mọi nội dung SEO cũ giữ nguyên bên dưới intro. Bỏ chèn overlay intro.js 6,5s ở trang chủ (file vẫn giữ). Bump VERSION để đổi `?v=`.
 

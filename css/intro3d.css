@@ -84,3 +84,11 @@
 .capture #i3d .copy,#i3d.capture .copy{transition:none}
 /* lời chào bong bóng của trợ lý MJ đè lên chữ intro: ẩn khi intro đang chiếm màn hình (nút mở chat, Zalo, gọi vẫn hiện) */
 html.i3d-top .mj-bub{display:none}
+/* v0.9.29 – cảnh LIÊN HỆ: class .copy trùng với .copy của footer site (flex, space-between, viền trên) làm nhãn, nút, dòng cuộn lệch trái. Đặt lại riêng cho cảnh cuối: một cột căn giữa, khớp tâm vòng quỹ đạo. */
+#i3d #s-end .copy{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:0;margin:0 auto;padding:0;border:0;font-size:inherit;color:inherit;width:100%;max-width:640px}
+#i3d #s-end .copy>*{max-width:100%}
+#i3d #s-end .eyebrow{margin:0 0 16px}
+#i3d #s-end .acts{justify-content:center}
+#i3d #s-end .hint{padding-left:0}
+#i3d #s-end .hint::before{position:static;display:inline-block;vertical-align:middle;margin-right:10px}
+@media (max-width:760px){#i3d #s-end.scene{align-items:center}#i3d #s-end .copy{max-width:100%}}
