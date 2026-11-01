@@ -16,7 +16,7 @@ window.MYAGENT_CONFIG = {
   formEndpoint: '/api/contact',
   formSubmitEnabled: false,
   formTimeoutMs: 5000,
-  introEnabled: false,
+  introEnabled: true,
   motionEnabled: true,
   chatbotEnabled: true,
   gaId: 'G-BZ5E2WMZLJ'
