@@ -108,6 +108,8 @@ addEventListener('keydown',e=>{
   if(k==='ArrowDown'||k==='PageDown'||(k===' '&&!e.shiftKey))d=S.cur+1;
   else if(k==='ArrowUp'||k==='PageUp'||(k===' '&&e.shiftKey))d=S.cur-1;
   else if(k==='Home')d=0;else if(k==='End')d=END;
+  // cảnh cuối + phím xuống ở đầu trang: tự cuộn tới nội dung bên dưới (cuộn phím mặc định của trình duyệt đôi khi bị nuốt lần đầu)
+  if(S.cur===END&&!S.busy&&atTop()&&(k==='ArrowDown'||k==='PageDown'||(k===' '&&!e.shiftKey))){const nx=root.nextElementSibling;if(nx){e.preventDefault();nx.scrollIntoView({behavior:REDUCE?'auto':'smooth',block:'start'})}return}
   if(d==null||!wants(d-S.cur)||k==='Home'&&S.cur===0)return;if(k==='End'&&S.cur===END)return;e.preventDefault();go(d);
 });
 function tickUI(){const st=tstate();window.__prevTick=performance.now();if(!st.busy&&S.busy===false&&window.__wasBusy){window.__lastEnd=performance.now()}window.__wasBusy=S.busy;overlay(st);return st}
@@ -285,8 +287,8 @@ station(4,g=>{const l=laptop('mkt');l.rotation.set(.18,-.45,0);g.add(l);const p=
 station(END,g=>{const ring=new Group();g.userData.ring=ring;g.add(ring);
   const R=MOBILE?2.25:4.6,n=6,make=[k=>laptop(['web','mkt'][k%2]),k=>tablet('shop'),k=>phone('app')];
   for(let k=0;k<n;k++){const a=k/n*Math.PI*2;const d=make[k%3](k);d.scale.setScalar(k%3===0?.42:.55);d.position.set(Math.cos(a)*R,Math.sin(a)*R*.62,Math.sin(a)*.8-1);d.rotation.y=-Math.cos(a)*.5;d.userData.a=a;d.traverse(o=>{if(o.material)o.material=o.material.clone()});ring.add(d)}
-  const t1=orbit(R*.82,.03);t1.rotation.set(Math.PI/2-.0,0,0);t1.scale.set(1,.62,1);t1.rotation.x=0;t1.position.z=-1.6;t1.userData.orbit=0;g.add(t1);
-  const t2=orbit(R*1.18,.02);t2.rotation.x=0;t2.scale.set(1,.62,1);t2.position.z=-2;t2.userData.orbit=0;g.add(t2);
+  const t1=orbit(R*(MOBILE?.82:1.0),.03);t1.rotation.set(Math.PI/2-.0,0,0);t1.scale.set(1,.62,1);t1.rotation.x=0;t1.position.z=-1.6;t1.userData.orbit=0;g.add(t1);
+  const t2=orbit(R*(MOBILE?1.18:1.32),.02);t2.rotation.x=0;t2.scale.set(1,.62,1);t2.position.z=-2;t2.userData.orbit=0;g.add(t2);
   const gl=glow(GB,R*3.2,.3);gl.position.z=-3;g.add(gl);});
 {const st=floaters[floaters.length-1];st.userData.ring.children.forEach(d=>{const ms=new Set();d.traverse(o=>{if(o.material)ms.add(o.material)});d.userData.mats=[...ms]});
  st.userData.mats=st.userData.mats.filter(m=>!st.userData.ring.children.some(d=>d.userData.mats.includes(m)))}
@@ -294,7 +296,7 @@ function setLite(on){LITE=on;root.classList.toggle('lite',on);
   glassMats.forEach(m=>{m.transmission=on?0:1;m.userData.op=on?.38:1;m.depthWrite=!on;m.needsUpdate=true});
   if(typeof applyTheme==='function')applyTheme()}
 window.__setLite=setLite;
-const endCopy=sections[END].querySelector('.copy');let txtR=null;const _v=new Vector3();
+const endCopy=sections[END].querySelector('.i3d-copy');let txtR=null;const _v=new Vector3();
 function txtRect(){const r=endCopy.getBoundingClientRect(),o=root.getBoundingClientRect();txtR={l:r.left-o.left,r:r.right-o.left,t:r.top-o.top,b:r.bottom-o.top}}
 step(85);
 
