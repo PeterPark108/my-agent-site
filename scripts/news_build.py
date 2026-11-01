@@ -248,7 +248,7 @@ def article_page(it,arts,items):
     pn+=(f'<a class="card glass rv" rel="prev" href="{newer["slug"]}.html"><small class="mono">‹ Bài mới hơn</small><span>{E(newer["title"])}</span></a>' if newer else '<span></span>')
     pn+=(f'<a class="card glass rv nx" rel="next" href="{older["slug"]}.html"><small class="mono">Bài cũ hơn ›</small><span>{E(older["title"])}</span></a>' if older else '<span></span>')+'</div>'
   rel_items=[x for x in items if x['topic']==t and x is not it][:3]
-  related=('<section class="soft"><div class="wrap"><div class="t rv"><span class="k">cùng chủ đề</span><h2>Bài liên&nbsp;quan</h2></div><div class="grid nw-grid">'+''.join(card(x,pre,'h3',True) for x in rel_items)+'</div></div></section>') if rel_items else ''
+  related=('<section class="soft"><div class="wrap"><div class="t rv"><span class="k">// cùng chủ đề</span><h2>Bài liên&nbsp;quan</h2></div><div class="grid nw-grid">'+''.join(card(x,pre,'h3',True) for x in rel_items)+'</div></div></section>') if rel_items else ''
   svc='<p class="nwa-svc"><b>Dịch vụ liên quan:</b> '+' · '.join(f'<a href="{pre}{u}">{E(n)}</a>' for u,n in TOPIC_SVC[t])+'</p>'
   tags=(' · '.join(E(x) for x in it['tags'])) if it['tags'] else ''
   meta=(f'<p class="nwa-meta mono"><span>Đăng <time datetime="{it["date"]}">{vn(it["date"])}</time></span>'+(f'<span>Cập nhật <time datetime="{upd}">{vn(upd)}</time></span>' if upd and upd!=it['date'] else '')
@@ -335,14 +335,13 @@ def main():
   write('tin-tuc/index.html','<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Tin tức công nghệ – My Agent</title><meta name="robots" content="noindex, follow"><link rel="canonical" href="https://myagentvn.com/tin-tuc.html"><meta http-equiv="refresh" content="0; url=../tin-tuc.html"><script>location.replace(\'../tin-tuc.html\'+location.search+location.hash)</script><style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#07090f;color:#e8ecf5;font-family:system-ui,sans-serif}a{color:#ff2d3d}</style></head><body><p>Đang chuyển tới <a href="../tin-tuc.html">Tin tức công nghệ</a>…</p></body></html>\n')
   write('tin-tuc/feed.xml',feed(items))
   # trang chủ
-  home=('<section class="soft nw-home"><div class="wrap"><div class="t rv"><span class="k">tin công nghệ</span><h2>Tin công nghệ <span class="gt">mới&nbsp;nhất</span></h2>'
+  home=('<section class="soft nw-home"><div class="wrap"><div class="t rv"><span class="k">// tin công nghệ</span><h2>Tin công nghệ <span class="gt">mới&nbsp;nhất</span></h2>'
    '<p>Tin chọn lọc về AI, bảo mật, web &amp; SEO, có nguồn rõ ràng và góc nhìn cho doanh nghiệp nhỏ.</p></div><div class="grid nw-grid">'
    +''.join(card(x,'','h3',True) for x in items[:3])+'</div><p class="rv" style="margin-top:22px"><a class="btn ghost" href="tin-tuc.html">Xem tất cả tin công nghệ</a></p></div></section>')
   f=R/'index.html'; s=f.read_text(encoding='utf-8')
-  # redesign-v1: trang chủ thay khối tin bằng 3 bài blog (blog_build.py); chỉ cập nhật khối tin nếu marker còn
+  if '<!-- news:home -->' not in s: s=s.replace('</section></main>','</section><!-- news:home --><!-- /news:home --></main>',1)
   if '<!-- news:head -->' not in s: s=s.replace('</head>','<!-- news:head --><!-- /news:head --></head>',1)
-  if '<!-- news:home -->' in s: s=put(s,'home',home)
-  s=put(s,'head',RSSL); write('index.html',s)
+  s=put(put(s,'home',home),'head',RSSL); write('index.html',s)
   print(f'news: {len(items)} tin ({len(arts)} bài có trang riêng, {len(items)-len(arts)} thẻ link), {len(pages)} trang danh sách, feed {min(20,len(items))} mục')
   if '--no-chatbot' not in a:
     subprocess.run([sys.executable,str(R/'scripts/chatbot_build.py')],check=True)

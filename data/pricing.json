@@ -562,7 +562,7 @@
   },
   {
    "id": "phan-tich-du-lieu",
-   "category": "04 · Dữ liệu",
+   "category": "04 · Dữ liệu & phần mềm",
    "name": "Data Analyst (phân tích dữ liệu, dashboard)",
    "unit": "dự án",
    "billing": "one-time",
@@ -601,7 +601,7 @@
   },
   {
    "id": "ky-thuat-du-lieu",
-   "category": "04 · Dữ liệu",
+   "category": "04 · Dữ liệu & phần mềm",
    "name": "Data Engineer (pipeline, kho dữ liệu)",
    "unit": "dự án",
    "billing": "one-time",
@@ -640,7 +640,7 @@
   },
   {
    "id": "phan-mem-noi-bo",
-   "category": "05 · Phần mềm & app",
+   "category": "04 · Dữ liệu & phần mềm",
    "name": "Phần mềm nội bộ",
    "unit": "dự án",
    "billing": "one-time",
@@ -679,7 +679,7 @@
   },
   {
    "id": "thiet-ke-app",
-   "category": "05 · Phần mềm & app",
+   "category": "04 · Dữ liệu & phần mềm",
    "name": "Agency Thiết kế App",
    "unit": "dự án",
    "billing": "one-time",
@@ -718,7 +718,7 @@
   },
   {
    "id": "bo-cong-thuong",
-   "category": "06 · Pháp lý & thủ tục",
+   "category": "05 · Pháp lý & thủ tục",
    "name": "Đăng ký Bộ Công Thương",
    "unit": "website",
    "billing": "one-time",

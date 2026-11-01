@@ -141,7 +141,7 @@ def list_page(items):
   rel='blog.html'; hero=('<section class="hero sub"><canvas class="net" aria-hidden="true"></canvas><div class="wrap"><nav class="crumb mono" aria-label="breadcrumb"><a href="index.html">home</a> / blog</nav>'
     '<h1 class="gt2">Blog kiến&nbsp;thức</h1><p class="lead">Bài hướng dẫn và kiến thức thực tế về website, SEO, marketing online, dữ liệu và AI do My Agent tự viết, dành cho chủ doanh nghiệp nhỏ và người mới bắt đầu.</p></div></section>')
   if not items:
-    body=('<!-- blog:empty --><section><div class="wrap"><div class="card glass rv bl-empty"><span class="k mono">sắp ra mắt</span><h2>Bài viết đầu tiên sắp ra&nbsp;mắt</h2>'
+    body=('<!-- blog:empty --><section><div class="wrap"><div class="card glass rv bl-empty"><span class="k mono">// sắp ra mắt</span><h2>Bài viết đầu tiên sắp ra&nbsp;mắt</h2>'
       '<p>My Agent đang biên soạn những bài hướng dẫn đầu tiên. Trong lúc chờ, bạn có thể đọc tin công nghệ mới nhất hoặc xem các dịch vụ của chúng tôi.</p>'
       '<p class="bl-act"><a class="btn mag" href="tin-tuc.html">Đọc tin tức công nghệ</a> <a class="btn ghost" href="dich-vu.html">Xem các dịch vụ</a> <a class="btn ghost" href="lien-he.html">Liên hệ My Agent</a></p></div></div></section>')
     ldo=''
@@ -174,7 +174,7 @@ def article_page(it,items):
     pn+=(f'<a class="card glass rv" rel="prev" href="{newer["slug"]}.html"><small class="mono">‹ Bài mới hơn</small><span>{E(newer["title"])}</span></a>' if newer else '<span></span>')
     pn+=(f'<a class="card glass rv nx" rel="next" href="{older["slug"]}.html"><small class="mono">Bài cũ hơn ›</small><span>{E(older["title"])}</span></a>' if older else '<span></span>')+'</div>'
   rel_items=sorted([x for x in items if x is not it],key=lambda x:(-(x['category']==c)-len(set(x['tags'])&set(it['tags'])),items.index(x)))[:3]
-  related=('<section class="soft"><div class="wrap"><div class="t rv"><span class="k">đọc tiếp</span><h2>Bài liên&nbsp;quan</h2></div><div class="grid nw-grid">'+''.join(card(x,pre,'h3') for x in rel_items)+'</div></div></section>') if rel_items else ''
+  related=('<section class="soft"><div class="wrap"><div class="t rv"><span class="k">// đọc tiếp</span><h2>Bài liên&nbsp;quan</h2></div><div class="grid nw-grid">'+''.join(card(x,pre,'h3') for x in rel_items)+'</div></div></section>') if rel_items else ''
   tags=('<p class="muted"><small>Từ khóa: '+' · '.join(E(x) for x in it['tags'])+'</small></p>') if it['tags'] else ''
   meta=(f'<p class="nwa-meta mono"><span>Đăng <time datetime="{it["date"]}">{vn(it["date"])}</time></span>'+(f'<span>Cập nhật <time datetime="{upd}">{vn(upd)}</time></span>' if upd and upd!=it['date'] else '')
     +f'<span>{rt} phút đọc</span><span>Tác giả: My Agent</span></p>')
@@ -203,20 +203,6 @@ def feed(items):
     o.append(f'<item><title>{X(x["title"])}</title><link>{u}</link><guid isPermaLink="true">{u}</guid><pubDate>{N.rfc822(x["date"])}</pubDate><category>{X(CATS[x["category"]])}</category><description>{X(x["description"])}</description></item>')
   o.append('</channel></rss>'); return '\n'.join(o)+'\n'
 
-def home_block(items):
-  """redesign-v1: 3 bài blog mới nhất cho trang chủ, giữa <!-- blog:home --> ... <!-- /blog:home --> trong index.html."""
-  E=lambda x:html.escape(x,quote=False)
-  ar='<svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>'
-  def vn(d): y,m,dd=d.split('-'); return f'{dd}/{m}/{y}'
-  cs=''.join(f'<article class="h-card"><span class="h-tag">{E(it["category"])}</span><h3 style="margin-top:12px"><a href="{url_of(it)}">{E(it["title"])}</a></h3><p>{E(it["description"])}</p><p class="h-links"><time datetime="{it["date"]}">{vn(it["date"])}</time></p></article>' for it in items[:3])
-  return f'<div class="h-g3">{cs}</div><p class="h-more"><a class="h-a" href="blog.html">Xem tất cả bài viết {ar}</a></p>'
-def put_home(items):
-  f=R/'index.html'
-  if not f.exists() or not items: return
-  s=f.read_text(encoding='utf-8')
-  if '<!-- blog:home -->' not in s: return
-  n=re.sub(r'<!-- blog:home -->.*?<!-- /blog:home -->',lambda m:'<!-- blog:home -->'+home_block(items)+'<!-- /blog:home -->',s,count=1,flags=re.S)
-  if n!=s: f.write_text(n,encoding='utf-8')
 def main():
   a=sys.argv[1:]; d=R/'data/blog'
   if '--dir' in a: d=pathlib.Path(a[a.index('--dir')+1])
@@ -232,7 +218,7 @@ def main():
   for f in sorted((R/'blog').rglob('*')) if (R/'blog').is_dir() else []:
     r=f.relative_to(R).as_posix()
     if f.is_file() and r not in gen: f.unlink(); print('xoá trang không còn bài:',r)
-  N.write('blog/feed.xml',feed(items)); put_home(items)
+  N.write('blog/feed.xml',feed(items))
   N.write('blog/index.html','<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Blog kiến thức – My Agent</title><meta name="robots" content="noindex, follow"><link rel="canonical" href="https://myagentvn.com/blog.html"><meta http-equiv="refresh" content="0; url=../blog.html"><script>location.replace(\'../blog.html\'+location.search+location.hash)</script><style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#07090f;color:#e8ecf5;font-family:system-ui,sans-serif}a{color:#ff2d3d}</style></head><body><p>Đang chuyển tới <a href="../blog.html">Blog kiến thức</a>…</p></body></html>\n')
   print(f'blog: {len(items)} bài'+(' (trang danh sách ở trạng thái "sắp ra mắt", noindex)' if not items else ''))
   if '--no-chatbot' not in a: subprocess.run([sys.executable,str(R/'scripts/chatbot_build.py')],check=True)

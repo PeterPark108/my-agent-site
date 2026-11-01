@@ -1,7 +1,7 @@
 (()=>{const D=/*DATA*/null,d=document,$=s=>d.querySelector(s),$$=s=>[...d.querySelectorAll(s)];
 // category tabs (dich-vu.html)
 const tabs=$$('.cat-tabs [role=tab]'),panels=$$('.cat-panel');
-if(tabs.length){d.documentElement.classList.add('tabs-on');const show=id=>{if(id==='du-lieu-phan-mem')id='du-lieu';if(!panels.some(p=>p.id==id))id=panels[0].id;panels.forEach(p=>p.hidden=p.id!=id);tabs.forEach(t=>{const on=t.getAttribute('aria-controls')==id;t.setAttribute('aria-selected',on);t.tabIndex=on?0:-1})};
+if(tabs.length){d.documentElement.classList.add('tabs-on');const show=id=>{if(!panels.some(p=>p.id==id))id=panels[0].id;panels.forEach(p=>p.hidden=p.id!=id);tabs.forEach(t=>{const on=t.getAttribute('aria-controls')==id;t.setAttribute('aria-selected',on);t.tabIndex=on?0:-1})};
 tabs.forEach((t,i)=>{t.addEventListener('click',e=>{e.preventDefault();const id=t.getAttribute('aria-controls');show(id);history.replaceState(null,'','#'+id)});t.addEventListener('keydown',e=>{const k={ArrowRight:1,ArrowLeft:-1}[e.key];if(k){const n=tabs[(i+k+tabs.length)%tabs.length];n.focus();n.click()}})});
 show(location.hash.slice(1));addEventListener('hashchange',()=>show(location.hash.slice(1)))}
 // combo builder (combo.html)

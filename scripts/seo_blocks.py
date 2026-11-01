@@ -9,18 +9,22 @@ E=lambda x:html.escape(x,quote=False)
 def tier(s,t): return [x for x in SV[s]['tiers'] if x['id']==t][0]
 def vnd(n): return f'{n:,}'.replace(',','.')+' đ'
 def faq(items): return '<div class="faq">'+''.join(f'<details class="glass"><summary>{E(q)}</summary><p>{E(a)}</p></details>' for q,a in items)+'</div>'
-def head(k,h,p=''): return f'<div class="t rv"><span class="k">{k}</span><h2>{h}</h2>'+(f'<p>{p}</p>' if p else '')+'</div>'
+def head(k,h,p=''): return f'<div class="t rv"><span class="k">// {k}</span><h2>{h}</h2>'+(f'<p>{p}</p>' if p else '')+'</div>'
 def home():
-  # redesign-v1: khối SEO "trọn gói" + FAQ trên trang chủ theo giao diện mới (tech_pass sinh FAQPage từ <details>)
   tg=lambda t:tier('thiet-ke-website',t)['time']
+  li=[('dich-vu/thiet-ke-website.html','Thiết kế website','website giới thiệu, landing page, web bán hàng'),
+      ('dich-vu/phan-mem-noi-bo.html','Thiết kế web app theo yêu cầu','hệ thống có đăng nhập, phân quyền, dashboard'),
+      ('dich-vu/thiet-ke-app.html','Thiết kế app','ứng dụng iOS/Android'),
+      ('combo.html','Combo dịch vụ','gộp website, tên miền, email, marketing'),
+      ('blog/thiet-ke-web-tron-goi-gom-nhung-gi.html','Thiết kế web trọn gói gồm những gì?','đọc trước khi thuê')]
+  cards=''.join(f'<a class="card glass rv" href="{u}"><h3>{E(n)}</h3><p>{E(d)}</p></a>' for u,n,d in li)
   q=[('My Agent có nhận làm web cho khách ngoài TP.HCM không?','Có. Toàn bộ quy trình làm online: trao đổi, xem bản thử, duyệt và bàn giao từ xa.'),
      ('Thiết kế web trọn gói có gồm tên miền và hosting không?','Có thể gộp trong combo; chi phí tên miền tính theo năm, hosting thương lượng theo cấu hình. Báo giá ghi rõ từng hạng mục trước khi làm.'),
      ('Bao lâu thì có website?',f'Theo bảng giá tham khảo: landing page {tg("landing")}, website giới thiệu {tg("gioi-thieu")}, website bán hàng {tg("ban-hang")}.')]
-  fq='<div class="h-faq faq">'+''.join(f'<details><summary>{E(a)}</summary><p>{E(b)}</p></details>' for a,b in q)+'</div>'
-  return ('<section class="h-sec" id="tron-goi"><div class="wrap h-two"><div class="h-txt"><span class="k">Trọn gói</span><h2 style="font-size:clamp(26px,3vw,32px);line-height:1.25;margin:8px 0 16px">Thiết kế web trọn gói gồm những gì?</h2>'
-   '<p>Thiết kế web trọn gói ở My Agent nghĩa là một đầu mối lo từ đầu đến cuối: tư vấn cấu trúc trang, giao diện theo thương hiệu, lập trình responsive, SEO nền tảng (title, meta, sitemap, schema), gắn Google Maps/Zalo, rồi bàn giao và hướng dẫn quản trị. Tên miền, hosting và email doanh nghiệp có thể đăng ký kèm trong cùng <a href="combo.html">combo dịch vụ</a>.</p>'
-   '<p>Peter (Nguyễn Văn Tùng) làm việc tại TP.HCM, trao đổi online qua Zalo, Google Meet và nhận khách toàn quốc. Zalo/điện thoại: <a href="tel:0328439972">0328 439 972</a>. Đọc thêm: <a href="blog/thiet-ke-web-tron-goi-gom-nhung-gi.html">thiết kế web trọn gói gồm những gì</a>.</p></div>'
-   '<div><h3 style="font-size:18px;margin-bottom:14px">Câu hỏi thường gặp</h3>'+fq+'</div></div></section>')
+  return ('<section class="soft" id="tron-goi"><div class="wrap">'+head('trọn gói','Thiết kế web trọn gói <span class="gt">gồm những&nbsp;gì?</span>')+
+   '<div class="card glass rv svi"><p>Thiết kế web trọn gói ở My Agent nghĩa là một đầu mối lo từ đầu đến cuối: tư vấn cấu trúc trang, giao diện theo thương hiệu, lập trình responsive, SEO nền tảng (title, meta, sitemap, schema), gắn Google Maps/Zalo, rồi bàn giao và hướng dẫn quản trị. Tên miền, hosting và email doanh nghiệp có thể đăng ký kèm trong cùng combo.</p>'
+   '<p>Peter (Nguyễn Văn Tùng) làm việc tại TP.HCM, trao đổi online qua Zalo, Google Meet và nhận khách toàn quốc. Zalo/điện thoại: <a href="tel:0328439972">0328 439 972</a>.</p></div>'
+   f'<div class="gap"></div><div class="grid g3">{cards}</div><div class="gap"></div>'+head('faq','Câu hỏi <span class="gt">thường&nbsp;gặp</span>')+faq(q)+'</div></section>')
 def combo():
   r=P['rules']; cd=r['comboDiscount']
   parts=', '.join(f'{x["minServices"]} dịch vụ giảm {x["percent"]}%' if i==0 else (f'từ {x["minServices"]} dịch vụ {x["percent"]}%' if i==len(cd)-1 else f'{x["minServices"]} dịch vụ {x["percent"]}%') for i,x in enumerate(cd))
