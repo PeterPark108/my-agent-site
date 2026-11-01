@@ -91,3 +91,6 @@ new IntersectionObserver(([e],o)=>{if(e.isIntersecting){o.disconnect();step()}})
 // tin tức: lọc theo chủ đề (không JS = hiện tất cả)
 d.querySelectorAll('.nw-chips').forEach(g=>{const bs=[...g.querySelectorAll('button[data-f]')],cs=[...d.querySelectorAll('#news-list .news')],em=d.querySelector('.nw-empty');bs.forEach(b=>b.addEventListener('click',()=>{const f=b.dataset.f;bs.forEach(x=>x.setAttribute('aria-pressed',x===b));let n=0;cs.forEach(c=>{const on=f==='all'||c.dataset.topic===f;c.hidden=!on;if(on){n++;c.classList.add('in')}});if(em)em.hidden=n>0}))});
 })();
+
+// cụm thiết bị hero: dừng animation khi ra khỏi màn hình
+(function(){var e=document.querySelector('.devices');if(!e||!('IntersectionObserver'in window))return;new IntersectionObserver(function(n){e.classList.toggle('off',!n[0].isIntersecting)}).observe(e)})();
