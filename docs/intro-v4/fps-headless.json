@@ -1,0 +1,59 @@
+{
+ "moi_truong": "Chromium headless + SwiftShader (render bang CPU, khong GPU) - chi tham khao",
+ "full-desktop-dark": {
+  "trung_binh": 4.9,
+  "thap_nhat": 1.8,
+  "so_mau_0.5s": 28,
+  "bloom": true,
+  "transmission": true
+ },
+ "full-mobile-dark": {
+  "trung_binh": 18.5,
+  "thap_nhat": 14,
+  "so_mau_0.5s": 29,
+  "bloom": true,
+  "transmission": true
+ },
+ "full-desktop-light": {
+  "trung_binh": 5.8,
+  "thap_nhat": 3.3,
+  "so_mau_0.5s": 26,
+  "bloom": false,
+  "transmission": true
+ },
+ "full-mobile-light": {
+  "trung_binh": 16.2,
+  "thap_nhat": 9.7,
+  "so_mau_0.5s": 30,
+  "bloom": false,
+  "transmission": true
+ },
+ "lite-desktop-dark": {
+  "trung_binh": 14.7,
+  "thap_nhat": 8,
+  "so_mau_0.5s": 29,
+  "bloom": false,
+  "transmission": false
+ },
+ "lite-mobile-dark": {
+  "trung_binh": 28.2,
+  "thap_nhat": 14,
+  "so_mau_0.5s": 30,
+  "bloom": false,
+  "transmission": false
+ },
+ "lite-desktop-light": {
+  "trung_binh": 9.5,
+  "thap_nhat": 3.5,
+  "so_mau_0.5s": 28,
+  "bloom": false,
+  "transmission": false
+ },
+ "lite-mobile-light": {
+  "trung_binh": 22.7,
+  "thap_nhat": 13.7,
+  "so_mau_0.5s": 29,
+  "bloom": false,
+  "transmission": false
+ }
+}

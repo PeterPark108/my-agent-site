@@ -1,0 +1,86 @@
+/* v0.9.28 – màn intro 3D trang chủ (nguồn: intro v4). Chỉ áp dụng trong #i3d. */
+#i3d{--bg:#050b1a;--teal:#2ee6d6;--blue:#3a8bff;--coral:#ff6b5e;--fg:#f4f8ff;--mut:#b4c2d8;--cloud:#050b1ae0;
+  position:relative;padding:0;height:calc(100vh - var(--hh,73px));height:calc(100svh - var(--hh,73px));min-height:520px;overflow:hidden;
+  background:radial-gradient(60% 50% at 75% 40%,#0d3b4f 0,transparent 70%),radial-gradient(40% 40% at 90% 80%,#2a1a40 0,transparent 70%),var(--bg);color:var(--fg);isolation:isolate}
+#i3d *{box-sizing:border-box}
+#i3d-gl{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:0;opacity:0;transition:opacity .8s ease}
+#i3d.gl-ready #i3d-gl{opacity:1}
+#i3d .i3d-tools{position:absolute;z-index:6;top:14px;right:clamp(14px,3vw,40px);display:flex;gap:12px;align-items:center;font-size:13px}
+#i3d .count{color:var(--mut);font-variant-numeric:tabular-nums}#i3d .count b{color:var(--fg);font-weight:600}
+#i3d .i3d-tools button{font:500 13px var(--f,system-ui),sans-serif;color:var(--fg);background:#ffffff12;border:1px solid #ffffff33;border-radius:99px;cursor:pointer;min-height:34px}
+#i3d-lang{padding:6px 14px}#i3d-lang span{color:var(--mut)}
+#i3d-theme{width:34px;display:grid;place-items:center;padding:0}
+#i3d-theme .ic{width:14px;height:14px;border-radius:50%;box-shadow:inset -4px -2px 0 0 var(--fg)}
+#i3d .i3d-tools button:focus-visible,#i3d a:focus-visible,#i3d .dots button:focus-visible{outline:2px solid var(--teal);outline-offset:3px}
+#i3d .scenes{position:absolute;inset:0;z-index:2}
+#i3d .scene{position:absolute;inset:0;padding:64px clamp(22px,7vw,120px) 64px;display:flex;align-items:center}
+#i3d .scene.right{justify-content:flex-end}#i3d .scene.center{justify-content:center;text-align:center;flex-direction:column}
+#i3d .copy{position:relative;max-width:580px;will-change:opacity,transform}
+#i3d #hero .copy{max-width:720px}
+#i3d .copy::before{content:"";position:absolute;z-index:-1;inset:-30% -24%;background:radial-gradient(closest-side,var(--cloud) 0,var(--cloud) 45%,transparent 100%);filter:blur(6px);pointer-events:none}
+#i3d .eyebrow{font-weight:600;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);margin:0 0 16px}
+#i3d h1,#i3d h2{font-weight:800;letter-spacing:-.03em;line-height:1.1;text-wrap:balance;color:var(--fg);margin:0}
+#i3d h1{font-size:clamp(32px,4.4vw,60px)}
+#i3d h1 .brand{color:var(--teal)}
+#i3d h2{font-size:clamp(30px,4vw,56px)}
+#i3d mark{background:none;color:var(--coral);position:relative}
+#i3d mark::after{content:"";position:absolute;left:0;right:0;bottom:-.1em;height:.1em;background:var(--coral);opacity:.35;border-radius:2px;transform-origin:left;transform:scaleX(var(--hl,1));transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+#i3d .lead{margin:20px 0 0;font-weight:400;font-size:clamp(15px,1.3vw,19px);line-height:1.6;color:var(--mut);max-width:34em}
+#i3d .lead a{color:var(--fg);text-decoration:underline;text-underline-offset:3px}
+#i3d .center .lead{margin-inline:auto}
+#i3d .acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+#i3d .center .acts{justify-content:center}
+#i3d .cta,#i3d .ghost{display:inline-flex;align-items:center;min-height:46px;padding:12px 24px;border-radius:99px;font-weight:700;font-size:15px;text-decoration:none}
+#i3d .cta{background:var(--teal);color:#04121a;box-shadow:0 0 26px #2ee6d644}
+#i3d .ghost{border:1px solid #ffffff40;color:var(--fg);background:#ffffff0d}
+#i3d .more{display:inline-block;margin-top:22px;color:var(--teal);font-weight:600;text-decoration:none;border-bottom:1px solid currentColor}
+#i3d .sub{margin:16px 0 0;font-size:14px}#i3d .sub a{color:var(--mut);text-decoration:underline;text-underline-offset:3px}
+#i3d .hint{display:inline-block;margin-top:30px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--mut);padding-left:28px;position:relative}
+#i3d .hint::before{content:"";position:absolute;left:0;top:50%;width:18px;height:1px;background:var(--teal)}
+#i3d .links{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 16px;margin:22px auto 0;padding:0;list-style:none;max-width:640px;font-size:14px}
+#i3d .links a{color:var(--mut);text-decoration:none;border-bottom:1px solid #ffffff2a}#i3d .links a:hover{color:var(--fg)}
+#i3d .foot{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;padding:14px clamp(22px,4vw,56px);font-size:12px;color:var(--mut);border-top:1px solid #ffffff14;background:#050b1acc;opacity:0}
+#i3d .foot a{color:inherit}
+#i3d .dots{position:absolute;z-index:6;right:clamp(14px,2vw,30px);top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:14px}
+#i3d .dots button{position:relative;width:10px;height:10px;border-radius:50%;border:1px solid var(--mut);background:transparent;cursor:pointer;padding:0;transition:background .3s,transform .3s}
+#i3d .dots button.on{background:var(--teal);border-color:var(--teal);transform:scale(1.25)}
+#i3d .dots button::before{content:"";position:absolute;inset:-8px}
+/* có JS: cảnh chồng lên nhau, chuyển từng nấc. Cảnh đầu luôn hiện ngay (LCP), không chờ WebGL */
+#i3d.js .scene .copy{opacity:0;visibility:hidden}
+#i3d.js .scene.on .copy{visibility:visible}
+#i3d.js .scene:not(.on){pointer-events:none}
+#i3d .scene#hero .copy{opacity:1;visibility:visible}
+#i3d.js #s-end.on .foot{opacity:var(--fo,0)}
+#i3d:not(.js) .dots,#i3d:not(.js) .count{display:none}
+/* không JS: các cảnh xếp dọc bình thường, đọc được hết */
+#i3d.nojs{height:auto;min-height:0;overflow:visible}
+#i3d.nojs .scenes{position:static}
+#i3d.nojs .scene{position:relative;inset:auto;padding:56px clamp(22px,7vw,120px)}
+#i3d.nojs .foot{position:static;opacity:1}
+#i3d.nojs .i3d-tools{display:none}
+/* sáng */
+#i3d.light{--bg:#eef5fb;--fg:#0b1a33;--mut:#3d4d66;--teal:#00897e;--coral:#d8402f;--cloud:#f4f3fde6;background:linear-gradient(90deg,#EFF2FB,#E4E0FA 55%,#CFC7F6)}
+#i3d.light .i3d-tools button{border-color:#0b1a3330;background:#ffffff90}
+#i3d.light .cta{color:#fff;background:#00897e;box-shadow:0 10px 30px #00897e44}
+#i3d.light .ghost{border-color:#0b1a3333;background:#ffffff80}
+#i3d.light .foot{background:#ffffffaa;border-top-color:#0b1a3315}
+#i3d.light .links a{border-bottom-color:#0b1a3325}
+@media (max-width:760px){
+  #i3d{min-height:560px}
+  #i3d .scene,#i3d .scene.right{align-items:flex-start;justify-content:flex-start;padding:62px 22px 56px}
+  #i3d .scene.center{justify-content:flex-start}
+  #i3d h1{font-size:clamp(26px,7.4vw,34px)}#i3d h2{font-size:clamp(26px,7.6vw,36px)}
+  #i3d .lead{font-size:15px;margin-top:14px}
+  #i3d .acts{margin-top:18px}#i3d .cta,#i3d .ghost{min-height:44px;padding:10px 18px;font-size:14px}
+  #i3d .hint{display:none}
+  #i3d .count{display:none}
+  #i3d .links{gap:4px 12px;font-size:13px;margin-top:16px}
+  #i3d .dots{top:auto;bottom:14px;right:50%;transform:translateX(50%);flex-direction:row}
+  #i3d .foot{display:none}
+  #i3d .i3d-tools{top:12px;right:14px}
+  #i3d .eyebrow{margin-bottom:10px;font-size:12px}
+}
+@media (prefers-reduced-motion:reduce){#i3d *{transition:none!important}}
+.capture #i3d .copy,#i3d.capture .copy{transition:none}
+/* lời chào bong bóng của trợ lý MJ đè lên chữ intro: ẩn khi intro đang chiếm màn hình (nút mở chat, Zalo, gọi vẫn hiện) */
+html.i3d-top .mj-bub{display:none}

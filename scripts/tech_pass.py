@@ -81,9 +81,7 @@ for f in pages:
    f'<meta property="og:type" content="{ogt}"><meta property="og:locale" content="vi_VN"><meta property="og:site_name" content="My Agent"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:url" content="{url}"><meta property="og:image" content="{ogi}">'+('<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">' if not im else '')+f'',
    f'<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{e(title)}"><meta name="twitter:description" content="{e(desc)}"><meta name="twitter:image" content="{ogi}">',
    f'<script src="{p}js/config.js"></script><script src="{p}js/motion.js" defer></script><script src="{p}js/chat.js" defer></script>']
-  if rel=='index.html':
-    # intro trang chủ: script nhỏ quyết định có chạy intro không (tránh nháy nội dung); failsafe 6.5s; không JS = trang hiện bình thường
-    head.append('<script>(function(h){try{var c=window.MYAGENT_CONFIG||{},q=/[?&]intro=([01])/.exec(location.search),f=q&&q[1];if(f==="0")return;if(!f&&(c.introEnabled===false||sessionStorage.getItem("myagent_intro_seen")))return;if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;h.classList.add("intro-on");setTimeout(function(){h.classList.remove("intro-on");var o=document.getElementById("ma-intro");o&&o.remove()},6500)}catch(e){h.classList.remove("intro-on")}})(document.documentElement)</script><script src="js/intro.js" defer></script>')
+  # v0.9.28: trang chủ dùng màn intro 3D (#i3d trong body, js/intro3d.js tải sau sự kiện load); bỏ overlay intro.js 6,5s cũ
   if rel in NOINDEX: head.insert(0,'<meta name="robots" content="noindex, follow">')
   for ld in jsonld(rel,url,s,desc): head.append('<script type="application/ld+json">'+json.dumps(ld,ensure_ascii=False)+'</script>')
   s=s.replace('</head>','<!-- tech:head -->'+''.join(head)+'<!-- /tech:head --></head>',1)
@@ -186,6 +184,8 @@ for f in R.rglob('*.html'):
   t=f.read_text()
   t2=re.sub(r'(css/style\.min\.css)(\?v=[^"]*)?"',r'\1?v='+_V+'"',t)
   t2=re.sub(r'(js/intro\.js)(\?v=[^"]*)?"',r'\1?v='+_V+'"',t2)
+  t2=re.sub(r'(js/intro3d\.js)(\?v=[^"]*)?"',r'\1?v='+_V+'"',t2)
+  t2=re.sub(r'(css/intro3d\.css)(\?v=[^"]*)?"',r'\1?v='+_V+'"',t2)
   t2=re.sub(r'(js/resources\.js)(\?v=[^"]*)?"',r'\1?v='+_V+'"',t2)
   t2=re.sub(r'(js/main\.js)(\?v=[^"]*)?"',r'\1?v='+_V+'"',t2)
   t2=re.sub(r'(js/config\.js)(\?v=[^"]*)?"',r'\1?v='+_V+'"',t2)

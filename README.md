@@ -18,3 +18,8 @@ Phông Be Vietnam Pro, JetBrains Mono (SIL OFL 1.1, tự host trong `assets/font
 
 ## Theo dõi tiến độ đơn
 Xem `docs/theo-doi-tien-do.md`. Lệnh: `python3 scripts/order_admin.py add|update|list|remove`. File `data/private/` không bao giờ commit.
+
+## Intro 3D trang chủ (0.9.28)
+- Nguồn: `src/intro3d.js` → build: `esbuild src/intro3d.js --bundle --minify --format=esm --outfile=js/intro3d.js` (cần three + esbuild trong node_modules). CSS: `css/intro3d.css`.
+- Thử: `?full` (ép chất lượng cao), `?lite` (ép bản nhẹ), `?nogl` (giả lập không WebGL).
+- Ảnh/video: `docs/intro-v4/`.
