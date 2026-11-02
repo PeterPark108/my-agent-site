@@ -17,7 +17,7 @@ def home():
   li=[('dich-vu/thiet-ke-website.html','Thiết kế website','website giới thiệu, landing page, web bán hàng'),
       ('dich-vu/phan-mem-noi-bo.html','Thiết kế web app theo yêu cầu','hệ thống có đăng nhập, phân quyền, dashboard'),
       ('dich-vu/thiet-ke-app.html','Thiết kế app','ứng dụng iOS/Android'),
-      ('combo.html','Combo dịch vụ','gộp website, tên miền, email, marketing'),
+      ('combo.html','Combo dịch\u00a0vụ','gộp website, tên miền, email, marketing'),
       ('blog/thiet-ke-web-tron-goi-gom-nhung-gi.html','Thiết kế web trọn gói gồm những gì?','đọc trước khi thuê')]
   cards=''.join(f'<a class="card glass rv" href="{u}">'+(gi(tron_goi_key(u)) if tron_goi_key(u) else '')+f'<h3>{E(n)}</h3><p>{E(d)}</p></a>' for u,n,d in li)
   q=[('My Agent có nhận làm web cho khách ngoài TP.HCM không?','Có. Toàn bộ quy trình làm online: trao đổi, xem bản thử, duyệt và bàn giao từ xa.'),

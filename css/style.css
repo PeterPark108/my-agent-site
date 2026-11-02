@@ -579,10 +579,29 @@ html{scroll-padding-top:calc(var(--hh,73px) + 8px)}body{overflow-x:clip}.burger:
 .ic.gl .gl-k::after{content:"";position:absolute;left:3px;right:5px;top:4px;height:2px;border-radius:2px;background:var(--gt1);box-shadow:0 3px 0 -0.5px rgba(46,230,214,.55)}
 @supports ((-webkit-backdrop-filter:blur(2px)) or (backdrop-filter:blur(2px))){.ic.gl .gl-k{-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}}
 .ic.gl.gl-on .gl-o i,.ic.gl.gl-on .gl-k{animation-play-state:running}
-.scard .ic.gl{width:48px;height:48px;border-radius:14px;margin:2px 4px 0 0}
-.cat-head .ic.gl{width:60px;height:60px}
-.card>.ic.gl{margin:2px 0 14px}
-.combo>.ic.gl{margin-bottom:12px}
+/* v0.9.31: chữ bên TRÁI, icon bên PHẢI – chỉ CSS (flex order, absolute, float), DOM giữ nguyên, icon aria-hidden.
+   scard/cat-head: icon order:2 sang phải. */
+.scard .ic.gl{order:2;width:48px;height:48px;border-radius:14px;margin:2px 0 0 auto}
+.scard>span:not(.ic){flex:1;min-width:0}
+.cat-head .ic.gl{order:2;width:60px;height:60px;margin-left:auto}
+.cat-head>div{flex:1;min-width:0}
+/* ô có nhãn nhỏ (combo .k, nhóm .cidx): icon nằm cùng hàng nhãn, tiêu đề xuống dưới đủ rộng; thanh/nút dưới đáy giữ nguyên */
+.card{--gs:48px}
+.card>.ic.gl{width:var(--gs);height:var(--gs);border-radius:14px;margin:0}
+.combo>.ic.gl,.catc>.ic.gl{position:absolute;top:var(--gp,24px);right:var(--gp,24px)}
+.combo{--gp:28px}.catc{--gs:42px;--gp:18px}
+.combo>.ic.gl+.k,.catc>.ic.gl+.cidx{display:flex;align-items:center;min-height:var(--gs);margin-bottom:10px;padding-right:calc(var(--gs) + 10px)}
+.catc>.ic.gl+.cidx{margin-bottom:4px}
+/* ô chỉ có tiêu đề (trọn gói trang chủ, dịch vụ liên quan): icon nổi phải, chữ chảy quanh icon */
+.card:not(.combo):not(.catc)>.ic.gl{float:right;margin:-12px -14px 4px 8px}
+#tron-goi .card{--gs:44px}
+.card:not(.combo):not(.catc):has(>.ic.gl)>h3{text-wrap:balance}
+.card:not(.combo):not(.catc):has(>.ic.gl){display:block}
+.card:not(.combo):not(.catc):has(>.ic.gl)>h3{margin-top:4px}
+.card.tilt:has(>.ic.gl){padding-bottom:calc(28px + 44px)}
+.card.tilt:has(>.ic.gl)>.more{position:absolute;left:28px;bottom:24px;padding-top:0}
+@media(max-width:720px){.card{--gs:42px}.catc{--gs:34px;--gp:14px}.catc>.ic.gl{border-radius:11px}
+ .scard .ic.gl{width:40px;height:40px;border-radius:12px}.cat-head .ic.gl{width:48px;height:48px;border-radius:14px}}
 @keyframes glSpin{to{transform:rotate(360deg)}}
 @keyframes glFloat{50%{transform:translateY(-4px)}}
 @media (prefers-reduced-motion:reduce){.ic.gl .gl-o i,.ic.gl .gl-k{animation:none}}

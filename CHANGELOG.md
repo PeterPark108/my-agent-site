@@ -1,5 +1,8 @@
 # Nhật ký thay đổi
 
+## 0.9.31 - 2026-11-02 (NHÁP, chờ Peter duyệt)
+- Bố cục icon glass theo góp ý Peter: CHỮ bên TRÁI, ICON bên PHẢI ở mọi ô có icon. Chỉ sửa CSS (css/style.css), DOM giữ nguyên, icon vẫn aria-hidden: ô dịch vụ (.scard) và đầu nhóm (.cat-head) dùng flex order; thẻ nhóm trang chủ (.catc) và combo đặt icon góc phải trên cùng hàng nhãn nhỏ, tiêu đề xuống dưới đủ rộng, thanh tag/nút giữ ở đáy; ô "trọn gói" trang chủ và thẻ "dịch vụ liên quan" cho icon nổi phải (float), chữ chảy quanh, "Xem chi tiết" giữ ở đáy. Icon desktop 48px (đầu nhóm 60, thẻ nhóm 42, trọn gói 44), mobile 40–42px (đầu nhóm 48, thẻ nhóm 34–42). seo_blocks.py: "Combo dịch vụ" dùng khoảng trắng không ngắt để tiêu đề không rớt chữ "vụ".
+
 ## 0.9.30 - 2026-11-02 (NHÁP, chờ Peter duyệt)
 - Icon glass cho các ô dịch vụ (Peter yêu cầu qua MJ): mỗi ô một icon SVG inline riêng theo phong cách kính của intro 3D (thân kính mờ, lõi teal #2ee6d6 phát sáng nhẹ, vòng quỹ đạo kính xoay chậm, thẻ kính nhỏ nổi). 30 glyph: 18 dịch vụ, 5 nhóm, 6 combo, 1 "Combo dịch vụ". Áp vào: dich-vu.html (5 đầu nhóm + 18 ô, thay icon nét cũ), trang chủ (4 ô "trọn gói" qua scripts/seo_blocks.py, 5 thẻ nhóm, 4 combo), combo.html (6 combo), thẻ "dịch vụ liên quan" ở 18 trang dich-vu/*. Nguồn: scripts/glass_icons.py (idempotent; seo_blocks.py import để không bị ghi đè). CSS trong css/style.css (không thư viện, không WebGL); chuyển động chỉ chạy khi icon trong màn hình (IntersectionObserver nhỏ trong js/main.js), tắt khi prefers-reduced-motion. Icon trang trí aria-hidden; chữ, giá, link, heading, SEO giữ nguyên. Chạy tech_pass: bump ?v=, sitemap lastmod, và khôi phục khối tech:head (canonical, OG, config.js) mà 12 trang tin-tuc/* bị thiếu sau lần đăng tin #59 (CI báo lỗi nếu thiếu).
 
