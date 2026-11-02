@@ -1,5 +1,8 @@
 # Nhật ký thay đổi
 
+## 0.9.31 - 2026-11-02 (NHÁP, chờ Peter duyệt; xếp trên #57)
+- Blog mới: "Homestay đã có Booking, Airbnb có cần web đặt phòng riêng?" (`data/blog/homestay-da-co-booking-airbnb-co-can-web-rieng.md`, category website, FAQ 3 câu, link nội bộ tới 4 bài blog, 3 trang dịch vụ, bảng giá, dự án mẫu Nhà Gió). Dựng lại blog.html, blog/*.html, blog/feed.xml, sitemap.xml, chatbot-kb. Bump VERSION.
+
 ## 0.9.30 - 2026-11-01 (NHÁP, chờ Peter duyệt)
 - Khôi phục bài tin 01/11 "Lỗ hổng GitLab điểm 10 đang bị khai thác thực tế" (`data/news/2026-11-01-gitlab-cve-2026-97229-cisa.md`, lấy nguyên từ commit 59b1e9e; bị xoá nhầm khi rollback #54). Dựng lại trang bài, tin-tuc, trang chủ đề, feed.xml, sitemap.
 - Thực thể (Peter duyệt 01/11, GBP dạng phục vụ tận nơi): bỏ `address`/`location` (262/22 Liên Khu 4-5, Bình Tân; "Công Ty Thiết Kế - In Ấn NASA") khỏi schema #org; giữ tên "My Agent", areaServed TP.HCM + Việt Nam, không giá, không MST. Dòng địa chỉ ở footer/trang Liên hệ đổi thành "Khu vực phục vụ: TP. Hồ Chí Minh và toàn Việt Nam" (tech_pass); câu trả lời liên hệ của trợ lý MJ bỏ địa chỉ (chat.src.js + chat.js, chatbot-kb dựng lại).
