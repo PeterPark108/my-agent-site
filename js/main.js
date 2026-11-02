@@ -94,3 +94,6 @@ d.querySelectorAll('.nw-chips').forEach(g=>{const bs=[...g.querySelectorAll('but
 
 // cụm thiết bị hero: dừng animation khi ra khỏi màn hình
 (function(){var e=document.querySelector('.devices');if(!e||!('IntersectionObserver'in window))return;new IntersectionObserver(function(n){e.classList.toggle('off',!n[0].isIntersecting)}).observe(e)})();
+
+// icon glass ô dịch vụ (v0.9.30): chỉ chạy chuyển động khi icon trong màn hình
+(function(){var l=document.querySelectorAll('.ic.gl');if(!l.length||!('IntersectionObserver'in window))return;var o=new IntersectionObserver(function(es){es.forEach(function(e){e.target.classList.toggle('gl-on',e.isIntersecting)})},{rootMargin:'40px'});l.forEach(function(e){o.observe(e)})})();

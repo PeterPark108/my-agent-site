@@ -1,7 +1,9 @@
 """v0.9.6: khối nội dung SEO cho trang chủ và combo (nguồn: kế hoạch từ khóa 28/10/2026).
 Chèn/đổi giữa <!-- seo-block:<id> --> ... <!-- /seo-block:<id> -->, ngay sau section hero.
 Số liệu (giảm combo, thời gian) lấy từ data/pricing.json. Chạy trước tech_pass.py (tech_pass sinh FAQPage từ <details>)."""
-import json,re,pathlib,html
+import json,re,pathlib,html,sys
+sys.path.insert(0,str(pathlib.Path(__file__).resolve().parent))
+from glass_icons import gi,tron_goi_key  # v0.9.30: icon glass cho ô dịch vụ
 R=pathlib.Path(__file__).resolve().parent.parent
 P=json.loads((R/'data/pricing.json').read_text())
 SV={s['id']:s for s in P['services']}
@@ -17,7 +19,7 @@ def home():
       ('dich-vu/thiet-ke-app.html','Thiết kế app','ứng dụng iOS/Android'),
       ('combo.html','Combo dịch vụ','gộp website, tên miền, email, marketing'),
       ('blog/thiet-ke-web-tron-goi-gom-nhung-gi.html','Thiết kế web trọn gói gồm những gì?','đọc trước khi thuê')]
-  cards=''.join(f'<a class="card glass rv" href="{u}"><h3>{E(n)}</h3><p>{E(d)}</p></a>' for u,n,d in li)
+  cards=''.join(f'<a class="card glass rv" href="{u}">'+(gi(tron_goi_key(u)) if tron_goi_key(u) else '')+f'<h3>{E(n)}</h3><p>{E(d)}</p></a>' for u,n,d in li)
   q=[('My Agent có nhận làm web cho khách ngoài TP.HCM không?','Có. Toàn bộ quy trình làm online: trao đổi, xem bản thử, duyệt và bàn giao từ xa.'),
      ('Thiết kế web trọn gói có gồm tên miền và hosting không?','Có thể gộp trong combo; chi phí tên miền tính theo năm, hosting thương lượng theo cấu hình. Báo giá ghi rõ từng hạng mục trước khi làm.'),
      ('Bao lâu thì có website?',f'Theo bảng giá tham khảo: landing page {tg("landing")}, website giới thiệu {tg("gioi-thieu")}, website bán hàng {tg("ban-hang")}.')]
