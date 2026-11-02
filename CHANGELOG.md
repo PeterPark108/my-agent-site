@@ -1,5 +1,8 @@
 # Nhật ký thay đổi
 
+## 0.9.35 - 2026-11-02 (NHÁP, chờ Peter duyệt; xếp trên #57 v0.9.34)
+- Blog mới (chủ đề chung cho mọi doanh nghiệp nhỏ, Peter yêu cầu không viết riêng một ngành): "Đã có Facebook, Zalo, sàn TMĐT, có cần website riêng?" (`data/blog/da-co-facebook-zalo-san-tmdt-co-can-website-rieng.md`, category website, 7 ý, FAQ 3 câu, link nội bộ tới 5 bài blog, 4 trang dịch vụ, bảng giá). Thay bản nháp homestay trước đó (slug cũ chưa từng đăng, đã gỡ khỏi sitemap/feed/blog index/chatbot-kb). Dựng lại blog.html, blog/*.html, blog/feed.xml, sitemap.xml, chatbot-kb, khối "Bài mới trên Blog" trang chủ. Bump VERSION. Câu giá tham khảo dùng "chưa bao gồm VAT" theo kiểm tra ci_check.
+
 ## 0.9.34 - 2026-11-02 (NHÁP, chờ Peter duyệt)
 - Khôi phục bài tin 01/11 "Lỗ hổng GitLab điểm 10 đang bị khai thác thực tế" (`data/news/2026-11-01-gitlab-cve-2026-97229-cisa.md`, lấy nguyên từ commit 59b1e9e; bị xoá nhầm khi rollback #54). Dựng lại trang bài, tin-tuc, trang chủ đề, feed.xml, sitemap.
 - Thực thể (Peter duyệt 01/11, GBP dạng phục vụ tận nơi): bỏ `address`/`location` (262/22 Liên Khu 4-5, Bình Tân; "Công Ty Thiết Kế - In Ấn NASA") khỏi schema #org; giữ tên "My Agent", areaServed TP.HCM + Việt Nam, không giá, không MST. Dòng địa chỉ ở footer/trang Liên hệ đổi thành "Khu vực phục vụ: TP. Hồ Chí Minh và toàn Việt Nam" (tech_pass); câu trả lời liên hệ của trợ lý MJ bỏ địa chỉ (chat.src.js + chat.js, chatbot-kb dựng lại).
