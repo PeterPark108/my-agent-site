@@ -1,7 +1,7 @@
 # Nhật ký thay đổi
 
 ## 0.9.35 - 2026-11-02 (NHÁP, chờ Peter duyệt; xếp trên #57 v0.9.34)
-- Blog mới: "Homestay đã có Booking, Airbnb có cần web đặt phòng riêng?" (`data/blog/homestay-da-co-booking-airbnb-co-can-web-rieng.md`, category website, FAQ 3 câu, link nội bộ tới 4 bài blog, 3 trang dịch vụ, bảng giá, dự án mẫu Nhà Gió). Dựng lại blog.html, blog/*.html, blog/feed.xml, sitemap.xml, chatbot-kb. Bump VERSION. Câu giá tham khảo đổi "chưa gồm VAT" → "chưa bao gồm VAT" theo kiểm tra mới của ci_check trên production.
+- Blog mới (chủ đề chung cho mọi doanh nghiệp nhỏ, Peter yêu cầu không viết riêng một ngành): "Đã có Facebook, Zalo, sàn TMĐT, có cần website riêng?" (`data/blog/da-co-facebook-zalo-san-tmdt-co-can-website-rieng.md`, category website, 7 ý, FAQ 3 câu, link nội bộ tới 5 bài blog, 4 trang dịch vụ, bảng giá). Thay bản nháp homestay trước đó (slug cũ chưa từng đăng, đã gỡ khỏi sitemap/feed/blog index/chatbot-kb). Dựng lại blog.html, blog/*.html, blog/feed.xml, sitemap.xml, chatbot-kb, khối "Bài mới trên Blog" trang chủ. Bump VERSION. Câu giá tham khảo dùng "chưa bao gồm VAT" theo kiểm tra ci_check.
 
 ## 0.9.34 - 2026-11-02 (NHÁP, chờ Peter duyệt)
 - Khôi phục bài tin 01/11 "Lỗ hổng GitLab điểm 10 đang bị khai thác thực tế" (`data/news/2026-11-01-gitlab-cve-2026-97229-cisa.md`, lấy nguyên từ commit 59b1e9e; bị xoá nhầm khi rollback #54). Dựng lại trang bài, tin-tuc, trang chủ đề, feed.xml, sitemap.
