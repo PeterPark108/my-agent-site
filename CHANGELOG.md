@@ -1,5 +1,8 @@
 # Nhật ký thay đổi
 
+## 0.9.32 - 2026-11-02 (NHÁP, chờ Peter duyệt)
+- Bố cục icon glass theo Peter: mỗi ô có icon chia 2 cột bằng CSS grid (3fr chữ | 1fr icon). Icon nằm giữa cột phải theo chiều ngang và giữa ô theo chiều dọc (đo lệch 0px ở 390/1280/1440). Tag, giá và nút ở đáy cột chữ. Bỏ hết quy tắc float, góc phải và :has() của 0.9.31; dùng class .glc do scripts/glass_icons.py và seo_blocks.py gắn sẵn. DOM: chữ đứng trước icon (thẻ trang chủ, combo, liên quan được bọc trong div.glt), icon vẫn aria-hidden, nội dung không đổi.
+
 ## 0.9.31 - 2026-11-02 (NHÁP, chờ Peter duyệt)
 - Bố cục icon glass theo góp ý Peter: CHỮ bên TRÁI, ICON bên PHẢI ở mọi ô có icon. Chỉ sửa CSS (css/style.css), DOM giữ nguyên, icon vẫn aria-hidden: ô dịch vụ (.scard) và đầu nhóm (.cat-head) dùng flex order; thẻ nhóm trang chủ (.catc) và combo đặt icon góc phải trên cùng hàng nhãn nhỏ, tiêu đề xuống dưới đủ rộng, thanh tag/nút giữ ở đáy; ô "trọn gói" trang chủ và thẻ "dịch vụ liên quan" cho icon nổi phải (float), chữ chảy quanh, "Xem chi tiết" giữ ở đáy. Icon desktop 48px (đầu nhóm 60, thẻ nhóm 42, trọn gói 44), mobile 40–42px (đầu nhóm 48, thẻ nhóm 34–42). seo_blocks.py: "Combo dịch vụ" dùng khoảng trắng không ngắt để tiêu đề không rớt chữ "vụ".
 

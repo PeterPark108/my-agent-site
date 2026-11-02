@@ -50,24 +50,47 @@ def slug(href):
 SVGIC=r'<(?P<t>span|div) class="ic(?: gl)?"(?: data-gi="[^"]*")?(?: aria-hidden="true")?>.*?</(?P=t)>'
 def sub_ic(block,key):
   return re.sub(SVGIC,lambda m:gi(key,m.group('t')),block,count=1,flags=re.S)
+TAGRE=re.compile(r'<(/?)(div|span|a|article)\b[^>]*>')
+def _end(s,i,tag):
+  """vị trí ngay sau thẻ đóng khớp với thẻ mở tại i"""
+  d=0
+  for m in TAGRE.finditer(s,i):
+    if m.group(2)!=tag: continue
+    d+=-1 if m.group(1) else 1
+    if d==0: return m.end()
+  raise ValueError('không thấy thẻ đóng')
+def _layout(s,open_re,keyf,wrap):
+  """v0.9.32: ô 2 cột – chữ trước (cột trái 3/4), icon sau (cột phải 1/4). Idempotent."""
+  out=[];pos=0;n=0
+  for m in re.finditer(open_re,s,flags=re.S):
+    if m.start()<pos: continue
+    tag=m.group('tag');st=m.start('o');en=_end(s,st,tag)
+    otag=m.group('o');inner=s[m.end('o'):en-len(f'</{tag}>')]
+    key=keyf(m,inner)
+    t=re.search(SVGIC,inner,flags=re.S);it=t.group('t') if t else ('div' if 'tilt' in otag else 'span')
+    inner=re.sub(SVGIC,'',inner,count=1,flags=re.S)
+    w=re.fullmatch(r'<div class="glt">(.*)</div>',inner,flags=re.S)
+    if w: inner=w.group(1)
+    if 'glc' not in otag: otag=re.sub(r'class="([^"]*)"',lambda c:f'class="{c.group(1)} glc"',otag,count=1)
+    body=(f'<div class="glt">{inner}</div>' if wrap else inner)+gi(key,it)
+    out.append(s[pos:st]+otag+body+f'</{tag}>');pos=en;n+=1
+  out.append(s[pos:]);return ''.join(out),n
 def apply():
   n=0
-  # dich-vu.html: 5 đầu nhóm + 18 ô
   p=R/'dich-vu.html';s=p.read_text()
-  s=re.sub(r'(<div class="cat-panel" id="([a-z-]+)"[^>]*><div class="cat-head">)('+SVGIC+')',lambda m:m.group(1)+gi(m.group(2),m.group('t')),s,flags=re.S)
-  s=re.sub(r'(<a class="scard glass" href="[^"]*?dich-vu/([a-z0-9-]+)\.html">)('+SVGIC+')',lambda m:m.group(1)+gi(m.group(2),m.group('t')),s,flags=re.S)
-  p.write_text(s);n+=s.count('data-gi=')
-  # dich-vu/*: thẻ dịch vụ liên quan (card glass tilt)
+  # đầu nhóm: key lấy từ id cat-panel ngay trước
+  s,k=_layout(s,r'<div class="cat-panel" id="(?P<id>[a-z-]+)"[^>]*>(?P<o><(?P<tag>div) class="cat-head(?: glc)?">)',lambda m,i:m.group('id'),False);n+=k
+  s,k=_layout(s,r'(?P<o><(?P<tag>a) class="scard glass(?: glc)?" href="[^"]*?dich-vu/(?P<id>[a-z0-9-]+)\.html">)',lambda m,i:m.group('id'),False);n+=k
+  p.write_text(s)
   for p in sorted((R/'dich-vu').glob('*.html')):
     s=p.read_text()
-    s=re.sub(r'(<a class="card glass tilt rv" href="[^"]*?dich-vu/([a-z0-9-]+)\.html">)('+SVGIC+')',lambda m:m.group(1)+gi(m.group(2),m.group('t')),s,flags=re.S)
-    p.write_text(s);n+=s.count('data-gi=')
-  # trang chủ: 5 nhóm (catc) + combo; combo.html: 6 combo
+    s,k=_layout(s,r'(?P<o><(?P<tag>a) class="card glass tilt rv(?: glc)?" href="[^"]*?dich-vu/(?P<id>[a-z0-9-]+)\.html">)',lambda m,i:m.group('id'),True);n+=k
+    p.write_text(s)
   for f in ['index.html','combo.html']:
     p=R/f;s=p.read_text()
-    s=re.sub(r'(<article class="card glass combo rv" id="([a-z-]+)">)(?:<span class="ic gl".*?</span>)?',lambda m:m.group(1)+gi(m.group(2)),s,flags=re.S)
-    s=re.sub(r'(<div class="card glass catc rv">)(?:<span class="ic gl".*?</span>)?(<span class="cidx mono">.*?<a href="dich-vu\.html#([a-z-]+)")',lambda m:m.group(1)+gi(m.group(3))+m.group(2),s,flags=re.S)
-    p.write_text(s);n+=s.count('data-gi=')
+    s,k=_layout(s,r'(?P<o><(?P<tag>article) class="card glass combo rv(?: glc)?" id="(?P<id>[a-z-]+)">)',lambda m,i:m.group('id'),True);n+=k
+    s,k=_layout(s,r'(?P<o><(?P<tag>div) class="card glass catc rv(?: glc)?">)',lambda m,i:re.search(r'dich-vu\.html#([a-z-]+)',i).group(1),True);n+=k
+    p.write_text(s)
   return n
 def tron_goi_key(u):
   return {'combo.html':'combo'}.get(u) or slug(u)

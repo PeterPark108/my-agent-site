@@ -19,7 +19,10 @@ def home():
       ('dich-vu/thiet-ke-app.html','Thiết kế app','ứng dụng iOS/Android'),
       ('combo.html','Combo dịch\u00a0vụ','gộp website, tên miền, email, marketing'),
       ('blog/thiet-ke-web-tron-goi-gom-nhung-gi.html','Thiết kế web trọn gói gồm những gì?','đọc trước khi thuê')]
-  cards=''.join(f'<a class="card glass rv" href="{u}">'+(gi(tron_goi_key(u)) if tron_goi_key(u) else '')+f'<h3>{E(n)}</h3><p>{E(d)}</p></a>' for u,n,d in li)
+  # v0.9.32: ô có icon chia 2 cột – chữ (div.glt) trước, icon sau; ô blog không icon giữ nguyên
+  card=lambda u,n,d:(f'<a class="card glass rv glc" href="{u}"><div class="glt"><h3>{E(n)}</h3><p>{E(d)}</p></div>{gi(tron_goi_key(u))}</a>' if tron_goi_key(u)
+                     else f'<a class="card glass rv" href="{u}"><h3>{E(n)}</h3><p>{E(d)}</p></a>')
+  cards=''.join(card(u,n,d) for u,n,d in li)
   q=[('My Agent có nhận làm web cho khách ngoài TP.HCM không?','Có. Toàn bộ quy trình làm online: trao đổi, xem bản thử, duyệt và bàn giao từ xa.'),
      ('Thiết kế web trọn gói có gồm tên miền và hosting không?','Có thể gộp trong combo; chi phí tên miền tính theo năm, hosting thương lượng theo cấu hình. Báo giá ghi rõ từng hạng mục trước khi làm.'),
      ('Bao lâu thì có website?',f'Theo bảng giá tham khảo: landing page {tg("landing")}, website giới thiệu {tg("gioi-thieu")}, website bán hàng {tg("ban-hang")}.')]
