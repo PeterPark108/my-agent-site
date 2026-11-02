@@ -45,7 +45,7 @@ Muốn biết thêm tiêu chí chung, xem bài [website chuyên nghiệp cần g
 
 ## Ý 6: Bắt đầu gọn, mở rộng sau
 
-Không cần làm hệ thống đặt phòng phức tạp ngay. Có thể bắt đầu bằng trang giới thiệu và form yêu cầu, xem khách có dùng không rồi mới thêm lịch phòng trống hay thanh toán online. Chi phí phụ thuộc phạm vi; xem bài [chi phí làm website phụ thuộc yếu tố nào](chi-phi-lam-website-phu-thuoc-yeu-to-nao.html) và giá tham khảo (chưa gồm VAT) tại [bảng giá](../bang-gia.html).
+Không cần làm hệ thống đặt phòng phức tạp ngay. Có thể bắt đầu bằng trang giới thiệu và form yêu cầu, xem khách có dùng không rồi mới thêm lịch phòng trống hay thanh toán online. Chi phí phụ thuộc phạm vi; xem bài [chi phí làm website phụ thuộc yếu tố nào](chi-phi-lam-website-phu-thuoc-yeu-to-nao.html) và giá tham khảo (chưa bao gồm VAT) tại [bảng giá](../bang-gia.html).
 
 Anh/chị có thể xem [dự án mẫu Nhà Gió](../du-an.html), một bản demo web khách sạn, homestay do Peter (My Agent) tự làm; phòng và giá trong đó chỉ là dữ liệu minh hoạ.
 
