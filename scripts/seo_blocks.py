@@ -28,7 +28,7 @@ def home():
      ('Bao lâu thì có website?',f'Theo bảng giá tham khảo: landing page {tg("landing")}, website giới thiệu {tg("gioi-thieu")}, website bán hàng {tg("ban-hang")}.')]
   return ('<section class="soft" id="tron-goi"><div class="wrap">'+head('trọn gói','Thiết kế web trọn gói <span class="gt">gồm những&nbsp;gì?</span>')+
    '<div class="card glass rv svi"><p>Thiết kế web trọn gói ở My Agent nghĩa là một đầu mối lo từ đầu đến cuối: tư vấn cấu trúc trang, giao diện theo thương hiệu, lập trình responsive, SEO nền tảng (title, meta, sitemap, schema), gắn Google Maps/Zalo, rồi bàn giao và hướng dẫn quản trị. Tên miền, hosting và email doanh nghiệp có thể đăng ký kèm trong cùng combo.</p>'
-   '<p>Peter (Nguyễn Văn Tùng) làm việc tại TP.HCM, trao đổi online qua Zalo, Google Meet và nhận khách toàn quốc. Zalo/điện thoại: <a href="tel:0328439972">0328 439 972</a>.</p></div>'
+   '<p>My Agent làm việc tại TP.HCM, trao đổi online qua Zalo, Google Meet và nhận khách toàn quốc. Zalo/điện thoại: <a href="tel:0328439972">0328 439 972</a>.</p></div>'
    f'<div class="gap"></div><div class="grid g3">{cards}</div><div class="gap"></div>'+head('faq','Câu hỏi <span class="gt">thường&nbsp;gặp</span>')+faq(q)+'</div></section>')
 def combo():
   r=P['rules']; cd=r['comboDiscount']

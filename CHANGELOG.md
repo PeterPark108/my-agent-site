@@ -1,5 +1,12 @@
 # Nhật ký thay đổi
 
+## 0.9.33 - 2026-11-02 (NHÁP, chờ Peter duyệt)
+- Giọng văn "đội ngũ" (Peter yêu cầu qua MJ): khối "về my agent" ở trang chủ và trang Về chúng tôi đổi từ giọng một người ("Một người làm…", "Tôi…", tên cá nhân) sang "My Agent / chúng tôi". Tiêu đề trang chủ thành "Làm thật, chịu trách nhiệm đến cùng"; đoạn giới thiệu tách 3 đoạn ngắn cho mobile, thêm "phản hồi trong giờ làm việc". Lead trang Về chúng tôi bỏ tên cá nhân.
+- FAQ 17 trang dịch vụ (scripts/svc_data.py → svc_deep.py, cả FAQPage JSON-LD): "Tôi …" (giọng nhà cung cấp) → "Chúng tôi …"; câu hỏi của khách bắt đầu bằng "Tôi" giữ nguyên.
+- Khối trọn gói trang chủ (scripts/seo_blocks.py): "Peter (Nguyễn Văn Tùng) làm việc tại TP.HCM" → "My Agent làm việc tại TP.HCM".
+- Chatbot (js/chat.src.js → chat.js, chatbot-kb.json): câu trả lời "ai làm web" đổi sang giọng đội ngũ, vẫn nêu người sáng lập.
+- Giữ nguyên: schema #org/#founder/Person/sameAs, SEO title/description, footer, ảnh + chú thích người sáng lập, ghi chú "do Peter tự làm" ở dự án mẫu, bài blog/tin đã đăng (chờ Peter quyết, xem PR).
+
 ## 0.9.32 - 2026-11-02 (NHÁP, chờ Peter duyệt)
 - Bố cục icon glass theo Peter: mỗi ô có icon chia 2 cột bằng CSS grid (3fr chữ | 1fr icon). Icon nằm giữa cột phải theo chiều ngang và giữa ô theo chiều dọc (đo lệch 0px ở 390/1280/1440). Tag, giá và nút ở đáy cột chữ. Bỏ hết quy tắc float, góc phải và :has() của 0.9.31; dùng class .glc do scripts/glass_icons.py và seo_blocks.py gắn sẵn. DOM: chữ đứng trước icon (thẻ trang chủ, combo, liên quan được bọc trong div.glt), icon vẫn aria-hidden, nội dung không đổi.
 
