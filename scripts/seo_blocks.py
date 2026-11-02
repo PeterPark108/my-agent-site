@@ -10,6 +10,14 @@ def tier(s,t): return [x for x in SV[s]['tiers'] if x['id']==t][0]
 def vnd(n): return f'{n:,}'.replace(',','.')+' đ'
 def faq(items): return '<div class="faq">'+''.join(f'<details class="glass"><summary>{E(q)}</summary><p>{E(a)}</p></details>' for q,a in items)+'</div>'
 def head(k,h,p=''): return f'<div class="t rv"><span class="k">// {k}</span><h2>{h}</h2>'+(f'<p>{p}</p>' if p else '')+'</div>'
+def latest_blog(n=3):
+  out=[]
+  for f in sorted((R/'data/blog').glob('*.md')):
+    fm=f.read_text().split('---',2)[1]
+    t=re.search(r'^title:\s*"?(.*?)"?\s*$',fm,re.M).group(1); d=re.search(r'^date:\s*(\S+)',fm,re.M).group(1)
+    out.append((d,f.stem,t))
+  out.sort(key=lambda x:(x[0],x[1]),reverse=True)
+  return out[:n]
 def home():
   tg=lambda t:tier('thiet-ke-website',t)['time']
   li=[('dich-vu/thiet-ke-website.html','Thiết kế website','website giới thiệu, landing page, web bán hàng'),
@@ -24,7 +32,7 @@ def home():
   return ('<section class="soft" id="tron-goi"><div class="wrap">'+head('trọn gói','Thiết kế web trọn gói <span class="gt">gồm những&nbsp;gì?</span>')+
    '<div class="card glass rv svi"><p>Thiết kế web trọn gói ở My Agent nghĩa là một đầu mối lo từ đầu đến cuối: tư vấn cấu trúc trang, giao diện theo thương hiệu, lập trình responsive, SEO nền tảng (title, meta, sitemap, schema), gắn Google Maps/Zalo, rồi bàn giao và hướng dẫn quản trị. Tên miền, hosting và email doanh nghiệp có thể đăng ký kèm trong cùng combo.</p>'
    '<p>Peter (Nguyễn Văn Tùng) làm việc tại TP.HCM, trao đổi online qua Zalo, Google Meet và nhận khách toàn quốc. Zalo/điện thoại: <a href="tel:0328439972">0328 439 972</a>.</p></div>'
-   f'<div class="gap"></div><div class="grid g3">{cards}</div><div class="gap"></div>'+head('faq','Câu hỏi <span class="gt">thường&nbsp;gặp</span>')+faq(q)+'</div></section>')
+   f'<div class="gap"></div><div class="grid g3">{cards}</div><div class="gap"></div>'+'<p class="relx rv"><span class="mono">Bài mới trên Blog:</span> '+' '.join(f'<a href="blog/{u}.html">{E(t)}</a>' for _,u,t in latest_blog())+' <a href="blog.html">Xem tất cả bài viết</a></p><div class="gap"></div>'+head('faq','Câu hỏi <span class="gt">thường&nbsp;gặp</span>')+faq(q)+'</div></section>')
 def combo():
   r=P['rules']; cd=r['comboDiscount']
   parts=', '.join(f'{x["minServices"]} dịch vụ giảm {x["percent"]}%' if i==0 else (f'từ {x["minServices"]} dịch vụ {x["percent"]}%' if i==len(cd)-1 else f'{x["minServices"]} dịch vụ {x["percent"]}%') for i,x in enumerate(cd))

@@ -10,8 +10,8 @@ Quy tắc: từ khóa dùng tự nhiên trong title (≤60 ký tự), descriptio
 
 | Trang đích | Từ khóa chính | Từ khóa phụ / biến thể | Ý định tìm kiếm |
 |---|---|---|---|
-| `/` (trang chủ) | thiết kế web trọn gói | thiết kế web HCM, công ty thiết kế web HCM, thiết kế web giá rẻ, thiết kế website HCM, dịch vụ thiết kế web TP.HCM, My Agent | Thương mại – tìm đơn vị làm web |
-| `/dich-vu/thiet-ke-website.html` | thiết kế web chuyên nghiệp (v0.9.6) | thiết kế web theo yêu cầu, thiết kế website chuẩn SEO, thiết kế web bán hàng, thiết kế web doanh nghiệp, thiết kế web landing page, thiết kế web cho shop/cá nhân, làm website giá rẻ TPHCM, thiết kế web responsive, web có quản lý đơn hàng | Thương mại – so sánh, hỏi báo giá |
+| `/` (trang chủ) | thiết kế web trọn gói | thiết kế web HCM, công ty thiết kế web HCM, thiết kế website HCM, dịch vụ thiết kế web TP.HCM, My Agent | Thương mại – tìm đơn vị làm web |
+| `/dich-vu/thiet-ke-website.html` | thiết kế web chuyên nghiệp (v0.9.6) | thiết kế web giá rẻ (v0.9.29, title có TP.HCM), thiết kế web theo yêu cầu, thiết kế website chuẩn SEO, thiết kế web bán hàng, thiết kế web doanh nghiệp, thiết kế web landing page, thiết kế web cho shop/cá nhân, làm website giá rẻ TPHCM, thiết kế web responsive, web có quản lý đơn hàng | Thương mại – so sánh, hỏi báo giá |
 | `/dich-vu.html` | dịch vụ marketing online | dịch vụ marketing online tại HCM, dịch vụ số cho doanh nghiệp | Tìm hiểu tổng quan |
 | `/dich-vu/seo-tong-the.html` | dịch vụ SEO tổng thể | dịch vụ SEO tại HCM, SEO website | Thương mại |
 | `/dich-vu/quang-cao-google-facebook.html` | quảng cáo Google Ads, Facebook Ads | chạy quảng cáo Facebook tại HCM, dịch vụ Google Ads TP.HCM | Thương mại |
