@@ -18,8 +18,6 @@ FB_PAGE="https://www.facebook.com/myagentvn"
 ORG={"@type":"ProfessionalService","@id":BASE+"#org","name":"My Agent","url":BASE,
  "logo":{"@type":"ImageObject","@id":BASE+"#logo","url":BASE+"assets/icon-512.png","contentUrl":BASE+"assets/icon-512.png","width":512,"height":512,"caption":"My Agent"},
  "image":BASE+"assets/og-image.png","telephone":"+84328439972","email":"vantungn044@gmail.com","founder":{"@id":BASE+"#founder"},
- "address":{"@type":"PostalAddress","streetAddress":"262/22 Liên Khu 4-5","addressLocality":"Bình Tân","addressRegion":"Hồ Chí Minh","addressCountry":"VN"},
- "location":{"@type":"Place","name":"Công Ty Thiết Kế - In Ấn NASA","address":{"@type":"PostalAddress","streetAddress":"262/22 Liên Khu 4-5","addressLocality":"Bình Tân","addressRegion":"Hồ Chí Minh","addressCountry":"VN"}},
  "areaServed":[{"@type":"City","name":"Thành phố Hồ Chí Minh"},{"@type":"Country","name":"Việt Nam"}],
  "contactPoint":{"@type":"ContactPoint","telephone":"+84328439972","contactType":"customer service","areaServed":"VN","availableLanguage":["vi"]},
  "sameAs":[FB_PAGE]}
@@ -118,8 +116,8 @@ for f in pages:
     s=re.sub(rf'(<li class="[^"]*"><a href="{re.escape(p)}tra-cuu-tien-do.html"[^>]*>Tra cứu đơn</a></li>)',rf'<li class=""><a href="{p}tin-tuc.html"{on}>Tin tức</a></li>\1',s,count=1)
   if f'<a href="{p}tin-tuc.html">Tin tức công nghệ</a>' not in s:
     s=s.replace(f'<a href="{p}tra-cuu-tien-do.html">Tra cứu tiến độ</a>',f'<a href="{p}tin-tuc.html">Tin tức công nghệ</a><a href="{p}tra-cuu-tien-do.html">Tra cứu tiến độ</a>',1)
-  # địa chỉ (Peter 30/10): footer + trang Liên hệ (idempotent, thay dòng cũ)
-  ADDR='Công Ty Thiết Kế - In Ấn NASA, 262/22 Liên Khu 4-5, Bình Tân, Hồ Chí Minh, Việt Nam'
+  # khu vực phục vụ (v0.9.29, Peter duyệt 01/11: GBP dạng phục vụ tận nơi, không công khai địa chỉ cụ thể): footer + trang Liên hệ (idempotent, thay dòng cũ)
+  ADDR='Khu vực phục vụ: TP. Hồ Chí Minh và toàn Việt Nam'
   s=re.sub(r'<p class="ct-ad">.*?</p>','',s)
   if '<footer' in s:
     a,b=s.split('<footer',1)

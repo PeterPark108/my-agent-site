@@ -1,5 +1,11 @@
 # Nhật ký thay đổi
 
+## 0.9.34 - 2026-11-02 (NHÁP, chờ Peter duyệt)
+- Khôi phục bài tin 01/11 "Lỗ hổng GitLab điểm 10 đang bị khai thác thực tế" (`data/news/2026-11-01-gitlab-cve-2026-97229-cisa.md`, lấy nguyên từ commit 59b1e9e; bị xoá nhầm khi rollback #54). Dựng lại trang bài, tin-tuc, trang chủ đề, feed.xml, sitemap.
+- Thực thể (Peter duyệt 01/11, GBP dạng phục vụ tận nơi): bỏ `address`/`location` (262/22 Liên Khu 4-5, Bình Tân; "Công Ty Thiết Kế - In Ấn NASA") khỏi schema #org; giữ tên "My Agent", areaServed TP.HCM + Việt Nam, không giá, không MST. Dòng địa chỉ ở footer/trang Liên hệ đổi thành "Khu vực phục vụ: TP. Hồ Chí Minh và toàn Việt Nam" (tech_pass); câu trả lời liên hệ của trợ lý MJ bỏ địa chỉ (chat.src.js + chat.js, chatbot-kb dựng lại).
+- SEO trang Thiết kế website: title thêm "TP.HCM", description thêm "thiết kế web giá rẻ, chi phí hợp lý" (seo_pages.py); thêm FAQ "Thiết kế web giá rẻ ở My Agent nghĩa là gì?" (svc_data.py, vào FAQPage).
+- Link nội bộ tới Blog trong HTML ban đầu: trang chủ có dòng "Bài mới trên Blog" (3 bài mới nhất, tự lấy từ data/blog, seo_blocks.py); trang dịch vụ có "Bài viết liên quan" (thiết kế website → website chuyên nghiệp, chi phí làm website; SEO tổng thể → checklist SEO; Google Maps → Google Business Profile) qua svc_data.py/svc_deep.py. Không đổi intro 3D (js/intro3d.js giữ nguyên như production, 622.127 byte).
+
 ## 0.9.33 - 2026-11-02 (NHÁP, chờ Peter duyệt)
 - Giọng văn "đội ngũ" (Peter yêu cầu qua MJ): khối "về my agent" ở trang chủ và trang Về chúng tôi đổi từ giọng một người ("Một người làm…", "Tôi…", tên cá nhân) sang "My Agent / chúng tôi". Tiêu đề trang chủ thành "Làm thật, chịu trách nhiệm đến cùng"; đoạn giới thiệu tách 3 đoạn ngắn cho mobile, thêm "phản hồi trong giờ làm việc". Lead trang Về chúng tôi bỏ tên cá nhân.
 - FAQ 17 trang dịch vụ (scripts/svc_data.py → svc_deep.py, cả FAQPage JSON-LD): "Tôi …" (giọng nhà cung cấp) → "Chúng tôi …"; câu hỏi của khách bắt đầu bằng "Tôi" giữ nguyên.
