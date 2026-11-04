@@ -10,6 +10,7 @@
    chatbotEnabled: true = bật trợ lý MJ (góc dưới trái), false = tắt (hoặc ?chat=0). Xem docs/chatbot.md
    themeEnabled: true = bật giao diện sáng/tối (GĐ1). false = tắt cả nút lẫn theme, site về đúng nền tối hiện tại. Chạy lại scripts/tech_pass.py để gắn data-fx-theme="off" lên <html> (script chống nháy đọc cờ này trước khi vẽ).
    themeDefault: 'light' = lần đầu vào (chưa có lựa chọn đã lưu) dùng giao diện sáng. 'system' = theo prefers-color-scheme. Sau khi khách bấm nút thì nhớ localStorage. tech_pass gắn data-theme-default lên <html>.
+   GĐ0 (chỉ trang chủ, cờ data-fx-* = off là tắt): fxReveal chữ trồi theo cuộn; fxParallax parallax nhẹ; fxProgress thanh tiến trình; fxMagnet nút chính hút theo chuột; fxTilt nghiêng khung minh họa; fxLogo thả logo; fxColor lấy màu logo; fxSend mở liên hệ kèm ?nganh=&ten=; fxProcess quy trình 5 cảnh; fxProcessSnap snap proximity (mặc định tắt).
    gaId      : Google Analytics 4 Measurement ID (vd G-ABC123XYZ). Để '' = tắt. Khách có thể tự tắt đo lường tại chinh-sach-bao-mat.html (lưu localStorage 'myagent_ga_off'); tôn trọng Do Not Track / Global Privacy Control. */
 window.MYAGENT_CONFIG = {
   siteUrl: 'https://myagentvn.com/',
@@ -23,6 +24,16 @@ window.MYAGENT_CONFIG = {
   chatbotEnabled: true,
   themeEnabled: true,
   themeDefault: 'light',
+  fxReveal: true,
+  fxParallax: true,
+  fxProgress: true,
+  fxMagnet: true,
+  fxTilt: true,
+  fxLogo: true,
+  fxColor: true,
+  fxSend: true,
+  fxProcess: true,
+  fxProcessSnap: false,
   gaId: 'G-BZ5E2WMZLJ'
 };
 /* GA4 (v0.9.10): nguồn tải duy nhất cho mọi trang (tech_pass chèn config.js vào <head>). Tải async, không chặn hiển thị.

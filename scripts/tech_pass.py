@@ -49,6 +49,23 @@ def inject_theme(s):
     return a+b
   s=re.sub(r'<img (?![^>]*\blogo-dk\b)src="((?:\.\./|/)*assets/)logo-dark\.svg" alt="My Agent" width="(\d+)" height="(\d+)"([^>]*)>',logos,s)
   return s
+
+# GĐ0: cờ tắt nhanh trên trang chủ. off = hiệu ứng không chạy. Idempotent.
+FX_SPEC=[('reveal','fxReveal'),('parallax','fxParallax'),('progress','fxProgress'),('magnet','fxMagnet'),
+ ('tilt','fxTilt'),('logo','fxLogo'),('color','fxColor'),('send','fxSend'),('process','fxProcess'),('process-snap','fxProcessSnap')]
+def inject_fx(s, rel):
+  if rel!='index.html': return s
+  for attr,key in FX_SPEC:
+    val='on' if re.search(rf'{key}:\s*true', cfg) else 'off'
+    pat=rf'data-fx-{re.escape(attr)}="(?:on|off)"'
+    if re.search(pat, s):
+      s=re.sub(pat, f'data-fx-{attr}="{val}"', s, count=1)
+    else:
+      s=s.replace('<html lang="vi"', f'<html lang="vi" data-fx-{attr}="{val}"', 1)
+  for name in ('fx-scroll.js','fx-hero.js','fx-process.js'):
+    if f'js/{name}' not in s:
+      s=s.replace('</body>', f'<script src="js/{name}" defer></script></body>', 1)
+  return s
 pages=sorted([p for p in R.glob('*.html')]+list(R.glob('dich-vu/*.html'))+list(R.glob('tin-tuc/**/*.html'))+list(R.glob('blog/**/*.html')))
 # redirect stubs (noindex) are skipped: no head injection, not in sitemap
 pages=[p for p in pages if 'http-equiv="refresh"' not in p.read_text() and p.name!='404.html']
@@ -200,7 +217,7 @@ for f in pages:
   if '<footer' in s and FB_PAGE not in s.split('<footer',1)[1]:
     a,b=s.split('<footer',1)
     s=a+'<footer'+b.replace('rel="noopener">Chat Zalo</a></p>','rel="noopener">Chat Zalo</a> · <a href="'+FB_PAGE+'" target="_blank" rel="noopener" aria-label="Fanpage Facebook My Agent (mở tab mới)">Facebook</a></p>',1)
-  f.write_text(inject_theme(s))
+  f.write_text(inject_fx(inject_theme(s), rel))
 # 404: không qua head tech, chỉ cần config.js để đo lường (GA) – nguồn tải duy nhất (idempotent)
 f404=R/'404.html'
 if f404.exists():
@@ -236,5 +253,6 @@ for f in R.rglob('*.html'):
   t2=re.sub(r'(js/chat\.js)(\?v=[^"]*)?"',r'\1?v='+_V+'"',t2)
   t2=re.sub(r'(js/theme\.js)(\?v=[^"]*)?"',r'\1?v='+_V+'"',t2)
   t2=re.sub(r'(js/motion\.js)(\?v=[^"]*)?"',r'\1?v='+_V+'"',t2)
+  t2=re.sub(r'(js/fx-(?:scroll|hero|process)\.js)(\?v=[^"]*)?"',r'\1?v='+_V+'"',t2)
   t2=re.sub(r'(js/(?:combo-calculator|bang-gia|lien-he-prefill)\.js)(\?v=[^"]*)?"',r'\1?v='+_V+'"',t2)
   if t2!=t: f.write_text(t2)
