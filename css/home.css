@@ -19,6 +19,11 @@ html[data-theme=light] body.home{
 }
 body.home:before,body.home .glow-cursor{display:none}
 body.home .rv{opacity:1!important;transform:none!important;animation:none!important}
+html.fx-reveal .hx-await{opacity:0;transform:translateY(32px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+html.fx-reveal .hx-await.is-in{opacity:1;transform:none}
+html.fx-reveal .hx-await.rv{opacity:0!important;transform:translateY(32px)!important}
+html.fx-reveal .hx-await.rv.is-in{opacity:1!important;transform:none!important}
+@media(prefers-reduced-motion:reduce){html.fx-reveal .hx-await{opacity:1;transform:none;transition:none}}
 body.home .gt{background:none;-webkit-text-fill-color:currentColor;color:var(--hx-red);animation:none}
 body.home > header{border-bottom:1px solid var(--hx-line)}
 @media(max-width:960px){

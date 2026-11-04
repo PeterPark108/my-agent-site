@@ -30,6 +30,39 @@
   ambience();
   if(desk.addEventListener)desk.addEventListener('change',ambience);
   if(!flag('cosmos','homeCosmos'))d.classList.add('fx-cosmos-off');
+  /* Fade-in khi cuộn. Repo gốc: y 32px, 0.7s, power2.out, một lần (Motion.tsx data-reveal).
+     Không GSAP. Hero và thẻ concept không tham gia. Trong khung nhìn lúc tải thì hiện ngay. */
+  (function reveal(){
+    if(reduce||!flag('reveal','homeReveal')||d.getAttribute('data-fx-reveal')==='off')return;
+    if(!('IntersectionObserver' in window))return;
+    d.classList.add('fx-reveal');
+    var list=[].slice.call(document.querySelectorAll(
+      '.hx-section .hx-eye,.hx-section h2,.hx-section .hx-lead,.hx-section .section-heading>p,.service-row,.hx-steps li,.hx-faq-item,.hx-hud,.hx-contact form,.hx-prose,.hx-link,.hx-rel,.nw-home .t,.nw-track>article,.nw-all,body.home>footer .grid4>div'
+    )).filter(function(el){return !el.closest('.hx-hero,.hx-pin-zone,.hx-stack,.hx-card');});
+    var vh=window.innerHeight||800, wait=[];
+    list.forEach(function(el){
+      var r=el.getBoundingClientRect();
+      if(r.bottom>0&&r.top<vh*0.98){el.classList.add('is-in');return;}
+      var kids=el.parentElement?el.parentElement.children:[], idx=0, seen=0;
+      for(var i=0;i<kids.length;i++){
+        if(list.indexOf(kids[i])<0)continue;
+        if(kids[i]===el)idx=seen;
+        seen++;
+      }
+      el.style.transitionDelay=(Math.min(idx,6)*0.09)+'s';
+      el.classList.add('hx-await');
+      wait.push(el);
+    });
+    if(!wait.length)return;
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(en){
+        if(!en.isIntersecting)return;
+        en.target.classList.add('is-in');
+        io.unobserve(en.target);
+      });
+    },{rootMargin:'0px 0px -6% 0px',threshold:0.12});
+    wait.forEach(function(el){io.observe(el);});
+  })();
   /* Concept: repo gốc pin + scrub 0.65, end = 2.8 lần chiều cao màn hình, không snap.
      Một nấc (khóa 700ms) đổi một khung trong 0.62s. Hết khung thì không chặn cuộn. */
   var snapMq=matchMedia('(min-width:1050px) and (hover:hover) and (pointer:fine)');

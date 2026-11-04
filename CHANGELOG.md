@@ -1,5 +1,8 @@
 # Nhật ký thay đổi
 
+## 0.9.43 - 2026-11-04 (NHÁP — fade-in khi cuộn trang chủ)
+- Khối dưới màn hình hiện dần (opacity + trượt 32px, 0,7s, lệch nhẹ giữa thẻ cùng hàng), một lần, bằng IntersectionObserver. Không nạp GSAP. Hero và thẻ concept không tham gia. Tắt JS hoặc reduced-motion thì nội dung hiện sẵn. Cờ `homeReveal` / `data-fx-reveal`.
+
 ## 0.9.42 - 2026-11-04 (NHÁP — quả cầu hero và menu dính)
 - Quả cầu kính biến mất vì khung `.hx-art` rộng 0: `margin-inline: auto` làm cột co theo nội dung, mà quả cầu là phần tử tuyệt đối nên bị `overflow: hidden` cắt hết. Đặt `width: 100%`.
 - Header trang chủ về `position: sticky` (trước đó bị ghi đè thành `relative`). Nền kính mờ nằm ở lớp giả, không đặt `backdrop-filter` lên chính header để menu mobile `position: fixed` không bị giam.

@@ -16,7 +16,7 @@ HOME_THEME=_htd.group(1) if _htd else None
 def fx_attr(key):
   m=re.search(rf'{key}:\s*(true|false)',cfg)
   return 'off' if (m and m.group(1)=='false') else 'on'
-HOME_FX=[('cosmos',fx_attr('homeCosmos')),('orbit',fx_attr('homeOrbit')),('pin',fx_attr('homePin')),('glow-m',fx_attr('homeGlowM')),('snap',fx_attr('homeSnap'))]
+HOME_FX=[('cosmos',fx_attr('homeCosmos')),('orbit',fx_attr('homeOrbit')),('pin',fx_attr('homePin')),('glow-m',fx_attr('homeGlowM')),('snap',fx_attr('homeSnap')),('reveal',fx_attr('homeReveal'))]
 THEME_BOOT=('<script id="ma-theme-boot">(function(){var d=document.documentElement;if(d.getAttribute("data-fx-theme")==="off")return;'
  'var t;try{t=localStorage.getItem("ma-theme")}catch(e){}'
  'if(t!=="light"&&t!=="dark"){var def=d.getAttribute("data-theme-default")||"light";'

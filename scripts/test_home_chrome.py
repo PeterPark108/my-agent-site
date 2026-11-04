@@ -131,6 +131,61 @@ def run():
             print(path, ht)
             if abs(ht['top']) > 2:
                 fails.append(path + ' header ' + str(ht))
+        # fade-in: hero stays visible; a block below the fold starts hidden then fades
+        page.goto(BASE + 'index.html', wait_until='networkidle')
+        fade = page.evaluate('''() => {
+          const h1=document.querySelector('h1');
+          const row=document.querySelector('.service-row');
+          const card=document.querySelector('.hx-card');
+          const cs=getComputedStyle;
+          return {
+            reveal: document.documentElement.classList.contains('fx-reveal'),
+            h1op:+cs(h1).opacity, h1await:h1.classList.contains('hx-await'),
+            rowAwait:row.classList.contains('hx-await'), rowOp:+cs(row).opacity,
+            cardAwait:card.classList.contains('hx-await')
+          };
+        }''')
+        print('fade-start', fade)
+        if not fade['reveal'] or fade['h1op'] < 0.99 or fade['h1await'] or fade['cardAwait']:
+            fails.append('hero/concept reveal ' + str(fade))
+        if not fade['rowAwait'] or fade['rowOp'] > 0.05:
+            fails.append('service row should start hidden ' + str(fade))
+        page.locator('.service-row').first.scroll_into_view_if_needed()
+        page.wait_for_timeout(1200)
+        after = page.evaluate('''() => {
+          const row=document.querySelector('.service-row');
+          return {op:+getComputedStyle(row).opacity, shown:row.classList.contains('is-in')};
+        }''')
+        print('fade-after', after)
+        if after['op'] < 0.95 or not after['shown']:
+            fails.append('service row did not fade in ' + str(after))
+        ctx.close()
+        # reduced motion: nothing hidden
+        rctx = b.new_context(viewport={'width': 1280, 'height': 800}, reduced_motion='reduce')
+        rp = rctx.new_page()
+        rp.goto(BASE + 'index.html', wait_until='networkidle')
+        red = rp.evaluate('''() => ({
+          fx: document.documentElement.classList.contains('fx-reveal'),
+          op:+getComputedStyle(document.querySelector('.service-row')).opacity
+        })''')
+        print('reduced', red)
+        if red['fx'] or red['op'] < 0.99:
+            fails.append('reduced motion hid content ' + str(red))
+        rctx.close()
+        # no JS
+        nctx = b.new_context(viewport={'width': 1280, 'height': 800}, java_script_enabled=False)
+        np = nctx.new_page()
+        np.goto(BASE + 'index.html', wait_until='domcontentloaded')
+        np.wait_for_timeout(200)
+        nojs = np.evaluate('''() => ({
+          fx: document.documentElement.classList.contains('fx-reveal'),
+          await: document.querySelector('.service-row').classList.contains('hx-await'),
+          op:+getComputedStyle(document.querySelector('h1')).opacity
+        })''')
+        print('nojs', nojs)
+        if nojs['fx'] or nojs['await'] or nojs['op'] < 0.99:
+            fails.append('no-js hid content ' + str(nojs))
+        nctx.close()
         b.close()
     if fails:
         print('FAILED')
