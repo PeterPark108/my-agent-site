@@ -1,5 +1,49 @@
 # Nhật ký thay đổi
 
+## 0.9.46 - 2026-11-04 (NHÁP — khớp khối Giải pháp)
+- Khối 01 / Giải pháp theo kích thước đo trên repo gốc (hàng kính, gap 24px, chữ 13px, không gạch chân). Chữ dưới 12px của bản gốc nâng lên 12px. Số thứ tự trên nền sáng dùng #C42336 cho đủ tương phản.
+
+## 0.9.45 - 2026-11-04 (NHÁP — năm khung dự án phủ kín)
+- Khối “Dự án đã làm” còn 5 khung, một nấc một khung: NhàĐất Việt, XN Linh Kiện Máy In, Nhà Gió, NHỊP, Vũ trụ kỳ bí. Hướng Nghiệp 360 chỉ còn ở trang Dự án. Ảnh chụp trang đầu thật, phủ kín khung. Bỏ chú thích và đoạn mô tả trong khung. Link vũ trụ tạm là bản xem trước https://preview.myagentvn.com/vutru/ . Không sửa du-an.html.
+
+## 0.9.44 - 2026-11-04 (NHÁP — khung cuộn là dự án thật)
+- Bỏ Aurora, Orbit, Forma. Bốn khung là bốn sản phẩm mẫu đầu trang Dự án: Hướng Nghiệp 360, NHỊP, NhàĐất Việt, XN Linh Kiện Máy In. Ảnh và câu chữ lấy từ du-an.html. Nhà Gió vẫn ở trang Dự án. Giữ câu sản phẩm mẫu, không phải dự án làm cho khách hàng.
+
+## 0.9.43 - 2026-11-04 (NHÁP — fade-in khi cuộn trang chủ)
+- Khối dưới màn hình hiện dần (opacity + trượt 32px, 0,7s, lệch nhẹ giữa thẻ cùng hàng), một lần, bằng IntersectionObserver. Không nạp GSAP. Hero và thẻ concept không tham gia. Tắt JS hoặc reduced-motion thì nội dung hiện sẵn. Cờ `homeReveal` / `data-fx-reveal`.
+
+## 0.9.42 - 2026-11-04 (NHÁP — quả cầu hero và menu dính)
+- Quả cầu kính biến mất vì khung `.hx-art` rộng 0: `margin-inline: auto` làm cột co theo nội dung, mà quả cầu là phần tử tuyệt đối nên bị `overflow: hidden` cắt hết. Đặt `width: 100%`.
+- Header trang chủ về `position: sticky` (trước đó bị ghi đè thành `relative`). Nền kính mờ nằm ở lớp giả, không đặt `backdrop-filter` lên chính header để menu mobile `position: fixed` không bị giam.
+
+## 0.9.41 - 2026-11-04 (NHÁP — tin, giải pháp, video mô phỏng, một nấc một concept)
+- Tin công nghệ trang chủ: hết bề ngang, 4 thẻ trên desktop, cuộn ngang bằng scroll-snap. Nút "Xem bài trước" / "Xem bài sau". Tắt JS vẫn vuốt được. Nguồn vẫn là data/news (18 tin), không bịa bài.
+- Khối Giải pháp theo bố cục repo tham chiếu (tiêu đề hai dòng, icon kính, 3 hàng). Bỏ hẳn mục "sáu hướng ngành".
+- Khối liên hệ: khung mô phỏng tự vẽ (canvas), video mp4/webm, poster. Không phát khi giảm chuyển động, Save-Data, mạng 2g hoặc mobile. Ghi nguồn trên ghi-nguon.html. Mã cảnh: tools/video-hud/.
+- Concept: một nấc chuột đổi một khung (khoảng 0,62 giây) chỉ trong vùng đó. Hết khung thì cuộn ra bình thường. Cờ `homeSnap` / `data-fx-snap`. Repo gốc chỉ có pin + scrub dài (end = 2,8 lần chiều cao màn hình), không có một nấc = một khung.
+- Lighthouse mobile local (3 lần, cùng máy): Performance 97, accessibility 100, LCP 2,55 s, CLS 0,028, TBT khoảng 68 ms. LCP vẫn là đoạn dẫn hero; khoảng 82% là render delay. Chưa về mức ≤ 2,0 s.
+
+## 0.9.40 - 2026-11-04 (NHÁP — LCP trang chủ và liên kết nội bộ)
+- Trang chủ không chặn vẽ bằng style.min.css, home.css, fonts.css và config.js. CSS màn hình đầu nằm inline. Preload đúng 2 file Be Vietnam Pro 400 (latin và vietnamese).
+- Mobile: ít sao, bỏ blur quả cầu. Section dưới hero dùng content-visibility.
+- Thêm khối "Dịch vụ của chúng tôi" (text link) và lại nối sản phẩm mẫu.
+
+## 0.9.39 - 2026-11-04 (NHÁP, chờ Peter duyệt — trang chủ cosmos)
+- Làm lại trang chủ theo hướng cosmos (nền sao, hero quả cầu kính, 3 dịch vụ, concept minh họa, quy trình 4 bước, FAQ, form liên hệ). Giữ site tĩnh. Các trang khác không đổi nội dung.
+- Lần đầu vào riêng trang chủ dùng giao diện tối (`homeThemeDefault: 'dark'`). Các trang khác vẫn `themeDefault: 'light'`. Theme sáng của trang chủ có nền sáng, sao/nebula/kính đổi tông.
+- GSAP 3.15.1 tự host, chỉ trang chủ, chỉ khi ghim thẻ trên máy tính. Cờ `homeCosmos`, `homeOrbit`, `homePin`, `homeGlowM`.
+- Bỏ trên trang chủ: intro 3D, khối mạng nhện, lưới 18 dịch vụ, 4 combo chi tiết, 3 sản phẩm mẫu, khối tầm nhìn. FAQ, liên kết nội bộ, tin mới và form `/api/contact` giữ lại.
+
+## 0.9.38 - 2026-11-04 (NHÁP, chờ Peter duyệt — GĐ1 sửa intro tối)
+- Intro 3D: nền canvas (WebGL) đổi theo theme cả khi đang xem. Trước đó sự kiện theme không tới script intro, nên theme tối vẫn giữ nền tím-xanh nhạt của theme sáng trong khi chữ đã trắng. `?lite` và `?nogl` dùng nền CSS cùng bộ màu.
+- Lần đầu vào site mặc định giao diện sáng (`themeDefault: 'light'` trong js/config.js; `'system'` để theo máy). Lựa chọn sau khi bấm nút vẫn nhớ `ma-theme`. Nút header có chữ "Sáng"/"Tối".
+
+## 0.9.37 - 2026-11-04 (NHÁP, chờ Peter duyệt — GĐ1 theme)
+- Giao diện sáng/tối cho cả site: biến CSS theo vai trò, nút trên header, nhớ lựa chọn (`ma-theme`), lần đầu theo `prefers-color-scheme`, script trong `<head>` chống nháy. Hiệu ứng lan tròn (View Transitions); tắt khi trình duyệt không hỗ trợ hoặc giảm chuyển động.
+- Cờ rollback: `themeEnabled` trong `js/config.js` (chạy `python3 scripts/tech_pass.py` để gắn `data-fx-theme` lên `<html>`). Tắt thì không gắn `data-theme`, site dùng đúng nền tối cũ. `data-fx-theme-anim="off"` chỉ tắt hiệu ứng lan tròn.
+- Nút chữ trắng dùng nền đỏ/teal đủ tương phản AA (`#E2253C` / `#0B6F67`). Logo teal/đỏ giữ nguyên, đổi file logo sáng/tối. Intro 3D, chatbot, blog, tin, form, bảng giá theo theme. `?lite` và `?nogl` không đổi.
+- FAQ trang Thiết kế website: các câu còn chữ "Tôi" là câu hỏi của khách ("Tôi có tự sửa…"), không phải giọng My Agent. Giọng nhà cung cấp đã là "chúng tôi" từ 0.9.33 — không sửa câu hỏi của khách.
+
 ## 0.9.36 - 2026-11-03 (NHÁP, chờ Peter duyệt)
 - Blog mới (chủ đề chung cho mọi doanh nghiệp nhỏ): "Bảo mật website cơ bản cho doanh nghiệp nhỏ: 7 việc nên làm" (`data/blog/bao-mat-website-co-ban-cho-doanh-nghiep-nho.md`, category website, 7 việc, FAQ 3 câu, link nội bộ tới 3 bài blog, 1 bài tin, 4 trang dịch vụ, bảng giá, chính sách bảo mật; nguồn ngoài: web.dev, CISA, MDN). Dựng lại blog.html, blog/*.html, blog/feed.xml, sitemap.xml, chatbot-kb, khối "Bài mới trên Blog" trang chủ. Bump VERSION.
 

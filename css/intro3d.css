@@ -3,7 +3,8 @@
   position:relative;padding:0;height:calc(100vh - var(--hh,73px));height:calc(100svh - var(--hh,73px));min-height:520px;overflow:hidden;
   background:radial-gradient(60% 50% at 75% 40%,#0d3b4f 0,transparent 70%),radial-gradient(40% 40% at 90% 80%,#2a1a40 0,transparent 70%),var(--bg);color:var(--fg);isolation:isolate}
 #i3d *{box-sizing:border-box}
-#i3d-gl{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:0;opacity:0;transition:opacity .8s ease}
+#i3d-gl{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:0;opacity:0;transition:opacity .8s ease;background:#050b1a}
+html[data-theme=light] #i3d-gl,#i3d.light #i3d-gl{background:linear-gradient(90deg,#EFF2FB,#E4E0FA 55%,#CFC7F6)}
 #i3d.gl-ready #i3d-gl{opacity:1}
 #i3d .i3d-tools{position:absolute;z-index:6;top:14px;right:clamp(14px,3vw,40px);display:flex;gap:12px;align-items:center;font-size:13px}
 #i3d .count{color:var(--mut);font-variant-numeric:tabular-nums}#i3d .count b{color:var(--fg);font-weight:600}
@@ -58,13 +59,13 @@
 #i3d.nojs .scene{position:relative;inset:auto;padding:56px clamp(22px,7vw,120px)}
 #i3d.nojs .foot{position:static;opacity:1}
 #i3d.nojs .i3d-tools{display:none}
-/* sáng */
-#i3d.light{--bg:#eef5fb;--fg:#0b1a33;--mut:#3d4d66;--teal:#00897e;--coral:#d8402f;--cloud:#f4f3fde6;background:linear-gradient(90deg,#EFF2FB,#E4E0FA 55%,#CFC7F6)}
-#i3d.light .i3d-tools button{border-color:#0b1a3330;background:#ffffff90}
-#i3d.light .cta{color:#fff;background:#00897e;box-shadow:0 10px 30px #00897e44}
-#i3d.light .ghost{border-color:#0b1a3333;background:#ffffff80}
-#i3d.light .foot{background:#ffffffaa;border-top-color:#0b1a3315}
-#i3d.light .links a{border-bottom-color:#0b1a3325}
+/* sáng — theo theme cả site (data-theme) hoặc class .light cũ của intro */
+html[data-theme=light] #i3d,#i3d.light{--bg:#eef5fb;--fg:#0b1a33;--mut:#3d4d66;--teal:#0B6F67;--coral:#d8402f;--cloud:#f4f3fde6;background:linear-gradient(90deg,#EFF2FB,#E4E0FA 55%,#CFC7F6)}
+html[data-theme=light] #i3d .i3d-tools button,#i3d.light .i3d-tools button{border-color:#0b1a3330;background:#ffffff90}
+html[data-theme=light] #i3d .cta,#i3d.light .cta{color:#fff;background:#0B6F67;box-shadow:0 10px 30px #0B6F6744}
+html[data-theme=light] #i3d .ghost,#i3d.light .ghost{border-color:#0b1a3333;background:#ffffff80}
+html[data-theme=light] #i3d .foot,#i3d.light .foot{background:#ffffffaa;border-top-color:#0b1a3315}
+html[data-theme=light] #i3d .links a,#i3d.light .links a{border-bottom-color:#0b1a3325}
 @media (max-width:760px){
   #i3d{min-height:560px}
   #i3d .scene,#i3d .scene.right{align-items:flex-start;justify-content:flex-start;padding:62px 22px 56px}
@@ -95,4 +96,4 @@ html.i3d-top .mj-bub{display:none}
 /* v0.9.29 – hàng chấm là <nav>: chặn style nav của menu mobile site (nền tối, fixed, viền) */
 #i3d nav.dots{inset:auto;max-height:none;overflow:visible;background:none;backdrop-filter:none;-webkit-backdrop-filter:none;border:0;padding:0;margin:0;top:50%;right:clamp(14px,2vw,30px)}
 @media (max-width:760px){#i3d nav.dots{top:auto;bottom:14px;right:50%;padding:7px 12px;border-radius:99px;background:#050b1a66;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
-  #i3d.light nav.dots{background:#ffffff99;box-shadow:0 2px 10px #0b1a3314}}
+  html[data-theme=light] #i3d nav.dots,#i3d.light nav.dots{background:#ffffff99;box-shadow:0 2px 10px #0b1a3314}}

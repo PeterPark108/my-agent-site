@@ -8,6 +8,10 @@
    motionEnabled: true = bật hiệu ứng chuyển động toàn site, false = tắt (hoặc thêm ?motion=0 vào link). Xem docs/animation.md
    introEnabled: true = bật màn intro trang chủ (mỗi phiên 1 lần), false = tắt. Xem docs/intro.md
    chatbotEnabled: true = bật trợ lý MJ (góc dưới trái), false = tắt (hoặc ?chat=0). Xem docs/chatbot.md
+   themeEnabled: true = bật giao diện sáng/tối (GĐ1). false = tắt cả nút lẫn theme, site về đúng nền tối hiện tại. Chạy lại scripts/tech_pass.py để gắn data-fx-theme="off" lên <html> (script chống nháy đọc cờ này trước khi vẽ).
+   themeDefault: 'light' = lần đầu vào (chưa có lựa chọn đã lưu) dùng giao diện sáng. 'system' = theo prefers-color-scheme. 'dark' = giao diện tối. Sau khi khách bấm nút thì nhớ localStorage. tech_pass gắn data-theme-default lên <html>.
+   homeThemeDefault: chỉ trang chủ. 'dark' = lần đầu vào trang chủ (chưa lưu lựa chọn) dùng giao diện tối kiểu cosmos. Các trang khác vẫn theo themeDefault. Chạy lại scripts/tech_pass.py.
+   homeCosmos / homeOrbit / homePin / homeGlowM / homeSnap / homeReveal: cờ hiệu ứng trang chủ. false = tech_pass gắn data-fx-cosmos|orbit|pin|glow-m|snap|reveal="off". Tắt cosmos: bỏ sao/nebula. Tắt orbit: hai vòng đứng yên. Tắt pin: không ghim cuộn dài (fallback). Tắt glowM: chữ M không nhấp sáng. Tắt snap: không bắt một nấc chuột = một khung concept. Tắt reveal: không fade-in khi cuộn.
    gaId      : Google Analytics 4 Measurement ID (vd G-ABC123XYZ). Để '' = tắt. Khách có thể tự tắt đo lường tại chinh-sach-bao-mat.html (lưu localStorage 'myagent_ga_off'); tôn trọng Do Not Track / Global Privacy Control. */
 window.MYAGENT_CONFIG = {
   siteUrl: 'https://myagentvn.com/',
@@ -19,6 +23,15 @@ window.MYAGENT_CONFIG = {
   introEnabled: true,
   motionEnabled: true,
   chatbotEnabled: true,
+  themeEnabled: true,
+  themeDefault: 'light',
+  homeThemeDefault: 'dark',
+  homeCosmos: true,
+  homeOrbit: true,
+  homePin: true,
+  homeSnap: true,
+  homeReveal: true,
+  homeGlowM: true,
   gaId: 'G-BZ5E2WMZLJ'
 };
 /* GA4 (v0.9.10): nguồn tải duy nhất cho mọi trang (tech_pass chèn config.js vào <head>). Tải async, không chặn hiển thị.
