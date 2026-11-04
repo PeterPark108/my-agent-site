@@ -196,7 +196,9 @@ html.fx-glow .hx-touch{animation:hx-touch .5s ease-in-out infinite}
 .hx-faq-item{margin:0 0 12px;padding:18px 20px;border:1px solid var(--hx-line);border-radius:16px;background:var(--hx-panel)}
 .hx-faq-item summary{display:flex;justify-content:space-between;gap:16px;align-items:center;cursor:pointer;font-size:16px;font-weight:600;list-style:none}
 .hx-faq-item summary::-webkit-details-marker{display:none}
-.hx-faq-item summary span{font-size:22px;color:var(--hx-red)}
+body.home .hx-faq-item summary::marker{content:none}
+body.home .hx-faq-item summary:after{content:none;display:none}
+.hx-faq-item summary span{font-size:22px;color:var(--hx-red);line-height:1}
 .hx-faq-item[open] summary span{transform:rotate(45deg)}
 .hx-faq-item p{margin:12px 0 0;font-size:15px;line-height:1.7;color:var(--hx-muted)}
 
