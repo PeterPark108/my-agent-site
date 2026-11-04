@@ -20,8 +20,7 @@ html[data-theme=light] body.home{
 body.home:before,body.home .glow-cursor{display:none}
 body.home .rv{opacity:1!important;transform:none!important;animation:none!important}
 body.home .gt{background:none;-webkit-text-fill-color:currentColor;color:var(--hx-red);animation:none}
-body.home > header{background:#070b14;backdrop-filter:none;border-bottom:1px solid var(--hx-line)}
-html[data-theme=light] body.home > header{background:#F4F7FB}
+body.home > header{border-bottom:1px solid var(--hx-line)}
 @media(max-width:960px){
   body.home nav.open{background:#070b14;z-index:80;opacity:1}
   html[data-theme=light] body.home nav.open{background:#F7F9FC}
@@ -53,7 +52,9 @@ html.fx-cosmos-off .cosmos{display:none}
 html.fx-cosmos-live .cosmos-stars i{animation:hx-tw var(--tw) ease-in-out var(--td) infinite alternate}
 @keyframes hx-tw{to{opacity:.2;transform:scale(.7)}}
 
-body.home > header{position:relative;z-index:50}
+body.home > header{position:sticky;top:0;z-index:50;background:rgba(7,11,20,.82)}
+html[data-theme=light] body.home > header{background:rgba(244,247,251,.88)}
+body.home > header::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;backdrop-filter:blur(16px)}
 body.home main,body.home footer,.skip{position:relative;z-index:1}
 .hx-container{width:min(1280px,calc(100% - 40px));margin-inline:auto}
 .hx-section{padding:72px 0}
@@ -73,7 +74,7 @@ body.home .hx-actions .btn{min-height:44px;border-radius:999px}
 .hx-map a{display:inline-block;padding:6px 0;font-size:15px;line-height:1.45;color:var(--link);text-decoration:underline;text-underline-offset:3px}
 @media(max-width:700px){.hx-mapgrid{grid-template-columns:1fr}}
 .hx-hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:12px;align-items:center;min-height:calc(100svh - 120px)}
-.hx-art{position:relative;aspect-ratio:1.12;min-width:0;overflow:hidden}
+.hx-art{position:relative;width:100%;max-width:min(560px,100%);aspect-ratio:1.12;min-width:0;margin-inline:auto;overflow:hidden}
 .orb-halo{position:absolute;inset:16%;border-radius:50%;background:radial-gradient(circle,rgba(61,123,255,.18),transparent 70%);filter:blur(18px)}
 html[data-theme=light] .orb-halo{background:radial-gradient(circle,rgba(11,79,191,.16),transparent 70%)}
 .orbit-float{position:absolute;inset:14% 8%;pointer-events:none}

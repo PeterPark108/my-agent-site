@@ -1,5 +1,9 @@
 # Nhật ký thay đổi
 
+## 0.9.42 - 2026-11-04 (NHÁP — quả cầu hero và menu dính)
+- Quả cầu kính biến mất vì khung `.hx-art` rộng 0: `margin-inline: auto` làm cột co theo nội dung, mà quả cầu là phần tử tuyệt đối nên bị `overflow: hidden` cắt hết. Đặt `width: 100%`.
+- Header trang chủ về `position: sticky` (trước đó bị ghi đè thành `relative`). Nền kính mờ nằm ở lớp giả, không đặt `backdrop-filter` lên chính header để menu mobile `position: fixed` không bị giam.
+
 ## 0.9.41 - 2026-11-04 (NHÁP — tin, giải pháp, video mô phỏng, một nấc một concept)
 - Tin công nghệ trang chủ: hết bề ngang, 4 thẻ trên desktop, cuộn ngang bằng scroll-snap. Nút "Xem bài trước" / "Xem bài sau". Tắt JS vẫn vuốt được. Nguồn vẫn là data/news (18 tin), không bịa bài.
 - Khối Giải pháp theo bố cục repo tham chiếu (tiêu đề hai dòng, icon kính, 3 hàng). Bỏ hẳn mục "sáu hướng ngành".
