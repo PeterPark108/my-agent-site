@@ -1,5 +1,11 @@
 # Nhật ký thay đổi
 
+## 0.9.39 - 2026-11-04 (NHÁP, chờ Peter duyệt — trang chủ cosmos)
+- Làm lại trang chủ theo hướng cosmos (nền sao, hero quả cầu kính, 3 dịch vụ, concept minh họa, quy trình 4 bước, FAQ, form liên hệ). Giữ site tĩnh. Các trang khác không đổi nội dung.
+- Lần đầu vào riêng trang chủ dùng giao diện tối (`homeThemeDefault: 'dark'`). Các trang khác vẫn `themeDefault: 'light'`. Theme sáng của trang chủ có nền sáng, sao/nebula/kính đổi tông.
+- GSAP 3.15.1 tự host, chỉ trang chủ, chỉ khi ghim thẻ trên máy tính. Cờ `homeCosmos`, `homeOrbit`, `homePin`, `homeGlowM`.
+- Bỏ trên trang chủ: intro 3D, khối mạng nhện, lưới 18 dịch vụ, 4 combo chi tiết, 3 sản phẩm mẫu, khối tầm nhìn. FAQ, liên kết nội bộ, tin mới và form `/api/contact` giữ lại.
+
 ## 0.9.38 - 2026-11-04 (NHÁP, chờ Peter duyệt — GĐ1 sửa intro tối)
 - Intro 3D: nền canvas (WebGL) đổi theo theme cả khi đang xem. Trước đó sự kiện theme không tới script intro, nên theme tối vẫn giữ nền tím-xanh nhạt của theme sáng trong khi chữ đã trắng. `?lite` và `?nogl` dùng nền CSS cùng bộ màu.
 - Lần đầu vào site mặc định giao diện sáng (`themeDefault: 'light'` trong js/config.js; `'system'` để theo máy). Lựa chọn sau khi bấm nút vẫn nhớ `ma-theme`. Nút header có chữ "Sáng"/"Tối".
