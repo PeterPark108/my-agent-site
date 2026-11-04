@@ -11,6 +11,12 @@ BASE=re.search(r"siteUrl:\s*'([^']+)'",cfg).group(1)
 THEME_ON=re.search(r'themeEnabled:\s*true',cfg) is not None
 _td=re.search(r"themeDefault:\s*'(light|system|dark)'",cfg)
 THEME_DEFAULT=_td.group(1) if _td else 'light'
+_htd=re.search(r"homeThemeDefault:\s*'(light|system|dark)'",cfg)
+HOME_THEME=_htd.group(1) if _htd else None
+def fx_attr(key):
+  m=re.search(rf'{key}:\s*(true|false)',cfg)
+  return 'off' if (m and m.group(1)=='false') else 'on'
+HOME_FX=[('cosmos',fx_attr('homeCosmos')),('orbit',fx_attr('homeOrbit')),('pin',fx_attr('homePin')),('glow-m',fx_attr('homeGlowM'))]
 THEME_BOOT=('<script id="ma-theme-boot">(function(){var d=document.documentElement;if(d.getAttribute("data-fx-theme")==="off")return;'
  'var t;try{t=localStorage.getItem("ma-theme")}catch(e){}'
  'if(t!=="light"&&t!=="dark"){var def=d.getAttribute("data-theme-default")||"light";'
@@ -21,19 +27,20 @@ THEME_BTN=('<button type="button" class="theme-btn" aria-pressed="false" aria-la
  '<svg class="i theme-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M18.4 5.6 17 7M7 17l-1.4 1.4"/></svg>'
  '<svg class="i theme-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4 6.5 6.5 0 0 0 20 14.5z"/></svg>'
  '<span class="theme-lbl"></span></button>')
-def inject_theme(s):
+def inject_theme(s, theme_default=None):
   """Cờ data-fx-theme + script chống nháy + nút header + logo sáng. Idempotent."""
+  td=theme_default or THEME_DEFAULT
   val='on' if THEME_ON else 'off'
   if re.search(r'data-fx-theme="(?:on|off)"',s):
     s=re.sub(r'data-fx-theme="(?:on|off)"',f'data-fx-theme="{val}"',s,count=1)
   else:
-    s=s.replace('<html lang="vi">',f'<html lang="vi" data-fx-theme="{val}" data-fx-theme-anim="on" data-theme-default="{THEME_DEFAULT}">',1)
+    s=s.replace('<html lang="vi">',f'<html lang="vi" data-fx-theme="{val}" data-fx-theme-anim="on" data-theme-default="{td}">',1)
   if 'data-fx-theme-anim=' not in s:
     s=s.replace(f'data-fx-theme="{val}"',f'data-fx-theme="{val}" data-fx-theme-anim="on"',1)
   if 'data-theme-default=' in s:
-    s=re.sub(r'data-theme-default="[^"]*"',f'data-theme-default="{THEME_DEFAULT}"',s,count=1)
+    s=re.sub(r'data-theme-default="[^"]*"',f'data-theme-default="{td}"',s,count=1)
   else:
-    s=s.replace('data-fx-theme-anim="on"',f'data-fx-theme-anim="on" data-theme-default="{THEME_DEFAULT}"',1)
+    s=s.replace('data-fx-theme-anim="on"',f'data-fx-theme-anim="on" data-theme-default="{td}"',1)
   if 'id="ma-theme-boot"' in s:
     s=re.sub(r'<script id="ma-theme-boot">.*?</script>',THEME_BOOT,s,count=1,flags=re.S)
   else:
@@ -200,7 +207,15 @@ for f in pages:
   if '<footer' in s and FB_PAGE not in s.split('<footer',1)[1]:
     a,b=s.split('<footer',1)
     s=a+'<footer'+b.replace('rel="noopener">Chat Zalo</a></p>','rel="noopener">Chat Zalo</a> · <a href="'+FB_PAGE+'" target="_blank" rel="noopener" aria-label="Fanpage Facebook My Agent (mở tab mới)">Facebook</a></p>',1)
-  f.write_text(inject_theme(s))
+  td=HOME_THEME if rel=='index.html' and HOME_THEME else THEME_DEFAULT
+  if rel=='index.html':
+    for name,val in HOME_FX:
+      attr=f'data-fx-{name}'
+      if re.search(rf'{attr}="(?:on|off)"',s):
+        s=re.sub(rf'{attr}="(?:on|off)"',f'{attr}="{val}"',s,count=1)
+      else:
+        s=s.replace('<html lang="vi"',f'<html lang="vi" {attr}="{val}"',1)
+  f.write_text(inject_theme(s, td))
 # 404: không qua head tech, chỉ cần config.js để đo lường (GA) – nguồn tải duy nhất (idempotent)
 f404=R/'404.html'
 if f404.exists():
@@ -237,4 +252,12 @@ for f in R.rglob('*.html'):
   t2=re.sub(r'(js/theme\.js)(\?v=[^"]*)?"',r'\1?v='+_V+'"',t2)
   t2=re.sub(r'(js/motion\.js)(\?v=[^"]*)?"',r'\1?v='+_V+'"',t2)
   t2=re.sub(r'(js/(?:combo-calculator|bang-gia|lien-he-prefill)\.js)(\?v=[^"]*)?"',r'\1?v='+_V+'"',t2)
+  t2=re.sub(r'(css/home\.css)(\?v=[^"]*)?"',r'\1?v='+_V+'"',t2)
+  t2=re.sub(r'(js/home\.js)(\?v=[^"]*)?"',r'\1?v='+_V+'"',t2)
+  t2=re.sub(r'(js/vendor/gsap/(?:gsap|ScrollTrigger)\.min\.js)(\?v=[^"]*)?"',r'\1?v='+_V+'"',t2)
   if t2!=t: f.write_text(t2)
+hj=R/'js/home.js'
+if hj.exists():
+  t=hj.read_text(); t2=t
+  t2=re.sub(r'(js/vendor/gsap/(?:gsap|ScrollTrigger)\.min\.js)(\?v=[^"\']*)?',r'\1?v='+_V,t2)
+  if t2!=t: hj.write_text(t2)
