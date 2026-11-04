@@ -1,5 +1,11 @@
 # Nhật ký thay đổi
 
+## 0.9.37 - 2026-11-04 (NHÁP, chờ Peter duyệt — GĐ1 theme)
+- Giao diện sáng/tối cho cả site: biến CSS theo vai trò, nút trên header, nhớ lựa chọn (`ma-theme`), lần đầu theo `prefers-color-scheme`, script trong `<head>` chống nháy. Hiệu ứng lan tròn (View Transitions); tắt khi trình duyệt không hỗ trợ hoặc giảm chuyển động.
+- Cờ rollback: `themeEnabled` trong `js/config.js` (chạy `python3 scripts/tech_pass.py` để gắn `data-fx-theme` lên `<html>`). Tắt thì không gắn `data-theme`, site dùng đúng nền tối cũ. `data-fx-theme-anim="off"` chỉ tắt hiệu ứng lan tròn.
+- Nút chữ trắng dùng nền đỏ/teal đủ tương phản AA (`#E2253C` / `#0B6F67`). Logo teal/đỏ giữ nguyên, đổi file logo sáng/tối. Intro 3D, chatbot, blog, tin, form, bảng giá theo theme. `?lite` và `?nogl` không đổi.
+- FAQ trang Thiết kế website: các câu còn chữ "Tôi" là câu hỏi của khách ("Tôi có tự sửa…"), không phải giọng My Agent. Giọng nhà cung cấp đã là "chúng tôi" từ 0.9.33 — không sửa câu hỏi của khách.
+
 ## 0.9.36 - 2026-11-03 (NHÁP, chờ Peter duyệt)
 - Blog mới (chủ đề chung cho mọi doanh nghiệp nhỏ): "Bảo mật website cơ bản cho doanh nghiệp nhỏ: 7 việc nên làm" (`data/blog/bao-mat-website-co-ban-cho-doanh-nghiep-nho.md`, category website, 7 việc, FAQ 3 câu, link nội bộ tới 3 bài blog, 1 bài tin, 4 trang dịch vụ, bảng giá, chính sách bảo mật; nguồn ngoài: web.dev, CISA, MDN). Dựng lại blog.html, blog/*.html, blog/feed.xml, sitemap.xml, chatbot-kb, khối "Bài mới trên Blog" trang chủ. Bump VERSION.
 

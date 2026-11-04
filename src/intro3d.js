@@ -28,9 +28,15 @@ langBtn.addEventListener('click',()=>{
 });
 
 // ---------- theme ----------
-let LIGHT=root.classList.contains('light');const themeHooks=[];
-document.getElementById('i3d-theme').addEventListener('click',()=>{LIGHT=!LIGHT;root.classList.toggle('light',LIGHT);try{localStorage.setItem('ma-i3d-theme',LIGHT?'light':'dark')}catch(e){};themeHooks.forEach(f=>f())});
-window.__setTheme=l=>{if(l!==LIGHT)document.getElementById('i3d-theme').click()};
+let LIGHT=root.classList.contains('light')||document.documentElement.getAttribute('data-theme')==='light';
+if(LIGHT)root.classList.add('light');
+const themeHooks=[];
+function paintTheme(){root.classList.toggle('light',LIGHT);themeHooks.forEach(f=>f())}
+document.getElementById('i3d-theme').addEventListener('click',()=>{
+  if(window.MYAGENT_THEME){window.MYAGENT_THEME.toggle(document.getElementById('i3d-theme'));return}
+  LIGHT=!LIGHT;try{localStorage.setItem('ma-i3d-theme',LIGHT?'light':'dark')}catch(e){};paintTheme()});
+addEventListener('ma-theme',e=>{const on=e.detail==='light';if(on===LIGHT)return;LIGHT=on;paintTheme()});
+window.__setTheme=l=>{if(!!l!==LIGHT)document.getElementById('i3d-theme').click()};
 
 // ---------- chuyển cảnh từng nấc (snap) ----------
 const sections=[...root.querySelectorAll('.scene')];
