@@ -1,5 +1,8 @@
 # Nhật ký thay đổi
 
+## 0.9.47 - 2026-11-04 (NHÁP — bớt style trang chủ)
+- CSS cả site và font phụ nạp sau khi trang chủ tải xong. Đoạn dưới màn hình dùng content-visibility để khỏi layout sớm. Quả cầu, header dính, fade-in, khung dự án giữ nguyên.
+
 ## 0.9.46 - 2026-11-04 (NHÁP — khớp khối Giải pháp)
 - Khối 01 / Giải pháp theo kích thước đo trên repo gốc (hàng kính, gap 24px, chữ 13px, không gạch chân). Chữ dưới 12px của bản gốc nâng lên 12px. Số thứ tự trên nền sáng dùng #C42336 cho đủ tương phản.
 
