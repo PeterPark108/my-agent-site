@@ -1,5 +1,8 @@
 # Nhật ký thay đổi
 
+## 0.9.46 - 2026-11-04 (NHÁP — khớp khối Giải pháp)
+- Khối 01 / Giải pháp theo kích thước đo trên repo gốc (hàng kính, gap 24px, chữ 13px, không gạch chân). Chữ dưới 12px của bản gốc nâng lên 12px. Số thứ tự trên nền sáng dùng #C42336 cho đủ tương phản.
+
 ## 0.9.45 - 2026-11-04 (NHÁP — năm khung dự án phủ kín)
 - Khối “Dự án đã làm” còn 5 khung, một nấc một khung: NhàĐất Việt, XN Linh Kiện Máy In, Nhà Gió, NHỊP, Vũ trụ kỳ bí. Hướng Nghiệp 360 chỉ còn ở trang Dự án. Ảnh chụp trang đầu thật, phủ kín khung. Bỏ chú thích và đoạn mô tả trong khung. Link vũ trụ tạm là bản xem trước https://preview.myagentvn.com/vutru/ . Không sửa du-an.html.
 
