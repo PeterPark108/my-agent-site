@@ -1,5 +1,8 @@
 # Nhật ký thay đổi
 
+## 0.9.37 - 2026-11-04 (NHÁP, chờ Peter duyệt)
+- Blog mới (chủ đề chung cho mọi doanh nghiệp nhỏ): "Chọn tên miền và hosting cho doanh nghiệp nhỏ: cần biết gì" (`data/blog/chon-ten-mien-va-hosting-cho-doanh-nghiep-nho.md`, category website, 7 điều, FAQ 3 câu, link nội bộ tới 3 bài blog, 4 trang dịch vụ, bảng giá; nguồn ngoài: VNNIC, web.dev, Google Search Central). Dựng lại blog.html, blog/*.html, blog/feed.xml, sitemap.xml, chatbot-kb, khối "Bài mới trên Blog" trang chủ. Bump VERSION.
+
 ## 0.9.36 - 2026-11-03 (NHÁP, chờ Peter duyệt)
 - Blog mới (chủ đề chung cho mọi doanh nghiệp nhỏ): "Bảo mật website cơ bản cho doanh nghiệp nhỏ: 7 việc nên làm" (`data/blog/bao-mat-website-co-ban-cho-doanh-nghiep-nho.md`, category website, 7 việc, FAQ 3 câu, link nội bộ tới 3 bài blog, 1 bài tin, 4 trang dịch vụ, bảng giá, chính sách bảo mật; nguồn ngoài: web.dev, CISA, MDN). Dựng lại blog.html, blog/*.html, blog/feed.xml, sitemap.xml, chatbot-kb, khối "Bài mới trên Blog" trang chủ. Bump VERSION.
 
