@@ -1,5 +1,8 @@
 # Nhật ký thay đổi
 
+## 0.9.45 - 2026-11-04 (NHÁP — năm khung dự án phủ kín)
+- Khối “Dự án đã làm” còn 5 khung, một nấc một khung: NhàĐất Việt, XN Linh Kiện Máy In, Nhà Gió, NHỊP, Vũ trụ kỳ bí. Hướng Nghiệp 360 chỉ còn ở trang Dự án. Ảnh chụp trang đầu thật, phủ kín khung. Bỏ chú thích và đoạn mô tả trong khung. Link vũ trụ tạm là bản xem trước https://preview.myagentvn.com/vutru/ . Không sửa du-an.html.
+
 ## 0.9.44 - 2026-11-04 (NHÁP — khung cuộn là dự án thật)
 - Bỏ Aurora, Orbit, Forma. Bốn khung là bốn sản phẩm mẫu đầu trang Dự án: Hướng Nghiệp 360, NHỊP, NhàĐất Việt, XN Linh Kiện Máy In. Ảnh và câu chữ lấy từ du-an.html. Nhà Gió vẫn ở trang Dự án. Giữ câu sản phẩm mẫu, không phải dự án làm cho khách hàng.
 

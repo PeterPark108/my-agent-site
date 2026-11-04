@@ -297,3 +297,25 @@ html[data-theme=light] .hx-hud figcaption{color:#8E1D32}
   html.fx-snap .hx-card{transition:none}
   .hx-hud video{display:none}
 }
+/* Khung dự án: ảnh web phủ kín, nhãn và chấm đè lên */
+#trai-nghiem .hx-screen{padding:0;overflow:hidden}
+.hx-proj{position:relative}
+#trai-nghiem .hx-proj{padding:0;min-height:0;aspect-ratio:16/10;background:#05070F}
+html.fx-snap #trai-nghiem .hx-proj{aspect-ratio:auto}
+.hx-coverlink{position:absolute;inset:0;display:block;color:#F4F7FB;text-decoration:none}
+.hx-coverlink img{width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:0}
+.hx-covername{position:absolute;left:14px;bottom:14px;z-index:2;display:flex;align-items:center;gap:12px;max-width:calc(100% - 28px);padding:8px 14px;border-radius:999px;background:#0c1224;color:#F4F7FB;font-size:14px;line-height:1.3}
+.hx-covername b{font-weight:700}
+.hx-covername span{font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.hx-coverlink:focus-visible{outline:2px solid #F4F7FB;outline-offset:-4px}
+#trai-nghiem .hx-pin-tools{position:relative;z-index:6;margin:0 0 10px;pointer-events:auto}
+html.fx-snap #trai-nghiem .hx-pin-tools{position:absolute;top:auto;bottom:12px;left:auto;right:12px;width:max-content;margin:0;pointer-events:none}
+html.fx-snap #trai-nghiem .hx-pin-tools a{pointer-events:auto}
+html.fx-snap .hx-covername{max-width:46%}
+#trai-nghiem .hx-dot{background:#0c1224;color:#F4F7FB;border-color:rgba(244,247,251,.45)}
+#trai-nghiem .hx-dot[aria-selected="true"]{background:#E2253C;border-color:#E2253C;color:#fff}
+#trai-nghiem .hx-skip-pin{padding:0 14px;border-radius:999px;background:#0c1224;color:#F4F7FB;text-decoration:underline}
+@media(max-width:700px){
+  #trai-nghiem .hx-proj{padding:0}
+  #trai-nghiem .hx-pin-tools{flex-wrap:wrap;row-gap:8px}
+}
