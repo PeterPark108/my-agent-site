@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Cosmos HUD scene — nguồn tự tạo</title>
+<style>html,body{margin:0;background:#050b1a}canvas{display:block}</style>
+</head>
+<body>
+<canvas id="c" width="640" height="360"></canvas>
+<script>
+/* Cảnh tự vẽ cho video trang chủ. Không chữ, không số liệu, không tài sản bên thứ ba.
+   renderFrame(t) với t trong [0,1). Hết một vòng thì trùng khung đầu. */
+var canvas = document.getElementById('c');
+var ctx = canvas.getContext('2d');
+var W = 640, H = 360;
+function renderFrame(t) {
+  t = ((t % 1) + 1) % 1;
+  ctx.fillStyle = '#050b1a';
+  ctx.fillRect(0, 0, W, H);
+  ctx.strokeStyle = 'rgba(11,111,103,.45)';
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  for (var x = 0; x <= W; x += 32) { ctx.moveTo(x + 0.5, 0); ctx.lineTo(x + 0.5, H); }
+  for (var y = 0; y <= H; y += 32) { ctx.moveTo(0, y + 0.5); ctx.lineTo(W, y + 0.5); }
+  ctx.stroke();
+  var row = 14, travel = t * row * 6;
+  ctx.save();
+  ctx.beginPath(); ctx.rect(36, 28, 168, 304); ctx.clip();
+  for (var i = -2; i < 24; i++) {
+    var yy = 36 + i * row - (travel % row);
+    var w = 40 + ((i * 37) % 110);
+    ctx.fillStyle = (i % 7 === 0) ? '#E2253C' : '#0B6F67';
+    ctx.globalAlpha = 0.85;
+    ctx.fillRect(48, yy, w, 4);
+    ctx.fillStyle = '#2dd4bf';
+    ctx.fillRect(48 + w + 8, yy, 18 + ((i * 13) % 40), 4);
+  }
+  ctx.restore();
+  ctx.globalAlpha = 1;
+  var nodes = [];
+  for (var n = 0; n < 6; n++) {
+    var a = n / 6 * Math.PI * 2 + t * Math.PI * 2;
+    nodes.push([430 + Math.cos(a) * 150, 180 + Math.sin(a) * 92]);
+  }
+  ctx.strokeStyle = '#0B6F67';
+  ctx.lineWidth = 1.5;
+  ctx.beginPath();
+  for (var i = 0; i < nodes.length; i++) {
+    var b = nodes[(i + 1) % nodes.length];
+    ctx.moveTo(nodes[i][0], nodes[i][1]);
+    ctx.lineTo(b[0], b[1]);
+    ctx.moveTo(nodes[i][0], nodes[i][1]);
+    ctx.lineTo(430, 180);
+  }
+  ctx.stroke();
+  nodes.forEach(function (p, i) {
+    ctx.beginPath();
+    ctx.fillStyle = i === 0 ? '#E2253C' : '#2dd4bf';
+    ctx.arc(p[0], p[1], i === 0 ? 5 : 4, 0, Math.PI * 2);
+    ctx.fill();
+  });
+  ctx.strokeStyle = '#2dd4bf';
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  for (var x = 220; x <= 620; x += 4) {
+    var u = (x - 220) / 400;
+    var yy = 300 + Math.sin((u * 3 + t) * Math.PI * 2) * 16 + Math.sin((u * 7 - t * 2) * Math.PI * 2) * 6;
+    if (x === 220) ctx.moveTo(x, yy); else ctx.lineTo(x, yy);
+  }
+  ctx.stroke();
+  var pulse = 0.55 + 0.45 * Math.sin(t * Math.PI * 2);
+  ctx.strokeStyle = '#2dd4bf';
+  ctx.lineWidth = 2;
+  ctx.strokeRect(392, 148, 76, 64);
+  ctx.fillStyle = 'rgba(45,212,191,' + (0.08 + 0.12 * pulse) + ')';
+  ctx.fillRect(400, 156, 60, 48);
+  ctx.fillStyle = '#E2253C';
+  ctx.fillRect(448, 168, 6, 6);
+  var scan = H * (0.5 - 0.5 * Math.cos(t * Math.PI * 2));
+  var g = ctx.createLinearGradient(0, scan - 18, 0, scan + 8);
+  g.addColorStop(0, 'rgba(45,212,191,0)');
+  g.addColorStop(1, 'rgba(45,212,191,.18)');
+  ctx.fillStyle = g;
+  ctx.fillRect(0, scan - 18, W, 26);
+  return canvas.toDataURL('image/jpeg', 0.92).split(',')[1];
+}
+window.renderFrame = renderFrame;
+renderFrame(0);
+</script>
+</body>
+</html>

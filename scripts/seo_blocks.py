@@ -43,6 +43,59 @@ def home_faq():
      ('Bao lâu thì có website?',f'Theo bảng giá tham khảo: landing page {tg("landing")}, website giới thiệu {tg("gioi-thieu")}, website bán hàng {tg("ban-hang")}. Khoảng này chốt lại sau khi thống nhất phạm vi.'),
      ('Nên bắt đầu từ đâu?','Gửi mục tiêu, loại website và nội dung hiện có qua form hoặc Zalo. My Agent trao đổi để xác định phạm vi và báo giá, rồi phản hồi trong giờ làm việc.')]
   return ''.join(f'<details class="hx-faq-item"><summary>{E(qq)}<span aria-hidden="true">+</span></summary><p>{E(a)}</p></details>' for qq,a in q)
+def home_map():
+  """Liên kết nội bộ text ở cuối trang chủ, để crawler thấy dịch vụ/combo/dự án dù bố cục cosmos không còn lưới cũ."""
+  groups=[
+    ('Website và nền tảng',[
+      ('dich-vu.html','Tất cả dịch vụ'),
+      ('dich-vu/thiet-ke-website.html','Thiết kế website'),
+      ('dich-vu/hosting-seo.html','Hosting SEO'),
+      ('dich-vu/ten-mien.html','Tên miền'),
+      ('dich-vu/email-doanh-nghiep.html','Email doanh nghiệp'),
+      ('dich-vu/cham-soc-website.html','Chăm sóc website'),
+      ('combo.html','Combo dịch vụ'),
+      ('bang-gia.html','Bảng giá'),
+    ]),
+    ('Marketing và nội dung',[
+      ('dich-vu/seo-tong-the.html','SEO tổng thể'),
+      ('dich-vu/quang-cao-google-facebook.html','Quảng cáo Google, Facebook'),
+      ('dich-vu/traffic-user.html','Traffic User'),
+      ('dich-vu/google-maps.html','Google Maps'),
+      ('dich-vu/video-ai.html','Video'),
+      ('dich-vu/cham-soc-fanpage.html','Chăm sóc Fanpage'),
+      ('dich-vu/zalo-oa-mini-app.html','Zalo OA, Mini App'),
+      ('dich-vu/profile-doanh-nghiep.html','Profile doanh nghiệp'),
+    ]),
+    ('Phần mềm, pháp lý, trang khác',[
+      ('dich-vu/phan-tich-du-lieu.html','Phân tích dữ liệu'),
+      ('dich-vu/ky-thuat-du-lieu.html','Kỹ thuật dữ liệu'),
+      ('dich-vu/phan-mem-noi-bo.html','Phần mềm nội bộ'),
+      ('dich-vu/thiet-ke-app.html','Thiết kế app'),
+      ('dich-vu/bo-cong-thuong.html','Đăng ký Bộ Công Thương'),
+      ('du-an.html','Dự án mẫu'),
+      ('blog.html','Blog'),
+      ('tin-tuc.html','Tin tức'),
+      ('lien-he.html','Liên hệ'),
+      ('ve-chung-toi.html','Về chúng tôi'),
+      ('tra-cuu-tien-do.html','Tra cứu tiến độ'),
+      ('tai-nguyen-ai-agent.html','Tài nguyên'),
+      ('cong-cu.html','Công cụ miễn phí'),
+      ('ghi-nguon.html','Ghi nguồn'),
+      ('chinh-sach-bao-mat.html','Chính sách bảo mật'),
+    ]),
+  ]
+  cols=''.join('<div><p class="hx-eye">'+E(title)+'</p><ul class="hx-map">'+''.join(f'<li><a href="{u}">{E(n)}</a></li>' for u,n in items)+'</ul></div>' for title,items in groups)
+  demos=('Sản phẩm mẫu do Peter tự làm để minh họa năng lực, không phải dự án làm cho khách hàng. '
+         '<a href="https://huongnghiep.myagentvn.com">Hướng Nghiệp 360, bản chạy</a> · '
+         '<a href="https://github.com/PeterPark108/huong-nghiep-360">mã nguồn Hướng Nghiệp 360</a> · '
+         '<a href="https://nhip-shoe-shop.onrender.com">NHỊP, bản chạy</a> · '
+         '<a href="https://github.com/PeterPark108/nhip-shoe-shop">mã nguồn NHỊP</a> · '
+         '<a href="https://github.com/PeterPark108/nhadat-viet-demo">NhàĐất Việt, mã nguồn</a> · '
+         '<a href="du-an.html">trang Dự án</a>.')
+  return ('<section class="hx-section hx-mapsec" id="dich-vu-chung-toi" aria-labelledby="map-title"><div class="hx-container">'
+          '<p class="hx-eye">Liên kết</p><h2 id="map-title">Dịch vụ của chúng tôi</h2>'
+          '<p class="hx-lead">Một đầu mối cho website, marketing và dữ liệu. Mỗi mục dưới đây là một trang riêng.</p>'
+          f'<div class="hx-mapgrid">{cols}</div><p class="hx-note">{demos}</p></div></section>')
 def combo():
   r=P['rules']; cd=r['comboDiscount']
   parts=', '.join(f'{x["minServices"]} dịch vụ giảm {x["percent"]}%' if i==0 else (f'từ {x["minServices"]} dịch vụ {x["percent"]}%' if i==len(cd)-1 else f'{x["minServices"]} dịch vụ {x["percent"]}%') for i,x in enumerate(cd))
@@ -60,4 +113,4 @@ def put(f,bid,body):
   if n!=s: p.write_text(n); return 1
   return 0
 if __name__=='__main__':
-  print('seo_blocks: cập nhật',put('index.html','tron-goi',home())+put('index.html','home-faq',home_faq())+put('combo.html','combo-intro',combo()),'file')
+  print('seo_blocks: cập nhật',put('index.html','tron-goi',home())+put('index.html','home-faq',home_faq())+put('index.html','home-map',home_map())+put('combo.html','combo-intro',combo()),'file')

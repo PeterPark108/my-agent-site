@@ -16,7 +16,7 @@ HOME_THEME=_htd.group(1) if _htd else None
 def fx_attr(key):
   m=re.search(rf'{key}:\s*(true|false)',cfg)
   return 'off' if (m and m.group(1)=='false') else 'on'
-HOME_FX=[('cosmos',fx_attr('homeCosmos')),('orbit',fx_attr('homeOrbit')),('pin',fx_attr('homePin')),('glow-m',fx_attr('homeGlowM'))]
+HOME_FX=[('cosmos',fx_attr('homeCosmos')),('orbit',fx_attr('homeOrbit')),('pin',fx_attr('homePin')),('glow-m',fx_attr('homeGlowM')),('snap',fx_attr('homeSnap'))]
 THEME_BOOT=('<script id="ma-theme-boot">(function(){var d=document.documentElement;if(d.getAttribute("data-fx-theme")==="off")return;'
  'var t;try{t=localStorage.getItem("ma-theme")}catch(e){}'
  'if(t!=="light"&&t!=="dark"){var def=d.getAttribute("data-theme-default")||"light";'
@@ -126,7 +126,7 @@ for f in pages:
    f'<link rel="icon" href="{p}assets/favicon.svg" type="image/svg+xml"><link rel="icon" href="{p}assets/favicon-32.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="{p}assets/apple-touch-icon.png"><link rel="manifest" href="{p}site.webmanifest">',
    f'<meta property="og:type" content="{ogt}"><meta property="og:locale" content="vi_VN"><meta property="og:site_name" content="My Agent"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:url" content="{url}"><meta property="og:image" content="{ogi}">'+('<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">' if not im else '')+f'',
    f'<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{e(title)}"><meta name="twitter:description" content="{e(desc)}"><meta name="twitter:image" content="{ogi}">',
-   f'<script src="{p}js/config.js"></script><script src="{p}js/theme.js" defer></script><script src="{p}js/motion.js" defer></script><script src="{p}js/chat.js" defer></script>']
+   f'<script src="{p}js/config.js"{" defer" if rel=="index.html" else ""}></script><script src="{p}js/theme.js" defer></script><script src="{p}js/motion.js" defer></script><script src="{p}js/chat.js" defer></script>']
   # v0.9.28: trang chủ dùng màn intro 3D (#i3d trong body, js/intro3d.js tải sau sự kiện load); bỏ overlay intro.js 6,5s cũ
   if rel in NOINDEX: head.insert(0,'<meta name="robots" content="noindex, follow">')
   for ld in jsonld(rel,url,s,desc): head.append('<script type="application/ld+json">'+json.dumps(ld,ensure_ascii=False)+'</script>')

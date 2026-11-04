@@ -1,5 +1,17 @@
 # Nhật ký thay đổi
 
+## 0.9.41 - 2026-11-04 (NHÁP — tin, giải pháp, video mô phỏng, một nấc một concept)
+- Tin công nghệ trang chủ: hết bề ngang, 4 thẻ trên desktop, cuộn ngang bằng scroll-snap. Nút "Xem bài trước" / "Xem bài sau". Tắt JS vẫn vuốt được. Nguồn vẫn là data/news (18 tin), không bịa bài.
+- Khối Giải pháp theo bố cục repo tham chiếu (tiêu đề hai dòng, icon kính, 3 hàng). Bỏ hẳn mục "sáu hướng ngành".
+- Khối liên hệ: khung mô phỏng tự vẽ (canvas), video mp4/webm, poster. Không phát khi giảm chuyển động, Save-Data, mạng 2g hoặc mobile. Ghi nguồn trên ghi-nguon.html. Mã cảnh: tools/video-hud/.
+- Concept: một nấc chuột đổi một khung (khoảng 0,62 giây) chỉ trong vùng đó. Hết khung thì cuộn ra bình thường. Cờ `homeSnap` / `data-fx-snap`. Repo gốc chỉ có pin + scrub dài (end = 2,8 lần chiều cao màn hình), không có một nấc = một khung.
+- Lighthouse mobile local (3 lần, cùng máy): Performance 97, accessibility 100, LCP 2,55 s, CLS 0,028, TBT khoảng 68 ms. LCP vẫn là đoạn dẫn hero; khoảng 82% là render delay. Chưa về mức ≤ 2,0 s.
+
+## 0.9.40 - 2026-11-04 (NHÁP — LCP trang chủ và liên kết nội bộ)
+- Trang chủ không chặn vẽ bằng style.min.css, home.css, fonts.css và config.js. CSS màn hình đầu nằm inline. Preload đúng 2 file Be Vietnam Pro 400 (latin và vietnamese).
+- Mobile: ít sao, bỏ blur quả cầu. Section dưới hero dùng content-visibility.
+- Thêm khối "Dịch vụ của chúng tôi" (text link) và lại nối sản phẩm mẫu.
+
 ## 0.9.39 - 2026-11-04 (NHÁP, chờ Peter duyệt — trang chủ cosmos)
 - Làm lại trang chủ theo hướng cosmos (nền sao, hero quả cầu kính, 3 dịch vụ, concept minh họa, quy trình 4 bước, FAQ, form liên hệ). Giữ site tĩnh. Các trang khác không đổi nội dung.
 - Lần đầu vào riêng trang chủ dùng giao diện tối (`homeThemeDefault: 'dark'`). Các trang khác vẫn `themeDefault: 'light'`. Theme sáng của trang chủ có nền sáng, sao/nebula/kính đổi tông.

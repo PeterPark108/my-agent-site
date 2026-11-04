@@ -11,7 +11,7 @@
    themeEnabled: true = bật giao diện sáng/tối (GĐ1). false = tắt cả nút lẫn theme, site về đúng nền tối hiện tại. Chạy lại scripts/tech_pass.py để gắn data-fx-theme="off" lên <html> (script chống nháy đọc cờ này trước khi vẽ).
    themeDefault: 'light' = lần đầu vào (chưa có lựa chọn đã lưu) dùng giao diện sáng. 'system' = theo prefers-color-scheme. 'dark' = giao diện tối. Sau khi khách bấm nút thì nhớ localStorage. tech_pass gắn data-theme-default lên <html>.
    homeThemeDefault: chỉ trang chủ. 'dark' = lần đầu vào trang chủ (chưa lưu lựa chọn) dùng giao diện tối kiểu cosmos. Các trang khác vẫn theo themeDefault. Chạy lại scripts/tech_pass.py.
-   homeCosmos / homeOrbit / homePin / homeGlowM: cờ hiệu ứng nặng của trang chủ. false = tech_pass gắn data-fx-cosmos|orbit|pin|glow-m="off". Tắt cosmos: bỏ sao/nebula. Tắt orbit: hai vòng đứng yên. Tắt pin: ba thẻ concept xếp tĩnh, không ghim cuộn. Tắt glowM: chữ M không nhấp sáng.
+   homeCosmos / homeOrbit / homePin / homeGlowM / homeSnap: cờ hiệu ứng nặng của trang chủ. false = tech_pass gắn data-fx-cosmos|orbit|pin|glow-m|snap="off". Tắt cosmos: bỏ sao/nebula. Tắt orbit: hai vòng đứng yên. Tắt pin: không ghim cuộn dài (fallback). Tắt glowM: chữ M không nhấp sáng. Tắt snap: không bắt một nấc chuột = một khung concept.
    gaId      : Google Analytics 4 Measurement ID (vd G-ABC123XYZ). Để '' = tắt. Khách có thể tự tắt đo lường tại chinh-sach-bao-mat.html (lưu localStorage 'myagent_ga_off'); tôn trọng Do Not Track / Global Privacy Control. */
 window.MYAGENT_CONFIG = {
   siteUrl: 'https://myagentvn.com/',
@@ -29,6 +29,7 @@ window.MYAGENT_CONFIG = {
   homeCosmos: true,
   homeOrbit: true,
   homePin: true,
+  homeSnap: true,
   homeGlowM: true,
   gaId: 'G-BZ5E2WMZLJ'
 };
