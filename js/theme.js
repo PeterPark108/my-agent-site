@@ -4,10 +4,11 @@ if(d.getAttribute("data-fx-theme")==="off"||C.themeEnabled===false){d.removeAttr
 var K="ma-theme";
 function cur(){return d.getAttribute("data-theme")==="light"?"light":"dark"}
 function sync(t){var b=document.querySelector(".theme-btn"),dark=t!=="light";
-if(b){b.setAttribute("aria-pressed",dark?"true":"false");b.setAttribute("aria-label",dark?"Chuyển sang giao diện sáng":"Chuyển sang giao diện tối");var s=b.querySelector(".theme-lbl");if(s)s.textContent=dark?"Giao diện tối":"Giao diện sáng"}
+if(b){b.setAttribute("aria-pressed",dark?"true":"false");b.setAttribute("aria-label",dark?"Chuyển sang giao diện sáng":"Chuyển sang giao diện tối")}
 var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute("content",dark?"#05070F":"#F4F7FB");
 var i3=document.getElementById("i3d");if(i3)i3.classList.toggle("light",!dark);
-try{document.dispatchEvent(new CustomEvent("ma-theme",{detail:t}))}catch(e){}}
+try{if(window.__syncIntroTheme)window.__syncIntroTheme(t)}catch(e){}
+try{document.dispatchEvent(new CustomEvent("ma-theme",{detail:t,bubbles:true}))}catch(e){}}
 function apply(t){d.setAttribute("data-theme",t);d.style.colorScheme=t;try{localStorage.setItem(K,t)}catch(e){}sync(t)}
 function go(t,x,y){var reduce=matchMedia("(prefers-reduced-motion: reduce)").matches,off=d.getAttribute("data-fx-theme-anim")==="off";
 if(reduce||off||!document.startViewTransition){apply(t);return}

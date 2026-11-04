@@ -32,10 +32,17 @@ let LIGHT=root.classList.contains('light')||document.documentElement.getAttribut
 if(LIGHT)root.classList.add('light');
 const themeHooks=[];
 function paintTheme(){root.classList.toggle('light',LIGHT);themeHooks.forEach(f=>f())}
+function syncIntroTheme(detail){
+  const on=detail?detail==='light':document.documentElement.getAttribute('data-theme')==='light';
+  if(on===LIGHT){root.classList.toggle('light',on);return}
+  LIGHT=on;paintTheme();
+}
 document.getElementById('i3d-theme').addEventListener('click',()=>{
   if(window.MYAGENT_THEME){window.MYAGENT_THEME.toggle(document.getElementById('i3d-theme'));return}
   LIGHT=!LIGHT;try{localStorage.setItem('ma-i3d-theme',LIGHT?'light':'dark')}catch(e){};paintTheme()});
-addEventListener('ma-theme',e=>{const on=e.detail==='light';if(on===LIGHT)return;LIGHT=on;paintTheme()});
+document.addEventListener('ma-theme',e=>syncIntroTheme(e.detail));
+window.__syncIntroTheme=syncIntroTheme;
+new MutationObserver(()=>syncIntroTheme()).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
 window.__setTheme=l=>{if(!!l!==LIGHT)document.getElementById('i3d-theme').click()};
 
 // ---------- chuyển cảnh từng nấc (snap) ----------
@@ -311,12 +318,13 @@ const camZ=i=>-i*D+(MOBILE?(i===END?9:10.5):9);
 let p=0,mx=0,my=0,tmx=0,tmy=0;
 addEventListener('pointermove',e=>{tmx=e.clientX/innerWidth-.5;tmy=e.clientY/innerHeight-.5},{passive:true});
 const lightBg=(()=>{const c=document.createElement('canvas');c.width=256;c.height=4;const x=c.getContext('2d');const g=x.createLinearGradient(0,0,256,0);g.addColorStop(0,'#EFF2FB');g.addColorStop(.55,'#E4E0FA');g.addColorStop(1,'#CFC7F6');x.fillStyle=g;x.fillRect(0,0,256,4);const t=new CanvasTexture(c);t.colorSpace=SRGBColorSpace;return t})();
+const darkBg=new Color(0x050b1a);
 let GK=1;const WEAK=WEAK0();
 const composer=new EffectComposer(renderer);composer.addPass(new RenderPass(scene,camera));
 const bloom=new UnrealBloomPass(new Vector2(256,256),MOBILE?.22:.3,.3,.96);composer.addPass(bloom);composer.addPass(new OutputPass());
 let useBloom=!WEAK;
 function applyTheme(){
-  scene.background=LIGHT?lightBg:null;
+  scene.background=LIGHT?lightBg:darkBg;
   coreLines.forEach(m=>{m.color.setHex(LIGHT?0x8fe0ff:0xa8e8ff).multiplyScalar(LIGHT?1:1.1)});
   shadowMats.forEach(m=>{m.blending=LIGHT?NormalBlending:AdditiveBlending;m.userData.op=LIGHT?.55:.22;m.needsUpdate=true});
   glows.forEach(m=>{m.blending=LIGHT?NormalBlending:AdditiveBlending;m.needsUpdate=true});

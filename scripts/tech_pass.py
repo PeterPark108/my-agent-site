@@ -9,25 +9,38 @@ R=pathlib.Path(__file__).resolve().parent.parent
 cfg=(R/'js/config.js').read_text()
 BASE=re.search(r"siteUrl:\s*'([^']+)'",cfg).group(1)
 THEME_ON=re.search(r'themeEnabled:\s*true',cfg) is not None
+_td=re.search(r"themeDefault:\s*'(light|system|dark)'",cfg)
+THEME_DEFAULT=_td.group(1) if _td else 'light'
 THEME_BOOT=('<script id="ma-theme-boot">(function(){var d=document.documentElement;if(d.getAttribute("data-fx-theme")==="off")return;'
- 'var t;try{t=localStorage.getItem("ma-theme")}catch(e){}if(t!=="light"&&t!=="dark")try{t=matchMedia("(prefers-color-scheme:light)").matches?"light":"dark"}catch(e){t="dark"}'
+ 'var t;try{t=localStorage.getItem("ma-theme")}catch(e){}'
+ 'if(t!=="light"&&t!=="dark"){var def=d.getAttribute("data-theme-default")||"light";'
+ 'if(def==="system"){try{t=matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"}catch(e){t="light"}}'
+ 'else t=def==="dark"?"dark":"light"}'
  'd.setAttribute("data-theme",t);d.style.colorScheme=t;var m=document.querySelector(\'meta[name="theme-color"]\');if(m)m.setAttribute("content",t==="light"?"#F4F7FB":"#05070F")})();</script>')
-THEME_BTN=('<button type="button" class="theme-btn" aria-pressed="true" aria-label="Chuyển sang giao diện sáng">'
- '<svg class="i theme-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4 6.5 6.5 0 0 0 20 14.5z"/></svg>'
+THEME_BTN=('<button type="button" class="theme-btn" aria-pressed="false" aria-label="Chuyển sang giao diện tối">'
  '<svg class="i theme-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M18.4 5.6 17 7M7 17l-1.4 1.4"/></svg>'
- '<span class="sr theme-lbl">Giao diện tối</span></button>')
+ '<svg class="i theme-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4 6.5 6.5 0 0 0 20 14.5z"/></svg>'
+ '<span class="theme-lbl"></span></button>')
 def inject_theme(s):
   """Cờ data-fx-theme + script chống nháy + nút header + logo sáng. Idempotent."""
   val='on' if THEME_ON else 'off'
   if re.search(r'data-fx-theme="(?:on|off)"',s):
     s=re.sub(r'data-fx-theme="(?:on|off)"',f'data-fx-theme="{val}"',s,count=1)
   else:
-    s=s.replace('<html lang="vi">',f'<html lang="vi" data-fx-theme="{val}" data-fx-theme-anim="on">',1)
+    s=s.replace('<html lang="vi">',f'<html lang="vi" data-fx-theme="{val}" data-fx-theme-anim="on" data-theme-default="{THEME_DEFAULT}">',1)
   if 'data-fx-theme-anim=' not in s:
     s=s.replace(f'data-fx-theme="{val}"',f'data-fx-theme="{val}" data-fx-theme-anim="on"',1)
-  if 'id="ma-theme-boot"' not in s:
+  if 'data-theme-default=' in s:
+    s=re.sub(r'data-theme-default="[^"]*"',f'data-theme-default="{THEME_DEFAULT}"',s,count=1)
+  else:
+    s=s.replace('data-fx-theme-anim="on"',f'data-fx-theme-anim="on" data-theme-default="{THEME_DEFAULT}"',1)
+  if 'id="ma-theme-boot"' in s:
+    s=re.sub(r'<script id="ma-theme-boot">.*?</script>',THEME_BOOT,s,count=1,flags=re.S)
+  else:
     s=re.sub(r'(<link rel="(?:preload|stylesheet)")',THEME_BOOT+r'\1',s,count=1)
-  if 'class="theme-btn"' not in s and '<button class="burger"' in s:
+  if 'class="theme-btn"' in s:
+    s=re.sub(r'<button type="button" class="theme-btn"[\s\S]*?</button>',THEME_BTN,s,count=1)
+  elif '<button class="burger"' in s:
     s=s.replace('<button class="burger"',THEME_BTN+'<button class="burger"',1)
   def logos(m):
     pre,w,h,rest=m.groups()

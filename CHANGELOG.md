@@ -1,5 +1,9 @@
 # Nhật ký thay đổi
 
+## 0.9.38 - 2026-11-04 (NHÁP, chờ Peter duyệt — GĐ1 sửa intro tối)
+- Intro 3D: nền canvas (WebGL) đổi theo theme cả khi đang xem. Trước đó sự kiện theme không tới script intro, nên theme tối vẫn giữ nền tím-xanh nhạt của theme sáng trong khi chữ đã trắng. `?lite` và `?nogl` dùng nền CSS cùng bộ màu.
+- Lần đầu vào site mặc định giao diện sáng (`themeDefault: 'light'` trong js/config.js; `'system'` để theo máy). Lựa chọn sau khi bấm nút vẫn nhớ `ma-theme`. Nút header có chữ "Sáng"/"Tối".
+
 ## 0.9.37 - 2026-11-04 (NHÁP, chờ Peter duyệt — GĐ1 theme)
 - Giao diện sáng/tối cho cả site: biến CSS theo vai trò, nút trên header, nhớ lựa chọn (`ma-theme`), lần đầu theo `prefers-color-scheme`, script trong `<head>` chống nháy. Hiệu ứng lan tròn (View Transitions); tắt khi trình duyệt không hỗ trợ hoặc giảm chuyển động.
 - Cờ rollback: `themeEnabled` trong `js/config.js` (chạy `python3 scripts/tech_pass.py` để gắn `data-fx-theme` lên `<html>`). Tắt thì không gắn `data-theme`, site dùng đúng nền tối cũ. `data-fx-theme-anim="off"` chỉ tắt hiệu ứng lan tròn.

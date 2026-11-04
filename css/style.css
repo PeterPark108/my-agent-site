@@ -659,14 +659,17 @@ html[data-fx-theme=on] .badge{background:linear-gradient(135deg,var(--btn-from),
 a.logo .logo-lt,.logo-lt{display:none}
 html[data-theme=light] a.logo .logo-dk,html[data-theme=light] .logo-dk{display:none}
 html[data-theme=light] a.logo .logo-lt,html[data-theme=light] .logo-lt{display:block}
-/* nút chuyển theme */
-.theme-btn{display:inline-grid;place-items:center;width:44px;height:44px;margin-left:8px;padding:0;border-radius:12px;border:1px solid var(--line);background:var(--gl);color:var(--text);cursor:pointer;flex:none}
-.theme-btn .i{width:20px;height:20px}
+/* nút chuyển theme: nhãn Sáng/Tối nhìn thấy, nền đỏ để nổi trên cả hai giao diện */
+.theme-btn{display:inline-flex;align-items:center;gap:6px;min-height:44px;margin-left:8px;padding:0 14px;border-radius:999px;border:0;background:var(--btn-from);color:var(--on-accent);font:700 14px var(--f);cursor:pointer;flex:none;box-shadow:0 8px 20px -10px rgba(var(--rgb-accent),.9)}
+.theme-btn .i{width:18px;height:18px}
+.theme-btn .theme-lbl::before{content:"Tối"}
+html[data-theme=light] .theme-btn .theme-lbl::before{content:"Sáng"}
 .theme-btn .theme-sun{display:none}
 html[data-theme=light] .theme-btn .theme-moon{display:none}
 html[data-theme=light] .theme-btn .theme-sun{display:block}
 html[data-fx-theme=off] .theme-btn{display:none!important}
 .theme-btn:focus-visible{outline:2px solid var(--focus);outline-offset:3px}
+@media(max-width:390px){.theme-btn{padding:0 10px;font-size:13px}}
 @media(max-width:960px){
   html:not([data-fx-theme=off]) .theme-btn{margin-left:auto}
   html:not([data-fx-theme=off]) header .burger{margin-left:8px}
