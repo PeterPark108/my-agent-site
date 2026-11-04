@@ -1,5 +1,8 @@
 # Nhật ký thay đổi
 
+## 0.9.44 - 2026-11-04 (NHÁP — khung cuộn là dự án thật)
+- Bỏ Aurora, Orbit, Forma. Bốn khung là bốn sản phẩm mẫu đầu trang Dự án: Hướng Nghiệp 360, NHỊP, NhàĐất Việt, XN Linh Kiện Máy In. Ảnh và câu chữ lấy từ du-an.html. Nhà Gió vẫn ở trang Dự án. Giữ câu sản phẩm mẫu, không phải dự án làm cho khách hàng.
+
 ## 0.9.43 - 2026-11-04 (NHÁP — fade-in khi cuộn trang chủ)
 - Khối dưới màn hình hiện dần (opacity + trượt 32px, 0,7s, lệch nhẹ giữa thẻ cùng hàng), một lần, bằng IntersectionObserver. Không nạp GSAP. Hero và thẻ concept không tham gia. Tắt JS hoặc reduced-motion thì nội dung hiện sẵn. Cờ `homeReveal` / `data-fx-reveal`.
 

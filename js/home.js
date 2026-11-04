@@ -86,7 +86,7 @@
       var on=n===snapIndex;a.setAttribute('aria-selected',on?'true':'false');if(on)a.setAttribute('tabindex','0');else a.setAttribute('tabindex','-1');
     });
     var live=document.querySelector('.hx-step-live');
-    if(live)live.textContent='Đang xem concept '+(snapIndex+1)+' trên '+cards.length;
+    if(live)live.textContent='Đang xem dự án '+(snapIndex+1)+' trên '+cards.length;
   }
   function flashEdge(){
     var edge=document.querySelector('.hx-edge');if(!edge)return;
