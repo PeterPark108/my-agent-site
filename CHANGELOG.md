@@ -1,5 +1,8 @@
 # Nhật ký thay đổi
 
+## 0.9.47 - 2026-11-05 (NHÁP, chờ Peter duyệt)
+- Blog mới (chủ đề chung cho mọi doanh nghiệp nhỏ): "Đo lường website bằng Google Analytics cơ bản" (`data/blog/do-luong-website-bang-google-analytics-co-ban.md`, category du-lieu, 7 việc, FAQ 3 câu, link nội bộ tới 3 bài blog, 4 trang dịch vụ, bảng giá, chính sách bảo mật; nguồn ngoài: Google Analytics Help, Search Console Help). Dựng lại blog.html, blog/*.html, blog/feed.xml, sitemap.xml, chatbot-kb, khối "Bài mới trên Blog" trang chủ. Bump VERSION.
+
 ## 0.9.46 - 2026-11-04 (NHÁP — khớp khối Giải pháp)
 - Khối 01 / Giải pháp theo kích thước đo trên repo gốc (hàng kính, gap 24px, chữ 13px, không gạch chân). Chữ dưới 12px của bản gốc nâng lên 12px. Số thứ tự trên nền sáng dùng #C42336 cho đủ tương phản.
 
