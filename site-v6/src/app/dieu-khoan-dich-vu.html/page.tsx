@@ -1,3 +1,7 @@
+import type { Metadata } from 'next';
+import { seoMetadata } from '@/lib/seo';
+const title='Điều khoản & dịch vụ | My Agent',description='Mục lục chính sách, phạm vi dịch vụ và điều kiện công khai của My Agent.';
+export const metadata:Metadata={title,description,alternates:{canonical:'https://myagentvn.com/dieu-khoan-dich-vu.html'},...seoMetadata('/dieu-khoan-dich-vu.html',{title,description})};
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Sections';
 import { Cosmos } from '@/components/Cosmos';
