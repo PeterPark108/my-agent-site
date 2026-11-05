@@ -27,6 +27,7 @@
     run();
     d.getElementById('bg-calc').addEventListener('input', run);
     d.getElementById('bg-calc').addEventListener('change', run);
+    window.dispatchEvent(new Event('myagent:pricing-ready'));
   }).catch(function () { L.innerHTML = '<p>Không tải được dữ liệu giá. Bạn xem bảng giá phía trên hoặc <a href="lien-he.html">liên hệ</a> nhé.</p>'; });
   function val(el, c) { var x = el.querySelector(c); return x ? x.value : null; }
   function run() {

@@ -1,0 +1,2 @@
+import { defineConfig, devices } from '@playwright/test';
+export default defineConfig({testDir:'./tests',use:{acceptDownloads:true,baseURL:'http://127.0.0.1:3000',launchOptions:{downloadsPath:process.cwd()+'/test-downloads'}},webServer:{command:'node node_modules/next/dist/bin/next start',url:'http://127.0.0.1:3000',reuseExistingServer:!process.env.CI},projects:[{name:'desktop',use:{...devices['Desktop Chrome']}},{name:'mobile',use:{...devices['iPhone 13'],defaultBrowserType:'chromium'}}]});

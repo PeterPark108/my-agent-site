@@ -1,0 +1,95 @@
+{
+  "retrieved": "2026-11-05",
+  "pages": [
+    "/bang-gia.html",
+    "/blog.html",
+    "/blog/bao-mat-website-co-ban-cho-doanh-nghiep-nho.html",
+    "/blog/checklist-seo-co-ban-cho-website.html",
+    "/blog/chi-phi-lam-website-phu-thuoc-yeu-to-nao.html",
+    "/blog/da-co-facebook-zalo-san-tmdt-co-can-website-rieng.html",
+    "/blog/do-luong-website-bang-google-analytics-co-ban.html",
+    "/blog/google-business-profile-dich-vu-tai-tphcm.html",
+    "/blog/thiet-ke-web-tron-goi-gom-nhung-gi.html",
+    "/blog/website-chuyen-nghiep-can-gi.html",
+    "/chinh-sach-bao-mat.html",
+    "/combo.html",
+    "/cong-cu.html",
+    "/dich-vu.html",
+    "/dich-vu/bo-cong-thuong.html",
+    "/dich-vu/cham-soc-fanpage.html",
+    "/dich-vu/cham-soc-website.html",
+    "/dich-vu/email-doanh-nghiep.html",
+    "/dich-vu/google-maps.html",
+    "/dich-vu/hosting-seo.html",
+    "/dich-vu/ky-thuat-du-lieu.html",
+    "/dich-vu/phan-mem-noi-bo.html",
+    "/dich-vu/phan-tich-du-lieu.html",
+    "/dich-vu/profile-doanh-nghiep.html",
+    "/dich-vu/quang-cao-google-facebook.html",
+    "/dich-vu/seo-tong-the.html",
+    "/dich-vu/ten-mien.html",
+    "/dich-vu/thiet-ke-app.html",
+    "/dich-vu/thiet-ke-website.html",
+    "/dich-vu/traffic-user.html",
+    "/dich-vu/video-ai.html",
+    "/dich-vu/zalo-oa-mini-app.html",
+    "/du-an.html",
+    "/ghi-nguon.html",
+    "/lien-he.html",
+    "/tai-nguyen-ai-agent.html",
+    "/tin-tuc.html",
+    "/tin-tuc/apple-siri-ai-mo-cho-nha-phat-trien.html",
+    "/tin-tuc/canva-brush-ai-chinh-sua-thiet-ke.html",
+    "/tin-tuc/chu-de/ai.html",
+    "/tin-tuc/chu-de/bao-mat.html",
+    "/tin-tuc/chu-de/du-lieu.html",
+    "/tin-tuc/chu-de/nen-tang.html",
+    "/tin-tuc/chu-de/web-seo.html",
+    "/tin-tuc/cloudflare-kiem-soat-tro-ly-ai-ca-nhan.html",
+    "/tin-tuc/gitlab-cve-2026-97229-cisa.html",
+    "/tin-tuc/google-ai-mode-links.html",
+    "/tin-tuc/google-robots-txt-ai-training-control.html",
+    "/tin-tuc/magento-cve-2026-48356-cisa.html",
+    "/tin-tuc/node2shell-nodejs-brotli-cisa.html",
+    "/tin-tuc/synology-nas-c3rb3r-ransomware.html",
+    "/tin-tuc/trang-2.html",
+    "/tin-tuc/wordpress-7-1-4-ban-va-bao-mat.html",
+    "/tra-cuu-tien-do.html",
+    "/ve-chung-toi.html"
+  ],
+  "assetCount": 66,
+  "api": [
+    "/api/contact"
+  ],
+  "failures": [
+    {
+      "href": "https://myagentvn.com/js/data/chatbot-kb.json?v=",
+      "error": "Error: 404"
+    },
+    {
+      "href": "https://myagentvn.com/js/data/pricing.json?v=",
+      "error": "Error: 404"
+    },
+    {
+      "href": "https://myagentvn.com/js/data/orders.json",
+      "error": "Error: 404"
+    }
+  ],
+  "resolved": [
+    {
+      "reference": "js/data/chatbot-kb.json",
+      "actual": "/data/chatbot-kb.json",
+      "status": "bundled"
+    },
+    {
+      "reference": "js/data/pricing.json",
+      "actual": "/data/pricing.json",
+      "status": "bundled"
+    },
+    {
+      "reference": "js/data/orders.json",
+      "actual": "/data/orders.json",
+      "status": "live no-store server proxy; not bundled"
+    }
+  ]
+}
