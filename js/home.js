@@ -221,7 +221,7 @@
     if(!document.querySelector('.hx-stack'))return;
     started=true;
     function load(src){return new Promise(function(ok,bad){var s=document.createElement('script');s.src=src;s.onload=ok;s.onerror=function(){started=false;bad();};document.body.appendChild(s);});}
-    load('js/vendor/gsap/gsap.min.js?v=0.9.41').then(function(){return load('js/vendor/gsap/ScrollTrigger.min.js?v=0.9.41');}).then(function(){
+    load('js/vendor/gsap/gsap.min.js?v=0.9.46').then(function(){return load('js/vendor/gsap/ScrollTrigger.min.js?v=0.9.46');}).then(function(){
       var g=window.gsap,ST=window.ScrollTrigger;if(!g||!ST)return;
       g.registerPlugin(ST);
       var mm=g.matchMedia();
