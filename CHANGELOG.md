@@ -6,6 +6,7 @@
 - Bỏ noindex của bản preview, thêm canonical từng trang, bật lại GA (G-BZ5E2WMZLJ) qua js/config.js.
 - Xuất PDF báo giá chuyển sang tạo trong trình duyệt (pdf-lib), không cần route máy chủ.
 - Khôi phục JSON-LD, og:* và twitter:* của từng trang (trích từ bản 0.9.47 bằng `site-v6/scripts/extract-seo.cjs` → `src/content/seo.json`); thêm /dieu-khoan-dich-vu.html vào sitemap.
+- Quy trình SEO mới `scripts/seo_v6.sh blog|news`: bài blog/tin mới tự vào giao diện v6 kèm og/JSON-LD (`site-v6/scripts/import-legacy.cjs`), hướng dẫn ở docs/QUY-TRINH-SEO-V6.md; buildId cố định để build lại không đổi file.
 - Bỏ route Next /api/contact, /api/quote, /data/orders.json: dùng backend sẵn có trên VPS.
 
 ## 0.9.47 - 2026-11-05 (NHÁP, chờ Peter duyệt)

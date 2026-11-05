@@ -9,6 +9,7 @@ OUT=.next-v5
 find "$OUT" -name '*.html.html' | while read -r f; do d="${f%.html}"; rm -rf "$d"; mv "$f" "$d"; done
 find "$OUT" -name '*.html.txt' -delete
 ROOT=..
+rm -rf "$ROOT/_next"
 cp -a "$OUT"/. "$ROOT"/
 
 echo "Đã xuất web tĩnh v6 ra thư mục gốc repo."
