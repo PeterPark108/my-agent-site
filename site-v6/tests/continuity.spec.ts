@@ -12,9 +12,9 @@ test('contact API rejects missing consent without contacting upstream',async({re
 });
 test('MJ opens and original tools and policies remain local',async({page,request})=>{
  for(const path of ['/dich-vu.html','/dich-vu/thiet-ke-website.html','/combo.html','/bang-gia.html','/tra-cuu-tien-do.html','/chinh-sach-bao-mat.html','/dieu-khoan-dich-vu.html','/data/pricing.json','/data/chatbot-kb.json']){const r=await request.get(path);expect(r.ok(),path).toBe(true)}
- await page.goto('/');await expect(page.locator('.mj-btn')).toBeVisible();
+ await page.goto('/');await page.getByRole('button',{name:'Kết nối',exact:true}).click();await page.getByRole('button',{name:'Hỏi trợ lý MJ'}).click();
  // The original mascot has a continuous transform animation; its real hit target is clickable.
- await page.locator('.mj-btn').click({force:true});await expect(page.locator('#mj-in')).toBeVisible();
+ await expect(page.locator('#mj-in')).toBeVisible();
  await expect(page.locator('.support-call')).toHaveAttribute('href','tel:0328439972');
  await page.goto('/bang-gia.html');await expect(page.locator('#bg-list')).not.toBeEmpty();
 });

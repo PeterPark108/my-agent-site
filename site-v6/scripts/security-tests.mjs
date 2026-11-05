@@ -1,0 +1,46 @@
+// Exercise the real route handlers with isolated fetch stubs. No customer backend is called.
+import { createRequire,Module } from 'node:module';
+import fs from 'node:fs';
+import path from 'node:path';
+import assert from 'node:assert/strict';
+import { randomUUID } from 'node:crypto';
+const require=createRequire(import.meta.url),ts=require('typescript');
+const root=process.cwd(),resolve=Module._resolveFilename;
+Module._resolveFilename=function(name,...args){return resolve.call(this,name.startsWith('@/')?path.join(root,'src',name.slice(2)):name,...args)};
+Module._extensions['.ts']=(module,file)=>module._compile(ts.transpileModule(fs.readFileSync(file,'utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022,esModuleInterop:true}}).outputText,file);
+const {NextRequest}=require('next/server');
+const {PDFDocument}=require('pdf-lib');
+const {safeContent}=require('../src/lib/safe-content.ts');
+const security=require('../src/lib/api-security.ts');
+const contact=require('../src/app/api/contact/route.ts');
+const quote=require('../src/app/api/quote/route.ts');
+const tracking=require('../src/app/api/tracking/route.ts');
+const old=require('../src/app/data/orders.json/route.ts');
+const originalFetch=globalThis.fetch;
+let passed=0;const test=async(name,fn)=>{await fn();passed++;console.log('PASS '+name)};
+const request=(body,headers={})=>new NextRequest('https://preview.example/api/test',{method:'POST',headers:{'Content-Type':'application/json',...headers},body:typeof body==='string'?body:JSON.stringify(body)});
+const selected={items:[{serviceId:'thiet-ke-website',tierId:'co-ban',complexity:'tieu-chuan',quantity:0,budgetNote:''}],rush:'binh-thuong',prepay:'monthly'};
+const pricing=JSON.parse(fs.readFileSync('public/data/pricing.json'));selected.items[0].tierId=pricing.services.find(s=>s.id==='thiet-ke-website').tiers[0].id;
+process.env.NODE_ENV='production';process.env.MYAGENT_LOCAL_QA='1';process.env.MYAGENT_BACKEND_ORIGIN='https://backend.example';process.env.MYAGENT_TRACKING_API_TOKEN='test-only';
+try{
+ await test('bulk orders endpoint is permanently closed',async()=>{assert.equal((await old.GET()).status,410)});
+ await test('missing consent rejected before fetch',async()=>{globalThis.fetch=()=>{throw Error('unexpected fetch')};assert.equal((await contact.POST(request({name:'QA',phone:'0900000000'}))).status,400)});
+ await test('cross-site and foreign Origin rejected',async()=>{assert.equal((await quote.POST(request(selected,{Origin:'https://evil.example'}))).status,403);assert.equal((await quote.POST(request(selected,{'Sec-Fetch-Site':'cross-site'}))).status,403)});
+ await test('same public Host works behind a preview proxy',async()=>{const r=new NextRequest('http://internal:4173/api/test',{method:'POST',headers:{Host:'preview.example:4173',Origin:'http://preview.example:4173','Content-Type':'application/json'},body:'{}'});assert.deepEqual(await security.readJson(r,100),{})});
+ await test('stream size and malformed JSON bounded',async()=>{assert.equal((await contact.POST(request('x'.repeat(17000)))).status,413);assert.equal((await contact.POST(request('{'))).status,400)});
+ await test('unknown fields and prototype rule keys rejected',async()=>{assert.equal((await quote.POST(request({...selected,rush:'toString'}))).status,400);assert.equal((await quote.POST(request({...selected,total:1}))).status,400)});
+ await test('valid PDF is actual embedded-font output',async()=>{const r=await quote.POST(request(selected));assert.equal(r.status,200);assert.match(r.headers.get('content-type'),/pdf/);const bytes=new Uint8Array(await r.arrayBuffer());const pdf=await PDFDocument.load(bytes);assert.ok(pdf.getPageCount()>=1);fs.writeFileSync('docs/qa-v7/quote-sample.pdf',bytes)});
+ await test('server pricing still matches known 6m combination',async()=>{const {normalizeSelection,calculateQuote}=require('../src/lib/quote.ts');const input={items:['thiet-ke-website','seo-tong-the','hosting-seo'].map(id=>({serviceId:id,tierId:pricing.services.find(s=>s.id===id).tiers[0].id,complexity:'tieu-chuan',quantity:0,budgetNote:''})),rush:'binh-thuong',prepay:'6m'};const r=calculateQuote(normalizeSelection(input));assert.equal(r.min,17800000);assert.equal(r.max,30700000)});
+ await test('contact success confirmed; duplicate blocked',async()=>{let calls=0;globalThis.fetch=async()=>{calls++;return Response.json({ok:true,secret:'do not forward'})};const data={name:'QA',phone:'0900000000',consent:true};const a=await contact.POST(request(data)),b=await contact.POST(request(data));assert.equal(a.status,200);assert.deepEqual(await a.json(),{ok:true});assert.equal(b.status,429);assert.equal(calls,1)});
+ await test('contact upstream failure does not leak error or lose retry',async()=>{globalThis.fetch=async()=>Response.json({secret:'private-stack'},{status:500});const data={name:'QA retry',phone:'0900000000',consent:true};const a=await contact.POST(request(data));assert.equal(a.status,502);assert.ok(!(await a.text()).includes('private-stack'));globalThis.fetch=async()=>Response.json({ok:true});assert.equal((await contact.POST(request(data))).status,200)});
+ await test('tracking sends code in POST and projects one safe order',async()=>{let calls=0;globalThis.fetch=async(url,init)=>{calls++;assert.equal(String(url),'https://backend.example/api/tracking');assert.equal(init.method,'POST');assert.equal(JSON.parse(init.body).code,'test_'+('a'.repeat(24)));return Response.json({ok:true,order:{percent:60,status:'Đang thực hiện',updated:'2026-11-05',note:'Khách được xem',steps:['done','current','bad" onclick="x'],internalNote:'secret',phone:'private',history:[{n:'internal'}]}})};const r=await tracking.POST(request({code:'test_'+('a'.repeat(24))}));assert.equal(r.status,200);const data=await r.json();assert.deepEqual(Object.keys(data.order).sort(),['note','percent','status','steps','updated']);assert.equal(data.order.steps[2],'pending');assert.equal(calls,1)});
+ await test('short code gets generic not found without upstream',async()=>{globalThis.fetch=()=>{throw Error('unexpected fetch')};assert.equal((await tracking.POST(request({code:'ABC'}))).status,404)});
+ await test('rate limit cannot be reset by a different access code',async()=>{const statuses=[];for(let i=0;i<5;i++)statuses.push((await tracking.POST(request({code:'x'+i}))).status);assert.ok(statuses.includes(429))});
+ await test('HTML sanitizer blocks script, events and unsafe URL schemes',async()=>{const out=safeContent('<p onclick="alert(1)">Xin chào</p><script>alert(2)</script><a href="javascript:alert(3)">bad</a><img src="x" onerror="alert(4)"><svg><script>alert(5)</script></svg>');assert.ok(out.includes('Xin chào'));assert.ok(!/onclick|onerror|javascript:|<script/i.test(out))});
+ await test('HTML inventory retains form and SVG hooks',async()=>{const pages=JSON.parse(fs.readFileSync('src/content/pages.json'));const out=pages['/bang-gia.html'].sections.map(s=>safeContent(s.html)).join('');assert.ok(out.includes('id="bg-calc"'));assert.ok(out.includes('id="quote-export-host"'));assert.ok(safeContent('<svg viewBox="0 0 24 24"><path d="M0 0"/></svg>').includes('viewBox'))});
+ await test('process concurrency gate refuses excess work',async()=>{const leave=security.enter('qa-single',1);assert.throws(()=>security.enter('qa-single',1),e=>e.status===429);leave();security.enter('qa-single',1)()});
+ await test('production refuses APIs without shared limiter',async()=>{delete process.env.MYAGENT_LOCAL_QA;delete process.env.MYAGENT_REDIS_REST_URL;delete process.env.MYAGENT_REDIS_REST_TOKEN;await assert.rejects(()=>security.guard(request({}),'prod',5),e=>e.status===503)});
+ await test('distributed limiter uses atomic TTL counter',async()=>{process.env.MYAGENT_REDIS_REST_URL='https://redis.example';process.env.MYAGENT_REDIS_REST_TOKEN='test-only';let calls=0;globalThis.fetch=async(url,init)=>{assert.equal(String(url),'https://redis.example/');const command=JSON.parse(init.body);assert.equal(command[0],'EVAL');assert.ok(command[1].includes('EXPIRE'));calls++;return Response.json({result:1})};await security.guard(request({}),'redis-'+randomUUID(),5);assert.equal(calls,2)});
+ await test('backend self-proxy configuration refused',async()=>{process.env.MYAGENT_BACKEND_ORIGIN='https://preview.example';assert.throws(()=>security.backend(request({}),'/api/contact'),e=>e.status===503)});
+ console.log(`${passed} checks passed; no external requests were sent.`);
+}finally{globalThis.fetch=originalFetch;Module._resolveFilename=resolve;}

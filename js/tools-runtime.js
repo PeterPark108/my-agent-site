@@ -82,3 +82,6 @@ d.querySelectorAll('.nw-chips').forEach(g=>{const bs=[...g.querySelectorAll('but
 
 // icon glass ô dịch vụ (v0.9.30): chỉ chạy chuyển động khi icon trong màn hình
 (function(){var l=document.querySelectorAll('.ic.gl');if(!l.length||!('IntersectionObserver'in window))return;var o=new IntersectionObserver(function(es){es.forEach(function(e){e.target.classList.toggle('gl-on',e.isIntersecting)})},{rootMargin:'40px'});l.forEach(function(e){o.observe(e)})})();
+
+// Password generation uses a registered listener; no inline executable HTML.
+(()=>{const field=document.getElementById('pw'),button=field?.parentElement?.querySelector('button');if(!field||!button)return;button.type='button';button.addEventListener('click',()=>{const alphabet='ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz23456789!@#$%';const limit=Math.floor(256/alphabet.length)*alphabet.length;let password='';while(password.length<16){for(const byte of crypto.getRandomValues(new Uint8Array(32))){if(byte<limit)password+=alphabet[byte%alphabet.length];if(password.length===16)break;}}field.value=password;field.dispatchEvent(new Event('input',{bubbles:true}));});})();

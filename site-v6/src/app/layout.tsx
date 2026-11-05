@@ -14,7 +14,6 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://myagentvn.com'),
   title: 'My Agent — Website tạo dấu ấn',
   description: 'Thiết kế website, landing page và website bán hàng. My Agent tại TP.HCM, nhận khách toàn quốc.',
-  alternates: { canonical: 'https://myagentvn.com/' },
   icons: { icon: '/brand/favicon.svg' },
 };
 export const viewport: Viewport = { themeColor: '#05070F' };
