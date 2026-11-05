@@ -1,5 +1,12 @@
 # Nhật ký thay đổi
 
+## 0.10.0 — 2026-11-05 (PR nháp, chờ "Duyệt PR")
+- Thay toàn bộ giao diện bằng bản v6.1 Cosmic Glass (Next.js 16 + GSAP), mã nguồn ở `site-v6/`, xuất tĩnh (`output: 'export'`) ra thư mục gốc để VPS vẫn `git pull` như cũ.
+- Giữ nguyên mọi URL trong sitemap, robots.txt, sitemap.xml, data/ (news, orders, pricing), server/contact-api, scripts/ của SEO.
+- Bỏ noindex của bản preview, thêm canonical từng trang, bật lại GA (G-BZ5E2WMZLJ) qua js/config.js.
+- Xuất PDF báo giá chuyển sang tạo trong trình duyệt (pdf-lib), không cần route máy chủ.
+- Bỏ route Next /api/contact, /api/quote, /data/orders.json: dùng backend sẵn có trên VPS.
+
 ## 0.9.47 - 2026-11-05 (NHÁP, chờ Peter duyệt)
 - Blog mới (chủ đề chung cho mọi doanh nghiệp nhỏ): "Đo lường website bằng Google Analytics cơ bản" (`data/blog/do-luong-website-bang-google-analytics-co-ban.md`, category du-lieu, 7 việc, FAQ 3 câu, link nội bộ tới 3 bài blog, 4 trang dịch vụ, bảng giá, chính sách bảo mật; nguồn ngoài: Google Analytics Help, Search Console Help). Dựng lại blog.html, blog/*.html, blog/feed.xml, sitemap.xml, chatbot-kb, khối "Bài mới trên Blog" trang chủ. Bump VERSION.
 
