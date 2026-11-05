@@ -1,5 +1,12 @@
 # Nhật ký thay đổi
 
+## 0.11.0 — 2026-11-05 (PR nháp, chờ "Duyệt PR")
+- Thay giao diện v6 bằng bản v7 (mã nguồn PeterPark108/myagentvn-gsap@cbddcf6), vẫn đặt ở `site-v6/` để giữ nguyên quy trình SEO `scripts/seo_v6.sh`, `import-legacy.cjs`, `extract-seo.cjs`.
+- Giữ mọi URL trong sitemap (56), canonical, og/twitter/JSON-LD, GA qua js/config.js; bỏ noindex.
+- Xuất tĩnh ra thư mục gốc; bỏ route /api/contact, /api/quote, /api/tracking, /data/orders.json của v7. PDF báo giá tạo trong trình duyệt; form liên hệ dùng server/contact-api sẵn có.
+- Tra cứu tiến độ (v7 gọi POST /api/tracking) CHƯA có backend trên VPS: cần Peter quyết định (xem mô tả PR).
+- Header bảo mật/redirect của next.config v7 không chạy được với xuất tĩnh, cần chuyển sang nginx nếu muốn giữ.
+
 ## 0.10.0 — 2026-11-05 (PR nháp, chờ "Duyệt PR")
 - Thay toàn bộ giao diện bằng bản v6.1 Cosmic Glass (Next.js 16 + GSAP), mã nguồn ở `site-v6/`, xuất tĩnh (`output: 'export'`) ra thư mục gốc để VPS vẫn `git pull` như cũ.
 - Giữ nguyên mọi URL trong sitemap, robots.txt, sitemap.xml, data/ (news, orders, pricing), server/contact-api, scripts/ của SEO.

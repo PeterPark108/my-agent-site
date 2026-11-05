@@ -1,31 +1,32 @@
-# My Agent — v6 / Cosmic Glass
+# My Agent — v7 / Cosmic Precision
 
-Website Next.js / React / TypeScript với GSAP và ScrollTrigger, dùng logo, font và màu đã đối chiếu từ myagentvn.com. Bản hiện hành là v6; tài liệu v1–v5 chỉ là lịch sử. Chưa triển khai lên domain thật.
+Bản nâng cấp từ ZIP v6.1 theo MASTER-PLAN v2.0: demo, báo giá, hỗ trợ và lớp bảo vệ API. Giữ thương hiệu, dữ liệu giá, công cụ và danh mục đường dẫn. Chưa phát hành domain.
 
-## Chạy
+## Bắt đầu
 
-Node.js 22+, npm. Chạy `npm ci`, `npm run dev`, mở http://localhost:3000. Production: `npm run build`, `npm start`. Kiểm tra: `npm run lint`, `npm run typecheck`; cài Chromium bằng `npx playwright install chromium`, rồi `npm run test:e2e`.
+Node.js 22+, npm. `npm ci` → `npm run dev` → http://localhost:3000.
 
-## Bản v6
+Kiểm tra: `npm run lint`, `npm run build`, `npm run typecheck`, `npm run test:security`.
 
-- Trang chủ và 55 đường dẫn nội dung dùng chung Header/Footer, nền sao, menu glass, theme sáng/tối, hệ chữ và giao diện công nghệ.
-- Trang con có hero, chuyển động GSAP, sơ đồ glass, bố cục nội dung và công cụ mới; không tải stylesheet trang cũ.
-- Giữ bộ giá gốc, combo, công cụ miễn phí, tra cứu tiến độ, MJ, gọi/Zalo, chính sách, form và consent.
-- Tải báo giá PDF tiếng Việt từ lựa chọn hiện tại, tính lại giá ở server, phân biệt giá cố định và khoản thương lượng.
+E2E khi có môi trường Playwright phù hợp: `npm run test:e2e`. Vòng này chưa chạy lại toàn bộ bộ E2E; xem review thay vì suy từ kết quả v6.
+
+Production: đặt biến server theo `.env.example`, `npm run build`, `npm start`. Không dùng MYAGENT_LOCAL_QA=1 ở production. Thiếu Redis/thiếu backend: các API liên quan từ chối an toàn, không tự proxy sang domain cũ.
+
+## Đọc trước bàn giao
+
+- [Review và trạng thái v7](docs/REVIEW-IMPLEMENTATION-V7.md).
+- [Cấu hình backend và bảo mật](docs/SECURITY-RUNBOOK-V7.md).
+- [Master plan do chủ site cung cấp](docs/MASTER-PLAN.md).
+- `docs/qa-v7/`: log, PDF mẫu và ảnh kiểm tra. Các hồ sơ v1–v6.1 giữ làm lịch sử.
 
 ## Cấu trúc
 
-- `src/app/[...slug]/page.tsx`: renderer chung cho danh mục đường dẫn đã xác minh; route lạ trả 404.
-- `src/content/pages.json`: nội dung/metadata/nhóm trang và cấu hình công cụ.
-- `src/components`: Header, Footer, Cosmos, homepage, PageTools và QuoteExport.
-- `src/app/api/contact`, `src/app/data/orders.json`: cầu nối backend gốc.
-- `src/app/api/quote`, `src/lib/quote*`: kiểm tra lựa chọn và tạo PDF.
-- `public/js`, `public/data`: logic và dữ liệu công cụ gốc; không chứa dữ liệu đơn hàng riêng tư.
-- `content/source`: HTML gốc để đối chiếu, không được phục vụ như trang public.
-- `public/brand`, `public/fonts`: thương hiệu và font local, kèm giấy phép.
+- `src/app/[...slug]/page.tsx`, `src/content/pages.json`: các route nội dung, HTML qua allowlist.
+- `src/components`: Header/Footer dùng chung, Cosmos, Motion, Hero, ProjectShowcase, Ecosystem, PageTools, QuoteExport, SupportWidgets.
+- `src/app/api/contact`, `api/quote`, `api/tracking`: schema/rate limit/server-only proxy hoặc tạo PDF.
+- `src/app/data/orders.json`: endpoint cũ đóng bằng HTTP 410.
+- `src/lib/api-security.ts`, `safe-content.ts`: giới hạn tài nguyên, Redis adapter và xử lý HTML.
+- `public/js`, `public/data`: logic công cụ và dữ liệu công khai; không đặt đơn hàng ở đây.
+- `public/brand`, `public/fonts`: thương hiệu và font local; giữ giấy phép.
 
-## Bàn giao và review
-
-Đọc [REDESIGN-V6](docs/REDESIGN-V6.md), [SELF-REVIEW-V6](docs/SELF-REVIEW-V6.md), [GROKBOT-HANDOFF](docs/GROKBOT-HANDOFF.md), [BRAND-AUDIT](docs/BRAND-AUDIT.md). Các yêu cầu acceptance/QA v6 trong REDESIGN-V6 có ưu tiên cao hơn ghi chú lịch sử.
-
-Trước khi chuyển domain, cấu hình `MYAGENT_BACKEND_ORIGIN` tới backend riêng còn hoạt động hoặc nối lại API hiện hữu. Không trỏ proxy về chính ứng dụng trên cùng domain. Không bật analytics hay gửi form thật trong QA nếu chưa được cho phép.
+Không bật analytics, thay domain hoặc gửi dữ liệu thật như một phần của local QA. Backend tra cứu mới cần mã ngẫu nhiên có thể thu hồi và quyền ở server; không dùng lại tệp danh sách đơn.
