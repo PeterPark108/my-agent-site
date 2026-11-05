@@ -1,5 +1,10 @@
 # Nhật ký thay đổi
 
+## 0.11.1 — 2026-11-06 (PR nháp, chờ "Duyệt PR")
+- Thêm sản phẩm mẫu **Nội Thất Studio** vào khối Sản phẩm mẫu (trang chủ) và trang `/du-an.html`.
+- Link demo: https://preview.myagentvn.com/noi-that-studio/ . Ảnh chụp trang chủ thật (1440px → webp).
+- Không phải dự án khách hàng; nội dung demo là dữ liệu minh hoạ.
+
 ## 0.11.0 — 2026-11-05 (PR nháp, chờ "Duyệt PR")
 - Thay giao diện v6 bằng bản v7 (mã nguồn PeterPark108/myagentvn-gsap@cbddcf6), vẫn đặt ở `site-v6/` để giữ nguyên quy trình SEO `scripts/seo_v6.sh`, `import-legacy.cjs`, `extract-seo.cjs`.
 - Giữ mọi URL trong sitemap (56), canonical, og/twitter/JSON-LD, GA qua js/config.js; bỏ noindex.
