@@ -1,6 +1,7 @@
 # Nhật ký thay đổi
 
 ## Chờ duyệt — Bản 3D & sửa hiển thị 2026-11-06
+- Tự rà soát lần cuối: sửa 2 đích liên kết, thêm 404 tiếng Việt, chỉnh thanh cuộn popup; sửa đóng gói để giữ đủ chunk Điều khoản và payload Next.js. Rà 4.891 tham chiếu nội bộ đạt; xuất ZIP frontend để chủ site tự đưa lên VPS. Xem `site-v6/docs/FINAL-REVIEW-2026-11-06.md`.
 - Sửa lưới 18 thẻ trong cả 5 nhóm danh mục Dịch vụ: tách tiêu đề/mô tả, giữ icon trong thẻ kính, responsive và mở đúng vị trí nhóm từ liên kết. Xem `site-v6/docs/SERVICE-DIRECTORY-FIX-2026-11-06.md`.
 - Quả cầu ba quỹ đạo Dịch vụ / Dự án / Kết nối mở popup kính giữa màn hình, làm mờ nền, hỗ trợ bàn phím và điện thoại. Xem `site-v6/docs/COSMIC-NAVIGATOR-2026-11-06.md`.
 - Nền vũ trụ chung có ba lớp sao trôi cùng hướng, sao băng nhỏ mỗi 5 giây và lớn mỗi 10 giây. Xem `site-v6/docs/COSMIC-FLIGHT-2026-11-06.md`.

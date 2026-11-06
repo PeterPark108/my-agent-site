@@ -82,6 +82,7 @@
 /* The native dialog sits above all 3D transforms and makes the page inert. */
 .orbit-dialog { width:min(460px,calc(100% - 40px)); max-width:none; max-height:calc(100dvh - 40px); margin:auto; padding:0; border:1px solid rgba(163,198,255,.36); border-radius:26px; background:transparent; color:var(--tx); overflow-y:auto; overscroll-behavior:contain; box-shadow:0 32px 100px rgba(0,0,0,.5),0 0 60px rgba(61,123,255,.12); }
 .orbit-dialog::backdrop { background:rgba(2,5,14,.58); backdrop-filter:blur(13px) saturate(.7); }
+.orbit-dialog { scrollbar-width:thin; scrollbar-color:rgba(143,178,255,.42) transparent; }
 .orbit-dialog .orbit-console { position:relative; inset:auto; width:100%; max-width:none; margin:0; padding:26px; border:0; border-radius:0; background:linear-gradient(135deg,rgba(50,74,117,.4),rgba(14,22,43,.24)),rgba(10,17,36,.88); box-shadow:inset 0 1px rgba(233,245,255,.14); backdrop-filter:blur(28px) saturate(1.3); }
 .orbit-dialog .orbit-console h2 { font-size:24px; line-height:1.4; margin-bottom:20px; }
 .orbit-modal-tabs { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:6px; margin:10px 0 24px; }

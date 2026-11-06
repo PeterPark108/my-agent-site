@@ -1,28 +1,43 @@
 1:"$Sreact.fragment"
 2:I[7121,[],""]
 3:I[4581,[],""]
-4:"static/chunks/app/layout-12f8e0577aa21d7c.js"
-5:I[3817,["177","$4"],"SupportWidgets"]
-c:I[484,[],"OutletBoundary"]
-d:"$Sreact.suspense"
-10:"ViewportBoundary"
-11:I[484,[],"$10"]
-12:"MetadataBoundary"
-13:I[484,[],"$12"]
-14:I[6869,[],"IconMark"]
-:HL["/_next/static/css/fea29558215fc5c0.css","style"]
-7:X
-a:X
-a:C
-b:[["children",{"s":"__PAGE__","h":160,"d":{"r":["$","$1","c",{"children":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],null,["$","$Lc",null,{"children":["$","$d",null,{"name":"Next.MetadataOutlet","children":"$@e"}]}]]}],"p":"$@f","v":null,"s":"$7"}}]]
-8:[["children",{"s":"_not-found","h":96,"d":{"r":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"p":"$@9","v":"$a","s":"$7"},"c":"$Qb"}]]
-0:{"t":{"t":{"s":"","h":80,"d":{"r":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/fea29558215fc5c0.css","precedence":"next"}]],["$","html",null,{"lang":"vi","children":["$","body",null,{"children":[["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}],["$","$L5",null,{}]]}]}]]}],"p":"$@6","v":null,"s":"$7"},"c":"$Q8"},"h":{"r":["$","$1","h",{"children":[["$","meta",null,{"name":"robots","content":"noindex"}],["$","$L11",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","2",{"name":"theme-color","content":"#05070F"}]]}],["$","$L13",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$d",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"My Agent — Website tạo dấu ấn"}],["$","meta","1",{"name":"description","content":"Thiết kế website, landing page và website bán hàng. My Agent tại TP.HCM, nhận khách toàn quốc."}],["$","link","2",{"rel":"icon","href":"/brand/favicon.svg"}],["$","$L14","3",{}]]}]}],null]}],null]}],"p":"$@15","v":null,"s":"$7"}},"a":"$@16","u":"$@17","b":"myagent-v7"}
-e:null
-7:300
-17:true
-7:C
-16:0
-9:"$undefined"
-6:"$undefined"
-15:"$undefined"
-f:"$undefined"
+4:"static/chunks/c15bf2b0-c080c4e45c5fb392.js"
+5:"static/chunks/501-4f947d6efe1ddb10.js"
+6:"static/chunks/788-a49fbcd1de59f233.js"
+7:"static/chunks/94-72cdffd0ccc0446b.js"
+8:"static/chunks/app/page-f410dfa6efdef592.js"
+9:I[202,["592","$4","501","$5","788","$6","94","$7","974","$8"],"Cosmos"]
+a:I[8689,["592","$4","501","$5","788","$6","94","$7","974","$8"],"Header"]
+b:I[8437,["592","$4","501","$5","788","$6","94","$7","974","$8"],"Image"]
+c:"static/chunks/app/layout-12f8e0577aa21d7c.js"
+d:I[3817,["177","$c"],"SupportWidgets"]
+1c:"ViewportBoundary"
+1d:I[484,[],"$1c"]
+1e:"MetadataBoundary"
+1f:I[484,[],"$1e"]
+20:"$Sreact.suspense"
+21:I[6869,[],"IconMark"]
+:HL["/_next/static/css/43a8262d5b3eacc8.css","style"]
+f:X
+12:X
+12:C
+13:[["children",{"s":"__PAGE__","h":160,"d":{"r":["$","$1","c",{"children":[[["$","$L9",null,{}],["$","$La",null,{}],["$","main",null,{"id":"main","className":"container section legal-directory","children":[["$","p",null,{"className":"eyebrow","children":"MY AGENT / 404"}],["$","h1",null,{"children":"Không tìm thấy trang."}],["$","p",null,{"children":"Đường dẫn có thể đã thay đổi hoặc không còn tồn tại. Bạn có thể về trang chủ hoặc khám phá các dịch vụ của My Agent."}],["$","div",null,{"className":"actions","children":[["$","a",null,{"className":"button","href":"/","children":["Về trang chủ ",["$","span",null,{"aria-hidden":"true","children":"↗"}]]}],["$","a",null,{"className":"text-link","href":"/dich-vu.html","children":"Khám phá dịch vụ"}]]}]]}],["$","footer",null,{"className":"footer-upgrade","data-shared-shell":"v6","children":[["$","div",null,{"className":"container footer-columns","children":[["$","div",null,{"className":"footer-brand","children":[["$","$Lb",null,{"className":"footer-logo-dark","src":"/brand/logo-dark.svg","width":163,"height":40,"alt":"My Agent"}],["$","$Lb",null,{"className":"footer-logo-light","src":"/assets/logo.svg","width":163,"height":40,"alt":"My Agent"}],["$","p",null,{"children":["Thiết kế website & dịch vụ số.",["$","br",null,{}],"Từ mục tiêu rõ ràng đến trải nghiệm có bản sắc."]}],["$","a",null,{"href":"https://www.facebook.com/myagentvn","children":"Facebook ↗"}]]}],["$","div",null,{"children":[["$","h3",null,{"children":"KHÁM PHÁ"}],["$","a",null,{"href":"/#dich-vu","children":"Giải pháp website"}],"$L14","$L15","$L16"]}],"$L17","$L18"]}],"$L19"]}]],null,"$L1a"]}],"p":"$@1b","v":null,"s":"$f"}}]]
+10:[["children",{"s":"_not-found","h":96,"d":{"r":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"p":"$@11","v":"$12","s":"$f"},"c":"$Q13"}]]
+0:{"t":{"t":{"s":"","h":80,"d":{"r":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/43a8262d5b3eacc8.css","precedence":"next"}]],["$","html",null,{"lang":"vi","children":["$","body",null,{"children":[["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}],"notFound":[[["$","$L9",null,{}],["$","$La",null,{}],["$","main",null,{"id":"main","className":"container section legal-directory","children":[["$","p",null,{"className":"eyebrow","children":"MY AGENT / 404"}],["$","h1",null,{"children":"Không tìm thấy trang."}],["$","p",null,{"children":"Đường dẫn có thể đã thay đổi hoặc không còn tồn tại. Bạn có thể về trang chủ hoặc khám phá các dịch vụ của My Agent."}],["$","div",null,{"className":"actions","children":[["$","a",null,{"className":"button","href":"/","children":["Về trang chủ ",["$","span",null,{"aria-hidden":"true","children":"↗"}]]}],["$","a",null,{"className":"text-link","href":"/dich-vu.html","children":"Khám phá dịch vụ"}]]}]]}],["$","footer",null,{"className":"footer-upgrade","data-shared-shell":"v6","children":[["$","div",null,{"className":"container footer-columns","children":[["$","div",null,{"className":"footer-brand","children":[["$","$Lb",null,{"className":"footer-logo-dark","src":"/brand/logo-dark.svg","width":163,"height":40,"alt":"My Agent"}],["$","$Lb",null,{"className":"footer-logo-light","src":"/assets/logo.svg","width":163,"height":40,"alt":"My Agent"}],["$","p",null,{"children":["Thiết kế website & dịch vụ số.",["$","br",null,{}],"Từ mục tiêu rõ ràng đến trải nghiệm có bản sắc."]}],["$","a",null,{"href":"https://www.facebook.com/myagentvn","children":"Facebook ↗"}]]}],["$","div",null,{"children":[["$","h3",null,{"children":"KHÁM PHÁ"}],["$","a",null,{"href":"/#dich-vu","children":"Giải pháp website"}],["$","a",null,{"href":"/#he-sinh-thai","children":"Hệ sinh thái dịch vụ"}],["$","a",null,{"href":"/#trai-nghiem","children":"Sản phẩm mẫu"}],["$","a",null,{"href":"/#quy-trinh","children":"Cách làm việc"}]]}],["$","div",null,{"children":[["$","h3",null,{"children":"DỊCH VỤ & THÔNG TIN"}],["$","a",null,{"href":"/bang-gia.html","children":"Bảng giá tham khảo ↗"}],["$","a",null,{"href":"/combo.html","children":"Combo dịch vụ ↗"}],["$","a",null,{"href":"/tra-cuu-tien-do.html","children":"Tra cứu tiến độ ↗"}],["$","a",null,{"href":"/blog.html","children":"Kiến thức & chia sẻ ↗"}]]}],["$","div",null,{"children":[["$","h3",null,{"children":"KẾT NỐI"}],["$","a",null,{"href":"tel:+84328439972","children":"0328 439 972"}],["$","a",null,{"href":"mailto:vantungn044@gmail.com","children":"vantungn044@gmail.com"}],["$","a",null,{"href":"/lien-he.html","children":"Form tư vấn hiện tại ↗"}],["$","span",null,{"children":"TP.HCM · Toàn quốc"}]]}]]}],["$","div",null,{"className":"container footer-bottom","children":[["$","span",null,{"children":"© My Agent · Nguyễn Văn Tùng (PeterPark)"}],["$","a",null,{"href":"/dieu-khoan-dich-vu.html","children":"Điều khoản & dịch vụ ↗"}],["$","a",null,{"href":"/chinh-sach-bao-mat.html","children":"Chính sách bảo mật ↗"}],["$","a",null,{"href":"#main","children":"Về đầu trang ↑"}]]}]]}]],[]]}],["$","$Ld",null,{}]]}]}]]}],"p":"$@e","v":null,"s":"$f"},"c":"$Q10"},"h":{"r":["$","$1","h",{"children":[["$","meta",null,{"name":"robots","content":"noindex"}],["$","$L1d",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","2",{"name":"theme-color","content":"#05070F"}]]}],["$","$L1f",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$20",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Không tìm thấy trang | My Agent"}],["$","meta","1",{"name":"description","content":"Thiết kế website, landing page và website bán hàng. My Agent tại TP.HCM, nhận khách toàn quốc."}],["$","meta","2",{"name":"robots","content":"noindex, follow"}],["$","link","3",{"rel":"icon","href":"/brand/favicon.svg"}],["$","$L21","4",{}]]}]}],null]}],null]}],"p":"$@22","v":null,"s":"$f"}},"a":"$@23","u":"$@24","b":"myagent-v7"}
+25:I[484,[],"OutletBoundary"]
+14:["$","a",null,{"href":"/#he-sinh-thai","children":"Hệ sinh thái dịch vụ"}]
+15:["$","a",null,{"href":"/#trai-nghiem","children":"Sản phẩm mẫu"}]
+16:["$","a",null,{"href":"/#quy-trinh","children":"Cách làm việc"}]
+17:["$","div",null,{"children":[["$","h3",null,{"children":"DỊCH VỤ & THÔNG TIN"}],["$","a",null,{"href":"/bang-gia.html","children":"Bảng giá tham khảo ↗"}],["$","a",null,{"href":"/combo.html","children":"Combo dịch vụ ↗"}],["$","a",null,{"href":"/tra-cuu-tien-do.html","children":"Tra cứu tiến độ ↗"}],["$","a",null,{"href":"/blog.html","children":"Kiến thức & chia sẻ ↗"}]]}]
+18:["$","div",null,{"children":[["$","h3",null,{"children":"KẾT NỐI"}],["$","a",null,{"href":"tel:+84328439972","children":"0328 439 972"}],["$","a",null,{"href":"mailto:vantungn044@gmail.com","children":"vantungn044@gmail.com"}],["$","a",null,{"href":"/lien-he.html","children":"Form tư vấn hiện tại ↗"}],["$","span",null,{"children":"TP.HCM · Toàn quốc"}]]}]
+19:["$","div",null,{"className":"container footer-bottom","children":[["$","span",null,{"children":"© My Agent · Nguyễn Văn Tùng (PeterPark)"}],["$","a",null,{"href":"/dieu-khoan-dich-vu.html","children":"Điều khoản & dịch vụ ↗"}],["$","a",null,{"href":"/chinh-sach-bao-mat.html","children":"Chính sách bảo mật ↗"}],["$","a",null,{"href":"#main","children":"Về đầu trang ↑"}]]}]
+1a:["$","$L25",null,{"children":["$","$20",null,{"name":"Next.MetadataOutlet","children":"$@26"}]}]
+f:300
+26:null
+24:true
+f:C
+23:0
+11:"$undefined"
+e:"$undefined"
+22:"$undefined"
+1b:"$undefined"
