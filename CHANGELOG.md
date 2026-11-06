@@ -1,6 +1,7 @@
 # Nhật ký thay đổi
 
 ## Chờ duyệt — Bản 3D & sửa hiển thị 2026-11-06
+- Sửa lưới 18 thẻ trong cả 5 nhóm danh mục Dịch vụ: tách tiêu đề/mô tả, giữ icon trong thẻ kính, responsive và mở đúng vị trí nhóm từ liên kết. Xem `site-v6/docs/SERVICE-DIRECTORY-FIX-2026-11-06.md`.
 - Quả cầu ba quỹ đạo Dịch vụ / Dự án / Kết nối mở popup kính giữa màn hình, làm mờ nền, hỗ trợ bàn phím và điện thoại. Xem `site-v6/docs/COSMIC-NAVIGATOR-2026-11-06.md`.
 - Nền vũ trụ chung có ba lớp sao trôi cùng hướng, sao băng nhỏ mỗi 5 giây và lớn mỗi 10 giây. Xem `site-v6/docs/COSMIC-FLIGHT-2026-11-06.md`.
 - Khôi phục sơ đồ chuyên môn và icon trên 18 dịch vụ; chỉnh nhãn và màu sáng/tối. Đồng bộ tiêu đề Blog/Tin công nghệ về 19px theo mẫu chủ site chọn.

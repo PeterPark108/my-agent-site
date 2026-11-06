@@ -14,11 +14,15 @@ export function useAnchorNavigation() {
     const reduced = matchMedia('(prefers-reduced-motion: reduce)');
     const cancel = () => { scrolling?.kill(); };
     const jump = contextSafe!((animate = false, focus = false) => {
-      if (disposed || location.pathname !== '/' || !location.hash) return;
+      if (disposed || !location.hash) return;
+      const directory = location.pathname === '/dich-vu.html';
+      if (location.pathname !== '/' && !directory) return;
+      if (directory && !document.querySelector('main[data-tools-ready="true"]')) return;
       let id: string;
       try { id = decodeURIComponent(location.hash.slice(1)); } catch { return; }
       const target = document.getElementById(id);
       if (!target) return;
+      if (directory && (!target.classList.contains('cat-panel') || target.hidden)) return;
       cancel();
       ScrollTrigger.refresh();
       const offset = (document.querySelector('header')?.getBoundingClientRect().height || 80) + 28;
@@ -50,13 +54,22 @@ export function useAnchorNavigation() {
       cancelAnimationFrame(frame);
       frame = requestAnimationFrame(() => jump(!link.classList.contains('skip'), true));
     };
-    const hash = () => jump();
+    const hash = () => {
+      if (location.pathname === '/dich-vu.html') toolsReady();
+      else jump();
+    };
+    const toolsReady = () => {
+      if (location.pathname !== '/dich-vu.html') return;
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => jump());
+    };
     const keyboard = (event: KeyboardEvent) => {
       if (['Escape', 'PageDown', 'PageUp', 'Home', 'End', 'ArrowDown', 'ArrowUp', ' '].includes(event.key)) cancel();
     };
     document.addEventListener('click', navigate);
     document.addEventListener('keydown', keyboard);
     window.addEventListener('hashchange', hash);
+    window.addEventListener('myagent:tools-ready', toolsReady);
     window.addEventListener('wheel', cancel, { passive: true });
     window.addEventListener('touchstart', cancel, { passive: true });
     reduced.addEventListener('change', cancel);
@@ -68,6 +81,7 @@ export function useAnchorNavigation() {
       focusTargets.forEach(target => target.removeAttribute('tabindex'));
       document.removeEventListener('click', navigate); document.removeEventListener('keydown', keyboard);
       window.removeEventListener('hashchange', hash); window.removeEventListener('wheel', cancel); window.removeEventListener('touchstart', cancel);
+      window.removeEventListener('myagent:tools-ready', toolsReady);
       reduced.removeEventListener('change', cancel);
     };
   }, []);
