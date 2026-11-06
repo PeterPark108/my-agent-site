@@ -1,16 +1,12 @@
 'use client';
 import Image from 'next/image';
+import { featuredProjects } from '@/content/featured-projects';
 import { useRef,useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 gsap.registerPlugin(ScrollTrigger,useGSAP);
-const projects=[
- {id:'01',name:'NhàĐất Việt',category:'REAL ESTATE / WEBSITE',description:'Website bất động sản mẫu: giới thiệu dự án, tìm kiếm, lọc và khám phá nhà đất.',tags:['Bất động sản','Tìm kiếm & bộ lọc'],image:'/projects/nhadat.webp',alt:'Banner hero website bất động sản mẫu NhàĐất Việt',href:'https://nhadat.myagentvn.com/'},
- {id:'02',name:'Nhà Gió',category:'HOSPITALITY / WEBSITE',description:'Website mẫu cho khách sạn và homestay: giới thiệu không gian, hệ thống phòng và hành trình đặt phòng.',tags:['Website trải nghiệm','Responsive'],image:'/projects/nhagio.webp',alt:'Ảnh website mẫu Nhà Gió với hồ bơi ven biển và thanh chọn ngày đặt phòng',href:'https://gio.myagentvn.com/'},
- {id:'03',name:'NHỊP',category:'COMMERCE / WEBSITE',description:'Website bán giày mẫu với danh mục, trang sản phẩm, giỏ hàng và hành trình đặt hàng.',tags:['E-commerce','Trải nghiệm mua sắm'],image:'/projects/nhip.webp',alt:'Ảnh trang chủ website mẫu bán giày NHỊP',href:'https://nhip-shoe-shop.onrender.com/'},
- {id:'04',name:'Nội Thất Studio',category:'INTERIOR / WEBSITE',description:'Website nội thất mẫu: danh mục sản phẩm, trang giới thiệu và trình khám phá không gian bằng thao tác cuộn.',tags:['Nội thất','Khám phá không gian'],image:'/projects/noi-that-studio.webp',alt:'Ảnh trang chủ website mẫu Nội Thất Studio với không gian nội thất và danh mục sản phẩm',href:'https://preview.myagentvn.com/noi-that-studio/'},
-];
+const projects = featuredProjects;
 export function ProjectShowcase(){const root=useRef<HTMLElement>(null);const timeline=useRef<gsap.core.Timeline|null>(null);const [active,setActive]=useState(0);const [enhanced,setEnhanced]=useState(false);
  useGSAP(()=>{const mm=gsap.matchMedia();mm.add('(min-width: 1100px) and (min-height: 760px) and (prefers-reduced-motion: no-preference)',()=>{
   const cards=gsap.utils.toArray<HTMLElement>('.project-card');gsap.set('.project-stack',{height:'clamp(420px,58vh,600px)'});gsap.set(cards,{position:'absolute',inset:0,minHeight:0});cards.forEach((c,i)=>gsap.set(c,{zIndex:i+1}));gsap.set(cards.slice(1),{yPercent:105});
