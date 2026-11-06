@@ -1,5 +1,10 @@
 # Nhật ký thay đổi
 
+## 0.11.3 — 2026-11-06 (PR nháp, chờ "Duyệt PR")
+- Tin mới: "Cloudflare Zero Wire: theo dõi lỗ hổng Internet dễ hiểu hơn" (`data/news/2026-11-06-cloudflare-zero-wire-lo-hong.md`, topic bao-mat; nguồn Cloudflare Blog https://blog.cloudflare.com/zero-wire/).
+- Vá `scripts/seo_v6.sh`: đồng bộ `blog/feed.xml` và `tin-tuc/feed.xml` vào `site-v6/public` trước export, rồi chép lại feed sau export để tránh bị ghi đè bằng bản cũ trong public.
+- Dựng lại qua `scripts/seo_v6.sh news --check-urls`. Bump VERSION.
+
 ## 0.11.2 — 2026-11-06 (PR nháp, chờ "Duyệt PR")
 - Blog mới (chủ đề chung cho mọi doanh nghiệp nhỏ): "Tốc độ website cơ bản cho doanh nghiệp nhỏ" (`data/blog/toc-do-website-co-ban-cho-doanh-nghiep-nho.md`, category website, 7 việc, FAQ 3 câu, link nội bộ tới blog/dịch vụ/bảng giá; nguồn ngoài: web.dev, PageSpeed Insights). Dựng lại blog qua `scripts/seo_v6.sh blog`. Bump VERSION.
 
