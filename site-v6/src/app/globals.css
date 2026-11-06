@@ -133,3 +133,16 @@ button,a{transition:border-color .16s,background-color .16s,color .16s}
 body:has(.subpage-article,.subpage-legal) .cosmos-stars i{animation:none;opacity:.18}
 @media(max-width:700px){.cosmos-stars i:nth-child(n+61){display:none}}
 @media(min-width:1100px){.ecosystem-tabs{position:relative;padding-left:44px}.ecosystem-tabs:before{content:'';position:absolute;left:25px;top:55px;bottom:55px;width:1px;background:var(--ln)}.ecosystem-tabs button{position:relative;overflow:visible}.ecosystem-tabs button:before{content:'';position:absolute;left:-24px;width:8px;height:8px;border:1px solid var(--el);background:var(--bg2);border-radius:50%}.ecosystem-tabs button[aria-selected=true]:before{background:var(--el);box-shadow:0 0 15px var(--el)}}
+
+/* GSAP motion upgrade: decoration never intercepts an action. */
+.reading-progress{position:fixed;inset:0 0 auto;height:2px;background:linear-gradient(90deg,var(--red),var(--el));transform:scaleX(0);transform-origin:left;z-index:100;pointer-events:none}
+.ecosystem-tabs{position:relative;isolation:isolate}
+.ecosystem-indicator{position:absolute;top:0;left:0;border:1px solid rgba(143,178,255,.3);border-radius:12px;background:linear-gradient(90deg,rgba(61,123,255,.15),rgba(233,236,245,.035));pointer-events:none;z-index:-1}
+.ecosystem-tabs:has(.ecosystem-indicator[style]) button[aria-selected=true]{background:transparent;border-color:transparent}
+.hero .button{transition:background-color .2s,border-color .2s,color .2s}
+.hero .button:hover{transform:none}
+@media(max-width:960px){.cosmos-stars i:nth-child(n+51){display:none}.cosmos-stars i{animation:none}}
+@media(prefers-reduced-motion:reduce){.reading-progress{display:none}}
+
+/* ScrollTo owns explicit anchor journeys; wheel/touch scrolling stays native. */
+html{scroll-behavior:auto}

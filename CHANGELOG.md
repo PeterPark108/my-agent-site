@@ -1,5 +1,11 @@
 # Nhật ký thay đổi
 
+## Chờ duyệt — Nâng cấp GSAP 2026-11-06
+- Hero theo timeline, vẽ nét SVG, chuyển nhóm dịch vụ bằng Flip và chuyển mẫu dự án nhẹ trên điện thoại.
+- Cuộn tới mục bằng ScrollToPlugin, hỗ trợ bàn phím; thanh tiến trình đọc; giảm hiệu ứng nền trên mobile và dừng chuyển động ngoài màn hình/tab ẩn.
+- Giữ thương hiệu, nội dung, bảng giá và chức năng liên hệ. Đóng gói bản tĩnh cùng mã nguồn; chưa triển khai production.
+- Kiểm tra: lint/typecheck/build qua, 59 route HTTP/shell qua, trình duyệt 320/390/768/1440px. Chi tiết và giới hạn: `site-v6/docs/GSAP-UPGRADE-2026-11-06.md`.
+
 ## 0.11.3 — 2026-11-06 (PR nháp, chờ "Duyệt PR")
 - Tin mới: "Cloudflare Zero Wire: theo dõi lỗ hổng Internet dễ hiểu hơn" (`data/news/2026-11-06-cloudflare-zero-wire-lo-hong.md`, topic bao-mat; nguồn Cloudflare Blog https://blog.cloudflare.com/zero-wire/).
 - Vá `scripts/seo_v6.sh`: đồng bộ `blog/feed.xml` và `tin-tuc/feed.xml` vào `site-v6/public` trước export, rồi chép lại feed sau export để tránh bị ghi đè bằng bản cũ trong public.

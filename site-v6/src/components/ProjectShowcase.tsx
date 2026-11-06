@@ -19,6 +19,17 @@ export function ProjectShowcase(){const root=useRef<HTMLElement>(null);const tim
   cards.slice(1).forEach((card,i)=>tl.to(card,{yPercent:0,duration:.9,ease:'power2.inOut'}).addLabel('project-'+(i+1)).to('.electric-edge',{opacity:.8,duration:.08}).to('.electric-edge',{opacity:0,duration:.24}).to({}, {duration:.35}));
   setEnhanced(true);return ()=>{timeline.current=null;setEnhanced(false)};
  });return ()=>mm.revert()},{scope:root});
+ useGSAP(()=>{
+  if(enhanced)return;
+  const mm=gsap.matchMedia();
+  mm.add('(prefers-reduced-motion: no-preference)',()=>{
+   const card=root.current?.querySelector<HTMLElement>('.project-card[data-active=true]');
+   if(card)gsap.fromTo(card,{opacity:.45,y:12},{opacity:1,y:0,duration:.38,ease:'power2.out',clearProps:'opacity,transform'});
+   // Card copy/imagery can change the height of the section.
+   gsap.delayedCall(.05,()=>ScrollTrigger.refresh());
+  },root);
+  return()=>mm.revert();
+ },{scope:root,dependencies:[active,enhanced],revertOnUpdate:true});
  function go(i:number){
   const tl=timeline.current;
   if(tl?.scrollTrigger){
