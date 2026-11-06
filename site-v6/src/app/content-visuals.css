@@ -22,6 +22,7 @@
 }
 
 /* Linked and unlinked article titles share the same 19px heading treatment. */
+.site-content .news .nw-h { font-size: 19px; line-height: 1.5; font-weight: 800; }
 .site-content .nw-h > a {
   display: inline;
   font: inherit;

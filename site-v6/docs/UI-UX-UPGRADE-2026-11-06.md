@@ -1,4 +1,6 @@
-# UI/UX revision — 2026-11-06
+# Historical UI/UX revision — 2026-11-06
+
+> Superseded at the owner's request. The flat redesign and its additional search/menu/contents features have been removed. The original 3D site is active with only the requested diagram/icon/title fixes. See [RESTORE-3D-2026-11-06.md](RESTORE-3D-2026-11-06.md). The results below describe the discarded iteration, not the current draft.
 
 The site is an existing service business with an established brand. This revision preserves its logos, palette, Vietnamese font, routes, business content and honest sample-project labels. It supersedes the earlier hero entrance, decorative loops and pinned portfolio described in `GSAP-UPGRADE-2026-11-06.md`.
 

@@ -1,4 +1,4 @@
-> Final revision: see [UI-UX-UPGRADE-2026-11-06.md](UI-UX-UPGRADE-2026-11-06.md). The hero entrance, decorative loops and pinned portfolio below describe the earlier iteration and have been replaced by the reviewed UI/UX revision.
+> Current revision: the owner requested the original 3D version below. It is active again with the service/icon/title fixes; see [RESTORE-3D-2026-11-06.md](RESTORE-3D-2026-11-06.md).
 
 # GSAP motion upgrade — 06/11/2026
 

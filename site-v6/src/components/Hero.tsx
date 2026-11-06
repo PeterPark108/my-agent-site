@@ -1,17 +1,4 @@
-import Image from 'next/image';
+export function Hero(){return <section className="hero-stage" aria-labelledby="hero-title">
 
-export function Hero() {
-  return <section className="hero-stage" aria-labelledby="hero-title"><div className="hero container">
-    <div className="hero-copy">
-      <p className="eyebrow">My Agent · Thiết kế & công nghệ</p>
-      <h1 id="hero-title">Website cho<br/>doanh nghiệp<span className="hero-title-accent">của bạn.</span></h1>
-      <p className="hero-description">Thiết kế website, xây dựng nội dung và kết nối các dịch vụ số. Từ ý tưởng đầu tiên đến vận hành.</p>
-      <div className="actions"><a className="button" href="#lien-he">Trao đổi dự án <span aria-hidden="true">↗</span></a><a className="button button-outline" href="#dich-vu">Xem các dịch vụ <span aria-hidden="true">↓</span></a></div>
-      <p className="hero-location">TP. Hồ Chí Minh · Phục vụ toàn quốc</p>
-    </div>
-    <a className="hero-work" href="https://gio.myagentvn.com/" target="_blank" rel="noopener noreferrer" aria-label="Mở website mẫu Nhà Gió trong tab mới">
-      <div className="hero-work-heading"><span>Website mẫu</span><strong>Nhà Gió</strong><span aria-hidden="true">↗</span></div>
-      <div className="hero-work-image"><Image priority src="/projects/nhagio.webp" alt="Website mẫu Nhà Gió do Peter thiết kế, với hình ảnh khu nghỉ dưỡng và công cụ chọn ngày đặt phòng" width={1600} height={900} sizes="(max-width: 960px) 90vw, 55vw"/></div>
-    </a>
-  </div></section>;
-}
+<div className="hero container"><div className="hero-copy"><p className="eyebrow" data-intro>MY AGENT / DESIGN & TECHNOLOGY</p><h1 id="hero-title" data-intro><span className="hero-title-main">WEBSITE ĐẸP</span><em className="hero-subtitle">Trải nghiệm khác biệt</em></h1><div className="actions" data-intro><a className="button" href="#lien-he">Trao đổi dự án <span aria-hidden="true">↗</span></a><a className="button button-outline" href="#dich-vu">Khám phá dịch vụ <span aria-hidden="true">↓</span></a></div><p className="hero-description" data-intro>Thiết kế website và dịch vụ số cho doanh nghiệp. Kết nối thương hiệu, nội dung và công nghệ trong một trải nghiệm rõ ràng.</p></div>
+<div className="hero-art" aria-hidden="true"><div className="orb-halo"/><div className="orbit-float orbit-float-one"><div className="tech-orbit tech-orbit-one"><i/></div></div><div className="orb"><div className="orb-grid"/><div className="orb-latitude latitude-one"/><div className="orb-latitude latitude-two"/><div className="orb-meridian meridian-one"/><div className="orb-meridian meridian-two"/><div className="orb-equator"/><div className="orb-shine"/><span className="orb-mark">M</span><span className="orb-code">MY AGENT / DIGITAL CORE</span></div><div className="orbit-float orbit-float-two"><div className="tech-orbit tech-orbit-two"><i/></div></div><div className="art-label"><span/> CREATIVE TECHNOLOGY</div><div className="art-coordinates">TP. HỒ CHÍ MINH<br/>PHỤC VỤ TOÀN QUỐC</div><div className="art-index">DESIGN × TECHNOLOGY</div></div><a className="scroll-cue" href="#dich-vu">CUỘN ĐỂ KHÁM PHÁ <span aria-hidden="true">↓</span></a></div></section>}

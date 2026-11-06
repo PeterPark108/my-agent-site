@@ -1,12 +1,11 @@
 # Nhật ký thay đổi
 
-## Chờ duyệt — Nâng cấp UI/UX & GSAP 2026-11-06
+## Chờ duyệt — Bản 3D & sửa hiển thị 2026-11-06
 - Khôi phục sơ đồ chuyên môn và icon trên 18 dịch vụ; chỉnh nhãn và màu sáng/tối. Đồng bộ tiêu đề Blog/Tin công nghệ về 19px theo mẫu chủ site chọn.
-- Bổ sung tìm bài không dấu, số kết quả và trạng thái rỗng; bố cục bài viết 3/2/1 cột, mô tả 16px dễ đọc.
-- Menu điện thoại toàn màn hình, hỗ trợ bàn phím, mục lục di động và điều hướng đến đúng nội dung dưới header.
-- Trang chủ giới thiệu dịch vụ rõ hơn bằng website mẫu hiện có; portfolio dạng lưới. Chuyển động nhẹ khi tương tác; loại bỏ reveal nội dung, nền nhấp nháy và cuộn ghim thẻ dự án.
+- Lấy lại nguyên bản Cosmic Glass 3D trước lần đổi sang 2D theo yêu cầu chủ site: quả cầu vũ trụ, nền sao, lớp kính và chuyển động GSAP.
+- Bỏ thiết kế 2D và các tính năng thêm trong lần đó; chỉ giữ bản sửa hiển thị dịch vụ và tiêu đề bài viết.
 - Giữ logo, màu thương hiệu, dữ liệu giá và công cụ; đóng gói bản tĩnh, cập nhật PR nháp, chưa triển khai production.
-- Kiểm tra lint/typecheck/build đạt (61 trang), 70 lượt kiểm tra route/kích thước trong trình duyệt. Chi tiết và giới hạn: `site-v6/docs/UI-UX-UPGRADE-2026-11-06.md`.
+- Kiểm tra lint/typecheck/build đạt (61 trang); kiểm tra trang chủ trên desktop/mobile, 26 trang nội dung desktop và 3 trang mobile. Chi tiết và giới hạn: `site-v6/docs/RESTORE-3D-2026-11-06.md`.
 
 ## 0.11.3 — 2026-11-06 (PR nháp, chờ "Duyệt PR")
 - Tin mới: "Cloudflare Zero Wire: theo dõi lỗ hổng Internet dễ hiểu hơn" (`data/news/2026-11-06-cloudflare-zero-wire-lo-hong.md`, topic bao-mat; nguồn Cloudflare Blog https://blog.cloudflare.com/zero-wire/).
