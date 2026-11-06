@@ -1,7 +1,7 @@
 # Nhật ký thay đổi
 
 ## 0.11.4 — 2026-11-06 (PR nháp, chờ "Duyệt PR")
-- Thêm sản phẩm mẫu **MyCons** vào khối Sản phẩm mẫu (trang chủ) và trang `/du-an.html`.
+- Thêm sản phẩm mẫu **MyCons** vào khối Sản phẩm mẫu (trang chủ) và trang `/du-an.html` (đứng đầu danh sách, id 01).
 - Link demo: https://preview.myagentvn.com/mycons/ . Ảnh chụp trang chủ thật (1440px → webp).
 - Không phải dự án khách hàng; nội dung demo là dữ liệu minh hoạ.
 
