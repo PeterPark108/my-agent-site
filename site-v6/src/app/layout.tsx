@@ -12,6 +12,7 @@ import './chat-widget.css';
 import './globals.css';
 import './content-visuals.css';
 import './cosmic-navigator.css';
+import './cosmic-flight.css';
 export const metadata: Metadata = {
   metadataBase: new URL('https://myagentvn.com'),
   title: 'My Agent — Website tạo dấu ấn',

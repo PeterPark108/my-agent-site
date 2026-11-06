@@ -1,7 +1,8 @@
 # Nhật ký thay đổi
 
 ## Chờ duyệt — Bản 3D & sửa hiển thị 2026-11-06
-- Thử tương tác quả cầu ba quỹ đạo Dịch vụ / Dự án / Kết nối: bảng kính, bốn mẫu dự án, lối tắt liên hệ, bàn phím và bố cục điện thoại. Giữ phong cách 3D hiện tại; xem `site-v6/docs/COSMIC-NAVIGATOR-2026-11-06.md`.
+- Quả cầu ba quỹ đạo Dịch vụ / Dự án / Kết nối mở popup kính giữa màn hình, làm mờ nền, hỗ trợ bàn phím và điện thoại. Xem `site-v6/docs/COSMIC-NAVIGATOR-2026-11-06.md`.
+- Nền vũ trụ chung có ba lớp sao trôi cùng hướng, sao băng nhỏ mỗi 5 giây và lớn mỗi 10 giây. Xem `site-v6/docs/COSMIC-FLIGHT-2026-11-06.md`.
 - Khôi phục sơ đồ chuyên môn và icon trên 18 dịch vụ; chỉnh nhãn và màu sáng/tối. Đồng bộ tiêu đề Blog/Tin công nghệ về 19px theo mẫu chủ site chọn.
 - Lấy lại nguyên bản Cosmic Glass 3D trước lần đổi sang 2D theo yêu cầu chủ site: quả cầu vũ trụ, nền sao, lớp kính và chuyển động GSAP.
 - Bỏ thiết kế 2D và các tính năng thêm trong lần đó; chỉ giữ bản sửa hiển thị dịch vụ và tiêu đề bài viết.

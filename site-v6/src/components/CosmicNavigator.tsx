@@ -22,6 +22,7 @@ function OrbitIcon({ kind }: { kind: Destination }) {
 
 export function CosmicNavigator() {
   const root = useRef<HTMLDivElement>(null);
+  const dialog = useRef<HTMLDialogElement>(null);
   const buttons = useRef<(HTMLButtonElement | null)[]>([]);
   const turn = useRef<((angle: number, roll: number) => void) | null>(null);
   const [active, setActive] = useState<Destination | null>(null);
@@ -44,6 +45,11 @@ export function CosmicNavigator() {
   }, { scope: root });
 
   useGSAP(() => {
+    const previousOverflow = document.body.style.overflow;
+    if (active) {
+      if (!dialog.current?.open) dialog.current?.showModal();
+      document.body.style.overflow = 'hidden';
+    } else dialog.current?.close();
     turn.current?.(destination?.angle ?? 0, destination?.roll ?? 0);
     const mm = gsap.matchMedia();
     mm.add('(prefers-reduced-motion: no-preference)', () => {
@@ -55,18 +61,8 @@ export function CosmicNavigator() {
         if (items.length) timeline.fromTo(items, { opacity: 0, y: 6 }, { opacity: 1, y: 0, duration: .28, stagger: .04 }, '-=.2');
       }
     }, root);
-    // The mobile panel adds real document height; refresh only on open/close or resize.
-    let revealPanel = Boolean(active);
-    const refresh = gsap.delayedCall(.1, () => {
-      ScrollTrigger.refresh();
-      if (revealPanel && matchMedia('(max-width: 1375px)').matches) {
-        root.current?.querySelector('.orbit-console')?.scrollIntoView({ block: 'nearest', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
-      }
-      revealPanel = false;
-    });
-    const resize = new ResizeObserver(() => refresh.restart(true));
-    if (root.current) resize.observe(root.current);
-    return () => { resize.disconnect(); mm.revert(); };
+    gsap.delayedCall(.1, () => ScrollTrigger.refresh());
+    return () => { document.body.style.overflow = previousOverflow; mm.revert(); };
   }, { scope: root, dependencies: [active], revertOnUpdate: true });
 
   useGSAP(() => {
@@ -80,8 +76,9 @@ export function CosmicNavigator() {
 
   function close() {
     const index = destinations.findIndex(item => item.id === active);
+    dialog.current?.close();
     setActive(null);
-    buttons.current[index]?.focus({ preventScroll: !matchMedia('(max-width: 1375px)').matches });
+    buttons.current[index]?.focus({ preventScroll: true });
   }
   return <div ref={root} className="hero-art orbit-explorer" data-orbit={active ?? 'idle'} onKeyDown={event => {
     if (event.key === 'Escape' && active) { event.preventDefault(); event.stopPropagation(); close(); }
@@ -109,9 +106,20 @@ export function CosmicNavigator() {
       <div className="art-index" aria-hidden="true">DESIGN × TECHNOLOGY</div>
       <p className="orbit-hint">Chọn một quỹ đạo để khám phá <span aria-hidden="true">↗</span></p>
     </div>
-    <div id="orbit-content" hidden={!active}>
+    <dialog ref={dialog} id="orbit-content" className="orbit-dialog" aria-labelledby="orbit-panel-title" onCancel={event => { event.preventDefault(); close(); }} onKeyDown={event => {
+      if (event.key !== 'Tab') return;
+      const controls = Array.from(event.currentTarget.querySelectorAll<HTMLElement>('button:not([disabled]),a[href]')).filter(element => element.getClientRects().length > 0);
+      const first = controls[0], last = controls[controls.length - 1];
+      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }
+      else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
+    }} onClick={event => {
+      if (event.target !== event.currentTarget) return;
+      const box = event.currentTarget.getBoundingClientRect();
+      if (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom) close();
+    }}>
       {destination && <section className="orbit-console" aria-labelledby="orbit-panel-title">
         <div className="orbit-console-heading"><span>{destination.number} / {destination.label}</span><button type="button" className="orbit-close" aria-label="Đóng bảng khám phá" onClick={close}>×</button></div>
+        <div className="orbit-modal-tabs" role="group" aria-label="Chọn nội dung khám phá">{destinations.map(item => <button key={item.id} type="button" aria-pressed={active === item.id} onClick={() => setActive(item.id)}><OrbitIcon kind={item.id}/>{item.label}</button>)}</div>
         <h2 id="orbit-panel-title">{active === 'services' ? 'Bạn muốn bắt đầu từ đâu?' : active === 'projects' ? 'Khám phá sản phẩm mẫu.' : 'Cùng bắt đầu dự án.'}</h2>
         {active === 'services' && <>
           <div className="orbit-service-links">
@@ -136,6 +144,6 @@ export function CosmicNavigator() {
           <a className="orbit-more" data-orbit-item href="/lien-he.html">Gửi yêu cầu tư vấn <span aria-hidden="true">↗</span></a>
         </>}
       </section>}
-    </div>
+    </dialog>
   </div>;
 }
