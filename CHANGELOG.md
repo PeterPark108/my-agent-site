@@ -1,5 +1,8 @@
 # Nhật ký thay đổi
 
+## 0.11.2 — 2026-11-06 (PR nháp, chờ "Duyệt PR")
+- Blog mới (chủ đề chung cho mọi doanh nghiệp nhỏ): "Tốc độ website cơ bản cho doanh nghiệp nhỏ" (`data/blog/toc-do-website-co-ban-cho-doanh-nghiep-nho.md`, category website, 7 việc, FAQ 3 câu, link nội bộ tới blog/dịch vụ/bảng giá; nguồn ngoài: web.dev, PageSpeed Insights). Dựng lại blog qua `scripts/seo_v6.sh blog`. Bump VERSION.
+
 ## 0.11.1 — 2026-11-06 (PR nháp, chờ "Duyệt PR")
 - Thêm sản phẩm mẫu **Nội Thất Studio** vào khối Sản phẩm mẫu (trang chủ) và trang `/du-an.html`.
 - Link demo: https://preview.myagentvn.com/noi-that-studio/ . Ảnh chụp trang chủ thật (1440px → webp).
