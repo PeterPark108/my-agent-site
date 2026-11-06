@@ -22,6 +22,10 @@ echo "== Chép dữ liệu/feed/sitemap về repo"
 cp -a "$T/data/." data/
 for f in blog/feed.xml tin-tuc/feed.xml sitemap.xml; do cp "$T/$f" "$f"; done
 grep -q 'dieu-khoan-dich-vu.html' sitemap.xml || sed -i 's#</urlset>#  <url><loc>https://myagentvn.com/dieu-khoan-dich-vu.html</loc></url>\n</urlset>#' sitemap.xml
+echo "== Đồng bộ feed vào site-v6/public (tránh export ghi đè feed cũ)"
+mkdir -p site-v6/public/tin-tuc site-v6/public/blog
+cp tin-tuc/feed.xml site-v6/public/tin-tuc/feed.xml
+cp blog/feed.xml site-v6/public/blog/feed.xml
 echo "== Nhập vào v6 và build tĩnh"
 cd site-v6
 [ -d node_modules ] || npm ci
@@ -29,6 +33,11 @@ node scripts/import-legacy.cjs "$T"
 npm run lint >/dev/null
 bash scripts/export-static.sh >/dev/null
 cd "$ROOT"
+echo "== Chép lại feed sau export (export có thể ghi đè từ public)"
+cp "$T/tin-tuc/feed.xml" tin-tuc/feed.xml
+cp "$T/blog/feed.xml" blog/feed.xml
+cp tin-tuc/feed.xml site-v6/public/tin-tuc/feed.xml
+cp blog/feed.xml site-v6/public/blog/feed.xml
 echo "== Kiểm tra 200 các URL trong sitemap (máy chủ tạm)"
 PORT=$((20000+RANDOM%20000)); python3 -m http.server $PORT >/dev/null 2>&1 & SP=$!; sleep 1; bad=0
 for u in $(grep -o '<loc>[^<]*' sitemap.xml | sed 's#<loc>https://myagentvn.com##'); do c=$(curl -s -o /dev/null -w '%{http_code}' "http://127.0.0.1:$PORT$u"); [ "$c" = 200 ] || { echo "LỖI $c $u"; bad=1; }; done
