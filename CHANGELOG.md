@@ -1,5 +1,10 @@
 # Nhật ký thay đổi
 
+## 0.11.4 — 2026-11-06 (PR nháp, chờ "Duyệt PR")
+- Thêm sản phẩm mẫu **MyCons** vào khối Sản phẩm mẫu (trang chủ) và trang `/du-an.html`.
+- Link demo: https://preview.myagentvn.com/mycons/ . Ảnh chụp trang chủ thật (1440px → webp).
+- Không phải dự án khách hàng; nội dung demo là dữ liệu minh hoạ.
+
 ## 0.11.3 — 2026-11-06 (PR nháp, chờ "Duyệt PR")
 - Tin mới: "Cloudflare Zero Wire: theo dõi lỗ hổng Internet dễ hiểu hơn" (`data/news/2026-11-06-cloudflare-zero-wire-lo-hong.md`, topic bao-mat; nguồn Cloudflare Blog https://blog.cloudflare.com/zero-wire/).
 - Vá `scripts/seo_v6.sh`: đồng bộ `blog/feed.xml` và `tin-tuc/feed.xml` vào `site-v6/public` trước export, rồi chép lại feed sau export để tránh bị ghi đè bằng bản cũ trong public.
