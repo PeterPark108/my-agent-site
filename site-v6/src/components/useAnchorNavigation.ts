@@ -14,7 +14,7 @@ export function useAnchorNavigation() {
     const reduced = matchMedia('(prefers-reduced-motion: reduce)');
     const cancel = () => { scrolling?.kill(); };
     const jump = contextSafe!((animate = false, focus = false) => {
-      if (disposed || location.pathname !== '/' || !location.hash) return;
+      if (disposed || !location.hash) return;
       let id: string;
       try { id = decodeURIComponent(location.hash.slice(1)); } catch { return; }
       const target = document.getElementById(id);
@@ -41,7 +41,7 @@ export function useAnchorNavigation() {
       const link = (event.target as Element).closest<HTMLAnchorElement>('a[href]');
       if (!link || link.target || link.hasAttribute('download')) return;
       const url = new URL(link.href, location.href);
-      if (location.pathname !== '/' || url.origin !== location.origin || url.pathname !== '/' || url.search !== location.search || !url.hash) return;
+      if (url.origin !== location.origin || url.pathname !== location.pathname || url.search !== location.search || !url.hash) return;
       let target: HTMLElement | null;
       try { target = document.getElementById(decodeURIComponent(url.hash.slice(1))); } catch { return; }
       if (!target) return;

@@ -1,3 +1,5 @@
+> Final revision: see [UI-UX-UPGRADE-2026-11-06.md](UI-UX-UPGRADE-2026-11-06.md). The hero entrance, decorative loops and pinned portfolio below describe the earlier iteration and have been replaced by the reviewed UI/UX revision.
+
 # GSAP motion upgrade — 06/11/2026
 
 Based on production/main c249664bdce8494734ed708c6894ffc0e818bdda.

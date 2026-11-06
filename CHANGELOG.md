@@ -1,10 +1,12 @@
 # Nhật ký thay đổi
 
-## Chờ duyệt — Nâng cấp GSAP 2026-11-06
-- Hero theo timeline, vẽ nét SVG, chuyển nhóm dịch vụ bằng Flip và chuyển mẫu dự án nhẹ trên điện thoại.
-- Cuộn tới mục bằng ScrollToPlugin, hỗ trợ bàn phím; thanh tiến trình đọc; giảm hiệu ứng nền trên mobile và dừng chuyển động ngoài màn hình/tab ẩn.
-- Giữ thương hiệu, nội dung, bảng giá và chức năng liên hệ. Đóng gói bản tĩnh cùng mã nguồn; chưa triển khai production.
-- Kiểm tra: lint/typecheck/build qua, 59 route HTTP/shell qua, trình duyệt 320/390/768/1440px. Chi tiết và giới hạn: `site-v6/docs/GSAP-UPGRADE-2026-11-06.md`.
+## Chờ duyệt — Nâng cấp UI/UX & GSAP 2026-11-06
+- Khôi phục sơ đồ chuyên môn và icon trên 18 dịch vụ; chỉnh nhãn và màu sáng/tối. Đồng bộ tiêu đề Blog/Tin công nghệ về 19px theo mẫu chủ site chọn.
+- Bổ sung tìm bài không dấu, số kết quả và trạng thái rỗng; bố cục bài viết 3/2/1 cột, mô tả 16px dễ đọc.
+- Menu điện thoại toàn màn hình, hỗ trợ bàn phím, mục lục di động và điều hướng đến đúng nội dung dưới header.
+- Trang chủ giới thiệu dịch vụ rõ hơn bằng website mẫu hiện có; portfolio dạng lưới. Chuyển động nhẹ khi tương tác; loại bỏ reveal nội dung, nền nhấp nháy và cuộn ghim thẻ dự án.
+- Giữ logo, màu thương hiệu, dữ liệu giá và công cụ; đóng gói bản tĩnh, cập nhật PR nháp, chưa triển khai production.
+- Kiểm tra lint/typecheck/build đạt (61 trang), 70 lượt kiểm tra route/kích thước trong trình duyệt. Chi tiết và giới hạn: `site-v6/docs/UI-UX-UPGRADE-2026-11-06.md`.
 
 ## 0.11.3 — 2026-11-06 (PR nháp, chờ "Duyệt PR")
 - Tin mới: "Cloudflare Zero Wire: theo dõi lỗ hổng Internet dễ hiểu hơn" (`data/news/2026-11-06-cloudflare-zero-wire-lo-hong.md`, topic bao-mat; nguồn Cloudflare Blog https://blog.cloudflare.com/zero-wire/).
