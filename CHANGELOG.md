@@ -1,5 +1,20 @@
 # Nhật ký thay đổi
 
+## 0.12.0 — 2026-11-06 (PR nháp, chờ "Duyệt PR")
+- Đưa bản Cosmic 3D/GSAP (PR #77, nhánh dev 485257e — trùng khớp bản ZIP chủ site gửi) lên làm phiên bản chính, gộp với production 0.11.4.
+- MyCons (web thiết kế & xây dựng) đứng đầu Sản phẩm mẫu trên trang chủ và /du-an.html; giữ đủ Nội Thất Studio, NHỊP, Nhà Gió, NhàĐất Việt.
+
+### Từ PR #77
+- Tự rà soát lần cuối: sửa 2 đích liên kết, thêm 404 tiếng Việt, chỉnh thanh cuộn popup; sửa đóng gói để giữ đủ chunk Điều khoản và payload Next.js. Rà 4.891 tham chiếu nội bộ đạt; xuất ZIP frontend để chủ site tự đưa lên VPS. Xem `site-v6/docs/FINAL-REVIEW-2026-11-06.md`.
+- Sửa lưới 18 thẻ trong cả 5 nhóm danh mục Dịch vụ: tách tiêu đề/mô tả, giữ icon trong thẻ kính, responsive và mở đúng vị trí nhóm từ liên kết. Xem `site-v6/docs/SERVICE-DIRECTORY-FIX-2026-11-06.md`.
+- Quả cầu ba quỹ đạo Dịch vụ / Dự án / Kết nối mở popup kính giữa màn hình, làm mờ nền, hỗ trợ bàn phím và điện thoại. Xem `site-v6/docs/COSMIC-NAVIGATOR-2026-11-06.md`.
+- Nền vũ trụ chung có ba lớp sao trôi cùng hướng, sao băng nhỏ mỗi 5 giây và lớn mỗi 10 giây. Xem `site-v6/docs/COSMIC-FLIGHT-2026-11-06.md`.
+- Khôi phục sơ đồ chuyên môn và icon trên 18 dịch vụ; chỉnh nhãn và màu sáng/tối. Đồng bộ tiêu đề Blog/Tin công nghệ về 19px theo mẫu chủ site chọn.
+- Lấy lại nguyên bản Cosmic Glass 3D trước lần đổi sang 2D theo yêu cầu chủ site: quả cầu vũ trụ, nền sao, lớp kính và chuyển động GSAP.
+- Bỏ thiết kế 2D và các tính năng thêm trong lần đó; chỉ giữ bản sửa hiển thị dịch vụ và tiêu đề bài viết.
+- Giữ logo, màu thương hiệu, dữ liệu giá và công cụ; đóng gói bản tĩnh, cập nhật PR nháp, chưa triển khai production.
+- Kiểm tra lint/typecheck/build đạt (61 trang); kiểm tra trang chủ trên desktop/mobile, 26 trang nội dung desktop và 3 trang mobile. Chi tiết và giới hạn: `site-v6/docs/RESTORE-3D-2026-11-06.md`.
+
 ## 0.11.4 — 2026-11-06 (PR nháp, chờ "Duyệt PR")
 - Thêm sản phẩm mẫu **MyCons** vào khối Sản phẩm mẫu (trang chủ) và trang `/du-an.html` (đứng đầu danh sách, id 01).
 - Link demo: https://preview.myagentvn.com/mycons/ . Ảnh chụp trang chủ thật (1440px → webp).

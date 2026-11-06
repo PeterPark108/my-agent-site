@@ -1,16 +1,12 @@
 'use client';
 import Image from 'next/image';
+import { featuredProjects } from '@/content/featured-projects';
 import { useRef,useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 gsap.registerPlugin(ScrollTrigger,useGSAP);
-const projects=[ {id:'01',name:'MyCons',category:'ARCHITECTURE / WEBSITE',description:'Website mẫu cho studio thiết kế và xây dựng nhà ở: dịch vụ thiết kế kiến trúc, thi công, cải tạo hoàn thiện, quy trình và cẩm nang.',tags:['Thiết kế & xây dựng','Nhà ở'],image:'/projects/mycons.webp',alt:'Ảnh trang chủ website mẫu MyCons — thiết kế và xây dựng nhà ở',href:'https://preview.myagentvn.com/mycons/'},
- {id:'02',name:'NhàĐất Việt',category:'REAL ESTATE / WEBSITE',description:'Website bất động sản mẫu: giới thiệu dự án, tìm kiếm, lọc và khám phá nhà đất.',tags:['Bất động sản','Tìm kiếm & bộ lọc'],image:'/projects/nhadat.webp',alt:'Banner hero website bất động sản mẫu NhàĐất Việt',href:'https://nhadat.myagentvn.com/'},
- {id:'03',name:'Nhà Gió',category:'HOSPITALITY / WEBSITE',description:'Website mẫu cho khách sạn và homestay: giới thiệu không gian, hệ thống phòng và hành trình đặt phòng.',tags:['Website trải nghiệm','Responsive'],image:'/projects/nhagio.webp',alt:'Ảnh website mẫu Nhà Gió với hồ bơi ven biển và thanh chọn ngày đặt phòng',href:'https://gio.myagentvn.com/'},
- {id:'04',name:'NHỊP',category:'COMMERCE / WEBSITE',description:'Website bán giày mẫu với danh mục, trang sản phẩm, giỏ hàng và hành trình đặt hàng.',tags:['E-commerce','Trải nghiệm mua sắm'],image:'/projects/nhip.webp',alt:'Ảnh trang chủ website mẫu bán giày NHỊP',href:'https://nhip-shoe-shop.onrender.com/'},
- {id:'05',name:'Nội Thất Studio',category:'INTERIOR / WEBSITE',description:'Website nội thất mẫu: danh mục sản phẩm, trang giới thiệu và trình khám phá không gian bằng thao tác cuộn.',tags:['Nội thất','Khám phá không gian'],image:'/projects/noi-that-studio.webp',alt:'Ảnh trang chủ website mẫu Nội Thất Studio với không gian nội thất và danh mục sản phẩm',href:'https://preview.myagentvn.com/noi-that-studio/'},
-];
+const projects = featuredProjects;
 export function ProjectShowcase(){const root=useRef<HTMLElement>(null);const timeline=useRef<gsap.core.Timeline|null>(null);const [active,setActive]=useState(0);const [enhanced,setEnhanced]=useState(false);
  useGSAP(()=>{const mm=gsap.matchMedia();mm.add('(min-width: 1100px) and (min-height: 760px) and (prefers-reduced-motion: no-preference)',()=>{
   const cards=gsap.utils.toArray<HTMLElement>('.project-card');gsap.set('.project-stack',{height:'clamp(420px,58vh,600px)'});gsap.set(cards,{position:'absolute',inset:0,minHeight:0});cards.forEach((c,i)=>gsap.set(c,{zIndex:i+1}));gsap.set(cards.slice(1),{yPercent:105});
@@ -19,6 +15,17 @@ export function ProjectShowcase(){const root=useRef<HTMLElement>(null);const tim
   cards.slice(1).forEach((card,i)=>tl.to(card,{yPercent:0,duration:.9,ease:'power2.inOut'}).addLabel('project-'+(i+1)).to('.electric-edge',{opacity:.8,duration:.08}).to('.electric-edge',{opacity:0,duration:.24}).to({}, {duration:.35}));
   setEnhanced(true);return ()=>{timeline.current=null;setEnhanced(false)};
  });return ()=>mm.revert()},{scope:root});
+ useGSAP(()=>{
+  if(enhanced)return;
+  const mm=gsap.matchMedia();
+  mm.add('(prefers-reduced-motion: no-preference)',()=>{
+   const card=root.current?.querySelector<HTMLElement>('.project-card[data-active=true]');
+   if(card)gsap.fromTo(card,{opacity:.45,y:12},{opacity:1,y:0,duration:.38,ease:'power2.out',clearProps:'opacity,transform'});
+   // Card copy/imagery can change the height of the section.
+   gsap.delayedCall(.05,()=>ScrollTrigger.refresh());
+  },root);
+  return()=>mm.revert();
+ },{scope:root,dependencies:[active,enhanced],revertOnUpdate:true});
  function go(i:number){
   const tl=timeline.current;
   if(tl?.scrollTrigger){
