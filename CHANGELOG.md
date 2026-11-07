@@ -1,5 +1,9 @@
 # Nhật ký thay đổi
 
+## 0.12.2 — 2026-11-07 (PR nháp, chờ "Duyệt PR")
+- Gỡ thẻ **Hướng Nghiệp 360** và **XN Linh Kiện Máy In** khỏi danh sách sản phẩm mẫu trên trang chủ và `/du-an.html`. Giữ website, repo và file ảnh. Giữ MyCons và mọi tin/blog đang có trên `main`.
+- Thêm **Orient Star — Thời gian qua bốn mùa** (https://dongho.myagentvn.com/) vào khối nổi bật và trang `/du-an.html`.
+
 ## 0.12.1 — 2026-11-07 (PR nháp tin, chờ phép merge v6 từ MJ)
 - Tin mới: "Microsoft: AI agent quét GitHub tìm khóa bị lộ" (`data/news/2026-11-07-microsoft-ai-quet-secret-github.md`, topic bao-mat; nguồn Microsoft Security Blog https://www.microsoft.com/en-us/security/blog/2026/11/05/threat-actors-use-agentic-ai-tooling-to-find-and-abuse-exposed-secrets/).
 - Dựng lại qua `scripts/seo_v6.sh news --check-urls`. Bump VERSION.
