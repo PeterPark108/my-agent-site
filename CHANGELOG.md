@@ -1,5 +1,9 @@
 # Nhật ký thay đổi
 
+## 0.11.4 — 2026-11-07 (PR nháp, chờ "Duyệt PR")
+- Gỡ thẻ **Hướng Nghiệp 360** và **XN Linh Kiện Máy In** khỏi danh sách sản phẩm mẫu trên trang chủ (khối more-work) và `/du-an.html`. Giữ nguyên website, repo và file ảnh.
+- Thêm sản phẩm mẫu **Orient Star — Thời gian qua bốn mùa** (https://dongho.myagentvn.com/) vào khối nổi bật trên trang chủ và trang `/du-an.html`.
+
 ## Chờ duyệt — Bản 3D & sửa hiển thị 2026-11-06
 - Tự rà soát lần cuối: sửa 2 đích liên kết, thêm 404 tiếng Việt, chỉnh thanh cuộn popup; sửa đóng gói để giữ đủ chunk Điều khoản và payload Next.js. Rà 4.891 tham chiếu nội bộ đạt; xuất ZIP frontend để chủ site tự đưa lên VPS. Xem `site-v6/docs/FINAL-REVIEW-2026-11-06.md`.
 - Sửa lưới 18 thẻ trong cả 5 nhóm danh mục Dịch vụ: tách tiêu đề/mô tả, giữ icon trong thẻ kính, responsive và mở đúng vị trí nhóm từ liên kết. Xem `site-v6/docs/SERVICE-DIRECTORY-FIX-2026-11-06.md`.
