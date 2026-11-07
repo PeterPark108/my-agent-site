@@ -1,5 +1,8 @@
 # Nhật ký thay đổi
 
+## 0.12.2 — 2026-11-07 (PR nháp, chờ "Duyệt PR")
+- Blog mới (chủ đề chung cho mọi doanh nghiệp nhỏ): "Chăm sóc website sau khi bàn giao: việc nên làm định kỳ" (`data/blog/cham-soc-website-sau-ban-giao.md`, category website, các việc định kỳ sau bàn giao, FAQ, link nội bộ tới blog/dịch vụ/bảng giá). Dựng lại blog qua `scripts/seo_v6.sh blog`. Bump VERSION. PR tin #80 đang nhắm 0.12.1 nên bài này dùng 0.12.2.
+
 ## 0.12.0 — 2026-11-06 (PR nháp, chờ "Duyệt PR")
 - Đưa bản Cosmic 3D/GSAP (PR #77, nhánh dev 485257e — trùng khớp bản ZIP chủ site gửi) lên làm phiên bản chính, gộp với production 0.11.4.
 - MyCons (web thiết kế & xây dựng) đứng đầu Sản phẩm mẫu trên trang chủ và /du-an.html; giữ đủ Nội Thất Studio, NHỊP, Nhà Gió, NhàĐất Việt.
