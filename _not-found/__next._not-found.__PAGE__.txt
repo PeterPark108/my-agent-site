@@ -2,7 +2,7 @@
 2:"/_next/static/chunks/312je5ftx3y6u.js"
 3:I[39756,["$2"],"default"]
 4:I[37457,["$2"],"default"]
-5:"/_next/static/chunks/1xn7f-7mz_q_n.js"
+5:"/_next/static/chunks/2d727dzbmkf6c.js"
 6:I[13177,["$2","$5"],"Cosmos"]
 7:I[2971,["$2","$5"],"Header"]
 8:I[5500,["$2","$5"],"Image"]
@@ -25,7 +25,7 @@ c:[["children",{"s":"/_not-found","h":96,"d":{"r":["$","$1","c",{"children":[nul
 11:["$","div",null,{"children":[["$","h3",null,{"children":"DỊCH VỤ & THÔNG TIN"}],["$","a",null,{"href":"/bang-gia.html","children":"Bảng giá tham khảo ↗"}],["$","a",null,{"href":"/combo.html","children":"Combo dịch vụ ↗"}],["$","a",null,{"href":"/tra-cuu-tien-do.html","children":"Tra cứu tiến độ ↗"}],["$","a",null,{"href":"/blog.html","children":"Kiến thức & chia sẻ ↗"}]]}]
 12:["$","div",null,{"children":[["$","h3",null,{"children":"KẾT NỐI"}],["$","a",null,{"href":"tel:+84328439972","children":"0328 439 972"}],["$","a",null,{"href":"mailto:vantungn044@gmail.com","children":"vantungn044@gmail.com"}],["$","a",null,{"href":"/lien-he.html","children":"Form tư vấn hiện tại ↗"}],["$","span",null,{"children":"TP.HCM · Toàn quốc"}]]}]
 13:["$","div",null,{"className":"container footer-bottom","children":[["$","span",null,{"children":"© My Agent · Nguyễn Văn Tùng (PeterPark)"}],["$","a",null,{"href":"/dieu-khoan-dich-vu.html","children":"Điều khoản & dịch vụ ↗"}],["$","a",null,{"href":"/chinh-sach-bao-mat.html","children":"Chính sách bảo mật ↗"}],["$","a",null,{"href":"#main","children":"Về đầu trang ↑"}]]}]
-14:["$","script","script-0",{"src":"/_next/static/chunks/1xn7f-7mz_q_n.js","async":true}]
+14:["$","script","script-0",{"src":"/_next/static/chunks/2d727dzbmkf6c.js","async":true}]
 15:["$","$L20",null,{"children":["$","$1b",null,{"name":"Next.MetadataOutlet","children":"$@21"}]}]
 b:300
 21:null
