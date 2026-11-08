@@ -1,5 +1,9 @@
 # Nhật ký thay đổi
 
+## 0.12.3 — 2026-11-08 (PR nháp tin, chờ phép merge v6 từ MJ)
+- Tin mới: "Lời mời sự kiện AI giả chiếm tài khoản Microsoft, Google" (`data/news/2026-11-08-loi-moi-su-kien-ai-gia-chiem-tai-khoan.md`, topic bao-mat; nguồn Push Security https://pushsecurity.com/blog/ai-themed-fake-event-campaign-analysis và BleepingComputer https://www.bleepingcomputer.com/news/security/fake-openai-spacex-events-used-to-steal-microsoft-google-accounts/).
+- Dựng lại qua `scripts/seo_v6.sh news --check-urls`. Bump VERSION.
+
 ## 0.12.1 — 2026-11-07 (PR nháp tin, chờ phép merge v6 từ MJ)
 - Tin mới: "Microsoft: AI agent quét GitHub tìm khóa bị lộ" (`data/news/2026-11-07-microsoft-ai-quet-secret-github.md`, topic bao-mat; nguồn Microsoft Security Blog https://www.microsoft.com/en-us/security/blog/2026/11/05/threat-actors-use-agentic-ai-tooling-to-find-and-abuse-exposed-secrets/).
 - Dựng lại qua `scripts/seo_v6.sh news --check-urls`. Bump VERSION.
