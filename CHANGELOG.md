@@ -1,5 +1,9 @@
 # Nhật ký thay đổi
 
+## 0.12.4 — 2026-11-09 (PR nháp tin, chờ phép merge v6 từ MJ)
+- Tin mới: "SonicWall vá lỗ hổng SSL-VPN vượt MFA đang bị khai thác" (`data/news/2026-11-09-sonicwall-sslvpn-vuot-mfa-saml.md`, topic bao-mat; nguồn SonicWall PSIRT https://psirt.global.sonicwall.com/vuln-detail/SNWLID-2026-0014, BleepingComputer, SecurityWeek).
+- Dựng lại qua `scripts/seo_v6.sh news` (chạy trong `unshare -rn` vì cổng 8899 bị chiếm; link nguồn kiểm tra riêng bằng curl). Bump VERSION. (0.12.2/0.12.3 đã dùng cho PR #81/#85 và #84.)
+
 ## 0.12.1 — 2026-11-07 (PR nháp tin, chờ phép merge v6 từ MJ)
 - Tin mới: "Microsoft: AI agent quét GitHub tìm khóa bị lộ" (`data/news/2026-11-07-microsoft-ai-quet-secret-github.md`, topic bao-mat; nguồn Microsoft Security Blog https://www.microsoft.com/en-us/security/blog/2026/11/05/threat-actors-use-agentic-ai-tooling-to-find-and-abuse-exposed-secrets/).
 - Dựng lại qua `scripts/seo_v6.sh news --check-urls`. Bump VERSION.
