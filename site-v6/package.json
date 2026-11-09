@@ -13,7 +13,11 @@
     "lint": "eslint .",
     "test:e2e": "playwright test",
     "prebuild": "node scripts/prepare-build.cjs",
-    "test:security": "node scripts/security-tests.mjs"
+    "test:security": "node scripts/security-tests.mjs",
+    "test:seo": "node scripts/seo-tests.mjs",
+    "test:ui": "node scripts/ui-preservation-tests.mjs",
+    "test:browser": "playwright test --config playwright.static.config.ts",
+    "test:flight": "node scripts/validate-flight-streams.mjs .."
   },
   "dependencies": {
     "@fontsource/be-vietnam-pro": "^5.2.0",

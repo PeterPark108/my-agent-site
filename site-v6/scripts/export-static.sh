@@ -7,9 +7,11 @@ npm run build
 OUT=.next-v5
 # Next xuất route "x.html" thành file "x.html.html" + thư mục "x.html/" (RSC). Đổi lại đúng URL cũ.
 find "$OUT" -name '*.html.html' | while read -r f; do d="${f%.html}"; rm -rf "$d"; mv "$f" "$d"; done
-find "$OUT" -name '*.html.txt' -delete
+# Keep fresh RSC payloads next to HTML. Deleting them leaves stale metadata
+# from the previous export in the repository root.
 ROOT=..
-rm -rf "$ROOT/_next"
+# Retain prior content-addressed assets so cached HTML can still hydrate.
+# Old live bundles may contain owner edits; the new build uses new hashes.
 cp -a "$OUT"/. "$ROOT"/
 
 echo "Đã xuất web tĩnh v6 ra thư mục gốc repo."

@@ -146,3 +146,9 @@ body:has(.subpage-article,.subpage-legal) .cosmos-stars i{animation:none;opacity
 
 /* ScrollTo owns explicit anchor journeys; wheel/touch scrolling stays native. */
 html{scroll-behavior:auto}
+
+/* 2026-11-09 nav-frame2: khung hạ theo hàng nút bọc; Mở demo giữ bên phải */
+.project-screen{overflow:visible;height:auto}
+.project-screen>.project-navigation{height:auto;align-items:flex-start;flex-wrap:nowrap;overflow:visible;padding:12px 10px 12px}
+.project-screen .project-select{flex:1 1 auto;min-width:0;height:auto;overflow:visible;align-content:flex-start}
+.project-screen .demo-live-link{flex:0 0 auto;white-space:nowrap}
