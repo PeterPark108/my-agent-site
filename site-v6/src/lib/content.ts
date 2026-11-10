@@ -17,3 +17,8 @@ export const faqs = [
   ['Tên miền và hosting có nằm trong gói không?','Có thể gộp theo combo. Báo giá cần ghi rõ từng hạng mục, phí theo năm và cấu hình hosting.'],
   ['Tôi nên bắt đầu từ đâu?','Gửi mục tiêu, loại website và nội dung hiện có. My Agent sẽ trao đổi để xác định phạm vi và báo giá.'],
 ];
+
+export const homeSeo = {
+  title: 'Thiết kế website tại TP.HCM | My Agent',
+  description: 'My Agent thiết kế website giới thiệu, landing page và website bán hàng tại TP.HCM. Báo giá theo phạm vi, trao đổi và bàn giao từ xa cho khách toàn quốc.',
+};

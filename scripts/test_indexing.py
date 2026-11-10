@@ -41,7 +41,8 @@ class IndexingTests(unittest.TestCase):
         self.assertIn('follow', head.robots)
         self.assertEqual(head.canonicals, [BASE + 'tra-cuu-tien-do.html'])
     def test_tracking_rsc_parity(self):
-        metadata = '["$","meta","tracking-robots",{"name":"robots","content":"noindex, follow"}]'
+        # React keys change on a normal rebuild; verify the actual metadata.
+        metadata = '"name":"robots","content":"noindex, follow"'
         self.assertIn(metadata, (ROOT / 'tra-cuu-tien-do.html.txt').read_text())
         html = (ROOT / 'tra-cuu-tien-do.html').read_text()
         payloads = re.findall(r'self\.__next_f\.push\(\[1,("(?:[^"\\]|\\.)*")\]\)', html)

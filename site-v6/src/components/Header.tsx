@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { useAnchorNavigation } from './useAnchorNavigation';
 import { useEffect,useState,useSyncExternalStore } from 'react';
-const links=[['/#dich-vu','Giải pháp'],['/#he-sinh-thai','Hệ dịch vụ'],['/#trai-nghiem','Dự án'],['/#quy-trinh','Quy trình'],['/#lien-he','Liên hệ']];
+const links=[['/#trai-nghiem','Dự án'],['/#he-sinh-thai','Hệ dịch vụ'],['/#dich-vu','Giải pháp'],['/#quy-trinh','Quy trình'],['/#lien-he','Liên hệ']];
 const more=[['/dich-vu.html','Tất cả dịch vụ'],['/combo.html','Combo dịch vụ'],['/bang-gia.html','Bảng giá & tính giá'],['/du-an.html','Sản phẩm mẫu'],['/tra-cuu-tien-do.html','Tra cứu tiến độ'],['/tin-tuc.html','Tin công nghệ'],['/blog.html','Blog / Kiến thức'],['/cong-cu.html','Công cụ miễn phí'],['/tai-nguyen-ai-agent.html','Tài nguyên AI Agent'],['/ve-chung-toi.html','Về My Agent'],['/lien-he.html','Liên hệ đầy đủ'],['/dieu-khoan-dich-vu.html','Điều khoản & dịch vụ'],['/chinh-sach-bao-mat.html','Chính sách bảo mật']];
 function readTheme(){try{return localStorage.getItem('ma-theme')==='light'?'light':'dark'}catch{return 'dark'}}
 function subscribeTheme(callback:()=>void){window.addEventListener('myagent:theme',callback);window.addEventListener('storage',callback);return()=>{window.removeEventListener('myagent:theme',callback);window.removeEventListener('storage',callback)}}

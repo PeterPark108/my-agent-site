@@ -1,2 +1,10 @@
 data/private/
 __pycache__/
+
+site-v6/test-results/
+
+site-v6/playwright-report/
+
+site-v6/test-downloads/
+
+site-v6/test-results-committed/

@@ -1,0 +1,47 @@
+name: Validate static website
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  static-site:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: site-v6
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: site-v6/package-lock.json
+      - run: npm ci
+      - name: Validate the committed release files
+        run: npm run test:seo && npm run test:ui && npm run test:flight
+      - run: npx playwright install --with-deps chromium
+      - name: Exercise the committed release in browsers
+        run: npx playwright test --config playwright.static.config.ts --output test-results-committed
+      - run: bash scripts/export-static.sh
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm run test:seo
+      - run: npm run test:ui
+      - run: npm run test:flight
+      - run: python3 ../scripts/test_indexing.py
+      - run: npx playwright install --with-deps chromium
+      - run: npx playwright test --config playwright.static.config.ts
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: static-site-browser-results
+          path: |
+            site-v6/test-results
+            site-v6/test-results-committed
+          retention-days: 7

@@ -1,6 +1,7 @@
 # Nhật ký thay đổi
 
 ## 0.12.2 — 2026-11-07 (PR nháp, chờ "Duyệt PR")
+- Blog mới: "Quy trình làm website cho doanh nghiệp nhỏ: từ trao đổi đến bàn giao" (`data/blog/quy-trinh-lam-website-cho-doanh-nghiep-nho.md`, từ PR #85 merge production `59a1db8`).
 - Gỡ thẻ **Hướng Nghiệp 360** và **XN Linh Kiện Máy In** khỏi danh sách sản phẩm mẫu trên trang chủ và `/du-an.html`. Giữ website, repo và file ảnh. Giữ MyCons và mọi tin/blog đang có trên `main`.
 - Thêm **Orient Star — Thời gian qua bốn mùa** (https://dongho.myagentvn.com/) vào khối nổi bật và trang `/du-an.html`.
 
