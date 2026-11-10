@@ -70,3 +70,18 @@ test('demo switching and mobile menu remain usable without external actions', as
   }
   expect(errors).toEqual([]);
 });
+
+test('current blog article and related links survive release reconciliation', async ({ page }) => {
+  const errors: string[] = []; page.on('pageerror', error => errors.push(error.message));
+  await page.goto('/blog.html');
+  const route = '/blog/quy-trinh-lam-website-cho-doanh-nghiep-nho.html';
+  await page.locator('main a').filter({ hasText: 'Quy trình làm website cho doanh nghiệp nhỏ: từ trao đổi đến bàn giao' }).first().click();
+  await expect(page).toHaveURL(new RegExp(route.replaceAll('.', '\\.')));
+  await expect(page.locator('main h1')).toHaveText('Quy trình làm website cho doanh nghiệp nhỏ: từ trao đổi đến bàn giao');
+  await expect(page.locator('.nwa-body')).toBeVisible();
+  await expect(page.locator('.page-sidebar nav a').first()).toHaveAttribute('href', /^#/);
+  await page.goBack();
+  await expect(page).toHaveURL(/\/blog\.html$/);
+  await expect(page.locator(`main a[href="${route}"]`).first()).toBeVisible();
+  expect(errors).toEqual([]);
+});

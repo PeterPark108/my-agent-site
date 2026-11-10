@@ -4,7 +4,7 @@ Baseline: production main at 54c3c84, plus verified live-only UI edits. Older de
 
 ## Improvements
 
-- Search title/description now agree with the curated social metadata across 59 sitemap pages. Homepage metadata identifies website design, TP.HCM and nationwide service without changing visible H1 or hero copy.
+- Search title/description now agree with the curated social metadata across 60 sitemap pages. Homepage metadata identifies website design, TP.HCM and nationwide service without changing visible H1 or hero copy.
 - FAQ JSON-LD is generated from visible, sanitized answers. All 21 FAQ pages match their displayed text, removing stale homepage timeline claims and decorative plus signs from schema.
 - Static export retains fresh React navigation payloads. The previous export discarded these and left stale files, including a malformed portfolio payload and a missing news-page payload. The full rebuild regenerates them correctly.
 
@@ -12,7 +12,9 @@ Baseline: production main at 54c3c84, plus verified live-only UI edits. Older de
 
 Production contained four modified tracked files and four untracked demo images absent from main. Those changes are now in buildable source: seven demos including Nha giua vuon, homepage section order, current menu order, homepage-specific footer order, section numbering, scroll target and the four project-navigation frame rules. The H1, hero copy, other page layout, animations, pricing, forms and backend remain unchanged. The source menu now renders the same order already applied globally by the live JavaScript.
 
-A fixture records all 59 current production page bodies, excluding scripts and normalizing the pre-hydration menu to its live order. The regenerated export matches every fixture. Demo images are the exact public production files, not new generated replacements.
+A fixture records all 60 current production page bodies, excluding scripts and normalizing the pre-hydration menu to its live order. The regenerated export matches every fixture. Demo images are the exact public production files, not new generated replacements.
+
+The pre-release drift check also found already-published blog changes from PR #85. Only matching blog content was reconciled from that source: the new process article, listing and related links, Markdown source, feed and sitemap entry. Existing article text and all unrelated routes remain unchanged. The current blog page bodies match the verified live snapshot.
 
 ## Checks
 
@@ -27,7 +29,7 @@ From site-v6:
 
 From root: python3 scripts/test_indexing.py.
 
-The Flight validator sequentially checks UTF-8 byte-counted records and JSON rather than assuming regex-matched metadata proves navigation works. Browser checks cover desktop/mobile, normal/reduced motion, homepage to portfolio and back/forward, seven demo selectors, mobile menu, image loading, responsive project frame and runtime errors. Browser results are recorded separately from static checks. API/security tests requiring absent backend routes are not used to imply backend coverage. No real forms are submitted.
+The Flight validator sequentially checks UTF-8 byte-counted records and JSON rather than assuming regex-matched metadata proves navigation works. Browser checks cover desktop/mobile, normal/reduced motion, homepage to portfolio and back/forward, current blog article navigation, seven demo selectors, mobile menu, image loading, responsive project frame and runtime errors. Browser results are recorded separately from static checks. API/security tests requiring absent backend routes are not used to imply backend coverage. No real forms are submitted.
 
 ## Release safeguards
 

@@ -1,19 +1,19 @@
 {
   "source": "https://myagentvn.com/",
-  "baseline": "54c3c84 plus verified live UI edits",
+  "baseline": "54c3c84 plus verified live UI edits and PR #85 blog content",
   "normalization": "Server-rendered menu order normalized to the existing live hydrated order; scripts excluded",
   "hashes": {
     "bang-gia.html": "9707c44349ce907d01468824eb90332774b98715126dc45f695b46e627f998d8",
-    "blog/bao-mat-website-co-ban-cho-doanh-nghiep-nho.html": "673bd9987844ab6e6aaca05a86ab46203bdc8f3929f69b4443d5af9930cc99c9",
-    "blog/checklist-seo-co-ban-cho-website.html": "85d836092c552e87b4bde8a23a439a9d8d288ed8eb1c0caa10ee32495806db16",
-    "blog/chi-phi-lam-website-phu-thuoc-yeu-to-nao.html": "27258f382751bd42e42675274af46bb1dac6dd79dc4577ba2ecb1c692e773904",
-    "blog/da-co-facebook-zalo-san-tmdt-co-can-website-rieng.html": "f501e411f819c662d8d9ad96b36f58546b6ca7da1824cc9b94a4234215ff5d84",
-    "blog/do-luong-website-bang-google-analytics-co-ban.html": "1decfd06c702af188a53f3feb34e0f8a54c4eeec56f44da16cd236fd56f66b83",
-    "blog/google-business-profile-dich-vu-tai-tphcm.html": "ece23d7cb305acd3d5f0d17705a94b607661f94e2c14ac628cfa16174d25ab96",
-    "blog/thiet-ke-web-tron-goi-gom-nhung-gi.html": "c042a57b1572977c4e75a0b7ef977d182394aef8fd3b0124c1663a9771f4abfa",
-    "blog/toc-do-website-co-ban-cho-doanh-nghiep-nho.html": "8c456b4cb8a0fe611e10a067a0f5da38622e81861d5fbc94bebb10fb4981fdaa",
-    "blog/website-chuyen-nghiep-can-gi.html": "fc5679f8942a95939df051457f2ce4b3a0ff8d011ad0239644b975788b155dae",
-    "blog.html": "bbec2cbbcd8182002b8a53fe360404c6452f683af76d6f72d6c151ce61d45e72",
+    "blog/bao-mat-website-co-ban-cho-doanh-nghiep-nho.html": "ea581ce78d5be7e68e3a2a0e1f7162e8f5596c0b0bf0e2ec22cbfe9831308861",
+    "blog/checklist-seo-co-ban-cho-website.html": "3120bbcde89ed1fd8f846729e01450b5e7dfd1c558c974c78578ff9f68c152ed",
+    "blog/chi-phi-lam-website-phu-thuoc-yeu-to-nao.html": "d0c92827156ea69ad099df9f59bfc87607202fb8eb22d180546ad43c00a725e0",
+    "blog/da-co-facebook-zalo-san-tmdt-co-can-website-rieng.html": "4cc834c509a394dc8621c3322e303622c30c3884b3eed72a5e51d6c4e4788f60",
+    "blog/do-luong-website-bang-google-analytics-co-ban.html": "e41bb180ead19179d0fb21dcfd480afaf9d5d6d8901866ce9edd3655c706a365",
+    "blog/google-business-profile-dich-vu-tai-tphcm.html": "c61713fa488e241dc8c305022a1b1008f829085e9e90dab37308ba6157998c93",
+    "blog/thiet-ke-web-tron-goi-gom-nhung-gi.html": "d6af87c0649f2b714a999d90be82050b22e4cc7b1a3c8763c5668ec4d3f0bd4c",
+    "blog/toc-do-website-co-ban-cho-doanh-nghiep-nho.html": "4e108ffc390aa7eab51d1852bc9e3f2edb68dbe528dbb51dbf21cf4411ef38a2",
+    "blog/website-chuyen-nghiep-can-gi.html": "cdd6fcf5bbb9a73cff9d020f29bb4da594ad970a2d3047d5d818d5d67af5505b",
+    "blog.html": "0679bc311750b27afb5e33919ec7a44f66e3005001f781a05df893c2b04a1a2b",
     "chinh-sach-bao-mat.html": "c06a0e8c16b3ed13d3b349aaf97cef21f4613be4af90730a23ab5e5e7a68046e",
     "combo.html": "0544ccde50663d2f2fd1d5580a7b8e42d900f89ea2621905e0ba20333e24add4",
     "cong-cu.html": "5a16b77dc53432378a1cac2735802f2440fa90853f7be1ecdc22eb3c34e365ba",
@@ -61,6 +61,7 @@
     "tin-tuc/wordpress-7-1-4-ban-va-bao-mat.html": "0821b79cf6f3169ad2bf9f52a07e0fcd35c1e079e190d9c0408a59e503c3f355",
     "tin-tuc.html": "46410ff26d356602849d71c4f8ea850aa597569079985b17cbad8bd307730886",
     "ve-chung-toi.html": "a94b07abd3a97129e504e13a887e06d7dde89524658f714add781db2bae0a480",
-    "dieu-khoan-dich-vu.html": "91f04d75ae86ba50a1344ee3fc4ebe5433c802372244b4c4bd04b6cb2cf09e38"
+    "dieu-khoan-dich-vu.html": "91f04d75ae86ba50a1344ee3fc4ebe5433c802372244b4c4bd04b6cb2cf09e38",
+    "blog/quy-trinh-lam-website-cho-doanh-nghiep-nho.html": "328defbd3debe44d73d41234186a80b6d9ebde04d00233485583b3679d128f3d"
   }
 }
