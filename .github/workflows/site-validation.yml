@@ -23,6 +23,11 @@ jobs:
           cache: npm
           cache-dependency-path: site-v6/package-lock.json
       - run: npm ci
+      - name: Validate the committed release files
+        run: npm run test:seo && npm run test:ui && npm run test:flight
+      - run: npx playwright install --with-deps chromium
+      - name: Exercise the committed release in browsers
+        run: npx playwright test --config playwright.static.config.ts --output test-results-committed
       - run: bash scripts/export-static.sh
       - run: npm run lint
       - run: npm run typecheck
@@ -36,5 +41,7 @@ jobs:
         if: always()
         with:
           name: static-site-browser-results
-          path: site-v6/test-results
+          path: |
+            site-v6/test-results
+            site-v6/test-results-committed
           retention-days: 7
