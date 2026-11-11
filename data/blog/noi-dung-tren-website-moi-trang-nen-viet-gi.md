@@ -82,7 +82,7 @@ Một cửa hàng nên có ảnh sản phẩm và không gian thật. Một đơ
 
 ## Viết xong thì rà lại và cập nhật
 
-Nội dung không viết một lần rồi để đó. Khi đổi dịch vụ, giờ làm việc, địa chỉ hoặc cách nhận yêu cầu, hãy sửa các trang liên quan trong cùng một lượt. Có thể nhờ đơn vị [chăm sóc website](../dich-vu/cham-soc-website.html) cập nhật định kỳ, hoặc tự sửa nếu đã có trang quản trị.
+Nội dung không viết một lần rồi để đó. Khi đổi dịch vụ, giờ làm việc, địa chỉ hoặc cách nhận yêu cầu, hãy sửa các trang liên quan trong cùng một lượt. Có thể nhờ đơn vị [chăm sóc website](../dich-vu/cham-soc-website.html) cập nhật định kỳ, hoặc tự sửa nếu đã có trang quản trị. Các việc nên làm đều đặn sau khi web đã chạy được được nêu trong [chăm sóc website sau khi bàn giao](cham-soc-website-sau-ban-giao.html).
 
 Trước khi đăng, đọc lại như một người lần đầu ghé web: có hiểu ngay anh/chị làm gì không, có biết phải bấm đâu không, có câu nào đang phóng đại không. Việc này cũng nằm trong [quy trình làm website](quy-trinh-lam-website-cho-doanh-nghiep-nho.html), ở bước chuẩn bị nội dung và rà soát trước khi ra mắt.
 
