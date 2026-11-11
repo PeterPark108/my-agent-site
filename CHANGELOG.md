@@ -1,7 +1,14 @@
 # Nhật ký thay đổi
 
-## 0.12.2 — 2026-11-07 (PR nháp, chờ "Duyệt PR")
-- Blog mới (chủ đề chung cho mọi doanh nghiệp nhỏ): "Chăm sóc website sau khi bàn giao: việc nên làm định kỳ" (`data/blog/cham-soc-website-sau-ban-giao.md`, category website, các việc định kỳ sau bàn giao, FAQ, link nội bộ tới blog/dịch vụ/bảng giá). Dựng lại blog qua `scripts/seo_v6.sh blog`. Bump VERSION. PR tin #80 đang nhắm 0.12.1 nên bài này dùng 0.12.2.
+## 0.12.3 — 2026-11-11 (blog PR #81, Peter gõ "Duyệt PR #81")
+- Blog mới (chủ đề chung cho mọi doanh nghiệp nhỏ): "Chăm sóc website sau khi bàn giao: việc nên làm định kỳ" (`data/blog/cham-soc-website-sau-ban-giao.md`, category website, các việc định kỳ sau bàn giao, FAQ, link nội bộ tới blog/dịch vụ/bảng giá). Rebase lên production sau PR #85, dựng lại blog qua `scripts/seo_v6.sh blog`. Bump VERSION 0.12.3 (0.12.2 đã dùng cho PR #85).
+
+## 0.12.2 — 2026-11-08 (PR nháp blog, chờ Peter gõ "Duyệt PR")
+- Blog mới (chủ đề chung cho mọi doanh nghiệp nhỏ): "Quy trình làm website cho doanh nghiệp nhỏ: từ trao đổi đến bàn giao" (`data/blog/quy-trinh-lam-website-cho-doanh-nghiep-nho.md`, category website, 7 chặng từ trao đổi đến bàn giao, FAQ 5 câu, link nội bộ tới bài đã đăng và trang dịch vụ/bảng giá/liên hệ). Dựng lại blog qua `scripts/seo_v6.sh blog`. Bump VERSION.
+
+## 0.12.1 — 2026-11-07 (PR nháp tin, chờ phép merge v6 từ MJ)
+- Tin mới: "Microsoft: AI agent quét GitHub tìm khóa bị lộ" (`data/news/2026-11-07-microsoft-ai-quet-secret-github.md`, topic bao-mat; nguồn Microsoft Security Blog https://www.microsoft.com/en-us/security/blog/2026/11/05/threat-actors-use-agentic-ai-tooling-to-find-and-abuse-exposed-secrets/).
+- Dựng lại qua `scripts/seo_v6.sh news --check-urls`. Bump VERSION.
 
 ## 0.12.0 — 2026-11-06 (PR nháp, chờ "Duyệt PR")
 - Đưa bản Cosmic 3D/GSAP (PR #77, nhánh dev 485257e — trùng khớp bản ZIP chủ site gửi) lên làm phiên bản chính, gộp với production 0.11.4.
