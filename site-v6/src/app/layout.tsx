@@ -1,3 +1,4 @@
+import { Analytics } from '@/components/Analytics';
 import { SupportWidgets } from '@/components/SupportWidgets';
 import type { Metadata, Viewport } from 'next';
 import '@fontsource/be-vietnam-pro/vietnamese-400.css';
@@ -21,6 +22,6 @@ export const metadata: Metadata = {
 };
 export const viewport: Viewport = { themeColor: '#05070F' };
 export default function RootLayout({children}:Readonly<{children:React.ReactNode}>) {
-  return <html lang="vi"><body>{children}<SupportWidgets/></body></html>;
+  return <html lang="vi"><body>{children}<SupportWidgets/><Analytics/></body></html>;
 }
 
