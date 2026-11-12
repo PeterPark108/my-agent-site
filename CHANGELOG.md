@@ -1,5 +1,8 @@
 # Nhật ký thay đổi
 
+## 0.12.5 — 2026-11-11 (PR nháp blog, chờ Peter gõ "Duyệt PR")
+- Blog mới (chủ đề chung cho mọi doanh nghiệp nhỏ): "Nội dung trên website: mỗi trang nên viết gì" (`data/blog/noi-dung-tren-website-moi-trang-nen-viet-gi.md`, category website, trang chủ / dịch vụ / giới thiệu / liên hệ / FAQ / hình ảnh, FAQ 3 câu, link nội bộ tới bài đã đăng và trang dịch vụ/bảng giá/liên hệ). Dựng lại blog qua `scripts/seo_v6.sh blog`. Bump VERSION.
+
 ## 0.12.3 — 2026-11-11 (blog PR #81, Peter gõ "Duyệt PR #81")
 - Blog mới (chủ đề chung cho mọi doanh nghiệp nhỏ): "Chăm sóc website sau khi bàn giao: việc nên làm định kỳ" (`data/blog/cham-soc-website-sau-ban-giao.md`, category website, các việc định kỳ sau bàn giao, FAQ, link nội bộ tới blog/dịch vụ/bảng giá). Rebase lên production sau PR #85, dựng lại blog qua `scripts/seo_v6.sh blog`. Bump VERSION 0.12.3 (0.12.2 đã dùng cho PR #85).
 
