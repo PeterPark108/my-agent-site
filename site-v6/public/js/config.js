@@ -32,7 +32,7 @@ window.MYAGENT_CONFIG = {
   homeSnap: true,
   homeReveal: true,
   homeGlowM: true,
-  gaId: 'G-BZ5E2WMZLJ'
+  gaId: '' // GA is loaded once by the shared Analytics component (GTM-KBZK7NMC).
 };
 /* GA4 (v0.9.10): nguồn tải duy nhất cho mọi trang (tech_pass chèn config.js vào <head>). Tải async, không chặn hiển thị.
    Ẩn danh IP, tắt Google signals và cá nhân hoá quảng cáo; không tải nếu khách bật DNT/GPC hoặc đã chọn tắt. */
@@ -48,6 +48,6 @@ gtag('js',new Date());gtag('config',id,{anonymize_ip:true,allow_google_signals:f
 var s=d.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id='+id;(d.head||d.documentElement).appendChild(s);
 })(window.MYAGENT_CONFIG,window,document);
 /* Nút bật/tắt đo lường trên trang chính sách bảo mật: <button data-ga-toggle> + <span data-ga-state> */
-document.addEventListener('DOMContentLoaded',function(){var g=window.MYAGENT_GA,b=document.querySelector('[data-ga-toggle]'),st=document.querySelector('[data-ga-state]');if(!b||!g)return;
+document.addEventListener('DOMContentLoaded',function(){var g=window.MYAGENT_GA,b=document.querySelector('[data-ga-toggle]'),st=document.querySelector('[data-ga-state]');if(!b||!g||b.dataset.gaBound)return;b.dataset.gaBound='1';
 function r(){var o=g.blocked||g.optedOut;if(st)st.textContent=g.blocked?'Đang tắt (trình duyệt bật Do Not Track / Global Privacy Control).':(o?'Đang tắt trên trình duyệt này.':'Đang bật (ẩn danh).');b.textContent=g.optedOut?'Bật lại đo lường':'Tắt đo lường trên trình duyệt này';b.hidden=g.blocked}
 b.addEventListener('click',function(){g.optedOut=!g.optedOut;g.set(g.optedOut);r()});r()});
