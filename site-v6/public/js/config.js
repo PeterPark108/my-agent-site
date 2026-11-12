@@ -51,3 +51,12 @@ var s=d.createElement('script');s.async=true;s.src='https://www.googletagmanager
 document.addEventListener('DOMContentLoaded',function(){var g=window.MYAGENT_GA,b=document.querySelector('[data-ga-toggle]'),st=document.querySelector('[data-ga-state]');if(!b||!g||b.dataset.gaBound)return;b.dataset.gaBound='1';
 function r(){var o=g.blocked||g.optedOut;if(st)st.textContent=g.blocked?'Đang tắt (trình duyệt bật Do Not Track / Global Privacy Control).':(o?'Đang tắt trên trình duyệt này.':'Đang bật (ẩn danh).');b.textContent=g.optedOut?'Bật lại đo lường':'Tắt đo lường trên trình duyệt này';b.hidden=g.blocked}
 b.addEventListener('click',function(){g.optedOut=!g.optedOut;g.set(g.optedOut);r()});r()});
+
+/* Restore production privacy controls after page tools finish (including SPA navigation). */
+(function(w,d){
+if(w.__myagentPrivacyTools)return;w.__myagentPrivacyTools=true;
+function bind(){var g=w.MYAGENT_GA,b=d.querySelector('[data-ga-toggle]'),s=d.querySelector('[data-ga-state]');if(!g||!b)return;
+function render(){b.hidden=!!g.blocked;b.textContent=g.optedOut?'Bật lại đo lường':'Tắt đo lường trên trình duyệt này';if(s)s.textContent=g.blocked?'Đang tắt theo lựa chọn riêng tư của trình duyệt.':(g.optedOut?'Đang tắt trên trình duyệt này.':'Đang bật đo lường lượt truy cập.');}
+if(!b.dataset.gaBound){b.dataset.gaBound='1';b.addEventListener('click',function(){g.optedOut=!g.optedOut;g.set(g.optedOut);render();});}render();}
+w.addEventListener('myagent:tools-ready',bind);bind();
+})(window,document);

@@ -24,7 +24,7 @@ jobs:
           cache-dependency-path: site-v6/package-lock.json
       - run: npm ci
       - name: Validate the committed release files
-        run: npm run test:seo && npm run test:ui && npm run test:flight && node scripts/keyword-cluster-tests.mjs
+        run: npm run test:seo && npm run test:ui && npm run test:flight && node scripts/keyword-cluster-tests.mjs && node scripts/privacy-controls-tests.mjs
       - run: npx playwright install --with-deps chromium
       - name: Exercise the committed release in browsers
         run: npx playwright test --config playwright.static.config.ts --output test-results-committed
