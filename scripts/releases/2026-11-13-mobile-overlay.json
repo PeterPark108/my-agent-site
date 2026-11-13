@@ -1,0 +1,747 @@
+{
+  "description": "CANDIDATE mobile UX overlay inventory only. Baseline hashes come from Git c63d7aa, not verified current VPS. Reconcile fresh live baseline before deployment. Preserve all other files and old assets; no deletions.",
+  "baseline_artifact": "c63d7aaa4a0e20fca470a04175a44589cc6efa70",
+  "target_artifact": "eb9862714eff9a0ea4e520a4ff536b6319b16e91",
+  "files": [
+    {
+      "path": "404.html",
+      "base_sha256": "fdec39d10ef242fc0ed60717fc68c0b5d6fb058be8e3c28a49892e321227db74",
+      "sha256": "603abcad4bf32ad9953e30b2d5b86fe6a08472cf0f8ccd6798ee3f4ccf223823"
+    },
+    {
+      "path": "__next.__PAGE__.txt",
+      "base_sha256": "472fb72e43b755b53c53701fa96e0bae99d5cb01c99182f9da5aef5e4e2a6f14",
+      "sha256": "08c19be874aa458c1ac0c3812c42982db89527cabbc818425472fd8a7167b50a"
+    },
+    {
+      "path": "__next._full.txt",
+      "base_sha256": "5564eee392a252d09e699dda7e2f1b7333cf808dcecc1348f55f47240d6e6cc9",
+      "sha256": "65a120fe5cb1eb6d80418b30fa5c9a19e4e960106c4b87855ff5ba5c21af2946"
+    },
+    {
+      "path": "__next._index.txt",
+      "base_sha256": "35c864a16deedcf867295330629b7af1f28adde65f24e7cee9280e0c890858fb",
+      "sha256": "a00f06687a690fb0ca51f81082705adf9f6f71e9da4e6e30ee71bb352103c3a7"
+    },
+    {
+      "path": "__next._tree.txt",
+      "base_sha256": "8b9d5a2c9732b4ec55da83924471ce01ffa76b515e0de549adee6c88781cc635",
+      "sha256": "b7864d034e73e034833e6e2e4e51da36edd8cfecd6edac11ff01fa3772991eb9"
+    },
+    {
+      "path": "_next/static/chunks/1fr_54n9a5fue.js",
+      "base_sha256": null,
+      "sha256": "aff0d183da5bacbbc0a65b57b2f8bdb59049f18ede75e2396e7187229bab5190"
+    },
+    {
+      "path": "_next/static/chunks/3r1y-tzmv1ggg.css",
+      "base_sha256": null,
+      "sha256": "424f2ec34c5fb1b6fa47a3818c1a4a3193d984630b3f5e286fe5d1d8d32d3c86"
+    },
+    {
+      "path": "_not-found.html",
+      "base_sha256": "fdec39d10ef242fc0ed60717fc68c0b5d6fb058be8e3c28a49892e321227db74",
+      "sha256": "603abcad4bf32ad9953e30b2d5b86fe6a08472cf0f8ccd6798ee3f4ccf223823"
+    },
+    {
+      "path": "_not-found.txt",
+      "base_sha256": "fb8255547d183ecf4b19b12562b490f7b20fb8ab7bacb8baec47f26390d5eea2",
+      "sha256": "05e1cfdb4231be8b697e3922765b2f69ff66e74e052c16701a3e4cc618ae1b2e"
+    },
+    {
+      "path": "_not-found/__next._full.txt",
+      "base_sha256": "fb8255547d183ecf4b19b12562b490f7b20fb8ab7bacb8baec47f26390d5eea2",
+      "sha256": "05e1cfdb4231be8b697e3922765b2f69ff66e74e052c16701a3e4cc618ae1b2e"
+    },
+    {
+      "path": "_not-found/__next._index.txt",
+      "base_sha256": "0e9eee9ddefba4ac0ca9488dc30b808e8affca9ab5139dd54c5854cadce3865b",
+      "sha256": "b958b2d6f4a2802fb7461f3e74bbe7272f7a3295b604bdfd7cfa416c2f6468bf"
+    },
+    {
+      "path": "_not-found/__next._not-found.__PAGE__.txt",
+      "base_sha256": "b7bd2d1df31469490c001bd70e139a4e1909145ceb67de64905416d56f0f9383",
+      "sha256": "dd22be30d74d6c66e293f408b11cc6f0d419c5e6e274a9282ae2589c6d9e3e16"
+    },
+    {
+      "path": "_not-found/__next._tree.txt",
+      "base_sha256": "3fff0968c1bd69c3cd9cf31480afb7917d79a59748ee0701211c1fda647dde82",
+      "sha256": "90f8cd0019c809a1a9e52cc07904fa273fc46b40d455af145351e1262acce2dc"
+    },
+    {
+      "path": "bang-gia.html",
+      "base_sha256": "21bb027b369cb920244c40b08a07c64005d59bd167bfdc388cff58d6537a74c7",
+      "sha256": "babbb4df0223f11397537fd985b57cc401025b4929ea2ada30b6c1c994d2e66f"
+    },
+    {
+      "path": "bang-gia.html.txt",
+      "base_sha256": "cbf605af75fc836a8951da32fb37976cf9d5cff5b7e84b9cbbbc62627ab9d8fa",
+      "sha256": "1f8a4399c604d13496d7b63369d070dda39a487c809a6e4b0ca5647cc6ff2ec0"
+    },
+    {
+      "path": "blog.html",
+      "base_sha256": "60c57e2e63e91792e29b6cb1d08270138e326140d363d8c5e7af87e3eadc0151",
+      "sha256": "17bdd48b5a6b1f4e3c7fa1daef86d4ff6ad20425ed059d4266e32305a8cada03"
+    },
+    {
+      "path": "blog.html.txt",
+      "base_sha256": "6ae6e61019a12fe25bdefd0eccb155d4f0bb12f64f48986dab2bb73a881ad83b",
+      "sha256": "4b47f716b1cd83e376683fc884100ac251d72587d0f433a31298146a1787de86"
+    },
+    {
+      "path": "blog/bao-mat-website-co-ban-cho-doanh-nghiep-nho.html",
+      "base_sha256": "8fdc69043f94576537668ef4a3bcaa2f36911e1b0f494275949aadaf8d0557f8",
+      "sha256": "5deef73cfaa59c01007e7b7ad64ad83f93ca08826a625f41ea105162cee74baf"
+    },
+    {
+      "path": "blog/bao-mat-website-co-ban-cho-doanh-nghiep-nho.html.txt",
+      "base_sha256": "d1d4262c8aba1ff25592ba51e53760838a6e479b7c707ee551fd8275537e0903",
+      "sha256": "462002aa169a764130de6ac77178475a8c1b3179faa593b011fa3552b0b343c1"
+    },
+    {
+      "path": "blog/cham-soc-website-sau-ban-giao.html",
+      "base_sha256": "d4bf588b533295f948e23ee87d889a7210542dbc9b5ec3dc33fb1a50c2c38b5d",
+      "sha256": "7142063905b64409bbf1d6281546a5ffa437c0567a20bdb767f1ffa4bbe2c8c9"
+    },
+    {
+      "path": "blog/cham-soc-website-sau-ban-giao.html.txt",
+      "base_sha256": "20c3a9bd98df0bf05baa4182231ca7233f538487752c47e064ba124ab4ce6284",
+      "sha256": "1f261c952110a159ec4f346e6c0ec9c8ab9a0f0ec817718101f2b2bbb6663eaa"
+    },
+    {
+      "path": "blog/checklist-seo-co-ban-cho-website.html",
+      "base_sha256": "91289ee17896d608afc5bc19e2290cc2bd2984bd7077590e72da407f4b590ab3",
+      "sha256": "8415c77e97c8cfdb55aa17a1a7416fe7ddd20976198498494838650c9c4d500b"
+    },
+    {
+      "path": "blog/checklist-seo-co-ban-cho-website.html.txt",
+      "base_sha256": "a5f65484dc778455a6f555e3f46457f3fa18fa9e3cc49c7c18aa9b9269aa3a98",
+      "sha256": "4fe49a9a058d50244dbcaea31d7790cda88e22fe0c7bc064122308d91738109c"
+    },
+    {
+      "path": "blog/chi-phi-lam-website-phu-thuoc-yeu-to-nao.html",
+      "base_sha256": "0dc1f325da11f346676b0d489eb2b0ea42b9800597f0f3d8d3e7ff01a13987cd",
+      "sha256": "af709adc72a7a8c1edd9022db3d42b8f65bbb8ae8efcea86dc1c35b0b4d0e6d0"
+    },
+    {
+      "path": "blog/chi-phi-lam-website-phu-thuoc-yeu-to-nao.html.txt",
+      "base_sha256": "6d089f74f9c6730a513ed4d35ff5cf9988ed77a32f5ba7a84f82aa4d6c190701",
+      "sha256": "5ffffebc1fade73181491a337e93517e7910192f1a7f805dad3444f0f5c3fc35"
+    },
+    {
+      "path": "blog/da-co-facebook-zalo-san-tmdt-co-can-website-rieng.html",
+      "base_sha256": "673747fc72042b72edb15b837b1e7236509bf1df1c7a5eaa7581df0c975762f4",
+      "sha256": "ffe4980343dc72c795d5df652401ddce9c220c4b3dd89935d7f318faeecb8b48"
+    },
+    {
+      "path": "blog/da-co-facebook-zalo-san-tmdt-co-can-website-rieng.html.txt",
+      "base_sha256": "408fb85b66cd5ff00e9c70f2da4568f034dc981eae9098d3601a228c1aa8c824",
+      "sha256": "2cec9bed2eba008ae7ca15217ca481876287d694d153f0dc7049977eb335054c"
+    },
+    {
+      "path": "blog/do-luong-website-bang-google-analytics-co-ban.html",
+      "base_sha256": "049876c5006178b01daeb72ec5732f9f197dc0ead521f69d61670c24b20f7f69",
+      "sha256": "9678f413d27c39d61304aeea2e3ebaa2ef0b77b2538adb104f42e6e659be9c7f"
+    },
+    {
+      "path": "blog/do-luong-website-bang-google-analytics-co-ban.html.txt",
+      "base_sha256": "3639b2a441148c1c22e9f7017fce97317425a2c302587dfa2ab080815dccd120",
+      "sha256": "65f6827da9abd380d9f447699d5c11c9a0f1e29732b410ee233a38661e5d4e3c"
+    },
+    {
+      "path": "blog/google-business-profile-dich-vu-tai-tphcm.html",
+      "base_sha256": "fa76a309d27fdc323a201a8b77e5121aed5190cbf04cb6ea48c3690a0c6a8cdf",
+      "sha256": "185ac49d762c89a4dbf2a094d45e2cfe2e036d2a5c0a79eae9871583f378670b"
+    },
+    {
+      "path": "blog/google-business-profile-dich-vu-tai-tphcm.html.txt",
+      "base_sha256": "1250d82d35d6cad9e275664a54552bb7838f514858cd76a8d31f10631dd78ede",
+      "sha256": "b784fe539e816c72a20dac136f1534cbbb14aac1205ad73be721562cda6be142"
+    },
+    {
+      "path": "blog/noi-dung-tren-website-moi-trang-nen-viet-gi.html",
+      "base_sha256": "f8b819a4ab2570af3cbb751e47e623b3b86638f222ef0db21a479dcafb9c338a",
+      "sha256": "ca4258fd0ee51e4237e9e0656c630ecfa738ee847d8e6d30101159aceafe1d28"
+    },
+    {
+      "path": "blog/noi-dung-tren-website-moi-trang-nen-viet-gi.html.txt",
+      "base_sha256": "d9275d2471941959a62ef6d217df3cae2b08eec938bda3b130052c0ff69cd711",
+      "sha256": "54f362913a319c434ac2599a3b0845c19c04855e246de2192097f0349c2fccef"
+    },
+    {
+      "path": "blog/quy-trinh-lam-website-cho-doanh-nghiep-nho.html",
+      "base_sha256": "19aa28c59fe3033c32bbe36a9ccf1b99c871da5357082faa176bec067b9b4597",
+      "sha256": "fdf64c7ea213085d2db8486157d106d005d57fd54d1b96a302883327e29e8ba5"
+    },
+    {
+      "path": "blog/quy-trinh-lam-website-cho-doanh-nghiep-nho.html.txt",
+      "base_sha256": "760c3ea288472738dc820e5b39d182a87b2102ee6676b01ff6de3bdcf24115fd",
+      "sha256": "a3702e7344ebd90a5a84b7975f8132f451d803d95c93e89f3f830eca2005b891"
+    },
+    {
+      "path": "blog/thiet-ke-web-tron-goi-gom-nhung-gi.html",
+      "base_sha256": "1769faf547d34b356dc10ae6d9ded18574e212b44bd40026b6e1b49a25d30463",
+      "sha256": "6250317e13ebd6dcc254c8864217a3dd41d25493dd03e6bbb6daf77e144d9f50"
+    },
+    {
+      "path": "blog/thiet-ke-web-tron-goi-gom-nhung-gi.html.txt",
+      "base_sha256": "a8501562dc184aed30b07c89d8fb1fe74f1e7c65e44914d826f740f3c85b2832",
+      "sha256": "9b2edff667cd722c1d450d881b4b0f20cc6537019f466744e0c73c427bcaa396"
+    },
+    {
+      "path": "blog/toc-do-website-co-ban-cho-doanh-nghiep-nho.html",
+      "base_sha256": "01cc7ea12de85c5bfe6e3518d5ff77ebe4ae4bf8919d79335bca18d006c1b9fd",
+      "sha256": "78ea5a0357cda62860ae41e2395d11336d974307c670ab437c560de3b3eee292"
+    },
+    {
+      "path": "blog/toc-do-website-co-ban-cho-doanh-nghiep-nho.html.txt",
+      "base_sha256": "c772c57ea3142ce662bbd0b1bf41356d8ed8ba3461bc4b8d4836da47ae0db848",
+      "sha256": "198f2a8f56f0d1baf980a7b6ff722970c158b080cd8239b20cfb0aced9d21e8e"
+    },
+    {
+      "path": "blog/website-chuyen-nghiep-can-gi.html",
+      "base_sha256": "c2fa31f9913ddd8260dd75fe4d0c0d6026ecbb412119f69fcf1a045e1c121412",
+      "sha256": "c12fce674e40be989adcecf68069bff0b1880739d7c1e79b82aaa7788199d961"
+    },
+    {
+      "path": "blog/website-chuyen-nghiep-can-gi.html.txt",
+      "base_sha256": "9caf9b755c0f52966a1b51da121b66c2a7ff23d9758076f3ce74f1056ca18027",
+      "sha256": "dfd1b8b5c3e84c47a47a822f548cc570e600733cd3e6778cfce696b115a7f8e7"
+    },
+    {
+      "path": "chinh-sach-bao-mat.html",
+      "base_sha256": "642bbe663eff9e61bf14e444bdb70a5d9ff6288bd7191deacb3444a583e93cbd",
+      "sha256": "216616ad50f8647394a78adfe3b5eaaeac05f7d216bcb230dd664fd05072c106"
+    },
+    {
+      "path": "chinh-sach-bao-mat.html.txt",
+      "base_sha256": "1a07bd8a13374cc8cf4d1e5b0fef06df278462e5e3bb0754c173d03983d93d5a",
+      "sha256": "5aa039a5a738ecb45de5a1697647a6b9aa6f7722ac68c83b06a7f3abfae10da5"
+    },
+    {
+      "path": "combo.html",
+      "base_sha256": "26e2efbcf7c211199cdecbb04599b2b413a8b0efa4a68a07c79b3ae21b5cf081",
+      "sha256": "6eda1c8bfb247ee3cb60036430731f3ebe8e958c4136a6f1b405cfcff253f807"
+    },
+    {
+      "path": "combo.html.txt",
+      "base_sha256": "112759edd70830107edbbc0fcb09ae199abd4db661afa2427301c33a9af17bcf",
+      "sha256": "948556e883029b12f361e89ab3bfa1e0def480deffb032be73691c04e07d22ce"
+    },
+    {
+      "path": "cong-cu.html",
+      "base_sha256": "67a43ce3701b4ec88ac8e74716d2a177c743f6fcad0ef1cdd7e7c35aa8362318",
+      "sha256": "5a3418afaf630ed8d1bee7fb6318a38766163756814169678cbccd2f951500bd"
+    },
+    {
+      "path": "cong-cu.html.txt",
+      "base_sha256": "c95e8a4f10d71f56750430044c8993acb68fa074dc09bf158db3142be1de2acc",
+      "sha256": "ef12edf40ad29bda2fa155a6e4142f7df3ce79d6dd88352d4e684b7a826b6819"
+    },
+    {
+      "path": "dich-vu.html",
+      "base_sha256": "331d605486ead41c61812687f844aef2bc49795588119e6d1665e9bd1b41e5ae",
+      "sha256": "f6a56bc4e4cacae845c665517222e5399944c5aa2f7ad463cba29be8c6596a8c"
+    },
+    {
+      "path": "dich-vu.html.txt",
+      "base_sha256": "f5ee1952237a693e02c5beb4a252d494ddb264dd6b8b2a50ba3e2025e7f88209",
+      "sha256": "4cc54a7515a733e079ea10722e2d0ce2cb97201acd7b0e27a34d5832459599dd"
+    },
+    {
+      "path": "dich-vu/bo-cong-thuong.html",
+      "base_sha256": "b4a98d3b3ff475b4e0e3482094db80ba7982863e0323c2fc050f9ae2aaea55d8",
+      "sha256": "6b0e6b47799c57001dea3ae1ca4b2d0bd5111ea178d7b81b97bb225ed9c23983"
+    },
+    {
+      "path": "dich-vu/bo-cong-thuong.html.txt",
+      "base_sha256": "063496a1d4e32e3b7776b93f5445228698b62bba1bc0295a17b47b491894c5a4",
+      "sha256": "b3fe29566a82eaa6d49875facd0ba8d77acc55ae631e902df151aa7cc5fa8612"
+    },
+    {
+      "path": "dich-vu/cham-soc-fanpage.html",
+      "base_sha256": "3f90e0c1b16ada92f77c797a7bc10dc88e5f6f1c6191fd98a3cf0e215869d216",
+      "sha256": "0fd0329203338e7d9c16bc62ed83b4bf03a239b9c2fba66ab8a4296d4b3394af"
+    },
+    {
+      "path": "dich-vu/cham-soc-fanpage.html.txt",
+      "base_sha256": "b3a936acd51445c4fa33c69fc2f86ea12dace0fd300a89b2b1437c97e8351264",
+      "sha256": "c66ba8ed9fa4f5395f9405422cc89ae8cbc91be777e149b6d041f56da7ce5d62"
+    },
+    {
+      "path": "dich-vu/cham-soc-website.html",
+      "base_sha256": "79441f36bb9bd9a221b6c0c2ff6f4bf7c19e950d4e678ab4c34ae0b471d84506",
+      "sha256": "6bafd2068d2ec75aa57ce056fba5d9ca38eb03925c07d9bed27901622d9160e2"
+    },
+    {
+      "path": "dich-vu/cham-soc-website.html.txt",
+      "base_sha256": "81b14d93f86857760a9129fa4fb997be96ffbd406369508006f830554a16b403",
+      "sha256": "8682fc69b2418d4ba7c6bef433e055791f50c7bf0a60a9aab15bca8743a876f1"
+    },
+    {
+      "path": "dich-vu/email-doanh-nghiep.html",
+      "base_sha256": "ff0326f811922251c473960fdf08333c2bb410a1c9b05c4a03c250c501ce400f",
+      "sha256": "f2c3a3e7ab645e5535ca2e77dc00ab50ff50494da4aeab7db5341387931ee583"
+    },
+    {
+      "path": "dich-vu/email-doanh-nghiep.html.txt",
+      "base_sha256": "d4f658ecaae6bfb331312be03b975b716aba15ec75e1dc50adb09fe45d24171a",
+      "sha256": "85e4491e872dcae06e637749489390c556363b518423cd7722a9e4a837fe507c"
+    },
+    {
+      "path": "dich-vu/google-maps.html",
+      "base_sha256": "54ab25f9b1d31bc9a74d064a274bdf2885e6001fb2ae0bbf2095ae433cffa843",
+      "sha256": "987d1b6ff01ad8cd0c986cfa2145fb7543b8fbf7210b7f34f1d28bc3c0405726"
+    },
+    {
+      "path": "dich-vu/google-maps.html.txt",
+      "base_sha256": "4ab560f8b6e31093c10b461cfabed95e501314bf7d0e2bd216852977fb0d0c7e",
+      "sha256": "502a1ba4d5ab25c61ebc2f081806acb1b414c6ec8ada1029de4703a6480f9ffb"
+    },
+    {
+      "path": "dich-vu/hosting-seo.html",
+      "base_sha256": "65ca82c4369e9f1e038503b5b93aa71b084f5cca1390924ff69bfd334c46ab8c",
+      "sha256": "1889ae2dbc444664c5ec3440c1b99f005f0c3acdec8bbc58a9e5b2f216074912"
+    },
+    {
+      "path": "dich-vu/hosting-seo.html.txt",
+      "base_sha256": "c52a80e25a4397efccfaed68d20bef5e768d37d07c856b22a51ada08d40cbabb",
+      "sha256": "2c202cff8db388359297937cbf8847d04eb205ac0fd5bda52432185a1f6ae8d9"
+    },
+    {
+      "path": "dich-vu/ky-thuat-du-lieu.html",
+      "base_sha256": "3a12280486f02cddc1d818e70cf052e28a4e7b2f251bb9a7ccf5e4eeb05845c3",
+      "sha256": "f431617172d67cd8aae32e1d1e7c2672d457e90323afc8f909f5957d5958f896"
+    },
+    {
+      "path": "dich-vu/ky-thuat-du-lieu.html.txt",
+      "base_sha256": "f238d790e93e5a0394ef6f819b0b27cfd9317646c407102cd713a9ca15a7add5",
+      "sha256": "efca6d402d676258d3ecad5011379a7593daac411023f3bcc1c0cb1d66025301"
+    },
+    {
+      "path": "dich-vu/phan-mem-noi-bo.html",
+      "base_sha256": "fcacd2b37d54c6b1dbc59d1442b79c821ea1e38b62d6fd925915e927d0c4267f",
+      "sha256": "676c118bdc8c85c1528b37f8cdcc71d1ae7906c5e5dfc4e69c2d13b242860328"
+    },
+    {
+      "path": "dich-vu/phan-mem-noi-bo.html.txt",
+      "base_sha256": "7c7d35b97545e32f35b19a1ac5d88d767dc3e8d73ca0a3ddfe7e61ca389fa3d5",
+      "sha256": "175a07705461b6be73f9b3b49b3f9ccaff259fead30e4359279cebdf3aed829d"
+    },
+    {
+      "path": "dich-vu/phan-tich-du-lieu.html",
+      "base_sha256": "33879707757234eb9ff6d45183d7b17cd9068ce9442b7bbfbe7ee2c8b8f64105",
+      "sha256": "9dd982b4c67b12e6b7949fa383fa54541d3df71cce9f270e0b9bec1587e6fae1"
+    },
+    {
+      "path": "dich-vu/phan-tich-du-lieu.html.txt",
+      "base_sha256": "20b3753ae8114eea9b5264de171aecdbb795568d5ac9f504b2cb0aebc325dfdb",
+      "sha256": "312c14d8db470ae82078c07b8bfbba27158d92adfe549dca1e7245f8d43867c0"
+    },
+    {
+      "path": "dich-vu/profile-doanh-nghiep.html",
+      "base_sha256": "b823986a764b615c2005f528b213b2bc186b9770b8ce96eeb48836b4cd8e0c22",
+      "sha256": "7c80c709c7237ed6efeb3cbcb2da21dbf74d9b42252c92231020cdf2690d2668"
+    },
+    {
+      "path": "dich-vu/profile-doanh-nghiep.html.txt",
+      "base_sha256": "a6e58d8c1ae793f8c7ac23f3acb52bf97d1722b490af89133737f66721a19ec0",
+      "sha256": "5f2ab1f194c049c2a1cbc01ea1f2a90e875df1b9612284cc4a7f28a4bfa36c00"
+    },
+    {
+      "path": "dich-vu/quang-cao-google-facebook.html",
+      "base_sha256": "b47d1995e7581a21a21ec816309bbb01276166ce8804371f794ca415b6d68593",
+      "sha256": "441c1e0b3eecb6ce621693d84c0764c974a05b7cea1c093708ab0fcbdc080ca0"
+    },
+    {
+      "path": "dich-vu/quang-cao-google-facebook.html.txt",
+      "base_sha256": "9bf3a2e13237a7ea4f7ba3dc9ec2dadf23d4785c6155211149cefd8a0c19d074",
+      "sha256": "5b9f01490f9b345257e74bc7b71a96526ddeb3dca07723072ae5d734b32973ea"
+    },
+    {
+      "path": "dich-vu/seo-tong-the.html",
+      "base_sha256": "41dae07d83781f4908eab8bccee1e79bfdfb82499c92f3cd63500dfb785a922e",
+      "sha256": "bac1db5359a34850ba2706cfe789a9db08ee9aa5431aaee1017096aa917c1774"
+    },
+    {
+      "path": "dich-vu/seo-tong-the.html.txt",
+      "base_sha256": "cf2d7295e04798479271ad831a5c2cd2f990767168670b1cee89f8deb0c66cde",
+      "sha256": "3dd8b6ac1cc651a6c623bd033723dbf1f65183c8332784ce47f858f59f073302"
+    },
+    {
+      "path": "dich-vu/ten-mien.html",
+      "base_sha256": "e091a90e8afd35797b93c6201eff7be57f38ecd16a2845d951de6f4f4ccb393d",
+      "sha256": "6d0c097ca3bda6d0622cd307b89b488bfcdf91d8c49bb8a08218fa458a4d5579"
+    },
+    {
+      "path": "dich-vu/ten-mien.html.txt",
+      "base_sha256": "03de734891c4ad96cf712a35ce013ffe8d0416d53d62810cad108c3cd0d954f7",
+      "sha256": "18c9e5de2603a86fc5893bec5ae46ad722c592da7709180c1734499a7ca78586"
+    },
+    {
+      "path": "dich-vu/thiet-ke-app.html",
+      "base_sha256": "dc203a530f10d306bf1290de2d6e3a45ca400b5169a16ce5cadb31b4e3af2d26",
+      "sha256": "f8df5fe356711ad433434521bf0ab08530f6dd967a69cc4342746d352d5f2b17"
+    },
+    {
+      "path": "dich-vu/thiet-ke-app.html.txt",
+      "base_sha256": "78df3559d1f53d48882225de6b399c8ceb0c8250d327ba21f76835f5f5422972",
+      "sha256": "d2bb26334e8e6d001c4025c8f2161b197c95f4776f83fa8fbef0ef8a858a3ea5"
+    },
+    {
+      "path": "dich-vu/thiet-ke-landing-page.html",
+      "base_sha256": "20d3b41673c210d89a7789f3b1b4ab9559b20af41ef68465485196c4fba0a575",
+      "sha256": "5ee4ec2dbd16c96623f79e07332f6a1efd1d7bdcadba40f24141d6a6403fb081"
+    },
+    {
+      "path": "dich-vu/thiet-ke-landing-page.html.txt",
+      "base_sha256": "bd7fe8d9f809acd571b83793d954a908715a5b9bf9c42adf0e9da8eaf0b35efe",
+      "sha256": "d522e9003c30042067dc2fc967de24f61b4c20cf15a7ca9001c33cbff8d8a01a"
+    },
+    {
+      "path": "dich-vu/thiet-ke-website-ban-hang.html",
+      "base_sha256": "6355577d0f6fd34ec3b0b40ea9a8194d5cc38a37817ab8f1de0eaad69f72fead",
+      "sha256": "b9888aef5b5fbfc9d00c2aa2b45e8901d87243fdd71f729578d859f707c0ef1f"
+    },
+    {
+      "path": "dich-vu/thiet-ke-website-ban-hang.html.txt",
+      "base_sha256": "aa0cc9060bb4e2cb9d26f9530205c065446199007b98233ca4436cb57c9f874d",
+      "sha256": "70e10ae8e157de1427345a3d6f52cb9c50f45bdaab628c2a1eeca6322abe3f99"
+    },
+    {
+      "path": "dich-vu/thiet-ke-website-doanh-nghiep.html",
+      "base_sha256": "d022d50b2f398f7139ae5855a77591ed95bb6155f778ca4bae283d18b49073f6",
+      "sha256": "c601413066ab54ba84498e60397913ac7221fdfac4f3097dd3dd12f3a589f74b"
+    },
+    {
+      "path": "dich-vu/thiet-ke-website-doanh-nghiep.html.txt",
+      "base_sha256": "b31bd8d5b635f880862834ff673869e919e7025ea69151536a26fee8337b7640",
+      "sha256": "12151214a7eb63c0d849eb3de92ec8891cff861cb987422d0ee61ec79f76eefd"
+    },
+    {
+      "path": "dich-vu/thiet-ke-website.html",
+      "base_sha256": "37ef42b9c7d354e877b4856de662505351a672b7c86da47c7efbc12f704267b8",
+      "sha256": "61a5297de05b4a37d9e9349574e530e7b8a82d24fd1e4ea0ad956e34865608e6"
+    },
+    {
+      "path": "dich-vu/thiet-ke-website.html.txt",
+      "base_sha256": "d7eae970b8c1ab7227e2aed61ddf836bf297353e800c61f9ae0ebaffdb59f03c",
+      "sha256": "b87206706e4268091866e767225050c0d095f7656f26036a32d5540b15697f20"
+    },
+    {
+      "path": "dich-vu/traffic-user.html",
+      "base_sha256": "ffcc911297150970a00e280a2ddb72edd905ee95523d76c7bf444237336a9e38",
+      "sha256": "12b37806d2505a9323412a8a791d19be452de60a45e12eb3afe15d598be56acc"
+    },
+    {
+      "path": "dich-vu/traffic-user.html.txt",
+      "base_sha256": "a25f8ea7ef5c60a4758b3612ba2f9fb0d0d4d3e4663ddc6fcd6690e5c02b5d67",
+      "sha256": "cb535c0121669b4cf1dbc70ccabf2a2b82f62b9a58ed49d28bf2937da2390297"
+    },
+    {
+      "path": "dich-vu/video-ai.html",
+      "base_sha256": "d244b4dafba181e6e1c05c98d0d51d62eb7dfa71ab30dbca912851d24104acc0",
+      "sha256": "067b655df3614ee775ba9ff2b9dd0d10778a0f678eb453af9aa59033946a1380"
+    },
+    {
+      "path": "dich-vu/video-ai.html.txt",
+      "base_sha256": "1c8f671b29b5a4cb121edddbf9856504d6398c347c52b233a1366d1be2d91dfc",
+      "sha256": "8108d70b130cfa433500cb233b84a19e2ced04affce9f0f4a315045b356749c7"
+    },
+    {
+      "path": "dich-vu/zalo-oa-mini-app.html",
+      "base_sha256": "37f46ce5faeee7501c961633738181a0bf9b9e50f19e0cfce3246b2c8cf1b877",
+      "sha256": "1f3b0c47df2047aa50f2991a9271ef58a0bc93a833ee2a28de67838ac0bb6ad9"
+    },
+    {
+      "path": "dich-vu/zalo-oa-mini-app.html.txt",
+      "base_sha256": "1144f8dbf018a0a71d4a54d4eaa3bf47fa59b68b3c44d84d4e64520fc4bba6a4",
+      "sha256": "ef53f72445d89171b2f02b4c9246c009356c304a0cc2e036ec3a4f12d33bed77"
+    },
+    {
+      "path": "dieu-khoan-dich-vu.html",
+      "base_sha256": "52385c841bcf60181ca41783b251ba8c0a9d7cc093de6cfee0af91aa960e4de7",
+      "sha256": "298563f6b141a26d393d7e934b4b9c0e52e3719f43afdfad52bec93a768ce636"
+    },
+    {
+      "path": "dieu-khoan-dich-vu.html.txt",
+      "base_sha256": "dac27c466e97a7d3829edd677100d9a4332c9c52d3a18588506bc5940f35587f",
+      "sha256": "c044438b31b9e18351d7e104f398f3767938de8ed2245ac5300fdf8446c1d3e1"
+    },
+    {
+      "path": "du-an.html",
+      "base_sha256": "548af0f738f60ed2bb6bf578daa4788de30df6ec1770c9239f0f73716f79ff54",
+      "sha256": "c9d6fe544aadddd284207b54ea8821360aa64b5ba5e65e72efdaf362134cb303"
+    },
+    {
+      "path": "du-an.html.txt",
+      "base_sha256": "b311ec9f9fa70f1b558d334a4b2f72be95b867fb4672719a772f8deea50afff4",
+      "sha256": "77c10c367d714ab555c0bd8d83db6d894527e12f60d9112a58e1c24d6ab3d1bc"
+    },
+    {
+      "path": "ghi-nguon.html",
+      "base_sha256": "9f60ea878c76e91c6460911cf2a36eb4d536a7fac73aeed7438d9f8d476f4be0",
+      "sha256": "d8143b69b4c02166042f9768077db83648c5b75ab109da51bd939ff9ca169a8d"
+    },
+    {
+      "path": "ghi-nguon.html.txt",
+      "base_sha256": "f56b418c505284fc7cb28d4a25ab4a088fc74bcf86c8ebdc7b310baff1f2437f",
+      "sha256": "4143593f76162e76755475e5c9a94a5d1fef132d3d1f3c39ca6252ddd0f1b87c"
+    },
+    {
+      "path": "index.html",
+      "base_sha256": "1c18ca68f5124772076c8aa16ccae464a5199f1b85a987b54a5daa6b1b8890dd",
+      "sha256": "2022ef9a7e692053b144741341f448a6cbabe94437cdff658d124af3f40b0711"
+    },
+    {
+      "path": "index.txt",
+      "base_sha256": "5564eee392a252d09e699dda7e2f1b7333cf808dcecc1348f55f47240d6e6cc9",
+      "sha256": "65a120fe5cb1eb6d80418b30fa5c9a19e4e960106c4b87855ff5ba5c21af2946"
+    },
+    {
+      "path": "lien-he.html",
+      "base_sha256": "8ed1af5f57fb348e151fc121690e054f7027767d75f319ca11347f848f9ec835",
+      "sha256": "9b538638deb5bff0b6be634aa9c946d47fb04667de9b4e1e5cf02b12706af64b"
+    },
+    {
+      "path": "lien-he.html.txt",
+      "base_sha256": "072869f65c8c208d98203670226b784fa34717dee7de50da3874795e2ab65765",
+      "sha256": "070d45e748aac583cf4d606b22026561776a5918db5297088c7d6824c502669d"
+    },
+    {
+      "path": "site-v6/src/app/globals.css",
+      "base_sha256": "51720c9849fce4d47a4f6e0fc8db634ed40beac5d154196d8f3258cd0259c5a6",
+      "sha256": "bbe061b321a38c9efd8edfad86a4e2ff1906c7224c50289968a2d132c4954d5e"
+    },
+    {
+      "path": "site-v6/src/components/Header.tsx",
+      "base_sha256": "e1425667dd5f27bcb0f2d6e9571b6c0e6e9b835fdcb797c760bbee28a8d10abe",
+      "sha256": "45b2bde5e1c0ced541a3a9f6b30a069209b7d896a00bc7310d5c16bf1e370a30"
+    },
+    {
+      "path": "site-v6/src/components/useAnchorNavigation.ts",
+      "base_sha256": "5012e39c6d1d8f70e59f7b9fca5b3f22f6cd27c9cb130f5a23a377c3ebcfe37a",
+      "sha256": "d5095623d9d9facbf4f6704b414ac02a86afd4d71eb9468a3790c15c469f272e"
+    },
+    {
+      "path": "tai-nguyen-ai-agent.html",
+      "base_sha256": "b0233ab9fe75154f9bdb9609cd02fea8c16d84e4fedb771f69415d35e985c8f1",
+      "sha256": "b7d7d65497ee5b24a386acff0dca62c4bab02593e619d8117cca1ff95334f9e2"
+    },
+    {
+      "path": "tai-nguyen-ai-agent.html.txt",
+      "base_sha256": "3e859a8a0df2b21400f6543a1f2517c730f4b68c6beca1110694e265b7285e5d",
+      "sha256": "890191385cb77f1f35d82f2600e03318acc9889674814988c298c904879bf765"
+    },
+    {
+      "path": "tin-tuc.html",
+      "base_sha256": "eb77c3f7868a47f96f53e0fcaea6e4960abe251075be071afb0639b625015149",
+      "sha256": "9b6628e2a8705ae1c992369deb22f893005daa7324a8ec5cb4f6f691f2340d81"
+    },
+    {
+      "path": "tin-tuc.html.txt",
+      "base_sha256": "edbc9eb2bb946e82ebddd1020cedc2724c8bc02bc21cc5022a00cbbfb3a57aaf",
+      "sha256": "93859e98a53334752317d11b96c349885bb5c338942db9cb383b1b4f1cce090e"
+    },
+    {
+      "path": "tin-tuc/apple-siri-ai-mo-cho-nha-phat-trien.html",
+      "base_sha256": "9f9a168a18ebeef9630836fea968a4a361b049564abe32e1203fa24466543375",
+      "sha256": "63bec0677fdd2159a9930f4f26023d3c29be5df8c5459eff13fc7247d97e3fce"
+    },
+    {
+      "path": "tin-tuc/apple-siri-ai-mo-cho-nha-phat-trien.html.txt",
+      "base_sha256": "9bb607537c7118123e3c84b5c437fd2a4479af808176e736889a44a45085f78f",
+      "sha256": "5841c661506b9af8273f4c18c876c63227c2492888641494f2df825c5ba09b4a"
+    },
+    {
+      "path": "tin-tuc/canva-brush-ai-chinh-sua-thiet-ke.html",
+      "base_sha256": "0db40f23684c11496dc27eba3592e873c861800c04f6f4bab330a656892a9c97",
+      "sha256": "4f44e67d5b20253e7a34b6f5a767d7350b7804260c620ced5b034f397ac7ce34"
+    },
+    {
+      "path": "tin-tuc/canva-brush-ai-chinh-sua-thiet-ke.html.txt",
+      "base_sha256": "cdbe2033f64144d17728c9637de36ea0d2c91095684075cf57716641514b5ac9",
+      "sha256": "9c1119b0a23665de1d7c4cedf6329ca68cdeb6a6f9743307f3b91cbe100799af"
+    },
+    {
+      "path": "tin-tuc/chu-de/ai.html",
+      "base_sha256": "f169568668f87309fdddd9f89bad6cb32de4b620d2c09d736377c59181bc3a7a",
+      "sha256": "969930f3cb529e60f4ae468aa101df5bec39ea943df147fe4a35259ec6dd91dd"
+    },
+    {
+      "path": "tin-tuc/chu-de/ai.html.txt",
+      "base_sha256": "c9aea693610577a144e2e84e357713f996aca01146c42cf34b8daf3bffe38077",
+      "sha256": "4f804fbdfeee37ea60d0a9e2d8f3b921d40adad2bbe691a70768539e13220848"
+    },
+    {
+      "path": "tin-tuc/chu-de/bao-mat.html",
+      "base_sha256": "299693ddf28e5e13af0075f0ec7f45ef643249381f617ba97af662171308f581",
+      "sha256": "e6860c2e9bfc8ad3caa8d307317ab4b7c538b5003d9da1d7bfaa531a21822309"
+    },
+    {
+      "path": "tin-tuc/chu-de/bao-mat.html.txt",
+      "base_sha256": "bac612726ef1b849329a6899917ff452aa07a5f4cfdcf5e82b9bdb30fb5befdd",
+      "sha256": "5c6c96ae0713a79f14626ef0cb0cb2ea120187dc47249fffa7cc48cb4e288d25"
+    },
+    {
+      "path": "tin-tuc/chu-de/du-lieu.html",
+      "base_sha256": "3009b27d6a2dc393bf59e0bcc2bdd1947f1a4c7a46595cdea7bd1c06fa26f6f9",
+      "sha256": "99aba2ae226a08aa6be4cc137ecdbccec63080acc17deef81f1af50fe8334e48"
+    },
+    {
+      "path": "tin-tuc/chu-de/du-lieu.html.txt",
+      "base_sha256": "5f8f9fe13ff1136a9371f461ed0cf3b1a1bbebcf77fb310e05ada0017674e154",
+      "sha256": "f8f288acd11b5a27ebbfc13498eeb0e6f3a30e9b2982db31a8c75c87d4ebe1d9"
+    },
+    {
+      "path": "tin-tuc/chu-de/nen-tang.html",
+      "base_sha256": "8963e62a22248fa9943757039bf51eaa5cb6b6161109e2b56fea206bf7fda636",
+      "sha256": "2525169eaef47a4059391079b54bf2fa8503ce68bbacc899135de24d2f2cbf9c"
+    },
+    {
+      "path": "tin-tuc/chu-de/nen-tang.html.txt",
+      "base_sha256": "9aa3093f59c123063081a14f8fb9e3b8b85a38be5d5cf34dc93c9d219de2a7a2",
+      "sha256": "d5d846e83b3cf1984f4c4fe8c7405ef532e2e5f40140d653f4a5a26773393762"
+    },
+    {
+      "path": "tin-tuc/chu-de/web-seo.html",
+      "base_sha256": "48b6d1b26ad116b70320a95dbdb7b13a86b433baa04cb8481ab001a63fea2ab3",
+      "sha256": "849024ee03eaae3964f225860cd4058c8a502540440d33283c2aabca7a5db0b8"
+    },
+    {
+      "path": "tin-tuc/chu-de/web-seo.html.txt",
+      "base_sha256": "64a347f017bca356a084d7537d60f2b4d74888eb07df6a867e6d7b6260b2793d",
+      "sha256": "9d551f9d3618c24c57bdb04152937a7d967acf48baadc6fac2afb4c75d201931"
+    },
+    {
+      "path": "tin-tuc/cloudflare-kiem-soat-tro-ly-ai-ca-nhan.html",
+      "base_sha256": "52f0fabb7cf7e1bc69e8aab5b7099e96e01a6d718f4e5dae901a142cc9e3d7c9",
+      "sha256": "1c1f75a045e226bbb6ff79228c195c819c02ef77d1127f55301fb9ae9565d399"
+    },
+    {
+      "path": "tin-tuc/cloudflare-kiem-soat-tro-ly-ai-ca-nhan.html.txt",
+      "base_sha256": "62ab7124c44e5efcd0fdff8aad78696cc7fae0b0e6a5286187ba720bb795381c",
+      "sha256": "3df5c38edef5ad50039e594f00e8a8c0ef0bad8e03605d369fc0ddee626d7f90"
+    },
+    {
+      "path": "tin-tuc/cloudflare-zero-wire-lo-hong.html",
+      "base_sha256": "3461c62a1def0e7edece993fd1377bc26e0d66db97a92cf2bdccf224eae63ef4",
+      "sha256": "12ffeb60cfbd351909731ef32bfc5a8afb0c8cec35f07eb865accb91319c7e04"
+    },
+    {
+      "path": "tin-tuc/cloudflare-zero-wire-lo-hong.html.txt",
+      "base_sha256": "7a1f724f275b475785fc6360d5b564b40db652ccb75c4a52520bccef6c57feb8",
+      "sha256": "22b086ff40f01df2c0b1df5ef003e84232a7c41782e5ba608c54ecc28529cf79"
+    },
+    {
+      "path": "tin-tuc/gitlab-cve-2026-97229-cisa.html",
+      "base_sha256": "4f35a3f833b411f146461125ce98eb36fe640a835f02893eda9522739df318eb",
+      "sha256": "51854bbf3b4640a5c0e3c45fe515869606cffc0d9c1cba90236d4596a37748ff"
+    },
+    {
+      "path": "tin-tuc/gitlab-cve-2026-97229-cisa.html.txt",
+      "base_sha256": "88fc2e63ab31dda850918359fa73198e4a6edfb2f915adf3a4013d22fe9566bd",
+      "sha256": "241362b75829ecc02bfec18d98f48e6df0be88fbe78e2d7f74843d91c8343d1c"
+    },
+    {
+      "path": "tin-tuc/google-ai-mode-links.html",
+      "base_sha256": "cf88dce375e7912aca431253ca4e2d988ff91343e800c18deba9aa4e591a95e2",
+      "sha256": "d2208e6bccd30bb37bc5e06abb77ff1046b469408ac71d428539d5ae35ca2bb7"
+    },
+    {
+      "path": "tin-tuc/google-ai-mode-links.html.txt",
+      "base_sha256": "499ee58d571956585597f94af795da441489b87fd3f01a5472d9ac1414007425",
+      "sha256": "11af16658df1c9c9a7f93c7fec312f699bc1976d5e34831676dfe3a334161675"
+    },
+    {
+      "path": "tin-tuc/google-robots-txt-ai-training-control.html",
+      "base_sha256": "9df317758cd55913ac0782e49c15d28ab495a96ad1a4424851691db671c1f4f3",
+      "sha256": "2198214db9dcfded2b4750d219d1db57eb31693faaf509647a2373c9471c7a96"
+    },
+    {
+      "path": "tin-tuc/google-robots-txt-ai-training-control.html.txt",
+      "base_sha256": "b15640e99f28f868d760f4b741216acc1823a1ab49849e77c96b29e79c4b7f69",
+      "sha256": "47770e1ebdcffc45e0bc7efc45db6601fa021e3260b711e6edddafcc791824e2"
+    },
+    {
+      "path": "tin-tuc/magento-cve-2026-48356-cisa.html",
+      "base_sha256": "14445885b71ea50845f78168815c5a461ee6d9a1f1ba1962803476a12aad066a",
+      "sha256": "040d1e7591b7d46a63016f7aef29f8f1c33e26cb1be73e607e8746583230ead0"
+    },
+    {
+      "path": "tin-tuc/magento-cve-2026-48356-cisa.html.txt",
+      "base_sha256": "efd64ed11d1603a114bc4ad97ad75dbd96a611dbb538b8ea1e30f919bc46742f",
+      "sha256": "966eea0f015486dfe00d773a6faa025e2e7b8e4cfcad63ccd16288e5eb71a0a2"
+    },
+    {
+      "path": "tin-tuc/microsoft-ai-quet-secret-github.html",
+      "base_sha256": "e23de436c536427af982b46fa9ece30f77d2d67d233bded87de035c726e15b8f",
+      "sha256": "ff5e2c53540163979c424040728b870417a8e98466db4896dff6c621cb1b0f31"
+    },
+    {
+      "path": "tin-tuc/microsoft-ai-quet-secret-github.html.txt",
+      "base_sha256": "1be9620eb967171c2c505ae135932b7d061e7724646584a494e6baa63a7113b7",
+      "sha256": "13b5c31e7070cd42ca0d40b797734c7f4976b20a94720e490d5f491de2ce93e7"
+    },
+    {
+      "path": "tin-tuc/node2shell-nodejs-brotli-cisa.html",
+      "base_sha256": "18d7637ed48f282873cf44d2312858efb1ce1586009150db2995bb6ceefa7ea8",
+      "sha256": "96e43c15a0fa30310d5799303b57e643ab8d690ce3d0c9f4cf5eca6bcd4efc3d"
+    },
+    {
+      "path": "tin-tuc/node2shell-nodejs-brotli-cisa.html.txt",
+      "base_sha256": "4e4651ba687154793e5b3b12b5e9af1e5f8e77c1053a11e911e9ec6b7b8dc9e2",
+      "sha256": "706dda6a12043870414f6eafbf27823a45e17835b74225a0c7a6c2040c4c6499"
+    },
+    {
+      "path": "tin-tuc/synology-nas-c3rb3r-ransomware.html",
+      "base_sha256": "8af15a1e14fae6219c3030d00c31977c8be735398e5b9dc7c325d5f888c38f28",
+      "sha256": "d1f077f4dd4a5c3d2ebe3a96b389b6a52af5eae6eac1a43f6761a95881c4f0c9"
+    },
+    {
+      "path": "tin-tuc/synology-nas-c3rb3r-ransomware.html.txt",
+      "base_sha256": "9b4a9eeac19ef3b99acba6585efe645f699ec7041b0c5172d9abac8dd4bcd338",
+      "sha256": "9027872ea53c2c9d9ddc64f266a78260d70d8ee6e1cc161e38890700af41bb51"
+    },
+    {
+      "path": "tin-tuc/trang-2.html",
+      "base_sha256": "f129bd4b752b75cff051ba3bf59df310e3eeec5b31d1b77a0e5bdb711b2930a7",
+      "sha256": "44b9e67a50ff0d5f3e0df89af216ac38ae1a8a16b0824327d18a2888a97825e5"
+    },
+    {
+      "path": "tin-tuc/trang-2.html.txt",
+      "base_sha256": "8a199d302a17f09f18bb40dca90cea58bb09de1cd4f9bd7ab53ed5e52c714abe",
+      "sha256": "1cecdf38fbef72ce2ac450f0cd2f76442ba3e67544c020b00f9d13fa4f5a6599"
+    },
+    {
+      "path": "tin-tuc/wordpress-7-1-4-ban-va-bao-mat.html",
+      "base_sha256": "f5dd5a6e4d1ae78c10018e48f8e04e14a86d2c8209d26f06638551ad64cfc4c6",
+      "sha256": "a2de4936ce9b85bb26a5bc85cacfebcb6b9ac7810499be9a959eaf1a2b6da1f1"
+    },
+    {
+      "path": "tin-tuc/wordpress-7-1-4-ban-va-bao-mat.html.txt",
+      "base_sha256": "5a1e2aee5aa7bfa21ff7019cd3174b20b093f53a24617d2d2a6e7624e3aa712c",
+      "sha256": "72e5525df47e72be95af128b8e808072d304c1daf05eb3230ddd436040f2a62d"
+    },
+    {
+      "path": "tra-cuu-tien-do.html",
+      "base_sha256": "9f67c447f00e85d3f05c9724ef7b25eacc669943472ce3bee836c74e06710c35",
+      "sha256": "3c7c4e5047f5eeece0379c124e7388751190bd97de7becab0119d54533012e65"
+    },
+    {
+      "path": "tra-cuu-tien-do.html.txt",
+      "base_sha256": "09f6c5663ee70d7ea40e9ee2f16b04a759be8b236f3974eac1da4d22c0fbf90a",
+      "sha256": "9129a4da18f13c8b835fdf159407630fd8de2b1c60d54325110db7c769591d23"
+    },
+    {
+      "path": "ve-chung-toi.html",
+      "base_sha256": "36790bb8fea5a0a0483a1d7a615aa8c983ad5991bd2b3f005b4ad0e58c6e0241",
+      "sha256": "1767086789ae203ec5fa51f0a4ff030688bdbd38529e24e1f99f44dc31dd991d"
+    },
+    {
+      "path": "ve-chung-toi.html.txt",
+      "base_sha256": "8c6dd5c4572615de87d1a4de27108c1b5bac4f5b55def07bc473319c9e0067d3",
+      "sha256": "3cbc95f384816606c734208e58f6d6f0dc5568d852ca8452645a2c5e40463e38"
+    }
+  ]
+}

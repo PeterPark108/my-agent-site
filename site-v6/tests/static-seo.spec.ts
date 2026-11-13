@@ -90,12 +90,11 @@ test('current blog article and related links survive release reconciliation', as
 
 test('mobile navigation fits short screens, reaches every link and dismisses predictably', async ({ page }, info) => {
   test.skip(info.project.name !== 'mobile', 'Mobile navigation regression matrix');
+  // Set storage before hydration, avoiding a race with the SSR default theme.
+  await page.addInitScript(() => localStorage.setItem('ma-theme', 'dark'));
   for (const viewport of [{width:320,height:568},{width:360,height:640},{width:390,height:844},{width:485,height:757},{width:768,height:480},{width:844,height:390}]) {
     await page.setViewportSize(viewport);
     await page.goto('/');
-    if (await page.locator('html').getAttribute('data-theme') === 'light') {
-      await page.locator('.theme-button').click();
-    }
     await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
     const menu = page.locator('.menu-button');
     const nav = page.locator('#navigation');
