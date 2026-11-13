@@ -12,6 +12,11 @@ for (const [file, expected] of Object.entries(fixture.hashes)) {
   const $ = load(fs.readFileSync(path.join(root, file), 'utf8'));
   assert.deepEqual($('#navigation > a').toArray().map(e => $(e).attr('href')), order, `${file}: current hydrated navigation order`);
   $('body script').remove();
+  // Mobile UX repair adds state/type attributes only; retain all original content fixtures.
+  assert.equal($('.header').attr('data-menu-open'), 'false');
+  assert.equal($('.menu-button').attr('type'), 'button');
+  $('.header').removeAttr('data-menu-open');
+  $('.menu-button').removeAttr('type');
   if (file === 'index.html') {
     // Intentional SEO routing change only; retain the original visual fixture.
     const targets = ['thiet-ke-website-doanh-nghiep', 'thiet-ke-landing-page', 'thiet-ke-website-ban-hang'];

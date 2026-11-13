@@ -9,6 +9,9 @@ const crypto=await import('node:crypto');
 for(const [file,hash] of Object.entries(original.hashes)){
  const $=load(fs.readFileSync(`${root}/${file}`,'utf8'));
  $('body script').remove();
+ assert.equal($('.header').attr('data-menu-open'),'false');
+ assert.equal($('.menu-button').attr('type'),'button');
+ $('.header').removeAttr('data-menu-open');$('.menu-button').removeAttr('type');
  if(file==='index.html')for(const slug of slugs)$(`a[href="/dich-vu/${slug}.html"]`).attr('href','/dich-vu/thiet-ke-website.html');
  assert.equal(crypto.createHash('sha256').update($('body').html()).digest('hex'),hash,`${file}: baseline body preserved apart from intended homepage destinations`);
 }

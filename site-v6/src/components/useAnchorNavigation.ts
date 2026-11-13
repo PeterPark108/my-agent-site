@@ -33,6 +33,14 @@ export function useAnchorNavigation() {
         }
         target.focus({ preventScroll: true });
       }
+      // Touch navigation must complete in one frame. A cancellable GSAP tween can
+      // be interrupted by the touch/viewport events following a mobile menu tap.
+      // Native scrolling also keeps repeated clicks on the same hash reliable.
+      if (matchMedia('(max-width: 900px), (pointer: coarse)').matches) {
+        window.scrollTo({ top: Math.max(0, window.scrollY + target.getBoundingClientRect().top - offset), behavior: 'instant' });
+        ScrollTrigger.update();
+        return;
+      }
       const distance = Math.abs(target.getBoundingClientRect().top - offset);
       scrolling = gsap.to(window, {
         scrollTo: { y: target, offsetY: offset, autoKill: true },

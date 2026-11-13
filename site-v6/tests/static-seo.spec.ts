@@ -87,3 +87,70 @@ test('current blog article and related links survive release reconciliation', as
   await expect(articleLink).toHaveJSProperty('pathname', route);
   expect(errors).toEqual([]);
 });
+
+test('mobile navigation fits short screens, reaches every link and dismisses predictably', async ({ page }, info) => {
+  test.skip(info.project.name !== 'mobile', 'Mobile navigation regression matrix');
+  for (const viewport of [{width:320,height:568},{width:360,height:640},{width:390,height:844},{width:485,height:757},{width:768,height:480},{width:844,height:390}]) {
+    await page.setViewportSize(viewport);
+    await page.goto('/');
+    if (await page.locator('html').getAttribute('data-theme') === 'light') {
+      await page.locator('.theme-button').click();
+    }
+    await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+    const menu = page.locator('.menu-button');
+    const nav = page.locator('#navigation');
+    await expect(menu).toBeVisible();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    for (const selector of ['.menu-button','.theme-button']) {
+      const box=await page.locator(selector).boundingBox();
+      expect(box!.height).toBeGreaterThanOrEqual(44);expect(box!.width).toBeGreaterThanOrEqual(44);
+      expect(box!.x+box!.width).toBeLessThanOrEqual(viewport.width);
+    }
+    await menu.click();
+    await nav.locator('summary').click();
+    const box=await nav.boundingBox();
+    expect(box!.y+box!.height).toBeLessThanOrEqual(viewport.height);
+    expect(await nav.evaluate(e=>getComputedStyle(e).overflowY)).toBe('auto');
+    expect(await nav.locator('.all-pages-panel').evaluate(e=>getComputedStyle(e).overflowY)).toBe('visible');
+    const last=nav.getByRole('link',{name:'Chính sách bảo mật',exact:true});
+    await last.scrollIntoViewIfNeeded();
+    const lastBox=await last.boundingBox();
+    expect(lastBox!.y).toBeGreaterThanOrEqual(box!.y);
+    expect(lastBox!.y+lastBox!.height).toBeLessThanOrEqual(box!.y+box!.height+1);
+    await page.screenshot({path:info.outputPath(`mobile-menu-${viewport.width}.png`)});
+    await page.keyboard.press('Escape');
+    await expect(menu).toBeFocused();
+    await expect(menu).toHaveAttribute('aria-expanded','false');
+    await menu.click();
+    await expect(nav.locator('details')).not.toHaveAttribute('open','');
+    // Tap page margin outside the non-modal navigation, without submitting a form.
+    await page.mouse.click(2, Math.min(viewport.height-10,110));
+    await expect(menu).toHaveAttribute('aria-expanded','false');
+    await page.locator('.theme-button').click();
+    await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
+    await menu.click();
+    expect(await nav.evaluate(e=>getComputedStyle(e).backgroundColor)).toBe('rgb(232, 238, 249)');
+    await page.screenshot({path:info.outputPath(`mobile-menu-light-${viewport.width}.png`)});
+    await nav.getByRole('link',{name:'Liên hệ',exact:true}).click();
+    await expect(menu).toHaveAttribute('aria-expanded','false');
+    await expect(page).toHaveURL(/#lien-he$/);
+  }
+});
+
+for (const [label,id] of [['Dự án','trai-nghiem'],['Hệ dịch vụ','he-sinh-thai'],['Giải pháp','dich-vu'],['Quy trình','quy-trinh'],['Liên hệ','lien-he']]) {
+  test(`menu ${label} reaches its section from homepage, subpage and repeated click`, async ({page},info)=>{
+    for(const route of ['/','/bang-gia.html']){
+      await page.goto(route);
+      if(info.project.name==='mobile')await page.locator('.menu-button').click();
+      await page.locator('#navigation').getByRole('link',{name:label,exact:true}).click();
+      await expect(page).toHaveURL(new RegExp('/#'+id+'$'));
+      await expect.poll(()=>page.locator('#'+id).evaluate(e=>Math.round(e.getBoundingClientRect().top))).toBeGreaterThanOrEqual(60);
+      await expect.poll(()=>page.locator('#'+id).evaluate(e=>Math.round(e.getBoundingClientRect().top))).toBeLessThan(180);
+      await page.evaluate(()=>scrollTo(0,0));
+      if(info.project.name==='mobile')await page.locator('.menu-button').click();
+      await page.locator('#navigation').getByRole('link',{name:label,exact:true}).click();
+      await expect.poll(()=>page.locator('#'+id).evaluate(e=>Math.round(e.getBoundingClientRect().top))).toBeLessThan(180);
+      await expect.poll(()=>page.locator('#'+id).evaluate(e=>Math.round(e.getBoundingClientRect().top))).toBeGreaterThanOrEqual(60);
+    }
+  });
+}
