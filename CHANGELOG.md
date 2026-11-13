@@ -1,5 +1,8 @@
 # Nhật ký thay đổi
 
+## 0.12.6 — 2026-11-13 (blog PR #66, Peter gõ "Duyệt PR #66")
+- Blog mới (chủ đề chung cho mọi doanh nghiệp nhỏ): "Chọn tên miền và hosting cho doanh nghiệp nhỏ: cần biết gì" (`data/blog/chon-ten-mien-va-hosting-cho-doanh-nghiep-nho.md`, category website, 7 điều về tên miền/hosting, FAQ 3 câu, link nội bộ tới blog/dịch vụ/bảng giá; giá chưa bao gồm VAT). Bài viết từ 04/11 (v0.9.37), đưa lên production 0.12.5 (PR #89), đổi ngày đăng thành 13/11, dựng lại blog qua `scripts/seo_v6.sh blog`. Bump VERSION 0.12.6.
+
 ## 0.12.5 — 2026-11-11 (PR nháp blog, chờ Peter gõ "Duyệt PR")
 - Blog mới (chủ đề chung cho mọi doanh nghiệp nhỏ): "Nội dung trên website: mỗi trang nên viết gì" (`data/blog/noi-dung-tren-website-moi-trang-nen-viet-gi.md`, category website, trang chủ / dịch vụ / giới thiệu / liên hệ / FAQ / hình ảnh, FAQ 3 câu, link nội bộ tới bài đã đăng và trang dịch vụ/bảng giá/liên hệ). Dựng lại blog qua `scripts/seo_v6.sh blog`. Bump VERSION.
 
