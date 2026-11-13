@@ -1,0 +1,11 @@
+GSAP 3.15.1 (gồm ScrollTrigger)
+Nguồn: gói npm gsap@3.15.1 (https://www.npmjs.com/package/gsap), bản dist/gsap.min.js và dist/ScrollTrigger.min.js.
+Giữ nguyên thông báo bản quyền ở đầu mỗi file .min.js. Không gỡ dòng @license.
+
+Giấy phép: Standard "no charge" license của GreenSock / Webflow.
+https://gsap.com/standard-license
+Gói npm ghi: Standard 'no charge' license: https://gsap.com/standard-license.
+
+Được dùng cho website My Agent (kể cả mục đích thương mại). Không dùng GSAP để làm công cụ dựng animation trực quan cạnh tranh với Webflow. Điều khoản có thể đổi ở bản sau; site này khóa đúng 3.15.1.
+
+Chỉ trang chủ tải hai file này, và chỉ khi hiệu ứng ghim thẻ (data-fx-pin) được phép chạy.

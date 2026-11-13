@@ -27,6 +27,7 @@
     run();
     d.getElementById('bg-calc').addEventListener('input', run);
     d.getElementById('bg-calc').addEventListener('change', run);
+    window.dispatchEvent(new Event('myagent:pricing-ready'));
   }).catch(function () { L.innerHTML = '<p>Không tải được dữ liệu giá. Bạn xem bảng giá phía trên hoặc <a href="lien-he.html">liên hệ</a> nhé.</p>'; });
   function val(el, c) { var x = el.querySelector(c); return x ? x.value : null; }
   function run() {
@@ -46,7 +47,13 @@
       if (r.rushPercent) o += '<div class="row"><span>Phụ phí gấp</span><span>+' + r.rushPercent + '%</span></div>';
       if (r.negotiable.length) o += '<p class="muted"><small>' + esc(r.negotiableNote) + '</small></p>';
     }
+    if(any){
+      o += '<div class="row"><span>Hạng mục một lần · sau điều chỉnh</span><span>' + fm(r.oneTime.min) + ' – ' + fm(r.oneTime.max) + '</span></div>';
+      o += '<div class="row"><span>Hạng mục định kỳ · theo kỳ đã chọn, sau chiết khấu</span><span>' + fm(r.recurring.min) + ' – ' + fm(r.recurring.max) + '</span></div>';
+      o += '<p class="muted"><small>Giá chưa bao gồm VAT. Tổng đã áp dụng các điều chỉnh nêu trên. Các khoản thương lượng chưa cộng vào tổng.</small></p>';
+    }
     d.getElementById('bg-detail').innerHTML = o;
+    window.dispatchEvent(new Event('myagent:quote-updated'));
     var a = d.getElementById('bg-send');
     if (!any) { a.href = 'lien-he.html#form'; a.setAttribute('aria-disabled', 'true'); return; }
     a.removeAttribute('aria-disabled');

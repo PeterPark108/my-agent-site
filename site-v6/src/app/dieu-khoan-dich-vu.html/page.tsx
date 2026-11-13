@@ -1,0 +1,8 @@
+import type { Metadata } from 'next';
+import { seoMetadata } from '@/lib/seo';
+const title='Điều khoản & dịch vụ | My Agent',description='Mục lục chính sách, phạm vi dịch vụ và điều kiện công khai của My Agent.';
+export const metadata:Metadata={title,description,alternates:{canonical:'https://myagentvn.com/dieu-khoan-dich-vu.html'},...seoMetadata('/dieu-khoan-dich-vu.html',{title,description})};
+import { Header } from '@/components/Header';
+import { Footer } from '@/components/Sections';
+import { Cosmos } from '@/components/Cosmos';
+export default function TermsDirectory(){return <><Cosmos/><Header/><main id="main" className="container section legal-directory"><p className="eyebrow">THÔNG TIN TRƯỚC KHI SỬ DỤNG DỊCH VỤ</p><h1>Điều khoản & dịch vụ.</h1><p>Tra cứu thông tin công khai của My Agent trước khi gửi yêu cầu hoặc lựa chọn dịch vụ. Phạm vi công việc và điều kiện cụ thể được thống nhất trong báo giá, thỏa thuận riêng.</p><div className="legal-links"><a className="glass-panel" href="/chinh-sach-bao-mat.html"><h2>Chính sách bảo mật ↗</h2><p>Thông tin thu thập, mục đích sử dụng và liên hệ về dữ liệu.</p></a><a className="glass-panel" href="/bang-gia.html"><h2>Bảng giá & ghi chú dịch vụ ↗</h2><p>Xem giá tham khảo, cách tính và các ghi chú được công bố.</p></a><a className="glass-panel" href="/dich-vu.html"><h2>Phạm vi dịch vụ ↗</h2><p>Chi tiết từng dịch vụ, hạng mục và gói triển khai.</p></a><a className="glass-panel" href="/lien-he.html"><h2>Trao đổi & xác nhận ↗</h2><p>Liên hệ My Agent để làm rõ điều kiện trước khi đăng ký.</p></a></div><p className="muted">Trang này là mục lục thông tin, không thay thế báo giá hoặc hợp đồng. Nội dung chính sách gốc được giữ tại các liên kết bên trên.</p></main><Footer/></>}

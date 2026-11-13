@@ -1,0 +1,36 @@
+{
+  "retrieved": "2026-11-05",
+  "purpose": "Same-brand website upgrade, sample-project previews",
+  "assets": [
+    {
+      "file": "public/projects/nhagio.webp",
+      "source": "https://myagentvn.com/assets/projects/nhagio-960.webp",
+      "bytes": 44286,
+      "sha256": "f74cdcf923ec940f090794e0d80e22785733cccfda8514a57400361671f05706"
+    },
+    {
+      "file": "public/projects/xnlinhkien.webp",
+      "source": "https://myagentvn.com/assets/projects/xnlinhkien-960.webp",
+      "bytes": 32136,
+      "sha256": "13e0d5e93b26c1007635f17a962ac878252e54f831d43d528451f5342a5a84e4"
+    },
+    {
+      "file": "public/projects/nhip.webp",
+      "source": "https://myagentvn.com/assets/projects/nhip-960.webp",
+      "bytes": 42192,
+      "sha256": "fb254ec674f69256f58680b4100fe5b08d3405161c01fc00639fb8736e86cb13"
+    },
+    {
+      "file": "public/projects/nhadat.webp",
+      "source": "https://myagentvn.com/assets/projects/nhadat-960.webp",
+      "bytes": 86486,
+      "sha256": "80d8a31687ce078b3aad82a448cf5fac6cd3359c84b40a8f553bc70d47d62421"
+    },
+    {
+      "file": "public/projects/huongnghiep.webp",
+      "source": "https://myagentvn.com/assets/projects/huongnghiep-960.webp",
+      "bytes": 25266,
+      "sha256": "52c9fe427b924c4b40241f5e49ae4298d86c4fd56fa1cebe4b2223e6a5cc80a0"
+    }
+  ]
+}

@@ -8,6 +8,54 @@ NOINDEX={'tra-cuu-tien-do.html'}  # tiện ích: noindex,follow + loại khỏi 
 R=pathlib.Path(__file__).resolve().parent.parent
 cfg=(R/'js/config.js').read_text()
 BASE=re.search(r"siteUrl:\s*'([^']+)'",cfg).group(1)
+THEME_ON=re.search(r'themeEnabled:\s*true',cfg) is not None
+_td=re.search(r"themeDefault:\s*'(light|system|dark)'",cfg)
+THEME_DEFAULT=_td.group(1) if _td else 'light'
+_htd=re.search(r"homeThemeDefault:\s*'(light|system|dark)'",cfg)
+HOME_THEME=_htd.group(1) if _htd else None
+def fx_attr(key):
+  m=re.search(rf'{key}:\s*(true|false)',cfg)
+  return 'off' if (m and m.group(1)=='false') else 'on'
+HOME_FX=[('cosmos',fx_attr('homeCosmos')),('orbit',fx_attr('homeOrbit')),('pin',fx_attr('homePin')),('glow-m',fx_attr('homeGlowM')),('snap',fx_attr('homeSnap')),('reveal',fx_attr('homeReveal'))]
+THEME_BOOT=('<script id="ma-theme-boot">(function(){var d=document.documentElement;if(d.getAttribute("data-fx-theme")==="off")return;'
+ 'var t;try{t=localStorage.getItem("ma-theme")}catch(e){}'
+ 'if(t!=="light"&&t!=="dark"){var def=d.getAttribute("data-theme-default")||"light";'
+ 'if(def==="system"){try{t=matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"}catch(e){t="light"}}'
+ 'else t=def==="dark"?"dark":"light"}'
+ 'd.setAttribute("data-theme",t);d.style.colorScheme=t;var m=document.querySelector(\'meta[name="theme-color"]\');if(m)m.setAttribute("content",t==="light"?"#F4F7FB":"#05070F")})();</script>')
+THEME_BTN=('<button type="button" class="theme-btn" aria-pressed="false" aria-label="Chuyển sang giao diện tối">'
+ '<svg class="i theme-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M18.4 5.6 17 7M7 17l-1.4 1.4"/></svg>'
+ '<svg class="i theme-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4 6.5 6.5 0 0 0 20 14.5z"/></svg>'
+ '<span class="theme-lbl"></span></button>')
+def inject_theme(s, theme_default=None):
+  """Cờ data-fx-theme + script chống nháy + nút header + logo sáng. Idempotent."""
+  td=theme_default or THEME_DEFAULT
+  val='on' if THEME_ON else 'off'
+  if re.search(r'data-fx-theme="(?:on|off)"',s):
+    s=re.sub(r'data-fx-theme="(?:on|off)"',f'data-fx-theme="{val}"',s,count=1)
+  else:
+    s=s.replace('<html lang="vi">',f'<html lang="vi" data-fx-theme="{val}" data-fx-theme-anim="on" data-theme-default="{td}">',1)
+  if 'data-fx-theme-anim=' not in s:
+    s=s.replace(f'data-fx-theme="{val}"',f'data-fx-theme="{val}" data-fx-theme-anim="on"',1)
+  if 'data-theme-default=' in s:
+    s=re.sub(r'data-theme-default="[^"]*"',f'data-theme-default="{td}"',s,count=1)
+  else:
+    s=s.replace('data-fx-theme-anim="on"',f'data-fx-theme-anim="on" data-theme-default="{td}"',1)
+  if 'id="ma-theme-boot"' in s:
+    s=re.sub(r'<script id="ma-theme-boot">.*?</script>',THEME_BOOT,s,count=1,flags=re.S)
+  else:
+    s=re.sub(r'(<link rel="(?:preload|stylesheet)")',THEME_BOOT+r'\1',s,count=1)
+  if 'class="theme-btn"' in s:
+    s=re.sub(r'<button type="button" class="theme-btn"[\s\S]*?</button>',THEME_BTN,s,count=1)
+  elif '<button class="burger"' in s:
+    s=s.replace('<button class="burger"',THEME_BTN+'<button class="burger"',1)
+  def logos(m):
+    pre,w,h,rest=m.groups()
+    a=f'<img class="logo-dk" src="{pre}logo-dark.svg" alt="My Agent" width="{w}" height="{h}"{rest}>'
+    b=f'<img class="logo-lt" src="{pre}logo.svg" alt="My Agent" width="{w}" height="{h}"{rest}>'
+    return a+b
+  s=re.sub(r'<img (?![^>]*\blogo-dk\b)src="((?:\.\./|/)*assets/)logo-dark\.svg" alt="My Agent" width="(\d+)" height="(\d+)"([^>]*)>',logos,s)
+  return s
 pages=sorted([p for p in R.glob('*.html')]+list(R.glob('dich-vu/*.html'))+list(R.glob('tin-tuc/**/*.html'))+list(R.glob('blog/**/*.html')))
 # redirect stubs (noindex) are skipped: no head injection, not in sitemap
 pages=[p for p in pages if 'http-equiv="refresh"' not in p.read_text() and p.name!='404.html']
@@ -78,7 +126,7 @@ for f in pages:
    f'<link rel="icon" href="{p}assets/favicon.svg" type="image/svg+xml"><link rel="icon" href="{p}assets/favicon-32.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="{p}assets/apple-touch-icon.png"><link rel="manifest" href="{p}site.webmanifest">',
    f'<meta property="og:type" content="{ogt}"><meta property="og:locale" content="vi_VN"><meta property="og:site_name" content="My Agent"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:url" content="{url}"><meta property="og:image" content="{ogi}">'+('<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">' if not im else '')+f'',
    f'<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{e(title)}"><meta name="twitter:description" content="{e(desc)}"><meta name="twitter:image" content="{ogi}">',
-   f'<script src="{p}js/config.js"></script><script src="{p}js/motion.js" defer></script><script src="{p}js/chat.js" defer></script>']
+   f'<script src="{p}js/config.js"{" defer" if rel=="index.html" else ""}></script><script src="{p}js/theme.js" defer></script><script src="{p}js/motion.js" defer></script><script src="{p}js/chat.js" defer></script>']
   # v0.9.28: trang chủ dùng màn intro 3D (#i3d trong body, js/intro3d.js tải sau sự kiện load); bỏ overlay intro.js 6,5s cũ
   if rel in NOINDEX: head.insert(0,'<meta name="robots" content="noindex, follow">')
   for ld in jsonld(rel,url,s,desc): head.append('<script type="application/ld+json">'+json.dumps(ld,ensure_ascii=False)+'</script>')
@@ -159,12 +207,25 @@ for f in pages:
   if '<footer' in s and FB_PAGE not in s.split('<footer',1)[1]:
     a,b=s.split('<footer',1)
     s=a+'<footer'+b.replace('rel="noopener">Chat Zalo</a></p>','rel="noopener">Chat Zalo</a> · <a href="'+FB_PAGE+'" target="_blank" rel="noopener" aria-label="Fanpage Facebook My Agent (mở tab mới)">Facebook</a></p>',1)
-  f.write_text(s)
+  td=HOME_THEME if rel=='index.html' and HOME_THEME else THEME_DEFAULT
+  if rel=='index.html':
+    for name,val in HOME_FX:
+      attr=f'data-fx-{name}'
+      if re.search(rf'{attr}="(?:on|off)"',s):
+        s=re.sub(rf'{attr}="(?:on|off)"',f'{attr}="{val}"',s,count=1)
+      else:
+        s=s.replace('<html lang="vi"',f'<html lang="vi" {attr}="{val}"',1)
+  f.write_text(inject_theme(s, td))
 # 404: không qua head tech, chỉ cần config.js để đo lường (GA) – nguồn tải duy nhất (idempotent)
 f404=R/'404.html'
 if f404.exists():
   t=f404.read_text()
-  if 'js/config.js' not in t: f404.write_text(t.replace('</head>','<script src="/js/config.js"></script></head>',1))
+  if 'js/config.js' not in t: t=t.replace('</head>','<script src="/js/config.js"></script></head>',1)
+  if 'js/theme.js' not in t: t=t.replace('</head>','<script src="/js/theme.js" defer></script></head>',1)
+  # 404 đang dùng logo chữ đậm (logo.svg) trên nền tối: thêm bản logo-dark, CSS chọn theo theme
+  if 'logo-dk' not in t and 'src="/assets/logo.svg"' in t:
+    t=t.replace('<img src="/assets/logo.svg" alt="My Agent" width="163" height="40">','<img class="logo-dk" src="/assets/logo-dark.svg" alt="My Agent" width="163" height="40"><img class="logo-lt" src="/assets/logo.svg" alt="My Agent" width="163" height="40">',1)
+  f404.write_text(inject_theme(t))
 (R/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join(f'  <url><loc>{u}</loc><lastmod>{lastmod(r)}</lastmod><priority>{"1.0" if u==BASE else ("0.6" if r.startswith(("tin-tuc/","blog/")) else "0.7")}</priority></url>\n' for u,r in urls)+'</urlset>\n')
 (R/'robots.txt').write_text(f'User-agent: *\nAllow: /\n\nSitemap: {BASE}sitemap.xml\n')
 # CSS rút gọn (giữ css/style.css làm bản nguồn dễ đọc)
@@ -188,6 +249,15 @@ for f in R.rglob('*.html'):
   t2=re.sub(r'(js/main\.js)(\?v=[^"]*)?"',r'\1?v='+_V+'"',t2)
   t2=re.sub(r'(js/config\.js)(\?v=[^"]*)?"',r'\1?v='+_V+'"',t2)
   t2=re.sub(r'(js/chat\.js)(\?v=[^"]*)?"',r'\1?v='+_V+'"',t2)
+  t2=re.sub(r'(js/theme\.js)(\?v=[^"]*)?"',r'\1?v='+_V+'"',t2)
   t2=re.sub(r'(js/motion\.js)(\?v=[^"]*)?"',r'\1?v='+_V+'"',t2)
   t2=re.sub(r'(js/(?:combo-calculator|bang-gia|lien-he-prefill)\.js)(\?v=[^"]*)?"',r'\1?v='+_V+'"',t2)
+  t2=re.sub(r'(css/home\.css)(\?v=[^"]*)?"',r'\1?v='+_V+'"',t2)
+  t2=re.sub(r'(js/home\.js)(\?v=[^"]*)?"',r'\1?v='+_V+'"',t2)
+  t2=re.sub(r'(js/vendor/gsap/(?:gsap|ScrollTrigger)\.min\.js)(\?v=[^"]*)?"',r'\1?v='+_V+'"',t2)
   if t2!=t: f.write_text(t2)
+hj=R/'js/home.js'
+if hj.exists():
+  t=hj.read_text(); t2=t
+  t2=re.sub(r'(js/vendor/gsap/(?:gsap|ScrollTrigger)\.min\.js)(\?v=[^"\']*)?',r'\1?v='+_V,t2)
+  if t2!=t: hj.write_text(t2)

@@ -1,6 +1,6 @@
 ---
 title: "Chọn tên miền và hosting cho doanh nghiệp nhỏ: cần biết gì"
-date: 2026-11-04
+date: 2026-11-13
 description: "Chọn tên miền và hosting cho doanh nghiệp nhỏ: tên ngắn dễ nhớ, đuôi .vn hay .com, đứng tên chủ sở hữu, gia hạn, sao lưu, HTTPS và khả năng nâng cấp."
 category: website
 tags: [tên miền, hosting, doanh nghiệp nhỏ, thiết kế web giá rẻ]
