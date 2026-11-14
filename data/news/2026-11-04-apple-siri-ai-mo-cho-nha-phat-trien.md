@@ -9,10 +9,15 @@ sources:
   - name: Apple Developer News – Siri AI is now open to all developers
     url: https://developer.apple.com/news/?id=gdk2umrf
     date: 2026-11-03
+image: assets/news/apple-siri-ai-mo-cho-nha-phat-trien-cover.webp
+image_alt: "Ảnh bìa tin Apple mở Siri AI cho nhà phát triển ứng dụng, nền tối với biểu tượng kính teal"
+
 ---
 ## Có gì mới
 
 Ngày 3/11/2026, Apple thông báo mở một bản thử nghiệm dành cho nhà phát triển (Developer Preview), cho phép **bất kỳ ứng dụng nào** cũng có thể kết nối với Siri AI, phiên bản trợ lý ảo mới của hãng. Tính năng đi kèm các bản beta iOS 27.3, iPadOS 27.3, macOS 27.3 và visionOS 27.3.
+
+![Sơ đồ trợ lý AI trên điện thoại gọi tới ứng dụng và dịch vụ khi khách đặt câu hỏi](../assets/news/apple-siri-ai-mo-cho-nha-phat-trien-ket-noi.webp)
 
 Trước đây, chỉ một số loại thao tác nhất định mới gọi được qua Siri. Với bản thử nghiệm này, nhà phát triển dùng bộ công cụ **App Intents** để đưa nội dung và hành động của ứng dụng vào Siri AI. Người dùng chỉ cần nói yêu cầu bằng lời tự nhiên, Siri AI sẽ hiểu ngữ cảnh, nhìn được nội dung đang hiện trên màn hình và gọi đúng chức năng trong ứng dụng, ví dụ kiểm tra tình trạng giao hàng, đặt chỗ hay đặt một đơn hàng.
 
@@ -28,6 +33,8 @@ Apple cũng giới thiệu khái niệm **skills**: nhà phát triển có thể
 ## Góc nhìn cho doanh nghiệp nhỏ
 
 Thông báo này cho thấy xu hướng rõ ràng: khách hàng ngày càng nhờ trợ lý AI làm việc thay mình, thay vì tự mở từng ứng dụng hay trang web. Khi tiếng Việt được hỗ trợ, người dùng iPhone tại Việt Nam có thể chỉ cần hỏi Siri để tra đơn, đặt lịch hay tìm cửa hàng.
+
+![Checklist giữ thông tin trên website có cấu trúc: dịch vụ, giờ làm việc, khu vực, cách liên hệ](../assets/news/apple-siri-ai-mo-cho-nha-phat-trien-thong-tin-ro.webp)
 
 Với doanh nghiệp nhỏ, chưa cần đầu tư gì ngay. Một vài việc hợp lý để chuẩn bị:
 

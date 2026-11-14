@@ -88,9 +88,10 @@ def inline(raw,ctx,nolink=False):
       if not alt: ctx.err.append(f'ảnh thiếu chú thích (alt): {m.group(3)[:60]}')
       if src is None: ctx.err.append(f'đường dẫn ảnh không an toàn: {m.group(3)[:60]}'); continue
       wh=ctx.img(src) if ctx.img else None
-      if not wh: ctx.err.append(f'ảnh phải là file trong assets/news/ (png/jpg/webp) đọc được kích thước: {src[:60]}'); continue
+      if not wh: ctx.err.append(f'ảnh phải là file trong assets/blog/ hoặc assets/news/ (png/jpg/webp) đọc được kích thước: {src[:60]}'); continue
       ctx.imgs.append(src)
-      out.append(f'<img src="{E(wh[2])}" alt="{E(alt)}" width="{wh[0]}" height="{wh[1]}" loading="lazy" decoding="async">')
+      src_out=wh[2] if wh[2].startswith(('../','http://','https://','/')) else '../'+wh[2]
+      out.append(f'<img src="{E(src_out)}" alt="{E(alt)}" width="{wh[0]}" height="{wh[1]}" loading="lazy" decoding="async">')
     else:
       txt=m.group(4); url=safe_url(m.group(5))
       if nolink or url is None:

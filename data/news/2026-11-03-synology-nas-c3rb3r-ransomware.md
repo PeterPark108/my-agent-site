@@ -14,10 +14,15 @@ sources:
   - name: BleepingComputer
     url: https://www.bleepingcomputer.com/news/security/synology-warns-customers-of-ongoing-c3rb3r-ransomware-attacks/
     date: 2026-11-02
+image: assets/news/synology-nas-c3rb3r-ransomware-cover.webp
+image_alt: "Ảnh bìa tin Synology cảnh báo mã độc tống tiền tấn công NAS chưa cập nhật, nền tối với biểu tượng kính teal"
+
 ---
 ## Chuyện gì đang xảy ra
 
 Ngày 29/10/2026, Synology, hãng sản xuất thiết bị lưu trữ mạng (NAS) phổ biến, phát đi thông cáo cảnh báo người dùng. Theo hãng, kẻ tấn công đang lợi dụng một lỗ hổng **đã được vá từ tháng 12/2024** để nhắm vào các thiết bị còn chạy phiên bản hệ điều hành DSM cũ. Mục tiêu là mã hoá dữ liệu rồi đòi tiền chuộc.
+
+![Ba nhóm dữ liệu thường nằm trên NAS: hợp đồng hoá đơn, ảnh sản phẩm và bản sao lưu](../assets/news/synology-nas-c3rb3r-ransomware-rui-ro.webp)
 
 Trang tin bảo mật BleepingComputer cho biết đợt tấn công dùng mã độc tống tiền có tên C3RB3R. Người dùng bị hại phản ánh các tệp bị đổi đuôi thành `.L0CK3D`, kèm một tệp ghi chú đòi tiền tên `read-me3.txt`. Cũng theo trang này, đây là lần hiếm hoi Synology chủ động phát cảnh báo về một chiến dịch tấn công đang diễn ra; lần gần nhất là năm 2019.
 
@@ -36,6 +41,8 @@ Synology khuyên người dùng cập nhật DSM ngay và bật cập nhật t�
 ## Góc nhìn cho doanh nghiệp nhỏ
 
 Nhiều văn phòng, cửa hàng và công ty nhỏ mua NAS để lưu tài liệu chung hoặc làm nơi sao lưu, rồi để thiết bị chạy nhiều năm không ai ngó tới. Đợt tấn công này cho thấy một lỗ hổng đã có bản vá gần hai năm vẫn gây hại được, chỉ vì thiết bị không được cập nhật. Một vài việc nên làm trong tuần này:
+
+![Checklist bảo vệ NAS: cập nhật hệ thống, không mở trang quản trị ra Internet và giữ bản sao lưu tách rời](../assets/news/synology-nas-c3rb3r-ransomware-viec-nen-lam.webp)
 
 1. Đăng nhập NAS, xem phiên bản DSM. Nếu thấp hơn các bản đã vá nêu trên, hãy cập nhật lên bản mới nhất mà thiết bị hỗ trợ.
 2. Bật cập nhật tự động cho DSM và các gói ứng dụng cài trên NAS.

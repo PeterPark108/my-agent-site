@@ -13,8 +13,8 @@
     "insight":  {"required": true, "type": "string", "rule": "40–400 ký tự (1–3 câu) – khối 'Góc nhìn My Agent'"},
     "sources":  {"required": true, "type": "list of {name, url, date?}", "rule": "≥1 nguồn; url bắt đầu https://, không mã affiliate/utm"},
     "tags":     {"required": false, "type": "[a, b]"},
-    "image":    {"required": false, "type": "path", "rule": "file png/jpg/webp trong assets/news/ (ảnh được phép dùng); cần image_alt"},
-    "image_alt":{"required": "nếu có image", "type": "string"},
+    "image":    {"required": "bài article từ 2026-11-15", "type": "path", "rule": "file png/jpg/webp trong assets/news/ (ảnh tự làm/được phép dùng); ảnh bìa 1200×630, nên WebP ≤ 150 KB; cần image_alt"},
+    "image_alt":{"required": "nếu có image (bài article mới từ 2026-11-15 phải có cả image và image_alt)", "type": "string", "rule": "mô tả tiếng Việt, nói rõ ảnh thể hiện gì"},
     "type":     {"required": false, "enum": ["article", "link"], "default": "article", "rule": "link = chỉ thẻ trỏ ra nguồn (dùng cho tin cũ); bài mới dùng article"},
     "draft":    {"required": false, "type": "true|false", "rule": "true = không dựng, không đăng"}
   },

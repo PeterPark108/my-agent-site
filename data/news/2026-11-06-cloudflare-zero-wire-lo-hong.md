@@ -9,6 +9,9 @@ sources:
   - name: Cloudflare Blog – Introducing Zero Wire, a hub for investigating critical Internet vulnerabilities
     url: https://blog.cloudflare.com/zero-wire/
     date: 2026-11-03
+image: assets/news/cloudflare-zero-wire-lo-hong-cover.webp
+image_alt: "Ảnh bìa tin Cloudflare Zero Wire theo dõi lỗ hổng Internet, nền tối với biểu tượng kính teal"
+
 ---
 ## Có gì mới
 
@@ -25,6 +28,8 @@ Theo Cloudflare, công cụ AI đang giúp phát hiện lỗ hổng nhanh và s�
 - Prompt mẫu để nhờ trợ lý AI **đánh giá chỉ đọc** (read-only) trên hạ tầng của mình — không tự quét hay sửa hệ thống khi chỉ sao chép prompt.
 - Liên kết bằng chứng: bản ghi CVE, nghiên cứu, và khi có thì mục Known Exploited Vulnerabilities của CISA; đôi khi có biểu đồ lưu lượng khớp quy tắc WAF trên mạng Cloudflare (đây là tín hiệu cố gắng tấn công, không phải số máy đã bị xâm nhập).
 
+![Các thành phần một bản tin lỗ hổng cần có để doanh nghiệp nhỏ dùng được](../assets/news/cloudflare-zero-wire-lo-hong-ban-tin.webp)
+
 Cloudflare nhấn mạnh Zero Wire hữu ích cả khi website **không** dùng dịch vụ của họ. Nếu có quy tắc WAF liên quan, bản tin ghi rõ phạm vi và nhắc rằng chặn request chỉ là biện pháp bù, **không thay** việc vá phần mềm gốc.
 
 ## Ví dụ thực tế: lỗ hổng runtime PHP
@@ -38,5 +43,7 @@ Bài giới thiệu lấy ví dụ lỗ hổng kiểu **php2shell** trên runtim
 3. Hỏi đơn vị quản trị website/hosting các câu cụ thể: “Máy có nằm trong phạm vi CVE này không?”, “Đã áp bản vá chưa?”, “Có biện pháp tạm (WAF, tắt tính năng rủi ro) trong lúc chờ vá không?”.
 4. Không coi biểu đồ tấn công trên mạng CDN là bằng chứng site mình đã bị xâm nhập; cũng không coi “chưa thấy trên Radar” là chắc chắn an toàn. Luôn đối chiếu advisory của nhà cung cấp phần mềm.
 5. Giữ thói quen cập nhật và sao lưu định kỳ — Zero Wire giúp ưu tiên việc nào cần làm trước, không thay quy trình vận hành hàng ngày.
+
+![Checklist câu hỏi nên hỏi bên vận hành máy chủ khi có bản tin lỗ hổng](../assets/news/cloudflare-zero-wire-lo-hong-hoi-hosting.webp)
 
 Với chủ doanh nghiệp nhỏ, giá trị lớn nhất của Zero Wire là rút ngắn khoảng cách giữa tin đồn kỹ thuật và việc hỏi đúng người, đúng phiên bản, đúng bước vá — thay vì bỏ qua hoặc hoảng loạn cập nhật lung tung.

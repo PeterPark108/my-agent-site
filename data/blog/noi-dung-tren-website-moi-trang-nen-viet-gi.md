@@ -5,12 +5,17 @@ description: "Doanh nghiệp nhỏ nên viết gì ở trang chủ, trang dịch
 category: website
 tags: [nội dung website, doanh nghiệp nhỏ, trang chủ, liên hệ]
 services: [thiet-ke-website, cham-soc-website, seo-tong-the]
+image: assets/blog/noi-dung-tren-website-moi-trang-nen-viet-gi-cover.webp
+image_alt: "Ảnh bìa bài Nội dung trên website: mỗi trang nên viết gì, nền tối với biểu tượng kính teal của My Agent"
+
 ---
 Website chỉ đẹp thôi chưa đủ. Khách mở trang cần hiểu ngay anh/chị làm gì, cho ai, và bước liên hệ tiếp theo là gì. Điều này đúng với nhiều loại hình: cửa hàng, phòng khám, xưởng sản xuất, văn phòng dịch vụ hay trung tâm đào tạo. Bài này gợi ý nội dung nên có trên từng trang phổ biến, để khách tin được và chủ động liên hệ. Các tiêu chí nhìn tổng thể nằm ở bài [website chuyên nghiệp cần những gì](website-chuyen-nghiep-can-gi.html).
 
 ## Trang chủ: nói đúng việc chính trong vài giây đầu
 
 Trang chủ không phải chỗ kể hết mọi thứ. Phần đầu trang nên trả lời ba câu: anh/chị làm gì, phục vụ ai, khách cần làm gì tiếp theo. Một câu rõ còn hơn một đoạn dài nhưng chung chung.
+
+![Khung wireframe trang chủ: nói rõ làm gì, phục vụ ai và khách cần làm bước tiếp theo trong vài giây đầu](../assets/blog/noi-dung-tren-website-moi-trang-nen-viet-gi-trang-chu.webp)
 
 Nên có:
 
@@ -24,6 +29,8 @@ Ví dụ ngắn: một quán ăn nêu món thế mạnh và cách đặt bàn; m
 ## Trang dịch vụ: mỗi dịch vụ một trang đủ để quyết định
 
 Trang dịch vụ giải thích việc anh/chị nhận làm, chứ không chỉ lặp lại tên dịch vụ. Nếu có nhiều nhóm việc, nên tách trang, mỗi trang một chủ đề chính. Cách đặt từ khóa cho từng trang được gợi ý trong [checklist SEO cơ bản](checklist-seo-co-ban-cho-website.html).
+
+![Sơ đồ nhiệm vụ từng loại trang: trang chủ, dịch vụ, giới thiệu, liên hệ, câu hỏi thường gặp và hình ảnh](../assets/blog/noi-dung-tren-website-moi-trang-nen-viet-gi-cac-trang.webp)
 
 Với mỗi dịch vụ, nên viết:
 
@@ -70,6 +77,8 @@ FAQ tốt giúp khách tự hiểu trước khi liên hệ, và giúp người t
 ## Hình ảnh: cho thấy việc thật, đúng ngữ cảnh
 
 Chữ nói anh/chị làm gì; ảnh giúp khách hình dung việc đó trông như thế nào. Nên ưu tiên ảnh thật: không gian làm việc hoặc cửa hàng, sản phẩm, quy trình, đội ngũ nếu mọi người đồng ý dùng ảnh. Ảnh minh họa mua sẵn chỉ nên dùng khi không có ảnh thật, và không để khách hiểu nhầm đó là cửa hàng hay công trình của mình.
+
+![Checklist chọn hình ảnh website: cho thấy việc thật, đúng ngữ cảnh, có chú thích rõ](../assets/blog/noi-dung-tren-website-moi-trang-nen-viet-gi-hinh-anh.webp)
 
 Khi đăng ảnh:
 

@@ -56,7 +56,8 @@ Nội dung tự viết, ≥ 250 từ...
 | `summary` | ✓ | 120–200 ký tự, tự viết |
 | `insight` | ✓ | 1–3 câu (40–400 ký tự) – khối "Góc nhìn My Agent" |
 | `sources` | ✓ | ≥ 1 nguồn `name` + `url` https, không link affiliate/utm |
-| `tags`, `image`+`image_alt`, `draft` | – | ảnh phải nằm trong `assets/news/` (png/jpg/webp); `draft: true` = không đăng |
+| `tags`, `draft` | – | `draft: true` = không đăng |
+| `image`, `image_alt` | có (bài `article` từ 15/11/2026) | ảnh bìa trong `assets/news/` (png/jpg/webp, bìa 1200×630 ≤ 150 KB); có `image` thì bắt buộc `image_alt`. Bài mới nên có 2–3 ảnh thân bài `![mô tả](../assets/news/<ten-file>.webp)`. Tạo ảnh bằng `scripts/make_content_images.py` (phong cách kính tối; không dùng ảnh người mẫu, khách giả, giao diện sản phẩm có bản quyền, hay ảnh báo/người nổi tiếng). Thẻ `type: link` không bắt buộc ảnh. |
 | nội dung | ✓ | ≥ 250 từ, chỉ dùng `##`/`###` (không `#`), Markdown cơ bản; HTML bị hiển thị thành chữ, link `javascript:` bị chặn |
 
 Cụm từ bị cấm ở mọi trường: "24/7", "FPT Polytechnic", "cam kết/đảm bảo/100% lên top", "top 1/trang 1" kiểu cam kết.
@@ -66,6 +67,7 @@ Cụm từ bị cấm ở mọi trường: "24/7", "FPT Polytechnic", "cam kết
 - [ ] Viết bằng lời của mình (không chép câu của nguồn); trích ngắn thì ghi nguồn.
 - [ ] Có ít nhất 1 link nguồn gốc; `--check-urls` không báo `LỖI` (`CHẶN BOT?` thì mở tay bằng trình duyệt).
 - [ ] Không hứa thứ hạng, không giá, không "24/7".
+- [ ] Bài `article` từ 15/11/2026 có `image` + `image_alt` và 2–3 ảnh trong thân bài.
 - [ ] `scripts/news_publish.sh` ra `=> PASS`.
 
 ## Ghi chú kỹ thuật
