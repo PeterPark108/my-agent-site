@@ -5,7 +5,7 @@ for (const slug of ['thiet-ke-website-doanh-nghiep','thiet-ke-landing-page','thi
   await page.route('**/*',route=>new URL(route.request().url()).hostname==='127.0.0.1'?route.continue():route.abort());
   await page.goto(`/dich-vu/${slug}.html`);
   await expect(page.locator('h1')).toHaveCount(1);
-  await expect(page.locator('.faq details')).toHaveCount(3);
+  await expect(page.locator('.faq details')).toHaveCount(4);
   await page.locator('.faq summary').first().click();
   await expect(page.locator('.faq details').first()).toHaveAttribute('open','');
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBe(true);

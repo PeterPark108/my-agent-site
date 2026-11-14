@@ -27,6 +27,18 @@ for (const [file, expected] of Object.entries(fixture.hashes)) {
       cards.eq(i).attr('href', '/dich-vu/thiet-ke-website.html');
     });
   }
+  if (file === 'dich-vu/thiet-ke-website.html') {
+    // Only the three reviewed answer edits are permitted; normalize those exact
+    // strings back to the pre-AEO fixture so every other UI byte stays guarded.
+    const edits = JSON.parse(fs.readFileSync(path.join(site, 'tests/fixtures/aeo-approved-faq-copy.json'), 'utf8'));
+    for (const edit of edits) {
+      const detail = $('.faq details').filter((_, e) => $(e).children('summary').text().replace(/\s+/g, ' ').trim() === edit.question.replace(/\s+/g, ' ').trim());
+      assert.equal(detail.length, 1);
+      const answer = detail.children('p');
+      assert.equal(answer.text(), edit.after);
+      answer.text(edit.before);
+    }
+  }
   assert.equal(crypto.createHash('sha256').update($('body').html()).digest('hex'), expected, `${file}: current visible UI must be preserved`);
 }
 for (const file of ['projects/nha-giua-vuon.webp', ...[480, 960, 1600].map(size => `assets/projects/nha-giua-vuon-${size}.webp`)])
