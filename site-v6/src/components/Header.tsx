@@ -2,9 +2,28 @@
 /* eslint-disable @next/next/no-html-link-for-pages -- Full navigation resets legacy tool listeners between pages. */
 import Image from 'next/image';
 import { useAnchorNavigation } from './useAnchorNavigation';
-import { useEffect,useState,useSyncExternalStore } from 'react';
+import { useEffect,useRef,useState,useSyncExternalStore } from 'react';
 const links=[['/#trai-nghiem','Dự án'],['/#he-sinh-thai','Hệ dịch vụ'],['/#dich-vu','Giải pháp'],['/#quy-trinh','Quy trình'],['/#lien-he','Liên hệ']];
 const more=[['/dich-vu.html','Tất cả dịch vụ'],['/combo.html','Combo dịch vụ'],['/bang-gia.html','Bảng giá & tính giá'],['/du-an.html','Sản phẩm mẫu'],['/tra-cuu-tien-do.html','Tra cứu tiến độ'],['/tin-tuc.html','Tin công nghệ'],['/blog.html','Blog / Kiến thức'],['/cong-cu.html','Công cụ miễn phí'],['/tai-nguyen-ai-agent.html','Tài nguyên AI Agent'],['/ve-chung-toi.html','Về My Agent'],['/lien-he.html','Liên hệ đầy đủ'],['/dieu-khoan-dich-vu.html','Điều khoản & dịch vụ'],['/chinh-sach-bao-mat.html','Chính sách bảo mật']];
 function readTheme(){try{return localStorage.getItem('ma-theme')==='light'?'light':'dark'}catch{return 'dark'}}
 function subscribeTheme(callback:()=>void){window.addEventListener('myagent:theme',callback);window.addEventListener('storage',callback);return()=>{window.removeEventListener('myagent:theme',callback);window.removeEventListener('storage',callback)}}
-export function Header(){const [open,setOpen]=useState(false);const theme=useSyncExternalStore(subscribeTheme,readTheme,()=> 'dark');useEffect(()=>{document.documentElement.dataset.theme=theme},[theme]);useAnchorNavigation();function toggle(){const next=theme==='dark'?'light':'dark';document.documentElement.dataset.theme=next;try{localStorage.setItem('ma-theme',next)}catch{}window.dispatchEvent(new Event('myagent:theme'))}return <header className="header" data-shared-shell="v6"><div className="container header-inner"><a href="/" aria-label="My Agent — trang chủ"><Image priority src={theme==='light'?'/assets/logo.svg':'/brand/logo-dark.svg'} alt="My Agent" width={163} height={40}/></a><button className="menu-button" aria-expanded={open} aria-controls="navigation" onClick={()=>setOpen(!open)} onKeyDown={e=>{if(e.key==='Escape')setOpen(false)}}>{open?'Đóng':'Menu'}<span aria-hidden="true">{open?'−':'+'}</span></button><nav id="navigation" aria-label="Điều hướng chính" className={open?'navigation open':'navigation'} onKeyDown={e=>{if(e.key==='Escape'){setOpen(false);e.currentTarget.querySelectorAll('details[open]').forEach(el=>el.removeAttribute('open'))}}}>{links.map(([href,label])=><a href={href} key={href} onClick={()=>setOpen(false)}>{label}</a>)}<details className="all-pages-menu"><summary>Khám phá <span aria-hidden="true">⌄</span></summary><div className="all-pages-panel">{more.map(([href,label])=><a href={href} key={href} onClick={()=>setOpen(false)}>{label}</a>)}</div></details></nav><a className="header-cta" href="/lien-he.html">Bắt đầu dự án <span aria-hidden="true">↗</span></a><button className="theme-button" type="button" aria-label={'Chuyển sang giao diện '+(theme==='dark'?'sáng':'tối')} onClick={toggle}>{theme==='dark'?'☼':'☾'}</button></div></header>}
+export function Header(){
+ const [open,setOpen]=useState(false);
+ const header=useRef<HTMLElement>(null);
+ const menuButton=useRef<HTMLButtonElement>(null);
+ function closeMenu(){
+  setOpen(false);
+  header.current?.querySelectorAll('details[open]').forEach(el=>el.removeAttribute('open'));
+ }
+ useEffect(()=>{
+  if(!open)return;
+  const outside=(event:PointerEvent)=>{if(event.target instanceof Node&&!header.current?.contains(event.target))closeMenu()};
+  const escape=(event:KeyboardEvent)=>{if(event.key==='Escape'){closeMenu();menuButton.current?.focus()}};
+  const desktop=matchMedia('(min-width: 901px)');
+  const resize=()=>{if(desktop.matches)closeMenu()};
+  document.addEventListener('pointerdown',outside);
+  document.addEventListener('keydown',escape);
+  desktop.addEventListener('change',resize);
+  return()=>{document.removeEventListener('pointerdown',outside);document.removeEventListener('keydown',escape);desktop.removeEventListener('change',resize)};
+ },[open]);
+const theme=useSyncExternalStore(subscribeTheme,readTheme,()=> 'dark');useEffect(()=>{document.documentElement.dataset.theme=theme},[theme]);useAnchorNavigation();function toggle(){const next=theme==='dark'?'light':'dark';document.documentElement.dataset.theme=next;try{localStorage.setItem('ma-theme',next)}catch{}window.dispatchEvent(new Event('myagent:theme'))}return <header ref={header} className="header" data-shared-shell="v6" data-menu-open={open}><div className="container header-inner"><a href="/" aria-label="My Agent — trang chủ"><Image priority src={theme==='light'?'/assets/logo.svg':'/brand/logo-dark.svg'} alt="My Agent" width={163} height={40}/></a><button ref={menuButton} type="button" className="menu-button" aria-expanded={open} aria-controls="navigation" onClick={()=>{if(open)closeMenu();else setOpen(true)}}>{open?'Đóng':'Menu'}<span aria-hidden="true">{open?'−':'+'}</span></button><nav id="navigation" aria-label="Điều hướng chính" className={open?'navigation open':'navigation'} onKeyDown={e=>{if(e.key==='Escape'){closeMenu();if(open)menuButton.current?.focus()}}}>{links.map(([href,label])=><a href={href} key={href} onClick={closeMenu}>{label}</a>)}<details className="all-pages-menu"><summary>Khám phá <span aria-hidden="true">⌄</span></summary><div className="all-pages-panel">{more.map(([href,label])=><a href={href} key={href} onClick={closeMenu}>{label}</a>)}</div></details></nav><a className="header-cta" href="/lien-he.html">Bắt đầu dự án <span aria-hidden="true">↗</span></a><button className="theme-button" type="button" aria-label={'Chuyển sang giao diện '+(theme==='dark'?'sáng':'tối')} onClick={toggle}>{theme==='dark'?'☼':'☾'}</button></div></header>}

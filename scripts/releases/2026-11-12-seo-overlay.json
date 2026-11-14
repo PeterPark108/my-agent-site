@@ -1,0 +1,16 @@
+{
+  "description": "Follow-up privacy-toggle fix only. Apply to verified d145812 live copy; preserve every other file.",
+  "baseline_artifact": "d1458122b4d45cac75719278338641e538d841bb",
+  "files": [
+    {
+      "path": "js/config.js",
+      "base_sha256": "3802b9014766fe698f084206ab31520a6c928b2b5a2cfcf01dec1b921d2c7de3",
+      "sha256": "32706d6cd6aee54cd6b41ef89457d0668915185449db843809021b617b622b61"
+    },
+    {
+      "path": "site-v6/public/js/config.js",
+      "base_sha256": "3802b9014766fe698f084206ab31520a6c928b2b5a2cfcf01dec1b921d2c7de3",
+      "sha256": "32706d6cd6aee54cd6b41ef89457d0668915185449db843809021b617b622b61"
+    }
+  ]
+}
