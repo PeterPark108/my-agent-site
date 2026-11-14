@@ -103,8 +103,8 @@ html,body{{background:var(--bg);color:var(--tx);font-family:"Be Vietnam Pro",sys
 .ic .c{{fill:none;stroke:var(--teal);stroke-width:2.3;stroke-linecap:round;stroke-linejoin:round}}
 .ic .f{{fill:var(--teal);stroke:none}}
 .k{{font-size:15px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:18px}}
-h1{{font-weight:800;letter-spacing:-.03em;line-height:1.18;text-wrap:balance}}
-.sub{{color:var(--mu);font-weight:400;line-height:1.45}}
+h1{{font-weight:800;letter-spacing:-.03em;line-height:1.18;text-wrap:balance;color:#F7F9FF;text-shadow:0 1px 12px rgba(0,0,0,.6),0 0 1px rgba(0,0,0,.85)}}
+.sub{{color:#C5E8E4;font-weight:500;line-height:1.45;text-shadow:0 1px 10px rgba(0,0,0,.55)}}
 .brand{{position:absolute;right:36px;bottom:24px;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(233,236,245,.45)}}
 .brand b{{color:var(--teal);font-weight:700}}
 .panel{{background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.12);border-radius:22px;backdrop-filter:blur(10px)}}
@@ -135,8 +135,8 @@ def cover_html(kicker, title, subtitle, icon, size=COVER):
     <div style="position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:48px;height:100%;padding:56px 72px 64px;">
       <div style="max-width:720px;min-width:0">
         <div class="k">{html.escape(kicker)}</div>
-        <h1 style="font-size:{fs}px;margin:0 0 18px">{html.escape(title)}</h1>
-        <p class="sub" style="font-size:22px;max-width:28ch">{html.escape(subtitle)}</p>
+        <h1 style="font-size:{fs}px;margin:0 0 18px;color:#F7F9FF">{html.escape(title)}</h1>
+        <p class="sub" style="font-size:22px;max-width:28ch;color:#C5E8E4">{html.escape(subtitle)}</p>
       </div>
       {icon_html(icon, 200)}
     </div>""")

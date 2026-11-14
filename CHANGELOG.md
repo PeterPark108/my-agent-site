@@ -4,7 +4,7 @@
 - Pipeline ảnh cho blog/tin: `scripts/seo_v6.sh` copy cả `assets/` (kèm `assets/blog` và `assets/news`); thẻ liệt kê hiện thumbnail khi bài có `image`; `tech_pass.py` ghi `og:image:width` / `height` / `type` theo file thật; CSS v6 cho `.nwa-cover`, `.nwa-fig` và `.nw-thumb` (nền tối, viền kính); `safe-content` cho phép `fetchpriority` trên `img` (kèm bài kiểm tra).
 - Validator: bài **mới** đăng từ 15/11/2026 phải có `image` + `image_alt` (tin `type: link` không bắt buộc). Bài cũ chưa có ảnh vẫn được dựng. Cập nhật `docs/blog.md`, `docs/tin-tuc.md`, template và file format.
 - Ảnh batch 1: 5 bài blog mới nhất và 5 tin article mới nhất — mỗi bài 1 ảnh bìa 1200×630 WebP ≤ 150 KB và 2–3 ảnh thân bài (sơ đồ / checklist / wireframe, phong cách kính tối teal). Tạo bằng `scripts/make_content_images.py`.
-- Làm mới `assets/og-image.png` (ảnh đại diện trang chủ và trang danh mục khi chia sẻ mạng xã hội; cũng là ảnh dự phòng cho bài chưa có bìa riêng).
+- Không đụng `assets/og-image.png`, `og-images.json` hay `seo.tsx` (ảnh chia sẻ trang chủ/danh mục thuộc PR #93, đã lên site lúc 07:51 14/11). Bài viết dùng ảnh bìa WebP riêng làm og:image.
 - Bump VERSION 0.12.8 (production đang 0.12.7; PR #92 nhánh `fix/mobile-ux` dựa trên `main` và vẫn là 0.12.2 nên không chiếm 0.12.8).
 - Khi triển khai: dựng lại trên bản copy của site đang chạy, giống cách làm với PR #91 — site live còn các bản vá chỉ có trên server (nav patch, trang GA 13/11 và 3 trang dịch vụ) mà nhánh `production` chưa có.
 
