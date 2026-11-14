@@ -1,0 +1,17 @@
+[
+  {
+    "question": "Bao lâu thì triển khai xong?",
+    "before": "Tuỳ phạm vi, thông thường từ 7–30 ngày làm việc; tiến độ được báo cáo rõ từng giai đoạn.",
+    "after": "Theo bảng giá tham khảo: landing page 3–5 ngày, website giới thiệu 7–14 ngày, website bán hàng 14–25 ngày. Tiến độ cụ thể được chốt theo phạm vi, nội dung đầu vào và lịch duyệt của từng dự án."
+  },
+  {
+    "question": "Chi phí đã bao gồm những gì?",
+    "before": "Báo giá minh bạch theo từng hạng mục, không phát sinh chi phí ẩn.",
+    "after": "Phạm vi phụ thuộc loại website. Landing page gồm một trang responsive và form; website giới thiệu gồm giao diện theo thương hiệu, CMS và SEO nền tảng; website bán hàng thêm giỏ hàng, đơn hàng, VietQR và quản lý sản phẩm. Tên miền, hosting và yêu cầu ngoài phạm vi được báo riêng; giá tham khảo chưa gồm VAT."
+  },
+  {
+    "question": "Sau bàn giao có được hỗ trợ không?",
+    "before": "Có. My Agent bảo hành, hỗ trợ kỹ thuật và tư vấn tối ưu lâu dài.",
+    "after": "My Agent bảo hành lỗi kỹ thuật 60 ngày sau bàn giao theo chính sách dịch vụ hiện tại. Chăm sóc định kỳ, cập nhật nội dung và tính năng mới cần thống nhất phạm vi riêng trong báo giá hoặc hợp đồng."
+  }
+]
