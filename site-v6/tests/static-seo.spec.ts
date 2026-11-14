@@ -153,3 +153,17 @@ for (const [label,id] of [['Dự án','trai-nghiem'],['Hệ dịch vụ','he-sin
     }
   });
 }
+
+test('newly published November blog content survives mobile release and history', async ({page})=>{
+  const entries=[['website-dung-de-lam-gi-cho-doanh-nghiep-nho','Website dùng để làm gì cho doanh nghiệp nhỏ'],['chon-ten-mien-va-hosting-cho-doanh-nghiep-nho','Chọn tên miền và hosting cho doanh nghiệp nhỏ: cần biết gì']];
+  await page.goto('/blog.html');
+  for(const [slug,title] of entries){
+    const link=page.locator('#blog-list h2 a').filter({hasText:title});
+    await link.click();
+    await expect(page).toHaveURL(new RegExp('/blog/'+slug+'\\.html$'));
+    await expect(page.locator('main h1')).toHaveText(title);
+    await expect(page.locator('.nwa-body')).toBeVisible();
+    await page.goBack();
+    await expect(link).toBeVisible();
+  }
+});

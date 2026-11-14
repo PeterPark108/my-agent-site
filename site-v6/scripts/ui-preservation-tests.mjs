@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 import { load } from 'cheerio';
 const site = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const root = path.resolve(site, '..');
-const fixture = JSON.parse(fs.readFileSync(path.join(site, 'tests/fixtures/live-ui-2026-11-12.json'), 'utf8'));
+const fixture = JSON.parse(fs.readFileSync(path.join(site, 'tests/fixtures/live-ui-2026-11-14-mobile.json'), 'utf8'));
 const order = ['/#trai-nghiem', '/#he-sinh-thai', '/#dich-vu', '/#quy-trinh', '/#lien-he'];
 for (const [file, expected] of Object.entries(fixture.hashes)) {
   const $ = load(fs.readFileSync(path.join(root, file), 'utf8'));
@@ -32,3 +32,8 @@ for (const [file, expected] of Object.entries(fixture.hashes)) {
 for (const file of ['projects/nha-giua-vuon.webp', ...[480, 960, 1600].map(size => `assets/projects/nha-giua-vuon-${size}.webp`)])
   assert.ok(fs.statSync(path.join(root, file)).size > 0, `${file}: existing live image retained`);
 console.log(`PASS: ${Object.keys(fixture.hashes).length} production UI snapshots and four live demo assets`);
+
+for (const [file, expected] of Object.entries(fixture.main_hashes || {})) {
+  const $ = load(fs.readFileSync(path.join(root, file), 'utf8'));
+  assert.equal(crypto.createHash('sha256').update($('main').html()).digest('hex'), expected, `${file}: latest published blog main content preserved exactly`);
+}

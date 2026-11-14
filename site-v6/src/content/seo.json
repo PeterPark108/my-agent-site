@@ -44,191 +44,191 @@
   },
   "/blog.html": {
     "meta": {
-      "og:type": "website",
-      "og:locale": "vi_VN",
-      "og:site_name": "My Agent",
       "og:title": "Blog kiến thức website, SEO, dữ liệu | My Agent",
       "og:description": "Blog kiến thức của My Agent: hướng dẫn thực tế về website, SEO, marketing online, dữ liệu và AI cho chủ doanh nghiệp nhỏ, viết dễ hiểu, dễ áp dụng.",
       "og:url": "https://myagentvn.com/blog.html",
+      "og:site_name": "My Agent",
+      "og:locale": "vi_VN",
       "og:image": "https://myagentvn.com/assets/og-image.png",
       "og:image:width": "1200",
       "og:image:height": "630",
+      "og:type": "website",
       "twitter:card": "summary_large_image",
       "twitter:title": "Blog kiến thức website, SEO, dữ liệu | My Agent",
       "twitter:description": "Blog kiến thức của My Agent: hướng dẫn thực tế về website, SEO, marketing online, dữ liệu và AI cho chủ doanh nghiệp nhỏ, viết dễ hiểu, dễ áp dụng.",
       "twitter:image": "https://myagentvn.com/assets/og-image.png"
     },
     "ld": [
-      "{\"@context\": \"https://schema.org\", \"@type\": \"BreadcrumbList\", \"itemListElement\": [{\"@type\": \"ListItem\", \"position\": 1, \"name\": \"Trang chủ\", \"item\": \"https://myagentvn.com/\"}, {\"@type\": \"ListItem\", \"position\": 2, \"name\": \"Blog kiến thức\", \"item\": \"https://myagentvn.com/blog.html\"}]}",
-      "{\"@context\": \"https://schema.org\", \"@type\": \"CollectionPage\", \"name\": \"Blog kiến thức\", \"url\": \"https://myagentvn.com/blog.html\", \"inLanguage\": \"vi\", \"dateModified\": \"2026-11-11\", \"isPartOf\": {\"@id\": \"https://myagentvn.com/#website\"}, \"publisher\": {\"@id\": \"https://myagentvn.com/#org\"}, \"mainEntity\": {\"@type\": \"ItemList\", \"numberOfItems\": 12, \"itemListElement\": [{\"@type\": \"ListItem\", \"position\": 1, \"url\": \"https://myagentvn.com/blog/noi-dung-tren-website-moi-trang-nen-viet-gi.html\", \"name\": \"Nội dung trên website: mỗi trang nên viết gì\"}, {\"@type\": \"ListItem\", \"position\": 2, \"url\": \"https://myagentvn.com/blog/quy-trinh-lam-website-cho-doanh-nghiep-nho.html\", \"name\": \"Quy trình làm website cho doanh nghiệp nhỏ: từ trao đổi đến bàn giao\"}, {\"@type\": \"ListItem\", \"position\": 3, \"url\": \"https://myagentvn.com/blog/cham-soc-website-sau-ban-giao.html\", \"name\": \"Chăm sóc website sau khi bàn giao: việc nên làm định kỳ\"}, {\"@type\": \"ListItem\", \"position\": 4, \"url\": \"https://myagentvn.com/blog/toc-do-website-co-ban-cho-doanh-nghiep-nho.html\", \"name\": \"Tốc độ website cơ bản cho doanh nghiệp nhỏ\"}, {\"@type\": \"ListItem\", \"position\": 5, \"url\": \"https://myagentvn.com/blog/do-luong-website-bang-google-analytics-co-ban.html\", \"name\": \"Đo lường website bằng Google Analytics cơ bản\"}, {\"@type\": \"ListItem\", \"position\": 6, \"url\": \"https://myagentvn.com/blog/bao-mat-website-co-ban-cho-doanh-nghiep-nho.html\", \"name\": \"Bảo mật website cơ bản cho doanh nghiệp nhỏ: 7 việc nên làm\"}, {\"@type\": \"ListItem\", \"position\": 7, \"url\": \"https://myagentvn.com/blog/da-co-facebook-zalo-san-tmdt-co-can-website-rieng.html\", \"name\": \"Đã có Facebook, Zalo, sàn TMĐT, có cần website riêng?\"}, {\"@type\": \"ListItem\", \"position\": 8, \"url\": \"https://myagentvn.com/blog/google-business-profile-dich-vu-tai-tphcm.html\", \"name\": \"Google Business Profile cho dịch vụ tại TP.HCM\"}, {\"@type\": \"ListItem\", \"position\": 9, \"url\": \"https://myagentvn.com/blog/checklist-seo-co-ban-cho-website.html\", \"name\": \"Checklist SEO cơ bản cho website doanh nghiệp nhỏ\"}, {\"@type\": \"ListItem\", \"position\": 10, \"url\": \"https://myagentvn.com/blog/website-chuyen-nghiep-can-gi.html\", \"name\": \"Website chuyên nghiệp cần những gì? 10 tiêu chí\"}, {\"@type\": \"ListItem\", \"position\": 11, \"url\": \"https://myagentvn.com/blog/thiet-ke-web-tron-goi-gom-nhung-gi.html\", \"name\": \"Thiết kế web trọn gói gồm những gì?\"}, {\"@type\": \"ListItem\", \"position\": 12, \"url\": \"https://myagentvn.com/blog/chi-phi-lam-website-phu-thuoc-yeu-to-nao.html\", \"name\": \"Chi phí làm website phụ thuộc vào yếu tố nào?\"}]}}"
+      "{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Trang chủ\",\"item\":\"https://myagentvn.com/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog kiến thức\",\"item\":\"https://myagentvn.com/blog.html\"}]}",
+      "{\"@context\":\"https://schema.org\",\"@type\":\"CollectionPage\",\"name\":\"Blog kiến thức\",\"url\":\"https://myagentvn.com/blog.html\",\"inLanguage\":\"vi\",\"dateModified\":\"2026-11-14\",\"isPartOf\":{\"@id\":\"https://myagentvn.com/#website\"},\"publisher\":{\"@id\":\"https://myagentvn.com/#org\"},\"mainEntity\":{\"@type\":\"ItemList\",\"numberOfItems\":14,\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"url\":\"https://myagentvn.com/blog/website-dung-de-lam-gi-cho-doanh-nghiep-nho.html\",\"name\":\"Website dùng để làm gì cho doanh nghiệp nhỏ\"},{\"@type\":\"ListItem\",\"position\":2,\"url\":\"https://myagentvn.com/blog/chon-ten-mien-va-hosting-cho-doanh-nghiep-nho.html\",\"name\":\"Chọn tên miền và hosting cho doanh nghiệp nhỏ: cần biết gì\"},{\"@type\":\"ListItem\",\"position\":3,\"url\":\"https://myagentvn.com/blog/noi-dung-tren-website-moi-trang-nen-viet-gi.html\",\"name\":\"Nội dung trên website: mỗi trang nên viết gì\"},{\"@type\":\"ListItem\",\"position\":4,\"url\":\"https://myagentvn.com/blog/quy-trinh-lam-website-cho-doanh-nghiep-nho.html\",\"name\":\"Quy trình làm website cho doanh nghiệp nhỏ: từ trao đổi đến bàn giao\"},{\"@type\":\"ListItem\",\"position\":5,\"url\":\"https://myagentvn.com/blog/cham-soc-website-sau-ban-giao.html\",\"name\":\"Chăm sóc website sau khi bàn giao: việc nên làm định kỳ\"},{\"@type\":\"ListItem\",\"position\":6,\"url\":\"https://myagentvn.com/blog/toc-do-website-co-ban-cho-doanh-nghiep-nho.html\",\"name\":\"Tốc độ website cơ bản cho doanh nghiệp nhỏ\"},{\"@type\":\"ListItem\",\"position\":7,\"url\":\"https://myagentvn.com/blog/do-luong-website-bang-google-analytics-co-ban.html\",\"name\":\"Đo lường website bằng Google Analytics cơ bản\"},{\"@type\":\"ListItem\",\"position\":8,\"url\":\"https://myagentvn.com/blog/bao-mat-website-co-ban-cho-doanh-nghiep-nho.html\",\"name\":\"Bảo mật website cơ bản cho doanh nghiệp nhỏ: 7 việc nên làm\"},{\"@type\":\"ListItem\",\"position\":9,\"url\":\"https://myagentvn.com/blog/da-co-facebook-zalo-san-tmdt-co-can-website-rieng.html\",\"name\":\"Đã có Facebook, Zalo, sàn TMĐT, có cần website riêng?\"},{\"@type\":\"ListItem\",\"position\":10,\"url\":\"https://myagentvn.com/blog/google-business-profile-dich-vu-tai-tphcm.html\",\"name\":\"Google Business Profile cho dịch vụ tại TP.HCM\"},{\"@type\":\"ListItem\",\"position\":11,\"url\":\"https://myagentvn.com/blog/checklist-seo-co-ban-cho-website.html\",\"name\":\"Checklist SEO cơ bản cho website doanh nghiệp nhỏ\"},{\"@type\":\"ListItem\",\"position\":12,\"url\":\"https://myagentvn.com/blog/website-chuyen-nghiep-can-gi.html\",\"name\":\"Website chuyên nghiệp cần những gì? 10 tiêu chí\"},{\"@type\":\"ListItem\",\"position\":13,\"url\":\"https://myagentvn.com/blog/thiet-ke-web-tron-goi-gom-nhung-gi.html\",\"name\":\"Thiết kế web trọn gói gồm những gì?\"},{\"@type\":\"ListItem\",\"position\":14,\"url\":\"https://myagentvn.com/blog/chi-phi-lam-website-phu-thuoc-yeu-to-nao.html\",\"name\":\"Chi phí làm website phụ thuộc vào yếu tố nào?\"}]}}"
     ]
   },
   "/blog/bao-mat-website-co-ban-cho-doanh-nghiep-nho.html": {
     "meta": {
-      "og:type": "article",
-      "og:locale": "vi_VN",
-      "og:site_name": "My Agent",
       "og:title": "Bảo mật website cơ bản cho doanh nghiệp nhỏ: 7 việc nên làm",
       "og:description": "Bảo mật website cơ bản cho doanh nghiệp nhỏ: HTTPS, cập nhật phần mềm, mật khẩu mạnh và xác thực hai bước, sao lưu, phân quyền, chống spam form.",
       "og:url": "https://myagentvn.com/blog/bao-mat-website-co-ban-cho-doanh-nghiep-nho.html",
+      "og:site_name": "My Agent",
+      "og:locale": "vi_VN",
       "og:image": "https://myagentvn.com/assets/og-image.png",
       "og:image:width": "1200",
       "og:image:height": "630",
+      "og:type": "article",
       "twitter:card": "summary_large_image",
       "twitter:title": "Bảo mật website cơ bản cho doanh nghiệp nhỏ: 7 việc nên làm",
       "twitter:description": "Bảo mật website cơ bản cho doanh nghiệp nhỏ: HTTPS, cập nhật phần mềm, mật khẩu mạnh và xác thực hai bước, sao lưu, phân quyền, chống spam form.",
       "twitter:image": "https://myagentvn.com/assets/og-image.png"
     },
     "ld": [
-      "{\"@context\": \"https://schema.org\", \"@type\": \"BreadcrumbList\", \"itemListElement\": [{\"@type\": \"ListItem\", \"position\": 1, \"name\": \"Trang chủ\", \"item\": \"https://myagentvn.com/\"}, {\"@type\": \"ListItem\", \"position\": 2, \"name\": \"Blog kiến thức\", \"item\": \"https://myagentvn.com/blog.html\"}, {\"@type\": \"ListItem\", \"position\": 3, \"name\": \"Bảo mật website cơ bản cho doanh nghiệp nhỏ: 7 việc nên làm\", \"item\": \"https://myagentvn.com/blog/bao-mat-website-co-ban-cho-doanh-nghiep-nho.html\"}]}",
-      "{\"@context\": \"https://schema.org\", \"@type\": \"Article\", \"headline\": \"Bảo mật website cơ bản cho doanh nghiệp nhỏ: 7 việc nên làm\", \"description\": \"Bảo mật website cơ bản cho doanh nghiệp nhỏ: HTTPS, cập nhật phần mềm, mật khẩu mạnh và xác thực hai bước, sao lưu, phân quyền, chống spam form.\", \"inLanguage\": \"vi\", \"datePublished\": \"2026-11-03T08:00:00+07:00\", \"dateModified\": \"2026-11-03T08:00:00+07:00\", \"articleSection\": \"Website\", \"author\": {\"@type\": \"ProfessionalService\", \"@id\": \"https://myagentvn.com/#org\", \"name\": \"My Agent\", \"url\": \"https://myagentvn.com/\"}, \"publisher\": {\"@type\": \"ProfessionalService\", \"@id\": \"https://myagentvn.com/#org\", \"name\": \"My Agent\", \"url\": \"https://myagentvn.com/\", \"logo\": {\"@type\": \"ImageObject\", \"@id\": \"https://myagentvn.com/#logo\", \"url\": \"https://myagentvn.com/assets/icon-512.png\", \"width\": 512, \"height\": 512}}, \"mainEntityOfPage\": {\"@type\": \"WebPage\", \"@id\": \"https://myagentvn.com/blog/bao-mat-website-co-ban-cho-doanh-nghiep-nho.html\"}, \"url\": \"https://myagentvn.com/blog/bao-mat-website-co-ban-cho-doanh-nghiep-nho.html\", \"image\": [\"https://myagentvn.com/assets/og-image.png\"], \"wordCount\": 879, \"keywords\": \"bảo mật website, doanh nghiệp nhỏ, chăm sóc website, thiết kế web giá rẻ\"}"
+      "{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Trang chủ\",\"item\":\"https://myagentvn.com/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog kiến thức\",\"item\":\"https://myagentvn.com/blog.html\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Bảo mật website cơ bản cho doanh nghiệp nhỏ: 7 việc nên làm\",\"item\":\"https://myagentvn.com/blog/bao-mat-website-co-ban-cho-doanh-nghiep-nho.html\"}]}",
+      "{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"Bảo mật website cơ bản cho doanh nghiệp nhỏ: 7 việc nên làm\",\"description\":\"Bảo mật website cơ bản cho doanh nghiệp nhỏ: HTTPS, cập nhật phần mềm, mật khẩu mạnh và xác thực hai bước, sao lưu, phân quyền, chống spam form.\",\"inLanguage\":\"vi\",\"datePublished\":\"2026-11-03T08:00:00+07:00\",\"dateModified\":\"2026-11-03T08:00:00+07:00\",\"articleSection\":\"Website\",\"author\":{\"@type\":\"ProfessionalService\",\"@id\":\"https://myagentvn.com/#org\",\"name\":\"My Agent\",\"url\":\"https://myagentvn.com/\"},\"publisher\":{\"@type\":\"ProfessionalService\",\"@id\":\"https://myagentvn.com/#org\",\"name\":\"My Agent\",\"url\":\"https://myagentvn.com/\",\"logo\":{\"@type\":\"ImageObject\",\"@id\":\"https://myagentvn.com/#logo\",\"url\":\"https://myagentvn.com/assets/icon-512.png\",\"width\":512,\"height\":512}},\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://myagentvn.com/blog/bao-mat-website-co-ban-cho-doanh-nghiep-nho.html\"},\"url\":\"https://myagentvn.com/blog/bao-mat-website-co-ban-cho-doanh-nghiep-nho.html\",\"image\":[\"https://myagentvn.com/assets/og-image.png\"],\"wordCount\":879,\"keywords\":\"bảo mật website, doanh nghiệp nhỏ, chăm sóc website, thiết kế web giá rẻ\"}"
     ]
   },
   "/blog/checklist-seo-co-ban-cho-website.html": {
     "meta": {
-      "og:type": "article",
-      "og:locale": "vi_VN",
-      "og:site_name": "My Agent",
       "og:title": "Checklist SEO cơ bản cho website doanh nghiệp nhỏ | My Agent",
       "og:description": "Checklist SEO cơ bản tự kiểm được: từ khóa cho từng trang, title, mô tả, tiêu đề, liên kết nội bộ, tốc độ, sitemap và Search Console cho doanh nghiệp nhỏ.",
       "og:url": "https://myagentvn.com/blog/checklist-seo-co-ban-cho-website.html",
+      "og:site_name": "My Agent",
+      "og:locale": "vi_VN",
       "og:image": "https://myagentvn.com/assets/og-image.png",
       "og:image:width": "1200",
       "og:image:height": "630",
+      "og:type": "article",
       "twitter:card": "summary_large_image",
       "twitter:title": "Checklist SEO cơ bản cho website doanh nghiệp nhỏ | My Agent",
       "twitter:description": "Checklist SEO cơ bản tự kiểm được: từ khóa cho từng trang, title, mô tả, tiêu đề, liên kết nội bộ, tốc độ, sitemap và Search Console cho doanh nghiệp nhỏ.",
       "twitter:image": "https://myagentvn.com/assets/og-image.png"
     },
     "ld": [
-      "{\"@context\": \"https://schema.org\", \"@type\": \"BreadcrumbList\", \"itemListElement\": [{\"@type\": \"ListItem\", \"position\": 1, \"name\": \"Trang chủ\", \"item\": \"https://myagentvn.com/\"}, {\"@type\": \"ListItem\", \"position\": 2, \"name\": \"Blog kiến thức\", \"item\": \"https://myagentvn.com/blog.html\"}, {\"@type\": \"ListItem\", \"position\": 3, \"name\": \"Checklist SEO cơ bản cho website doanh nghiệp nhỏ\", \"item\": \"https://myagentvn.com/blog/checklist-seo-co-ban-cho-website.html\"}]}",
-      "{\"@context\": \"https://schema.org\", \"@type\": \"Article\", \"headline\": \"Checklist SEO cơ bản cho website doanh nghiệp nhỏ\", \"description\": \"Checklist SEO cơ bản tự kiểm được: từ khóa cho từng trang, title, mô tả, tiêu đề, liên kết nội bộ, tốc độ, sitemap và Search Console cho doanh nghiệp nhỏ.\", \"inLanguage\": \"vi\", \"datePublished\": \"2026-10-30T08:00:00+07:00\", \"dateModified\": \"2026-10-30T08:00:00+07:00\", \"articleSection\": \"SEO\", \"author\": {\"@type\": \"ProfessionalService\", \"@id\": \"https://myagentvn.com/#org\", \"name\": \"My Agent\", \"url\": \"https://myagentvn.com/\"}, \"publisher\": {\"@type\": \"ProfessionalService\", \"@id\": \"https://myagentvn.com/#org\", \"name\": \"My Agent\", \"url\": \"https://myagentvn.com/\", \"logo\": {\"@type\": \"ImageObject\", \"@id\": \"https://myagentvn.com/#logo\", \"url\": \"https://myagentvn.com/assets/icon-512.png\", \"width\": 512, \"height\": 512}}, \"mainEntityOfPage\": {\"@type\": \"WebPage\", \"@id\": \"https://myagentvn.com/blog/checklist-seo-co-ban-cho-website.html\"}, \"url\": \"https://myagentvn.com/blog/checklist-seo-co-ban-cho-website.html\", \"image\": [\"https://myagentvn.com/assets/og-image.png\"], \"wordCount\": 465, \"keywords\": \"seo cơ bản, checklist seo, seo website\"}"
+      "{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Trang chủ\",\"item\":\"https://myagentvn.com/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog kiến thức\",\"item\":\"https://myagentvn.com/blog.html\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Checklist SEO cơ bản cho website doanh nghiệp nhỏ\",\"item\":\"https://myagentvn.com/blog/checklist-seo-co-ban-cho-website.html\"}]}",
+      "{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"Checklist SEO cơ bản cho website doanh nghiệp nhỏ\",\"description\":\"Checklist SEO cơ bản tự kiểm được: từ khóa cho từng trang, title, mô tả, tiêu đề, liên kết nội bộ, tốc độ, sitemap và Search Console cho doanh nghiệp nhỏ.\",\"inLanguage\":\"vi\",\"datePublished\":\"2026-10-30T08:00:00+07:00\",\"dateModified\":\"2026-10-30T08:00:00+07:00\",\"articleSection\":\"SEO\",\"author\":{\"@type\":\"ProfessionalService\",\"@id\":\"https://myagentvn.com/#org\",\"name\":\"My Agent\",\"url\":\"https://myagentvn.com/\"},\"publisher\":{\"@type\":\"ProfessionalService\",\"@id\":\"https://myagentvn.com/#org\",\"name\":\"My Agent\",\"url\":\"https://myagentvn.com/\",\"logo\":{\"@type\":\"ImageObject\",\"@id\":\"https://myagentvn.com/#logo\",\"url\":\"https://myagentvn.com/assets/icon-512.png\",\"width\":512,\"height\":512}},\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://myagentvn.com/blog/checklist-seo-co-ban-cho-website.html\"},\"url\":\"https://myagentvn.com/blog/checklist-seo-co-ban-cho-website.html\",\"image\":[\"https://myagentvn.com/assets/og-image.png\"],\"wordCount\":465,\"keywords\":\"seo cơ bản, checklist seo, seo website\"}"
     ]
   },
   "/blog/chi-phi-lam-website-phu-thuoc-yeu-to-nao.html": {
     "meta": {
-      "og:type": "article",
-      "og:locale": "vi_VN",
-      "og:site_name": "My Agent",
       "og:title": "Chi phí làm website phụ thuộc vào yếu tố nào? | My Agent",
       "og:description": "Làm website bao nhiêu tiền? Các yếu tố quyết định chi phí làm website: loại web, số trang, tính năng, nội dung, tên miền, hosting, chăm sóc.",
       "og:url": "https://myagentvn.com/blog/chi-phi-lam-website-phu-thuoc-yeu-to-nao.html",
+      "og:site_name": "My Agent",
+      "og:locale": "vi_VN",
       "og:image": "https://myagentvn.com/assets/og-image.png",
       "og:image:width": "1200",
       "og:image:height": "630",
+      "og:type": "article",
       "twitter:card": "summary_large_image",
       "twitter:title": "Chi phí làm website phụ thuộc vào yếu tố nào? | My Agent",
       "twitter:description": "Làm website bao nhiêu tiền? Các yếu tố quyết định chi phí làm website: loại web, số trang, tính năng, nội dung, tên miền, hosting, chăm sóc.",
       "twitter:image": "https://myagentvn.com/assets/og-image.png"
     },
     "ld": [
-      "{\"@context\": \"https://schema.org\", \"@type\": \"BreadcrumbList\", \"itemListElement\": [{\"@type\": \"ListItem\", \"position\": 1, \"name\": \"Trang chủ\", \"item\": \"https://myagentvn.com/\"}, {\"@type\": \"ListItem\", \"position\": 2, \"name\": \"Blog kiến thức\", \"item\": \"https://myagentvn.com/blog.html\"}, {\"@type\": \"ListItem\", \"position\": 3, \"name\": \"Chi phí làm website phụ thuộc vào yếu tố nào?\", \"item\": \"https://myagentvn.com/blog/chi-phi-lam-website-phu-thuoc-yeu-to-nao.html\"}]}",
-      "{\"@context\": \"https://schema.org\", \"@type\": \"Article\", \"headline\": \"Chi phí làm website phụ thuộc vào yếu tố nào?\", \"description\": \"Làm website bao nhiêu tiền? Các yếu tố quyết định chi phí làm website: loại web, số trang, tính năng, nội dung, tên miền, hosting, chăm sóc.\", \"inLanguage\": \"vi\", \"datePublished\": \"2026-10-27T08:00:00+07:00\", \"dateModified\": \"2026-10-27T08:00:00+07:00\", \"articleSection\": \"Website\", \"author\": {\"@type\": \"ProfessionalService\", \"@id\": \"https://myagentvn.com/#org\", \"name\": \"My Agent\", \"url\": \"https://myagentvn.com/\"}, \"publisher\": {\"@type\": \"ProfessionalService\", \"@id\": \"https://myagentvn.com/#org\", \"name\": \"My Agent\", \"url\": \"https://myagentvn.com/\", \"logo\": {\"@type\": \"ImageObject\", \"@id\": \"https://myagentvn.com/#logo\", \"url\": \"https://myagentvn.com/assets/icon-512.png\", \"width\": 512, \"height\": 512}}, \"mainEntityOfPage\": {\"@type\": \"WebPage\", \"@id\": \"https://myagentvn.com/blog/chi-phi-lam-website-phu-thuoc-yeu-to-nao.html\"}, \"url\": \"https://myagentvn.com/blog/chi-phi-lam-website-phu-thuoc-yeu-to-nao.html\", \"image\": [\"https://myagentvn.com/assets/og-image.png\"], \"wordCount\": 997, \"keywords\": \"chi phí website, thiết kế web giá rẻ, báo giá\"}"
+      "{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Trang chủ\",\"item\":\"https://myagentvn.com/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog kiến thức\",\"item\":\"https://myagentvn.com/blog.html\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Chi phí làm website phụ thuộc vào yếu tố nào?\",\"item\":\"https://myagentvn.com/blog/chi-phi-lam-website-phu-thuoc-yeu-to-nao.html\"}]}",
+      "{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"Chi phí làm website phụ thuộc vào yếu tố nào?\",\"description\":\"Làm website bao nhiêu tiền? Các yếu tố quyết định chi phí làm website: loại web, số trang, tính năng, nội dung, tên miền, hosting, chăm sóc.\",\"inLanguage\":\"vi\",\"datePublished\":\"2026-10-27T08:00:00+07:00\",\"dateModified\":\"2026-10-27T08:00:00+07:00\",\"articleSection\":\"Website\",\"author\":{\"@type\":\"ProfessionalService\",\"@id\":\"https://myagentvn.com/#org\",\"name\":\"My Agent\",\"url\":\"https://myagentvn.com/\"},\"publisher\":{\"@type\":\"ProfessionalService\",\"@id\":\"https://myagentvn.com/#org\",\"name\":\"My Agent\",\"url\":\"https://myagentvn.com/\",\"logo\":{\"@type\":\"ImageObject\",\"@id\":\"https://myagentvn.com/#logo\",\"url\":\"https://myagentvn.com/assets/icon-512.png\",\"width\":512,\"height\":512}},\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://myagentvn.com/blog/chi-phi-lam-website-phu-thuoc-yeu-to-nao.html\"},\"url\":\"https://myagentvn.com/blog/chi-phi-lam-website-phu-thuoc-yeu-to-nao.html\",\"image\":[\"https://myagentvn.com/assets/og-image.png\"],\"wordCount\":997,\"keywords\":\"chi phí website, thiết kế web giá rẻ, báo giá\"}"
     ]
   },
   "/blog/da-co-facebook-zalo-san-tmdt-co-can-website-rieng.html": {
     "meta": {
-      "og:type": "article",
-      "og:locale": "vi_VN",
-      "og:site_name": "My Agent",
       "og:title": "Đã có Facebook, Zalo, sàn TMĐT, có cần website riêng?",
       "og:description": "Doanh nghiệp nhỏ đã bán qua Facebook, Zalo, sàn thương mại điện tử có cần website riêng? Giới hạn, lợi ích, khi nào nên làm và cách bắt đầu gọn.",
       "og:url": "https://myagentvn.com/blog/da-co-facebook-zalo-san-tmdt-co-can-website-rieng.html",
+      "og:site_name": "My Agent",
+      "og:locale": "vi_VN",
       "og:image": "https://myagentvn.com/assets/og-image.png",
       "og:image:width": "1200",
       "og:image:height": "630",
+      "og:type": "article",
       "twitter:card": "summary_large_image",
       "twitter:title": "Đã có Facebook, Zalo, sàn TMĐT, có cần website riêng?",
       "twitter:description": "Doanh nghiệp nhỏ đã bán qua Facebook, Zalo, sàn thương mại điện tử có cần website riêng? Giới hạn, lợi ích, khi nào nên làm và cách bắt đầu gọn.",
       "twitter:image": "https://myagentvn.com/assets/og-image.png"
     },
     "ld": [
-      "{\"@context\": \"https://schema.org\", \"@type\": \"BreadcrumbList\", \"itemListElement\": [{\"@type\": \"ListItem\", \"position\": 1, \"name\": \"Trang chủ\", \"item\": \"https://myagentvn.com/\"}, {\"@type\": \"ListItem\", \"position\": 2, \"name\": \"Blog kiến thức\", \"item\": \"https://myagentvn.com/blog.html\"}, {\"@type\": \"ListItem\", \"position\": 3, \"name\": \"Đã có Facebook, Zalo, sàn TMĐT, có cần website riêng?\", \"item\": \"https://myagentvn.com/blog/da-co-facebook-zalo-san-tmdt-co-can-website-rieng.html\"}]}",
-      "{\"@context\": \"https://schema.org\", \"@type\": \"Article\", \"headline\": \"Đã có Facebook, Zalo, sàn TMĐT, có cần website riêng?\", \"description\": \"Doanh nghiệp nhỏ đã bán qua Facebook, Zalo, sàn thương mại điện tử có cần website riêng? Giới hạn, lợi ích, khi nào nên làm và cách bắt đầu gọn.\", \"inLanguage\": \"vi\", \"datePublished\": \"2026-11-02T08:00:00+07:00\", \"dateModified\": \"2026-11-02T08:00:00+07:00\", \"articleSection\": \"Website\", \"author\": {\"@type\": \"ProfessionalService\", \"@id\": \"https://myagentvn.com/#org\", \"name\": \"My Agent\", \"url\": \"https://myagentvn.com/\"}, \"publisher\": {\"@type\": \"ProfessionalService\", \"@id\": \"https://myagentvn.com/#org\", \"name\": \"My Agent\", \"url\": \"https://myagentvn.com/\", \"logo\": {\"@type\": \"ImageObject\", \"@id\": \"https://myagentvn.com/#logo\", \"url\": \"https://myagentvn.com/assets/icon-512.png\", \"width\": 512, \"height\": 512}}, \"mainEntityOfPage\": {\"@type\": \"WebPage\", \"@id\": \"https://myagentvn.com/blog/da-co-facebook-zalo-san-tmdt-co-can-website-rieng.html\"}, \"url\": \"https://myagentvn.com/blog/da-co-facebook-zalo-san-tmdt-co-can-website-rieng.html\", \"image\": [\"https://myagentvn.com/assets/og-image.png\"], \"wordCount\": 821, \"keywords\": \"website riêng, doanh nghiệp nhỏ, bán hàng đa kênh, thiết kế web giá rẻ\"}"
+      "{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Trang chủ\",\"item\":\"https://myagentvn.com/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog kiến thức\",\"item\":\"https://myagentvn.com/blog.html\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Đã có Facebook, Zalo, sàn TMĐT, có cần website riêng?\",\"item\":\"https://myagentvn.com/blog/da-co-facebook-zalo-san-tmdt-co-can-website-rieng.html\"}]}",
+      "{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"Đã có Facebook, Zalo, sàn TMĐT, có cần website riêng?\",\"description\":\"Doanh nghiệp nhỏ đã bán qua Facebook, Zalo, sàn thương mại điện tử có cần website riêng? Giới hạn, lợi ích, khi nào nên làm và cách bắt đầu gọn.\",\"inLanguage\":\"vi\",\"datePublished\":\"2026-11-02T08:00:00+07:00\",\"dateModified\":\"2026-11-02T08:00:00+07:00\",\"articleSection\":\"Website\",\"author\":{\"@type\":\"ProfessionalService\",\"@id\":\"https://myagentvn.com/#org\",\"name\":\"My Agent\",\"url\":\"https://myagentvn.com/\"},\"publisher\":{\"@type\":\"ProfessionalService\",\"@id\":\"https://myagentvn.com/#org\",\"name\":\"My Agent\",\"url\":\"https://myagentvn.com/\",\"logo\":{\"@type\":\"ImageObject\",\"@id\":\"https://myagentvn.com/#logo\",\"url\":\"https://myagentvn.com/assets/icon-512.png\",\"width\":512,\"height\":512}},\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://myagentvn.com/blog/da-co-facebook-zalo-san-tmdt-co-can-website-rieng.html\"},\"url\":\"https://myagentvn.com/blog/da-co-facebook-zalo-san-tmdt-co-can-website-rieng.html\",\"image\":[\"https://myagentvn.com/assets/og-image.png\"],\"wordCount\":821,\"keywords\":\"website riêng, doanh nghiệp nhỏ, bán hàng đa kênh, thiết kế web giá rẻ\"}"
     ]
   },
   "/blog/do-luong-website-bang-google-analytics-co-ban.html": {
     "meta": {
-      "og:type": "article",
-      "og:locale": "vi_VN",
-      "og:site_name": "My Agent",
       "og:title": "Đo lường website bằng Google Analytics cơ bản | My Agent",
       "og:description": "Đo lường website bằng Google Analytics cơ bản cho doanh nghiệp nhỏ: cài đặt đúng, hiểu dữ liệu, nguồn truy cập, sự kiện quan trọng và đọc số liệu định kỳ.",
       "og:url": "https://myagentvn.com/blog/do-luong-website-bang-google-analytics-co-ban.html",
+      "og:site_name": "My Agent",
+      "og:locale": "vi_VN",
       "og:image": "https://myagentvn.com/assets/og-image.png",
       "og:image:width": "1200",
       "og:image:height": "630",
+      "og:type": "article",
       "twitter:card": "summary_large_image",
       "twitter:title": "Đo lường website bằng Google Analytics cơ bản | My Agent",
       "twitter:description": "Đo lường website bằng Google Analytics cơ bản cho doanh nghiệp nhỏ: cài đặt đúng, hiểu dữ liệu, nguồn truy cập, sự kiện quan trọng và đọc số liệu định kỳ.",
       "twitter:image": "https://myagentvn.com/assets/og-image.png"
     },
     "ld": [
-      "{\"@context\": \"https://schema.org\", \"@type\": \"BreadcrumbList\", \"itemListElement\": [{\"@type\": \"ListItem\", \"position\": 1, \"name\": \"Trang chủ\", \"item\": \"https://myagentvn.com/\"}, {\"@type\": \"ListItem\", \"position\": 2, \"name\": \"Blog kiến thức\", \"item\": \"https://myagentvn.com/blog.html\"}, {\"@type\": \"ListItem\", \"position\": 3, \"name\": \"Đo lường website bằng Google Analytics cơ bản\", \"item\": \"https://myagentvn.com/blog/do-luong-website-bang-google-analytics-co-ban.html\"}]}",
-      "{\"@context\": \"https://schema.org\", \"@type\": \"Article\", \"headline\": \"Đo lường website bằng Google Analytics cơ bản\", \"description\": \"Đo lường website bằng Google Analytics cơ bản cho doanh nghiệp nhỏ: cài đặt đúng, hiểu dữ liệu, nguồn truy cập, sự kiện quan trọng và đọc số liệu định kỳ.\", \"inLanguage\": \"vi\", \"datePublished\": \"2026-11-05T08:00:00+07:00\", \"dateModified\": \"2026-11-05T08:00:00+07:00\", \"articleSection\": \"Dữ liệu\", \"author\": {\"@type\": \"ProfessionalService\", \"@id\": \"https://myagentvn.com/#org\", \"name\": \"My Agent\", \"url\": \"https://myagentvn.com/\"}, \"publisher\": {\"@type\": \"ProfessionalService\", \"@id\": \"https://myagentvn.com/#org\", \"name\": \"My Agent\", \"url\": \"https://myagentvn.com/\", \"logo\": {\"@type\": \"ImageObject\", \"@id\": \"https://myagentvn.com/#logo\", \"url\": \"https://myagentvn.com/assets/icon-512.png\", \"width\": 512, \"height\": 512}}, \"mainEntityOfPage\": {\"@type\": \"WebPage\", \"@id\": \"https://myagentvn.com/blog/do-luong-website-bang-google-analytics-co-ban.html\"}, \"url\": \"https://myagentvn.com/blog/do-luong-website-bang-google-analytics-co-ban.html\", \"image\": [\"https://myagentvn.com/assets/og-image.png\"], \"wordCount\": 954, \"keywords\": \"google analytics, đo lường website, doanh nghiệp nhỏ, dữ liệu\"}"
+      "{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Trang chủ\",\"item\":\"https://myagentvn.com/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog kiến thức\",\"item\":\"https://myagentvn.com/blog.html\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Đo lường website bằng Google Analytics cơ bản\",\"item\":\"https://myagentvn.com/blog/do-luong-website-bang-google-analytics-co-ban.html\"}]}",
+      "{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"Đo lường website bằng Google Analytics cơ bản\",\"description\":\"Đo lường website bằng Google Analytics cơ bản cho doanh nghiệp nhỏ: cài đặt đúng, hiểu dữ liệu, nguồn truy cập, sự kiện quan trọng và đọc số liệu định kỳ.\",\"inLanguage\":\"vi\",\"datePublished\":\"2026-11-05T08:00:00+07:00\",\"dateModified\":\"2026-11-05T08:00:00+07:00\",\"articleSection\":\"Dữ liệu\",\"author\":{\"@type\":\"ProfessionalService\",\"@id\":\"https://myagentvn.com/#org\",\"name\":\"My Agent\",\"url\":\"https://myagentvn.com/\"},\"publisher\":{\"@type\":\"ProfessionalService\",\"@id\":\"https://myagentvn.com/#org\",\"name\":\"My Agent\",\"url\":\"https://myagentvn.com/\",\"logo\":{\"@type\":\"ImageObject\",\"@id\":\"https://myagentvn.com/#logo\",\"url\":\"https://myagentvn.com/assets/icon-512.png\",\"width\":512,\"height\":512}},\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://myagentvn.com/blog/do-luong-website-bang-google-analytics-co-ban.html\"},\"url\":\"https://myagentvn.com/blog/do-luong-website-bang-google-analytics-co-ban.html\",\"image\":[\"https://myagentvn.com/assets/og-image.png\"],\"wordCount\":954,\"keywords\":\"google analytics, đo lường website, doanh nghiệp nhỏ, dữ liệu\"}"
     ]
   },
   "/blog/google-business-profile-dich-vu-tai-tphcm.html": {
     "meta": {
-      "og:type": "article",
-      "og:locale": "vi_VN",
-      "og:site_name": "My Agent",
       "og:title": "Google Business Profile cho dịch vụ tại TP.HCM | My Agent",
       "og:description": "Hướng dẫn tạo và tối ưu Google Business Profile cho dịch vụ tại TP.HCM theo quy định công khai của Google: tên, danh mục, khu vực phục vụ, ảnh, đánh giá.",
       "og:url": "https://myagentvn.com/blog/google-business-profile-dich-vu-tai-tphcm.html",
+      "og:site_name": "My Agent",
+      "og:locale": "vi_VN",
       "og:image": "https://myagentvn.com/assets/og-image.png",
       "og:image:width": "1200",
       "og:image:height": "630",
+      "og:type": "article",
       "twitter:card": "summary_large_image",
       "twitter:title": "Google Business Profile cho dịch vụ tại TP.HCM | My Agent",
       "twitter:description": "Hướng dẫn tạo và tối ưu Google Business Profile cho dịch vụ tại TP.HCM theo quy định công khai của Google: tên, danh mục, khu vực phục vụ, ảnh, đánh giá.",
       "twitter:image": "https://myagentvn.com/assets/og-image.png"
     },
     "ld": [
-      "{\"@context\": \"https://schema.org\", \"@type\": \"BreadcrumbList\", \"itemListElement\": [{\"@type\": \"ListItem\", \"position\": 1, \"name\": \"Trang chủ\", \"item\": \"https://myagentvn.com/\"}, {\"@type\": \"ListItem\", \"position\": 2, \"name\": \"Blog kiến thức\", \"item\": \"https://myagentvn.com/blog.html\"}, {\"@type\": \"ListItem\", \"position\": 3, \"name\": \"Google Business Profile cho dịch vụ tại TP.HCM\", \"item\": \"https://myagentvn.com/blog/google-business-profile-dich-vu-tai-tphcm.html\"}]}",
-      "{\"@context\": \"https://schema.org\", \"@type\": \"Article\", \"headline\": \"Google Business Profile cho dịch vụ tại TP.HCM\", \"description\": \"Hướng dẫn tạo và tối ưu Google Business Profile cho dịch vụ tại TP.HCM theo quy định công khai của Google: tên, danh mục, khu vực phục vụ, ảnh, đánh giá.\", \"inLanguage\": \"vi\", \"datePublished\": \"2026-10-30T08:00:00+07:00\", \"dateModified\": \"2026-10-30T08:00:00+07:00\", \"articleSection\": \"Marketing online\", \"author\": {\"@type\": \"ProfessionalService\", \"@id\": \"https://myagentvn.com/#org\", \"name\": \"My Agent\", \"url\": \"https://myagentvn.com/\"}, \"publisher\": {\"@type\": \"ProfessionalService\", \"@id\": \"https://myagentvn.com/#org\", \"name\": \"My Agent\", \"url\": \"https://myagentvn.com/\", \"logo\": {\"@type\": \"ImageObject\", \"@id\": \"https://myagentvn.com/#logo\", \"url\": \"https://myagentvn.com/assets/icon-512.png\", \"width\": 512, \"height\": 512}}, \"mainEntityOfPage\": {\"@type\": \"WebPage\", \"@id\": \"https://myagentvn.com/blog/google-business-profile-dich-vu-tai-tphcm.html\"}, \"url\": \"https://myagentvn.com/blog/google-business-profile-dich-vu-tai-tphcm.html\", \"image\": [\"https://myagentvn.com/assets/og-image.png\"], \"wordCount\": 479, \"keywords\": \"google business profile, google maps, seo địa phương, tp.hcm\"}"
+      "{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Trang chủ\",\"item\":\"https://myagentvn.com/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog kiến thức\",\"item\":\"https://myagentvn.com/blog.html\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Google Business Profile cho dịch vụ tại TP.HCM\",\"item\":\"https://myagentvn.com/blog/google-business-profile-dich-vu-tai-tphcm.html\"}]}",
+      "{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"Google Business Profile cho dịch vụ tại TP.HCM\",\"description\":\"Hướng dẫn tạo và tối ưu Google Business Profile cho dịch vụ tại TP.HCM theo quy định công khai của Google: tên, danh mục, khu vực phục vụ, ảnh, đánh giá.\",\"inLanguage\":\"vi\",\"datePublished\":\"2026-10-30T08:00:00+07:00\",\"dateModified\":\"2026-10-30T08:00:00+07:00\",\"articleSection\":\"Marketing online\",\"author\":{\"@type\":\"ProfessionalService\",\"@id\":\"https://myagentvn.com/#org\",\"name\":\"My Agent\",\"url\":\"https://myagentvn.com/\"},\"publisher\":{\"@type\":\"ProfessionalService\",\"@id\":\"https://myagentvn.com/#org\",\"name\":\"My Agent\",\"url\":\"https://myagentvn.com/\",\"logo\":{\"@type\":\"ImageObject\",\"@id\":\"https://myagentvn.com/#logo\",\"url\":\"https://myagentvn.com/assets/icon-512.png\",\"width\":512,\"height\":512}},\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://myagentvn.com/blog/google-business-profile-dich-vu-tai-tphcm.html\"},\"url\":\"https://myagentvn.com/blog/google-business-profile-dich-vu-tai-tphcm.html\",\"image\":[\"https://myagentvn.com/assets/og-image.png\"],\"wordCount\":479,\"keywords\":\"google business profile, google maps, seo địa phương, tp.hcm\"}"
     ]
   },
   "/blog/thiet-ke-web-tron-goi-gom-nhung-gi.html": {
     "meta": {
-      "og:type": "article",
-      "og:locale": "vi_VN",
-      "og:site_name": "My Agent",
       "og:title": "Thiết kế web trọn gói gồm những gì? | My Agent",
       "og:description": "Thiết kế web trọn gói gồm những gì? Các bước từ tư vấn, giao diện, lập trình, SEO cơ bản đến bàn giao, tên miền, hosting và chăm sóc website.",
       "og:url": "https://myagentvn.com/blog/thiet-ke-web-tron-goi-gom-nhung-gi.html",
+      "og:site_name": "My Agent",
+      "og:locale": "vi_VN",
       "og:image": "https://myagentvn.com/assets/og-image.png",
       "og:image:width": "1200",
       "og:image:height": "630",
+      "og:type": "article",
       "twitter:card": "summary_large_image",
       "twitter:title": "Thiết kế web trọn gói gồm những gì? | My Agent",
       "twitter:description": "Thiết kế web trọn gói gồm những gì? Các bước từ tư vấn, giao diện, lập trình, SEO cơ bản đến bàn giao, tên miền, hosting và chăm sóc website.",
       "twitter:image": "https://myagentvn.com/assets/og-image.png"
     },
     "ld": [
-      "{\"@context\": \"https://schema.org\", \"@type\": \"BreadcrumbList\", \"itemListElement\": [{\"@type\": \"ListItem\", \"position\": 1, \"name\": \"Trang chủ\", \"item\": \"https://myagentvn.com/\"}, {\"@type\": \"ListItem\", \"position\": 2, \"name\": \"Blog kiến thức\", \"item\": \"https://myagentvn.com/blog.html\"}, {\"@type\": \"ListItem\", \"position\": 3, \"name\": \"Thiết kế web trọn gói gồm những gì?\", \"item\": \"https://myagentvn.com/blog/thiet-ke-web-tron-goi-gom-nhung-gi.html\"}]}",
-      "{\"@context\": \"https://schema.org\", \"@type\": \"Article\", \"headline\": \"Thiết kế web trọn gói gồm những gì?\", \"description\": \"Thiết kế web trọn gói gồm những gì? Các bước từ tư vấn, giao diện, lập trình, SEO cơ bản đến bàn giao, tên miền, hosting và chăm sóc website.\", \"inLanguage\": \"vi\", \"datePublished\": \"2026-10-27T08:00:00+07:00\", \"dateModified\": \"2026-10-27T08:00:00+07:00\", \"articleSection\": \"Website\", \"author\": {\"@type\": \"ProfessionalService\", \"@id\": \"https://myagentvn.com/#org\", \"name\": \"My Agent\", \"url\": \"https://myagentvn.com/\"}, \"publisher\": {\"@type\": \"ProfessionalService\", \"@id\": \"https://myagentvn.com/#org\", \"name\": \"My Agent\", \"url\": \"https://myagentvn.com/\", \"logo\": {\"@type\": \"ImageObject\", \"@id\": \"https://myagentvn.com/#logo\", \"url\": \"https://myagentvn.com/assets/icon-512.png\", \"width\": 512, \"height\": 512}}, \"mainEntityOfPage\": {\"@type\": \"WebPage\", \"@id\": \"https://myagentvn.com/blog/thiet-ke-web-tron-goi-gom-nhung-gi.html\"}, \"url\": \"https://myagentvn.com/blog/thiet-ke-web-tron-goi-gom-nhung-gi.html\", \"image\": [\"https://myagentvn.com/assets/og-image.png\"], \"wordCount\": 727, \"keywords\": \"thiết kế web trọn gói, TP.HCM, website\"}"
+      "{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Trang chủ\",\"item\":\"https://myagentvn.com/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog kiến thức\",\"item\":\"https://myagentvn.com/blog.html\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Thiết kế web trọn gói gồm những gì?\",\"item\":\"https://myagentvn.com/blog/thiet-ke-web-tron-goi-gom-nhung-gi.html\"}]}",
+      "{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"Thiết kế web trọn gói gồm những gì?\",\"description\":\"Thiết kế web trọn gói gồm những gì? Các bước từ tư vấn, giao diện, lập trình, SEO cơ bản đến bàn giao, tên miền, hosting và chăm sóc website.\",\"inLanguage\":\"vi\",\"datePublished\":\"2026-10-27T08:00:00+07:00\",\"dateModified\":\"2026-10-27T08:00:00+07:00\",\"articleSection\":\"Website\",\"author\":{\"@type\":\"ProfessionalService\",\"@id\":\"https://myagentvn.com/#org\",\"name\":\"My Agent\",\"url\":\"https://myagentvn.com/\"},\"publisher\":{\"@type\":\"ProfessionalService\",\"@id\":\"https://myagentvn.com/#org\",\"name\":\"My Agent\",\"url\":\"https://myagentvn.com/\",\"logo\":{\"@type\":\"ImageObject\",\"@id\":\"https://myagentvn.com/#logo\",\"url\":\"https://myagentvn.com/assets/icon-512.png\",\"width\":512,\"height\":512}},\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://myagentvn.com/blog/thiet-ke-web-tron-goi-gom-nhung-gi.html\"},\"url\":\"https://myagentvn.com/blog/thiet-ke-web-tron-goi-gom-nhung-gi.html\",\"image\":[\"https://myagentvn.com/assets/og-image.png\"],\"wordCount\":727,\"keywords\":\"thiết kế web trọn gói, TP.HCM, website\"}"
     ]
   },
   "/blog/website-chuyen-nghiep-can-gi.html": {
     "meta": {
-      "og:type": "article",
-      "og:locale": "vi_VN",
-      "og:site_name": "My Agent",
       "og:title": "Website chuyên nghiệp cần những gì? 10 tiêu chí | My Agent",
       "og:description": "10 tiêu chí để biết website có chuyên nghiệp: tốc độ, điện thoại, nội dung rõ, nút liên hệ, SEO nền tảng, bảo mật. Checklist trước khi thuê làm web.",
       "og:url": "https://myagentvn.com/blog/website-chuyen-nghiep-can-gi.html",
+      "og:site_name": "My Agent",
+      "og:locale": "vi_VN",
       "og:image": "https://myagentvn.com/assets/og-image.png",
       "og:image:width": "1200",
       "og:image:height": "630",
+      "og:type": "article",
       "twitter:card": "summary_large_image",
       "twitter:title": "Website chuyên nghiệp cần những gì? 10 tiêu chí | My Agent",
       "twitter:description": "10 tiêu chí để biết website có chuyên nghiệp: tốc độ, điện thoại, nội dung rõ, nút liên hệ, SEO nền tảng, bảo mật. Checklist trước khi thuê làm web.",
       "twitter:image": "https://myagentvn.com/assets/og-image.png"
     },
     "ld": [
-      "{\"@context\": \"https://schema.org\", \"@type\": \"BreadcrumbList\", \"itemListElement\": [{\"@type\": \"ListItem\", \"position\": 1, \"name\": \"Trang chủ\", \"item\": \"https://myagentvn.com/\"}, {\"@type\": \"ListItem\", \"position\": 2, \"name\": \"Blog kiến thức\", \"item\": \"https://myagentvn.com/blog.html\"}, {\"@type\": \"ListItem\", \"position\": 3, \"name\": \"Website chuyên nghiệp cần những gì? 10 tiêu chí\", \"item\": \"https://myagentvn.com/blog/website-chuyen-nghiep-can-gi.html\"}]}",
-      "{\"@context\": \"https://schema.org\", \"@type\": \"Article\", \"headline\": \"Website chuyên nghiệp cần những gì? 10 tiêu chí\", \"description\": \"10 tiêu chí để biết website có chuyên nghiệp: tốc độ, điện thoại, nội dung rõ, nút liên hệ, SEO nền tảng, bảo mật. Checklist trước khi thuê làm web.\", \"inLanguage\": \"vi\", \"datePublished\": \"2026-10-28T08:00:00+07:00\", \"dateModified\": \"2026-10-28T08:00:00+07:00\", \"articleSection\": \"Website\", \"author\": {\"@type\": \"ProfessionalService\", \"@id\": \"https://myagentvn.com/#org\", \"name\": \"My Agent\", \"url\": \"https://myagentvn.com/\"}, \"publisher\": {\"@type\": \"ProfessionalService\", \"@id\": \"https://myagentvn.com/#org\", \"name\": \"My Agent\", \"url\": \"https://myagentvn.com/\", \"logo\": {\"@type\": \"ImageObject\", \"@id\": \"https://myagentvn.com/#logo\", \"url\": \"https://myagentvn.com/assets/icon-512.png\", \"width\": 512, \"height\": 512}}, \"mainEntityOfPage\": {\"@type\": \"WebPage\", \"@id\": \"https://myagentvn.com/blog/website-chuyen-nghiep-can-gi.html\"}, \"url\": \"https://myagentvn.com/blog/website-chuyen-nghiep-can-gi.html\", \"image\": [\"https://myagentvn.com/assets/og-image.png\"], \"wordCount\": 599, \"keywords\": \"website chuyên nghiệp, thiết kế web, checklist\"}"
+      "{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Trang chủ\",\"item\":\"https://myagentvn.com/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog kiến thức\",\"item\":\"https://myagentvn.com/blog.html\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Website chuyên nghiệp cần những gì? 10 tiêu chí\",\"item\":\"https://myagentvn.com/blog/website-chuyen-nghiep-can-gi.html\"}]}",
+      "{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"Website chuyên nghiệp cần những gì? 10 tiêu chí\",\"description\":\"10 tiêu chí để biết website có chuyên nghiệp: tốc độ, điện thoại, nội dung rõ, nút liên hệ, SEO nền tảng, bảo mật. Checklist trước khi thuê làm web.\",\"inLanguage\":\"vi\",\"datePublished\":\"2026-10-28T08:00:00+07:00\",\"dateModified\":\"2026-10-28T08:00:00+07:00\",\"articleSection\":\"Website\",\"author\":{\"@type\":\"ProfessionalService\",\"@id\":\"https://myagentvn.com/#org\",\"name\":\"My Agent\",\"url\":\"https://myagentvn.com/\"},\"publisher\":{\"@type\":\"ProfessionalService\",\"@id\":\"https://myagentvn.com/#org\",\"name\":\"My Agent\",\"url\":\"https://myagentvn.com/\",\"logo\":{\"@type\":\"ImageObject\",\"@id\":\"https://myagentvn.com/#logo\",\"url\":\"https://myagentvn.com/assets/icon-512.png\",\"width\":512,\"height\":512}},\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://myagentvn.com/blog/website-chuyen-nghiep-can-gi.html\"},\"url\":\"https://myagentvn.com/blog/website-chuyen-nghiep-can-gi.html\",\"image\":[\"https://myagentvn.com/assets/og-image.png\"],\"wordCount\":599,\"keywords\":\"website chuyên nghiệp, thiết kế web, checklist\"}"
     ]
   },
   "/chinh-sach-bao-mat.html": {
@@ -1191,23 +1191,23 @@
   },
   "/blog/toc-do-website-co-ban-cho-doanh-nghiep-nho.html": {
     "meta": {
-      "og:type": "article",
-      "og:locale": "vi_VN",
-      "og:site_name": "My Agent",
       "og:title": "Tốc độ website cơ bản cho doanh nghiệp nhỏ | My Agent",
       "og:description": "Tốc độ website cơ bản cho doanh nghiệp nhỏ: cách tự kiểm tra, tối ưu ảnh, hosting, plugin và bộ nhớ đệm để trang mở nhanh hơn trên máy tính và điện thoại.",
       "og:url": "https://myagentvn.com/blog/toc-do-website-co-ban-cho-doanh-nghiep-nho.html",
+      "og:site_name": "My Agent",
+      "og:locale": "vi_VN",
       "og:image": "https://myagentvn.com/assets/og-image.png",
       "og:image:width": "1200",
       "og:image:height": "630",
+      "og:type": "article",
       "twitter:card": "summary_large_image",
       "twitter:title": "Tốc độ website cơ bản cho doanh nghiệp nhỏ | My Agent",
       "twitter:description": "Tốc độ website cơ bản cho doanh nghiệp nhỏ: cách tự kiểm tra, tối ưu ảnh, hosting, plugin và bộ nhớ đệm để trang mở nhanh hơn trên máy tính và điện thoại.",
       "twitter:image": "https://myagentvn.com/assets/og-image.png"
     },
     "ld": [
-      "{\"@context\": \"https://schema.org\", \"@type\": \"BreadcrumbList\", \"itemListElement\": [{\"@type\": \"ListItem\", \"position\": 1, \"name\": \"Trang chủ\", \"item\": \"https://myagentvn.com/\"}, {\"@type\": \"ListItem\", \"position\": 2, \"name\": \"Blog kiến thức\", \"item\": \"https://myagentvn.com/blog.html\"}, {\"@type\": \"ListItem\", \"position\": 3, \"name\": \"Tốc độ website cơ bản cho doanh nghiệp nhỏ\", \"item\": \"https://myagentvn.com/blog/toc-do-website-co-ban-cho-doanh-nghiep-nho.html\"}]}",
-      "{\"@context\": \"https://schema.org\", \"@type\": \"Article\", \"headline\": \"Tốc độ website cơ bản cho doanh nghiệp nhỏ\", \"description\": \"Tốc độ website cơ bản cho doanh nghiệp nhỏ: cách tự kiểm tra, tối ưu ảnh, hosting, plugin và bộ nhớ đệm để trang mở nhanh hơn trên máy tính và điện thoại.\", \"inLanguage\": \"vi\", \"datePublished\": \"2026-11-06T08:00:00+07:00\", \"dateModified\": \"2026-11-06T08:00:00+07:00\", \"articleSection\": \"Website\", \"author\": {\"@type\": \"ProfessionalService\", \"@id\": \"https://myagentvn.com/#org\", \"name\": \"My Agent\", \"url\": \"https://myagentvn.com/\"}, \"publisher\": {\"@type\": \"ProfessionalService\", \"@id\": \"https://myagentvn.com/#org\", \"name\": \"My Agent\", \"url\": \"https://myagentvn.com/\", \"logo\": {\"@type\": \"ImageObject\", \"@id\": \"https://myagentvn.com/#logo\", \"url\": \"https://myagentvn.com/assets/icon-512.png\", \"width\": 512, \"height\": 512}}, \"mainEntityOfPage\": {\"@type\": \"WebPage\", \"@id\": \"https://myagentvn.com/blog/toc-do-website-co-ban-cho-doanh-nghiep-nho.html\"}, \"url\": \"https://myagentvn.com/blog/toc-do-website-co-ban-cho-doanh-nghiep-nho.html\", \"image\": [\"https://myagentvn.com/assets/og-image.png\"], \"wordCount\": 1238, \"keywords\": \"tốc độ website, doanh nghiệp nhỏ, tối ưu web, chăm sóc website\"}"
+      "{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Trang chủ\",\"item\":\"https://myagentvn.com/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog kiến thức\",\"item\":\"https://myagentvn.com/blog.html\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Tốc độ website cơ bản cho doanh nghiệp nhỏ\",\"item\":\"https://myagentvn.com/blog/toc-do-website-co-ban-cho-doanh-nghiep-nho.html\"}]}",
+      "{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"Tốc độ website cơ bản cho doanh nghiệp nhỏ\",\"description\":\"Tốc độ website cơ bản cho doanh nghiệp nhỏ: cách tự kiểm tra, tối ưu ảnh, hosting, plugin và bộ nhớ đệm để trang mở nhanh hơn trên máy tính và điện thoại.\",\"inLanguage\":\"vi\",\"datePublished\":\"2026-11-06T08:00:00+07:00\",\"dateModified\":\"2026-11-06T08:00:00+07:00\",\"articleSection\":\"Website\",\"author\":{\"@type\":\"ProfessionalService\",\"@id\":\"https://myagentvn.com/#org\",\"name\":\"My Agent\",\"url\":\"https://myagentvn.com/\"},\"publisher\":{\"@type\":\"ProfessionalService\",\"@id\":\"https://myagentvn.com/#org\",\"name\":\"My Agent\",\"url\":\"https://myagentvn.com/\",\"logo\":{\"@type\":\"ImageObject\",\"@id\":\"https://myagentvn.com/#logo\",\"url\":\"https://myagentvn.com/assets/icon-512.png\",\"width\":512,\"height\":512}},\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://myagentvn.com/blog/toc-do-website-co-ban-cho-doanh-nghiep-nho.html\"},\"url\":\"https://myagentvn.com/blog/toc-do-website-co-ban-cho-doanh-nghiep-nho.html\",\"image\":[\"https://myagentvn.com/assets/og-image.png\"],\"wordCount\":1238,\"keywords\":\"tốc độ website, doanh nghiệp nhỏ, tối ưu web, chăm sóc website\"}"
     ]
   },
   "/tin-tuc/cloudflare-zero-wire-lo-hong.html": {
@@ -1254,23 +1254,23 @@
   },
   "/blog/quy-trinh-lam-website-cho-doanh-nghiep-nho.html": {
     "meta": {
-      "og:type": "article",
-      "og:locale": "vi_VN",
-      "og:site_name": "My Agent",
       "og:title": "Quy trình làm website cho doanh nghiệp nhỏ: từ trao đổi…",
       "og:description": "Chủ doanh nghiệp nhỏ cần biết quy trình làm website: trao đổi nhu cầu, chốt báo giá, duyệt thiết kế, dựng trang, rà soát, ra mắt và bàn giao.",
       "og:url": "https://myagentvn.com/blog/quy-trinh-lam-website-cho-doanh-nghiep-nho.html",
+      "og:site_name": "My Agent",
+      "og:locale": "vi_VN",
       "og:image": "https://myagentvn.com/assets/og-image.png",
       "og:image:width": "1200",
       "og:image:height": "630",
+      "og:type": "article",
       "twitter:card": "summary_large_image",
       "twitter:title": "Quy trình làm website cho doanh nghiệp nhỏ: từ trao đổi…",
       "twitter:description": "Chủ doanh nghiệp nhỏ cần biết quy trình làm website: trao đổi nhu cầu, chốt báo giá, duyệt thiết kế, dựng trang, rà soát, ra mắt và bàn giao.",
       "twitter:image": "https://myagentvn.com/assets/og-image.png"
     },
     "ld": [
-      "{\"@context\": \"https://schema.org\", \"@type\": \"BreadcrumbList\", \"itemListElement\": [{\"@type\": \"ListItem\", \"position\": 1, \"name\": \"Trang chủ\", \"item\": \"https://myagentvn.com/\"}, {\"@type\": \"ListItem\", \"position\": 2, \"name\": \"Blog kiến thức\", \"item\": \"https://myagentvn.com/blog.html\"}, {\"@type\": \"ListItem\", \"position\": 3, \"name\": \"Quy trình làm website cho doanh nghiệp nhỏ: từ trao đổi đến bàn giao\", \"item\": \"https://myagentvn.com/blog/quy-trinh-lam-website-cho-doanh-nghiep-nho.html\"}]}",
-      "{\"@context\": \"https://schema.org\", \"@type\": \"Article\", \"headline\": \"Quy trình làm website cho doanh nghiệp nhỏ: từ trao đổi đến bàn giao\", \"description\": \"Chủ doanh nghiệp nhỏ cần biết quy trình làm website: trao đổi nhu cầu, chốt báo giá, duyệt thiết kế, dựng trang, rà soát, ra mắt và bàn giao.\", \"inLanguage\": \"vi\", \"datePublished\": \"2026-11-08T08:00:00+07:00\", \"dateModified\": \"2026-11-08T08:00:00+07:00\", \"articleSection\": \"Website\", \"author\": {\"@type\": \"ProfessionalService\", \"@id\": \"https://myagentvn.com/#org\", \"name\": \"My Agent\", \"url\": \"https://myagentvn.com/\"}, \"publisher\": {\"@type\": \"ProfessionalService\", \"@id\": \"https://myagentvn.com/#org\", \"name\": \"My Agent\", \"url\": \"https://myagentvn.com/\", \"logo\": {\"@type\": \"ImageObject\", \"@id\": \"https://myagentvn.com/#logo\", \"url\": \"https://myagentvn.com/assets/icon-512.png\", \"width\": 512, \"height\": 512}}, \"mainEntityOfPage\": {\"@type\": \"WebPage\", \"@id\": \"https://myagentvn.com/blog/quy-trinh-lam-website-cho-doanh-nghiep-nho.html\"}, \"url\": \"https://myagentvn.com/blog/quy-trinh-lam-website-cho-doanh-nghiep-nho.html\", \"image\": [\"https://myagentvn.com/assets/og-image.png\"], \"wordCount\": 1781, \"keywords\": \"quy trình website, doanh nghiệp nhỏ, bàn giao\"}"
+      "{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Trang chủ\",\"item\":\"https://myagentvn.com/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog kiến thức\",\"item\":\"https://myagentvn.com/blog.html\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Quy trình làm website cho doanh nghiệp nhỏ: từ trao đổi đến bàn giao\",\"item\":\"https://myagentvn.com/blog/quy-trinh-lam-website-cho-doanh-nghiep-nho.html\"}]}",
+      "{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"Quy trình làm website cho doanh nghiệp nhỏ: từ trao đổi đến bàn giao\",\"description\":\"Chủ doanh nghiệp nhỏ cần biết quy trình làm website: trao đổi nhu cầu, chốt báo giá, duyệt thiết kế, dựng trang, rà soát, ra mắt và bàn giao.\",\"inLanguage\":\"vi\",\"datePublished\":\"2026-11-08T08:00:00+07:00\",\"dateModified\":\"2026-11-08T08:00:00+07:00\",\"articleSection\":\"Website\",\"author\":{\"@type\":\"ProfessionalService\",\"@id\":\"https://myagentvn.com/#org\",\"name\":\"My Agent\",\"url\":\"https://myagentvn.com/\"},\"publisher\":{\"@type\":\"ProfessionalService\",\"@id\":\"https://myagentvn.com/#org\",\"name\":\"My Agent\",\"url\":\"https://myagentvn.com/\",\"logo\":{\"@type\":\"ImageObject\",\"@id\":\"https://myagentvn.com/#logo\",\"url\":\"https://myagentvn.com/assets/icon-512.png\",\"width\":512,\"height\":512}},\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://myagentvn.com/blog/quy-trinh-lam-website-cho-doanh-nghiep-nho.html\"},\"url\":\"https://myagentvn.com/blog/quy-trinh-lam-website-cho-doanh-nghiep-nho.html\",\"image\":[\"https://myagentvn.com/assets/og-image.png\"],\"wordCount\":1781,\"keywords\":\"quy trình website, doanh nghiệp nhỏ, bàn giao\"}"
     ]
   },
   "/dich-vu/thiet-ke-website-doanh-nghiep.html": {
@@ -1308,44 +1308,86 @@
   },
   "/blog/cham-soc-website-sau-ban-giao.html": {
     "meta": {
-      "og:type": "article",
-      "og:locale": "vi_VN",
-      "og:site_name": "My Agent",
       "og:title": "Chăm sóc website sau khi bàn giao: việc nên làm định kỳ",
       "og:description": "Sau bàn giao, doanh nghiệp nhỏ nên làm định kỳ: cập nhật nội dung, sao lưu, gia hạn tên miền, kiểm tra form, tốc độ, bảo mật và Analytics.",
       "og:url": "https://myagentvn.com/blog/cham-soc-website-sau-ban-giao.html",
+      "og:site_name": "My Agent",
+      "og:locale": "vi_VN",
       "og:image": "https://myagentvn.com/assets/og-image.png",
       "og:image:width": "1200",
       "og:image:height": "630",
+      "og:type": "article",
       "twitter:card": "summary_large_image",
       "twitter:title": "Chăm sóc website sau khi bàn giao: việc nên làm định kỳ",
       "twitter:description": "Sau bàn giao, doanh nghiệp nhỏ nên làm định kỳ: cập nhật nội dung, sao lưu, gia hạn tên miền, kiểm tra form, tốc độ, bảo mật và Analytics.",
       "twitter:image": "https://myagentvn.com/assets/og-image.png"
     },
     "ld": [
-      "{\"@context\": \"https://schema.org\", \"@type\": \"BreadcrumbList\", \"itemListElement\": [{\"@type\": \"ListItem\", \"position\": 1, \"name\": \"Trang chủ\", \"item\": \"https://myagentvn.com/\"}, {\"@type\": \"ListItem\", \"position\": 2, \"name\": \"Blog kiến thức\", \"item\": \"https://myagentvn.com/blog.html\"}, {\"@type\": \"ListItem\", \"position\": 3, \"name\": \"Chăm sóc website sau khi bàn giao: việc nên làm định kỳ\", \"item\": \"https://myagentvn.com/blog/cham-soc-website-sau-ban-giao.html\"}]}",
-      "{\"@context\": \"https://schema.org\", \"@type\": \"Article\", \"headline\": \"Chăm sóc website sau khi bàn giao: việc nên làm định kỳ\", \"description\": \"Sau bàn giao, doanh nghiệp nhỏ nên làm định kỳ: cập nhật nội dung, sao lưu, gia hạn tên miền, kiểm tra form, tốc độ, bảo mật và Analytics.\", \"inLanguage\": \"vi\", \"datePublished\": \"2026-11-07T08:00:00+07:00\", \"dateModified\": \"2026-11-07T08:00:00+07:00\", \"articleSection\": \"Website\", \"author\": {\"@type\": \"ProfessionalService\", \"@id\": \"https://myagentvn.com/#org\", \"name\": \"My Agent\", \"url\": \"https://myagentvn.com/\"}, \"publisher\": {\"@type\": \"ProfessionalService\", \"@id\": \"https://myagentvn.com/#org\", \"name\": \"My Agent\", \"url\": \"https://myagentvn.com/\", \"logo\": {\"@type\": \"ImageObject\", \"@id\": \"https://myagentvn.com/#logo\", \"url\": \"https://myagentvn.com/assets/icon-512.png\", \"width\": 512, \"height\": 512}}, \"mainEntityOfPage\": {\"@type\": \"WebPage\", \"@id\": \"https://myagentvn.com/blog/cham-soc-website-sau-ban-giao.html\"}, \"url\": \"https://myagentvn.com/blog/cham-soc-website-sau-ban-giao.html\", \"image\": [\"https://myagentvn.com/assets/og-image.png\"], \"wordCount\": 1890, \"keywords\": \"chăm sóc website, doanh nghiệp nhỏ, bảo trì website, bàn giao\"}"
+      "{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Trang chủ\",\"item\":\"https://myagentvn.com/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog kiến thức\",\"item\":\"https://myagentvn.com/blog.html\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Chăm sóc website sau khi bàn giao: việc nên làm định kỳ\",\"item\":\"https://myagentvn.com/blog/cham-soc-website-sau-ban-giao.html\"}]}",
+      "{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"Chăm sóc website sau khi bàn giao: việc nên làm định kỳ\",\"description\":\"Sau bàn giao, doanh nghiệp nhỏ nên làm định kỳ: cập nhật nội dung, sao lưu, gia hạn tên miền, kiểm tra form, tốc độ, bảo mật và Analytics.\",\"inLanguage\":\"vi\",\"datePublished\":\"2026-11-07T08:00:00+07:00\",\"dateModified\":\"2026-11-07T08:00:00+07:00\",\"articleSection\":\"Website\",\"author\":{\"@type\":\"ProfessionalService\",\"@id\":\"https://myagentvn.com/#org\",\"name\":\"My Agent\",\"url\":\"https://myagentvn.com/\"},\"publisher\":{\"@type\":\"ProfessionalService\",\"@id\":\"https://myagentvn.com/#org\",\"name\":\"My Agent\",\"url\":\"https://myagentvn.com/\",\"logo\":{\"@type\":\"ImageObject\",\"@id\":\"https://myagentvn.com/#logo\",\"url\":\"https://myagentvn.com/assets/icon-512.png\",\"width\":512,\"height\":512}},\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://myagentvn.com/blog/cham-soc-website-sau-ban-giao.html\"},\"url\":\"https://myagentvn.com/blog/cham-soc-website-sau-ban-giao.html\",\"image\":[\"https://myagentvn.com/assets/og-image.png\"],\"wordCount\":1890,\"keywords\":\"chăm sóc website, doanh nghiệp nhỏ, bảo trì website, bàn giao\"}"
     ]
   },
   "/blog/noi-dung-tren-website-moi-trang-nen-viet-gi.html": {
     "meta": {
-      "og:type": "article",
-      "og:locale": "vi_VN",
-      "og:site_name": "My Agent",
       "og:title": "Nội dung trên website: mỗi trang nên viết gì | My Agent",
       "og:description": "Doanh nghiệp nhỏ nên viết gì ở trang chủ, trang dịch vụ, giới thiệu, liên hệ, FAQ và hình ảnh để khách hiểu đúng, tin được rồi chủ động liên hệ.",
       "og:url": "https://myagentvn.com/blog/noi-dung-tren-website-moi-trang-nen-viet-gi.html",
+      "og:site_name": "My Agent",
+      "og:locale": "vi_VN",
       "og:image": "https://myagentvn.com/assets/og-image.png",
       "og:image:width": "1200",
       "og:image:height": "630",
+      "og:type": "article",
       "twitter:card": "summary_large_image",
       "twitter:title": "Nội dung trên website: mỗi trang nên viết gì | My Agent",
       "twitter:description": "Doanh nghiệp nhỏ nên viết gì ở trang chủ, trang dịch vụ, giới thiệu, liên hệ, FAQ và hình ảnh để khách hiểu đúng, tin được rồi chủ động liên hệ.",
       "twitter:image": "https://myagentvn.com/assets/og-image.png"
     },
     "ld": [
-      "{\"@context\": \"https://schema.org\", \"@type\": \"BreadcrumbList\", \"itemListElement\": [{\"@type\": \"ListItem\", \"position\": 1, \"name\": \"Trang chủ\", \"item\": \"https://myagentvn.com/\"}, {\"@type\": \"ListItem\", \"position\": 2, \"name\": \"Blog kiến thức\", \"item\": \"https://myagentvn.com/blog.html\"}, {\"@type\": \"ListItem\", \"position\": 3, \"name\": \"Nội dung trên website: mỗi trang nên viết gì\", \"item\": \"https://myagentvn.com/blog/noi-dung-tren-website-moi-trang-nen-viet-gi.html\"}]}",
-      "{\"@context\": \"https://schema.org\", \"@type\": \"Article\", \"headline\": \"Nội dung trên website: mỗi trang nên viết gì\", \"description\": \"Doanh nghiệp nhỏ nên viết gì ở trang chủ, trang dịch vụ, giới thiệu, liên hệ, FAQ và hình ảnh để khách hiểu đúng, tin được rồi chủ động liên hệ.\", \"inLanguage\": \"vi\", \"datePublished\": \"2026-11-11T08:00:00+07:00\", \"dateModified\": \"2026-11-11T08:00:00+07:00\", \"articleSection\": \"Website\", \"author\": {\"@type\": \"ProfessionalService\", \"@id\": \"https://myagentvn.com/#org\", \"name\": \"My Agent\", \"url\": \"https://myagentvn.com/\"}, \"publisher\": {\"@type\": \"ProfessionalService\", \"@id\": \"https://myagentvn.com/#org\", \"name\": \"My Agent\", \"url\": \"https://myagentvn.com/\", \"logo\": {\"@type\": \"ImageObject\", \"@id\": \"https://myagentvn.com/#logo\", \"url\": \"https://myagentvn.com/assets/icon-512.png\", \"width\": 512, \"height\": 512}}, \"mainEntityOfPage\": {\"@type\": \"WebPage\", \"@id\": \"https://myagentvn.com/blog/noi-dung-tren-website-moi-trang-nen-viet-gi.html\"}, \"url\": \"https://myagentvn.com/blog/noi-dung-tren-website-moi-trang-nen-viet-gi.html\", \"image\": [\"https://myagentvn.com/assets/og-image.png\"], \"wordCount\": 1546, \"keywords\": \"nội dung website, doanh nghiệp nhỏ, trang chủ, liên hệ\"}"
+      "{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Trang chủ\",\"item\":\"https://myagentvn.com/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog kiến thức\",\"item\":\"https://myagentvn.com/blog.html\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Nội dung trên website: mỗi trang nên viết gì\",\"item\":\"https://myagentvn.com/blog/noi-dung-tren-website-moi-trang-nen-viet-gi.html\"}]}",
+      "{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"Nội dung trên website: mỗi trang nên viết gì\",\"description\":\"Doanh nghiệp nhỏ nên viết gì ở trang chủ, trang dịch vụ, giới thiệu, liên hệ, FAQ và hình ảnh để khách hiểu đúng, tin được rồi chủ động liên hệ.\",\"inLanguage\":\"vi\",\"datePublished\":\"2026-11-11T08:00:00+07:00\",\"dateModified\":\"2026-11-11T08:00:00+07:00\",\"articleSection\":\"Website\",\"author\":{\"@type\":\"ProfessionalService\",\"@id\":\"https://myagentvn.com/#org\",\"name\":\"My Agent\",\"url\":\"https://myagentvn.com/\"},\"publisher\":{\"@type\":\"ProfessionalService\",\"@id\":\"https://myagentvn.com/#org\",\"name\":\"My Agent\",\"url\":\"https://myagentvn.com/\",\"logo\":{\"@type\":\"ImageObject\",\"@id\":\"https://myagentvn.com/#logo\",\"url\":\"https://myagentvn.com/assets/icon-512.png\",\"width\":512,\"height\":512}},\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://myagentvn.com/blog/noi-dung-tren-website-moi-trang-nen-viet-gi.html\"},\"url\":\"https://myagentvn.com/blog/noi-dung-tren-website-moi-trang-nen-viet-gi.html\",\"image\":[\"https://myagentvn.com/assets/og-image.png\"],\"wordCount\":1546,\"keywords\":\"nội dung website, doanh nghiệp nhỏ, trang chủ, liên hệ\"}"
+    ]
+  },
+  "/blog/website-dung-de-lam-gi-cho-doanh-nghiep-nho.html": {
+    "meta": {
+      "og:title": "Website dùng để làm gì cho doanh nghiệp nhỏ | My Agent",
+      "og:description": "Website doanh nghiệp nhỏ dùng để khách tìm thấy trên Google, xem dịch vụ, tin được rồi liên hệ, giữ nội dung mình kiểm soát và theo dõi trang đang chạy.",
+      "og:url": "https://myagentvn.com/blog/website-dung-de-lam-gi-cho-doanh-nghiep-nho.html",
+      "og:site_name": "My Agent",
+      "og:locale": "vi_VN",
+      "og:image": "https://myagentvn.com/assets/og-image.png",
+      "og:image:width": "1200",
+      "og:image:height": "630",
+      "og:type": "article",
+      "twitter:card": "summary_large_image",
+      "twitter:title": "Website dùng để làm gì cho doanh nghiệp nhỏ | My Agent",
+      "twitter:description": "Website doanh nghiệp nhỏ dùng để khách tìm thấy trên Google, xem dịch vụ, tin được rồi liên hệ, giữ nội dung mình kiểm soát và theo dõi trang đang chạy.",
+      "twitter:image": "https://myagentvn.com/assets/og-image.png"
+    },
+    "ld": [
+      "{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Trang chủ\",\"item\":\"https://myagentvn.com/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog kiến thức\",\"item\":\"https://myagentvn.com/blog.html\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Website dùng để làm gì cho doanh nghiệp nhỏ\",\"item\":\"https://myagentvn.com/blog/website-dung-de-lam-gi-cho-doanh-nghiep-nho.html\"}]}",
+      "{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"Website dùng để làm gì cho doanh nghiệp nhỏ\",\"description\":\"Website doanh nghiệp nhỏ dùng để khách tìm thấy trên Google, xem dịch vụ, tin được rồi liên hệ, giữ nội dung mình kiểm soát và theo dõi trang đang chạy.\",\"inLanguage\":\"vi\",\"datePublished\":\"2026-11-14T08:00:00+07:00\",\"dateModified\":\"2026-11-14T08:00:00+07:00\",\"articleSection\":\"Website\",\"author\":{\"@type\":\"ProfessionalService\",\"@id\":\"https://myagentvn.com/#org\",\"name\":\"My Agent\",\"url\":\"https://myagentvn.com/\"},\"publisher\":{\"@type\":\"ProfessionalService\",\"@id\":\"https://myagentvn.com/#org\",\"name\":\"My Agent\",\"url\":\"https://myagentvn.com/\",\"logo\":{\"@type\":\"ImageObject\",\"@id\":\"https://myagentvn.com/#logo\",\"url\":\"https://myagentvn.com/assets/icon-512.png\",\"width\":512,\"height\":512}},\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://myagentvn.com/blog/website-dung-de-lam-gi-cho-doanh-nghiep-nho.html\"},\"url\":\"https://myagentvn.com/blog/website-dung-de-lam-gi-cho-doanh-nghiep-nho.html\",\"image\":[\"https://myagentvn.com/assets/og-image.png\"],\"wordCount\":1209,\"keywords\":\"website, doanh nghiệp nhỏ, liên hệ, dịch vụ\"}"
+    ]
+  },
+  "/blog/chon-ten-mien-va-hosting-cho-doanh-nghiep-nho.html": {
+    "meta": {
+      "og:title": "Chọn tên miền và hosting cho doanh nghiệp nhỏ: cần biết gì",
+      "og:description": "Chọn tên miền và hosting cho doanh nghiệp nhỏ: tên ngắn dễ nhớ, đuôi .vn hay .com, đứng tên chủ sở hữu, gia hạn, sao lưu, HTTPS và khả năng nâng cấp.",
+      "og:url": "https://myagentvn.com/blog/chon-ten-mien-va-hosting-cho-doanh-nghiep-nho.html",
+      "og:site_name": "My Agent",
+      "og:locale": "vi_VN",
+      "og:image": "https://myagentvn.com/assets/og-image.png",
+      "og:image:width": "1200",
+      "og:image:height": "630",
+      "og:type": "article",
+      "twitter:card": "summary_large_image",
+      "twitter:title": "Chọn tên miền và hosting cho doanh nghiệp nhỏ: cần biết gì",
+      "twitter:description": "Chọn tên miền và hosting cho doanh nghiệp nhỏ: tên ngắn dễ nhớ, đuôi .vn hay .com, đứng tên chủ sở hữu, gia hạn, sao lưu, HTTPS và khả năng nâng cấp.",
+      "twitter:image": "https://myagentvn.com/assets/og-image.png"
+    },
+    "ld": [
+      "{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Trang chủ\",\"item\":\"https://myagentvn.com/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog kiến thức\",\"item\":\"https://myagentvn.com/blog.html\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Chọn tên miền và hosting cho doanh nghiệp nhỏ: cần biết gì\",\"item\":\"https://myagentvn.com/blog/chon-ten-mien-va-hosting-cho-doanh-nghiep-nho.html\"}]}",
+      "{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"Chọn tên miền và hosting cho doanh nghiệp nhỏ: cần biết gì\",\"description\":\"Chọn tên miền và hosting cho doanh nghiệp nhỏ: tên ngắn dễ nhớ, đuôi .vn hay .com, đứng tên chủ sở hữu, gia hạn, sao lưu, HTTPS và khả năng nâng cấp.\",\"inLanguage\":\"vi\",\"datePublished\":\"2026-11-13T08:00:00+07:00\",\"dateModified\":\"2026-11-13T08:00:00+07:00\",\"articleSection\":\"Website\",\"author\":{\"@type\":\"ProfessionalService\",\"@id\":\"https://myagentvn.com/#org\",\"name\":\"My Agent\",\"url\":\"https://myagentvn.com/\"},\"publisher\":{\"@type\":\"ProfessionalService\",\"@id\":\"https://myagentvn.com/#org\",\"name\":\"My Agent\",\"url\":\"https://myagentvn.com/\",\"logo\":{\"@type\":\"ImageObject\",\"@id\":\"https://myagentvn.com/#logo\",\"url\":\"https://myagentvn.com/assets/icon-512.png\",\"width\":512,\"height\":512}},\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://myagentvn.com/blog/chon-ten-mien-va-hosting-cho-doanh-nghiep-nho.html\"},\"url\":\"https://myagentvn.com/blog/chon-ten-mien-va-hosting-cho-doanh-nghiep-nho.html\",\"image\":[\"https://myagentvn.com/assets/og-image.png\"],\"wordCount\":864,\"keywords\":\"tên miền, hosting, doanh nghiệp nhỏ, thiết kế web giá rẻ\"}"
     ]
   }
 }

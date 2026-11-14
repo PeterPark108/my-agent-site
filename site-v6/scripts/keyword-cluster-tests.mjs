@@ -4,7 +4,7 @@ import vm from 'node:vm';
 import { load } from 'cheerio';
 const root='..';
 const slugs=['thiet-ke-website-doanh-nghiep','thiet-ke-landing-page','thiet-ke-website-ban-hang'];
-const original=JSON.parse(fs.readFileSync('tests/fixtures/live-ui-2026-11-12.json','utf8'));
+const original=JSON.parse(fs.readFileSync('tests/fixtures/live-ui-2026-11-14-mobile.json','utf8'));
 const crypto=await import('node:crypto');
 for(const [file,hash] of Object.entries(original.hashes)){
  const $=load(fs.readFileSync(`${root}/${file}`,'utf8'));

@@ -1,7 +1,6 @@
 {
-  "description": "CANDIDATE mobile UX overlay inventory only. Baseline hashes come from Git c63d7aa, not verified current VPS. Reconcile fresh live baseline before deployment. Preserve all other files and old assets; no deletions.",
+  "description": "Mobile UX overlay reconciled against current published blog exports on 2026-11-14. Fresh VPS hashes verified for 24 conflicts and source JSON; verify every base again before apply. Preserve Markdown/archive sources, feed, sitemap, all other files and old assets. No deletions.",
   "baseline_artifact": "c63d7aaa4a0e20fca470a04175a44589cc6efa70",
-  "target_artifact": "eb9862714eff9a0ea4e520a4ff536b6319b16e91",
   "files": [
     {
       "path": "404.html",
@@ -80,23 +79,23 @@
     },
     {
       "path": "blog.html",
-      "base_sha256": "60c57e2e63e91792e29b6cb1d08270138e326140d363d8c5e7af87e3eadc0151",
-      "sha256": "17bdd48b5a6b1f4e3c7fa1daef86d4ff6ad20425ed059d4266e32305a8cada03"
+      "base_sha256": "483084b095f450c4a71d071eb7cc901fdffbabe4a672ccef096253d26fa47141",
+      "sha256": "9870b0c152ff443682da454155a6daf848e1d8efa781f12d51aacd15c8d41a9b"
     },
     {
       "path": "blog.html.txt",
-      "base_sha256": "6ae6e61019a12fe25bdefd0eccb155d4f0bb12f64f48986dab2bb73a881ad83b",
-      "sha256": "4b47f716b1cd83e376683fc884100ac251d72587d0f433a31298146a1787de86"
+      "base_sha256": "4498bdc861a761833f1562a72259406aa0df1ae1f6d23e7c6f2ea59c009c1f22",
+      "sha256": "2818626407e223c11a7f00d083e95c1d9e22749ba00825db4f312a1accffc1cb"
     },
     {
       "path": "blog/bao-mat-website-co-ban-cho-doanh-nghiep-nho.html",
-      "base_sha256": "8fdc69043f94576537668ef4a3bcaa2f36911e1b0f494275949aadaf8d0557f8",
-      "sha256": "5deef73cfaa59c01007e7b7ad64ad83f93ca08826a625f41ea105162cee74baf"
+      "base_sha256": "e7723374cd6e39482226c78c46bf6a400cd0643e0670c96cbea94eea892d868f",
+      "sha256": "5b522e80973374cadff979e732ae34494a20968d80b73b4f69292eb0d27d9377"
     },
     {
       "path": "blog/bao-mat-website-co-ban-cho-doanh-nghiep-nho.html.txt",
-      "base_sha256": "d1d4262c8aba1ff25592ba51e53760838a6e479b7c707ee551fd8275537e0903",
-      "sha256": "462002aa169a764130de6ac77178475a8c1b3179faa593b011fa3552b0b343c1"
+      "base_sha256": "c83ee286a6fb484754bd3e6efa597529f3c5acb14af95ce46b3458892ff80be1",
+      "sha256": "c356c3c25b920e4ab9ef6a106f5e0143a6c7087c61bb81a466732f280790211c"
     },
     {
       "path": "blog/cham-soc-website-sau-ban-giao.html",
@@ -110,103 +109,123 @@
     },
     {
       "path": "blog/checklist-seo-co-ban-cho-website.html",
-      "base_sha256": "91289ee17896d608afc5bc19e2290cc2bd2984bd7077590e72da407f4b590ab3",
-      "sha256": "8415c77e97c8cfdb55aa17a1a7416fe7ddd20976198498494838650c9c4d500b"
+      "base_sha256": "1c049ebd4a69d791fae237adb128c2382b0b193ace9ea805bda9a75a28f58e2c",
+      "sha256": "93c66f29eaadd8cdfeb9fdc27ee8a5e6d1c40d1d167c9e1c70e334a688ae0989"
     },
     {
       "path": "blog/checklist-seo-co-ban-cho-website.html.txt",
-      "base_sha256": "a5f65484dc778455a6f555e3f46457f3fa18fa9e3cc49c7c18aa9b9269aa3a98",
-      "sha256": "4fe49a9a058d50244dbcaea31d7790cda88e22fe0c7bc064122308d91738109c"
+      "base_sha256": "47a0170af6d26146c7c671245dc42ab012080bda23c7c4f6baf719cd80f20af7",
+      "sha256": "c21860a684f82c9c6e8a78eabee58f81542cb7484d91f0f01e9391ded52706ad"
     },
     {
       "path": "blog/chi-phi-lam-website-phu-thuoc-yeu-to-nao.html",
-      "base_sha256": "0dc1f325da11f346676b0d489eb2b0ea42b9800597f0f3d8d3e7ff01a13987cd",
-      "sha256": "af709adc72a7a8c1edd9022db3d42b8f65bbb8ae8efcea86dc1c35b0b4d0e6d0"
+      "base_sha256": "2a3dd3427a268f3caf020f597a2278272d111e4b683b03b6ba975e07fefb1f0f",
+      "sha256": "b830f699065f0811f6d458bb7f0795c71b57f29dd0a5ca17199a01b62df09470"
     },
     {
       "path": "blog/chi-phi-lam-website-phu-thuoc-yeu-to-nao.html.txt",
-      "base_sha256": "6d089f74f9c6730a513ed4d35ff5cf9988ed77a32f5ba7a84f82aa4d6c190701",
-      "sha256": "5ffffebc1fade73181491a337e93517e7910192f1a7f805dad3444f0f5c3fc35"
+      "base_sha256": "c76c0cb9c0e13fb629c1f2473301328c7ed6aff628d58628dad6a511af51260b",
+      "sha256": "504cde330f05050f4620446d7277aa1158d68a0b17ab5aa774335637ad0112ef"
+    },
+    {
+      "path": "blog/chon-ten-mien-va-hosting-cho-doanh-nghiep-nho.html",
+      "base_sha256": "b6dceb080acb144bff1fa7d2999a04abc90ff5ea9c50f6301ddb29d9ab65907a",
+      "sha256": "c34181eb0a63e0b17af0e2b4ca162b6e98b9223946b544eed16649cc9b82dc4d"
+    },
+    {
+      "path": "blog/chon-ten-mien-va-hosting-cho-doanh-nghiep-nho.html.txt",
+      "base_sha256": "b76c4a81dd2c49ec8144ba7c3dc9f88a446429963f1bf77486c72174fb22ab63",
+      "sha256": "b794abace7e03d7de05a7650f9886c7b0ed4aef2394a54d7e96e25f8b5d0ca24"
     },
     {
       "path": "blog/da-co-facebook-zalo-san-tmdt-co-can-website-rieng.html",
-      "base_sha256": "673747fc72042b72edb15b837b1e7236509bf1df1c7a5eaa7581df0c975762f4",
-      "sha256": "ffe4980343dc72c795d5df652401ddce9c220c4b3dd89935d7f318faeecb8b48"
+      "base_sha256": "ba43e77356e1a3b6eace8a710a1751c020a6587ae5e439a2f40066b7166609d8",
+      "sha256": "238fd29fa0e60453336e9f398bd423caaa560160c9a8d10947fdfccbc6c0099d"
     },
     {
       "path": "blog/da-co-facebook-zalo-san-tmdt-co-can-website-rieng.html.txt",
-      "base_sha256": "408fb85b66cd5ff00e9c70f2da4568f034dc981eae9098d3601a228c1aa8c824",
-      "sha256": "2cec9bed2eba008ae7ca15217ca481876287d694d153f0dc7049977eb335054c"
+      "base_sha256": "f831997195529355631eba25210754970cb37cb2c204b51c26af9a6bc499dcf3",
+      "sha256": "0c3b76f5fafd09da7629596be1e7444bf6634b3f8638e2cb0baca447246d7dca"
     },
     {
       "path": "blog/do-luong-website-bang-google-analytics-co-ban.html",
-      "base_sha256": "049876c5006178b01daeb72ec5732f9f197dc0ead521f69d61670c24b20f7f69",
-      "sha256": "9678f413d27c39d61304aeea2e3ebaa2ef0b77b2538adb104f42e6e659be9c7f"
+      "base_sha256": "cc6738a1de1d479cf4505333319b88495e8676b07da501c9d0718d1e0a0d2b4e",
+      "sha256": "a5c689d98dfb1d699203d3502361733fb737fbf5b7f866756ff28e90aa5ea963"
     },
     {
       "path": "blog/do-luong-website-bang-google-analytics-co-ban.html.txt",
-      "base_sha256": "3639b2a441148c1c22e9f7017fce97317425a2c302587dfa2ab080815dccd120",
-      "sha256": "65f6827da9abd380d9f447699d5c11c9a0f1e29732b410ee233a38661e5d4e3c"
+      "base_sha256": "0d8af95b8717c2a39ba7968a76b9676ea549fd8a8fb9466a346e7fa22e1c347d",
+      "sha256": "e31a04d2401e4a45e2f2b5df1cb2630935a0a44d426467bccfbabade25d12910"
     },
     {
       "path": "blog/google-business-profile-dich-vu-tai-tphcm.html",
-      "base_sha256": "fa76a309d27fdc323a201a8b77e5121aed5190cbf04cb6ea48c3690a0c6a8cdf",
-      "sha256": "185ac49d762c89a4dbf2a094d45e2cfe2e036d2a5c0a79eae9871583f378670b"
+      "base_sha256": "d61d363e6dd0b8feac0af45b4174f472a47df217c66184c1dd6bd6e1b28cfd9a",
+      "sha256": "68390fdad796287f1a5260ef6cac6a3cc3879f9232029b23d0cb1edb0cdd0445"
     },
     {
       "path": "blog/google-business-profile-dich-vu-tai-tphcm.html.txt",
-      "base_sha256": "1250d82d35d6cad9e275664a54552bb7838f514858cd76a8d31f10631dd78ede",
-      "sha256": "b784fe539e816c72a20dac136f1534cbbb14aac1205ad73be721562cda6be142"
+      "base_sha256": "b3956fc3b7a9daf3e6522a1914b5aece3c8c3fe05359c6ee6506a9b509076db3",
+      "sha256": "28dfbeec3d35c18070d61429b2441f8c0f0d14a1f5765554b188a2403f56e571"
     },
     {
       "path": "blog/noi-dung-tren-website-moi-trang-nen-viet-gi.html",
-      "base_sha256": "f8b819a4ab2570af3cbb751e47e623b3b86638f222ef0db21a479dcafb9c338a",
-      "sha256": "ca4258fd0ee51e4237e9e0656c630ecfa738ee847d8e6d30101159aceafe1d28"
+      "base_sha256": "7d3d9088ab9a3cb8cd75f731e22e3c9e58b39de4068970095bed7732d79ec7ab",
+      "sha256": "080f7a23d97d5682b15064d9797fd6dfe62139c35640621f84f773e0fc18fe05"
     },
     {
       "path": "blog/noi-dung-tren-website-moi-trang-nen-viet-gi.html.txt",
-      "base_sha256": "d9275d2471941959a62ef6d217df3cae2b08eec938bda3b130052c0ff69cd711",
-      "sha256": "54f362913a319c434ac2599a3b0845c19c04855e246de2192097f0349c2fccef"
+      "base_sha256": "9e38beaf74cf49b3c1c2b7c4f8717088b797ab190e1434a446ffd7ebc256fe3f",
+      "sha256": "400539f98a409ea528657e9ee4c73964688276ec12d6398212861448aa918494"
     },
     {
       "path": "blog/quy-trinh-lam-website-cho-doanh-nghiep-nho.html",
-      "base_sha256": "19aa28c59fe3033c32bbe36a9ccf1b99c871da5357082faa176bec067b9b4597",
-      "sha256": "fdf64c7ea213085d2db8486157d106d005d57fd54d1b96a302883327e29e8ba5"
+      "base_sha256": "f95a070a2eb68148841e74e33ed9bc5cadf80ddf83747afd401bd478dfedf8d4",
+      "sha256": "86a05c32cf6dca2e636e25d67126ec9dbffca0954a6d4f53f78b99e6034bb6ed"
     },
     {
       "path": "blog/quy-trinh-lam-website-cho-doanh-nghiep-nho.html.txt",
-      "base_sha256": "760c3ea288472738dc820e5b39d182a87b2102ee6676b01ff6de3bdcf24115fd",
-      "sha256": "a3702e7344ebd90a5a84b7975f8132f451d803d95c93e89f3f830eca2005b891"
+      "base_sha256": "a1a7937b8d2a059b05e75dd3e99a9a18916791ee408c384d0dc5302750c8a154",
+      "sha256": "626e98050005e8f2e13081a9e366f174eb49c3999bf2b3b793c662923b8a3a26"
     },
     {
       "path": "blog/thiet-ke-web-tron-goi-gom-nhung-gi.html",
-      "base_sha256": "1769faf547d34b356dc10ae6d9ded18574e212b44bd40026b6e1b49a25d30463",
-      "sha256": "6250317e13ebd6dcc254c8864217a3dd41d25493dd03e6bbb6daf77e144d9f50"
+      "base_sha256": "5974f216f5c7243c342df67df0ab72ce60070c2a5a48eb35beb9a5ebe0402d50",
+      "sha256": "3dd5062e8c7e73741f2d63fafcca63cba8982b4757c5d618d0551dcd62bb6624"
     },
     {
       "path": "blog/thiet-ke-web-tron-goi-gom-nhung-gi.html.txt",
-      "base_sha256": "a8501562dc184aed30b07c89d8fb1fe74f1e7c65e44914d826f740f3c85b2832",
-      "sha256": "9b2edff667cd722c1d450d881b4b0f20cc6537019f466744e0c73c427bcaa396"
+      "base_sha256": "3b2a3ca0b2219adee4287447b8d177f6d191456e3b7fbf4902dee5a87bbf18a6",
+      "sha256": "5367494e27537581598e53bf23b25839aca769fb44cb646bf9180f8e5d26cf03"
     },
     {
       "path": "blog/toc-do-website-co-ban-cho-doanh-nghiep-nho.html",
-      "base_sha256": "01cc7ea12de85c5bfe6e3518d5ff77ebe4ae4bf8919d79335bca18d006c1b9fd",
-      "sha256": "78ea5a0357cda62860ae41e2395d11336d974307c670ab437c560de3b3eee292"
+      "base_sha256": "b30d51a5fd1d13912b1e12cfd13337aad4eb92cbdb8d9acbbf37cf2d6323f39c",
+      "sha256": "dcf1d97e294ab2025e148412e414f6906634b9cb8547f25dfe6869a7532f3db1"
     },
     {
       "path": "blog/toc-do-website-co-ban-cho-doanh-nghiep-nho.html.txt",
-      "base_sha256": "c772c57ea3142ce662bbd0b1bf41356d8ed8ba3461bc4b8d4836da47ae0db848",
-      "sha256": "198f2a8f56f0d1baf980a7b6ff722970c158b080cd8239b20cfb0aced9d21e8e"
+      "base_sha256": "6e39768caeb0449fa8058be7fea271af299c286700cf0ad7fb6d48467aef941a",
+      "sha256": "7b450f8367a6dd02976a48019340acffc9b0e177feace3f84c998e182d39c2cd"
     },
     {
       "path": "blog/website-chuyen-nghiep-can-gi.html",
-      "base_sha256": "c2fa31f9913ddd8260dd75fe4d0c0d6026ecbb412119f69fcf1a045e1c121412",
-      "sha256": "c12fce674e40be989adcecf68069bff0b1880739d7c1e79b82aaa7788199d961"
+      "base_sha256": "bcaf46d2446386c58c23e2fd1a18d096dc6e597f5443db4903223c7294484373",
+      "sha256": "a346401e28de02bb45f4c989a18aa23eeeb69a261a8d91171292d7d6efcd6e60"
     },
     {
       "path": "blog/website-chuyen-nghiep-can-gi.html.txt",
-      "base_sha256": "9caf9b755c0f52966a1b51da121b66c2a7ff23d9758076f3ce74f1056ca18027",
-      "sha256": "dfd1b8b5c3e84c47a47a822f548cc570e600733cd3e6778cfce696b115a7f8e7"
+      "base_sha256": "00d08288168da4844f627e0b46a2b8c9bc1805f90748876bfd4f35d0740166e7",
+      "sha256": "c5578dd9529da738dd4d5f7a80c0bf3a961c6b059ad1802641cfaeb74d424e77"
+    },
+    {
+      "path": "blog/website-dung-de-lam-gi-cho-doanh-nghiep-nho.html",
+      "base_sha256": "10dc5794e06d7f65385f71588457e95fa8fa4229bd767b8628055d85880ae217",
+      "sha256": "d9d58208bba6883323c0794dc713947331579c6712fb92448950340424fd7762"
+    },
+    {
+      "path": "blog/website-dung-de-lam-gi-cho-doanh-nghiep-nho.html.txt",
+      "base_sha256": "19dbae36a0d37afc7de6d3527deed0d45ead9e20229aff5b7778a71421c95612",
+      "sha256": "b8e8b6c4eee4eb227515ec8b06b4969f047ac229e8ec6e4089d4bc8629e656ef"
     },
     {
       "path": "chinh-sach-bao-mat.html",
@@ -524,6 +543,16 @@
       "sha256": "d5095623d9d9facbf4f6704b414ac02a86afd4d71eb9468a3790c15c469f272e"
     },
     {
+      "path": "site-v6/src/content/pages.json",
+      "base_sha256": "676f239717cab45021bb638dc54ae313f2033553f5af54f4bd2435a8270e6031",
+      "sha256": "cc6ff1f5edc649e16afa651b2ee580ec76e91591dc95e58bc036e4c90190dbc1"
+    },
+    {
+      "path": "site-v6/src/content/seo.json",
+      "base_sha256": "53c4ff98dd5b0d5ec23a5e2303906122908f234e56741e60d774dec2059903db",
+      "sha256": "4f1a041f762e4a7c6d602a80293dbd8eb7bd7e2f333d409f6fa3f1716199226c"
+    },
+    {
       "path": "tai-nguyen-ai-agent.html",
       "base_sha256": "b0233ab9fe75154f9bdb9609cd02fea8c16d84e4fedb771f69415d35e985c8f1",
       "sha256": "b7d7d65497ee5b24a386acff0dca62c4bab02593e619d8117cca1ff95334f9e2"
@@ -743,5 +772,6 @@
       "base_sha256": "8c6dd5c4572615de87d1a4de27108c1b5bac4f5b55def07bc473319c9e0067d3",
       "sha256": "3cbc95f384816606c734208e58f6d6f0dc5568d852ca8452645a2c5e40463e38"
     }
-  ]
+  ],
+  "prior_candidate": "adc9618b56cee00e50c8df314582220aa18aa7cd"
 }
