@@ -1,0 +1,170 @@
+{
+ "/": {
+  "image": "/assets/og/og-trang-chu-my-agent.jpg",
+  "alt": "My Agent – Thiết kế website cho doanh nghiệp: website giới thiệu, landing page, website bán hàng"
+ },
+ "/dich-vu.html": {
+  "image": "/assets/og/og-dich-vu-my-agent.jpg",
+  "alt": "Dịch vụ My Agent – Website · Marketing · Mạng xã hội · Dữ liệu · Pháp lý | My Agent"
+ },
+ "/bang-gia.html": {
+  "image": "/assets/og/og-bang-gia-my-agent.jpg",
+  "alt": "Bảng giá dịch vụ – Giá tham khảo theo khoảng, chưa bao gồm VAT | My Agent"
+ },
+ "/combo.html": {
+  "image": "/assets/og/og-combo-dich-vu-my-agent.jpg",
+  "alt": "Combo dịch vụ – Gộp website, tên miền, email và marketing, báo giá rõ từng hạng mục | My Agent"
+ },
+ "/du-an.html": {
+  "image": "/assets/og/og-du-an-mau-my-agent.jpg",
+  "alt": "Dự án mẫu – Website, landing page, web bán hàng và dự án dữ liệu | My Agent"
+ },
+ "/blog.html": {
+  "image": "/assets/og/og-blog-kien-thuc-my-agent.jpg",
+  "alt": "Blog kiến thức – Website, SEO, marketing online, dữ liệu và AI cho doanh nghiệp nhỏ | My Agent"
+ },
+ "/tin-tuc.html": {
+  "image": "/assets/og/og-tin-tuc-cong-nghe-my-agent.jpg",
+  "alt": "Tin tức công nghệ – AI, bảo mật, web & SEO, dữ liệu, nền tảng số, có link nguồn gốc | My Agent"
+ },
+ "/tin-tuc/trang-2.html": {
+  "image": "/assets/og/og-tin-tuc-cong-nghe-my-agent.jpg",
+  "alt": "Tin tức công nghệ – AI, bảo mật, web & SEO, dữ liệu, nền tảng số, có link nguồn gốc | My Agent"
+ },
+ "/tin-tuc/chu-de/ai.html": {
+  "image": "/assets/og/og-tin-tuc-ai-my-agent.jpg",
+  "alt": "Tin AI – Mô hình mới, trợ lý AI, tự động hoá công việc | My Agent"
+ },
+ "/tin-tuc/chu-de/bao-mat.html": {
+  "image": "/assets/og/og-tin-tuc-bao-mat-my-agent.jpg",
+  "alt": "Tin Bảo mật – Lỗ hổng, bản vá, cảnh báo cho website và máy chủ | My Agent"
+ },
+ "/tin-tuc/chu-de/du-lieu.html": {
+  "image": "/assets/og/og-tin-tuc-du-lieu-my-agent.jpg",
+  "alt": "Tin Dữ liệu – Power BI, phân tích, kỹ thuật dữ liệu, báo cáo | My Agent"
+ },
+ "/tin-tuc/chu-de/nen-tang.html": {
+  "image": "/assets/og/og-tin-tuc-nen-tang-mxh-my-agent.jpg",
+  "alt": "Tin Nền tảng & MXH – Zalo OA, ZBS, Google, Facebook | My Agent"
+ },
+ "/tin-tuc/chu-de/web-seo.html": {
+  "image": "/assets/og/og-tin-tuc-web-seo-my-agent.jpg",
+  "alt": "Tin Web & SEO – Cập nhật Google Search, kỹ thuật website, nội dung | My Agent"
+ },
+ "/lien-he.html": {
+  "image": "/assets/og/og-lien-he-my-agent.jpg",
+  "alt": "Liên hệ My Agent – Tư vấn và báo giá qua form, Zalo hoặc email | My Agent"
+ },
+ "/ve-chung-toi.html": {
+  "image": "/assets/og/og-ve-chung-toi-my-agent.jpg",
+  "alt": "Về My Agent – Thiết kế website và dịch vụ số tại TP.HCM, nhận khách toàn quốc | My Agent"
+ },
+ "/cong-cu.html": {
+  "image": "/assets/og/og-cong-cu-mien-phi-my-agent.jpg",
+  "alt": "Công cụ miễn phí – Dùng ngay trên trình duyệt, không cần cài đặt | My Agent"
+ },
+ "/tai-nguyen-ai-agent.html": {
+  "image": "/assets/og/og-lo-trinh-hoc-ai-agent.jpg",
+  "alt": "Lộ trình học AI Agent – Video, GitHub, sách, khóa học, kèm mô tả tiếng Việt và link gốc | My Agent"
+ },
+ "/tra-cuu-tien-do.html": {
+  "image": "/assets/og/og-tra-cuu-tien-do-my-agent.jpg",
+  "alt": "Tra cứu tiến độ đơn hàng – Nhập mã đơn để xem tiến độ dự án | My Agent"
+ },
+ "/chinh-sach-bao-mat.html": {
+  "image": "/assets/og/og-chinh-sach-bao-mat-my-agent.jpg",
+  "alt": "Chính sách bảo mật – Cách My Agent thu thập, sử dụng và bảo vệ thông tin | My Agent"
+ },
+ "/dieu-khoan-dich-vu.html": {
+  "image": "/assets/og/og-dieu-khoan-dich-vu-my-agent.jpg",
+  "alt": "Điều khoản & dịch vụ – Phạm vi dịch vụ và điều kiện công khai của My Agent | My Agent"
+ },
+ "/ghi-nguon.html": {
+  "image": "/assets/og/og-ghi-nguon-giay-phep-my-agent.jpg",
+  "alt": "Ghi nguồn & giấy phép – Font, hình ảnh, biểu tượng dùng trên website My Agent | My Agent"
+ },
+ "/dich-vu/thiet-ke-website.html": {
+  "image": "/assets/og/og-dich-vu-thiet-ke-website-my-agent.jpg",
+  "alt": "Thiết kế website theo yêu cầu – Web doanh nghiệp · Website bán hàng · Landing page | My Agent"
+ },
+ "/dich-vu/thiet-ke-website-doanh-nghiep.html": {
+  "image": "/assets/og/og-dich-vu-thiet-ke-website-doanh-nghiep-my-agent.jpg",
+  "alt": "Thiết kế website doanh nghiệp – Cấu trúc dịch vụ rõ ràng, giao diện theo thương hiệu | My Agent"
+ },
+ "/dich-vu/thiet-ke-landing-page.html": {
+  "image": "/assets/og/og-dich-vu-thiet-ke-landing-page-my-agent.jpg",
+  "alt": "Thiết kế landing page – Thông điệp tập trung, form liên hệ rõ ràng | My Agent"
+ },
+ "/dich-vu/thiet-ke-website-ban-hang.html": {
+  "image": "/assets/og/og-dich-vu-thiet-ke-website-ban-hang-my-agent.jpg",
+  "alt": "Thiết kế website bán hàng – Danh mục sản phẩm, giỏ hàng, đơn hàng, quản trị nội dung | My Agent"
+ },
+ "/dich-vu/thiet-ke-app.html": {
+  "image": "/assets/og/og-dich-vu-thiet-ke-app-my-agent.jpg",
+  "alt": "Thiết kế app iOS, Android – App bán hàng, đặt lịch, MVP, báo giá theo màn hình và tính năng | My Agent"
+ },
+ "/dich-vu/phan-mem-noi-bo.html": {
+  "image": "/assets/og/og-dich-vu-phan-mem-noi-bo-my-agent.jpg",
+  "alt": "Web app & phần mềm nội bộ – Dashboard, CRM nhỏ, cổng khách hàng chạy trên trình duyệt | My Agent"
+ },
+ "/dich-vu/hosting-seo.html": {
+  "image": "/assets/og/og-dich-vu-hosting-seo-my-agent.jpg",
+  "alt": "Hosting SEO – SSD NVMe, sao lưu tự động, hỗ trợ kỹ thuật | My Agent"
+ },
+ "/dich-vu/ten-mien.html": {
+  "image": "/assets/og/og-dich-vu-ten-mien-my-agent.jpg",
+  "alt": "Đăng ký tên miền – .com, .net, .vn đứng tên doanh nghiệp, hỗ trợ trỏ DNS | My Agent"
+ },
+ "/dich-vu/email-doanh-nghiep.html": {
+  "image": "/assets/og/og-dich-vu-email-doanh-nghiep-my-agent.jpg",
+  "alt": "Email doanh nghiệp – Email theo tên miền riêng, hỗ trợ cài đặt | My Agent"
+ },
+ "/dich-vu/cham-soc-website.html": {
+  "image": "/assets/og/og-dich-vu-cham-soc-website-my-agent.jpg",
+  "alt": "Chăm sóc website – Cập nhật nội dung, sao lưu, vá bảo mật hằng tháng | My Agent"
+ },
+ "/dich-vu/seo-tong-the.html": {
+  "image": "/assets/og/og-dich-vu-seo-tong-the-my-agent.jpg",
+  "alt": "SEO tổng thể – Tối ưu kỹ thuật và nội dung, báo cáo minh bạch | My Agent"
+ },
+ "/dich-vu/quang-cao-google-facebook.html": {
+  "image": "/assets/og/og-dich-vu-quang-cao-google-facebook-my-agent.jpg",
+  "alt": "Quảng cáo Google, Facebook – Nhắm đúng người đang có nhu cầu | My Agent"
+ },
+ "/dich-vu/traffic-user.html": {
+  "image": "/assets/og/og-dich-vu-traffic-user-my-agent.jpg",
+  "alt": "Traffic User – Lượt truy cập từ người dùng thật cho website | My Agent"
+ },
+ "/dich-vu/google-maps.html": {
+  "image": "/assets/og/og-dich-vu-google-maps-my-agent.jpg",
+  "alt": "Google Maps doanh nghiệp – Tạo, xác minh và tối ưu hồ sơ doanh nghiệp | My Agent"
+ },
+ "/dich-vu/cham-soc-fanpage.html": {
+  "image": "/assets/og/og-dich-vu-cham-soc-fanpage-my-agent.jpg",
+  "alt": "Chăm sóc Fanpage – Nội dung đều đặn cho Fanpage doanh nghiệp | My Agent"
+ },
+ "/dich-vu/zalo-oa-mini-app.html": {
+  "image": "/assets/og/og-dich-vu-zalo-oa-mini-app-my-agent.jpg",
+  "alt": "Zalo OA & Mini App – Tương tác trực tiếp với khách hàng trên Zalo | My Agent"
+ },
+ "/dich-vu/video-ai.html": {
+  "image": "/assets/og/og-dich-vu-video-ai-my-agent.jpg",
+  "alt": "Edit video & Video AI – Dựng video đủ khung hình cho mọi nền tảng | My Agent"
+ },
+ "/dich-vu/profile-doanh-nghiep.html": {
+  "image": "/assets/og/og-dich-vu-profile-doanh-nghiep-my-agent.jpg",
+  "alt": "Profile doanh nghiệp – Thiết kế hồ sơ năng lực gửi đối tác | My Agent"
+ },
+ "/dich-vu/phan-tich-du-lieu.html": {
+  "image": "/assets/og/og-dich-vu-phan-tich-du-lieu-my-agent.jpg",
+  "alt": "Data Analyst – Phân tích dữ liệu – Gom dữ liệu bán hàng, quảng cáo thành báo cáo, dashboard | My Agent"
+ },
+ "/dich-vu/ky-thuat-du-lieu.html": {
+  "image": "/assets/og/og-dich-vu-ky-thuat-du-lieu-my-agent.jpg",
+  "alt": "Data Engineer – Kỹ thuật dữ liệu – Kết nối dữ liệu về một nơi, tự động cập nhật | My Agent"
+ },
+ "/dich-vu/bo-cong-thuong.html": {
+  "image": "/assets/og/og-dich-vu-bo-cong-thuong-my-agent.jpg",
+  "alt": "Đăng ký Bộ Công Thương – Thông báo, đăng ký website đúng quy định | My Agent"
+ }
+}
