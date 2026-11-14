@@ -8,4 +8,6 @@ insight: "Nếu web hoặc phần mềm của bạn tự gửi tin Zalo cho khá
 sources:
   - name: "Zalo Business Solutions"
     url: https://zalo.solutions/news/thong-bao-vv-cap-nhat-co-che-cua-zbs-template-message-/eou7dloqfopa2puvj2h0e9wy
+image: assets/news/zbs-khung-gio-gui-tin-cover.webp
+image_alt: "Ảnh đại diện tin: Tin nhắn mẫu ZBS chỉ được gửi tin chăm sóc, hậu mãi từ 7h đến 22h, nền tối với biểu tượng kính teal của My Agent"
 ---

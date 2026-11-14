@@ -8,4 +8,6 @@ insight: "Nếu lượt truy cập từ Google giảm cuối tháng 9 đến đ�
 sources:
   - name: "Google Search Status Dashboard"
     url: https://status.search.google.com/products/rGHU1u87FJnkP6W2GwMi/history
+image: assets/news/google-spam-update-09-2026-cover.webp
+image_alt: "Ảnh đại diện tin: Google hoàn tất đợt cập nhật spam tháng 9/2026 sau gần 14 ngày, nền tối với biểu tượng kính teal của My Agent"
 ---

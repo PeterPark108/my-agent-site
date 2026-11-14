@@ -8,4 +8,6 @@ insight: "Chủ website có thể chủ động chọn đoạn nào được tr�
 sources:
   - name: "Google Search Central"
     url: https://developers.google.com/search/updates
+image: assets/news/google-search-control-docs-cover.webp
+image_alt: "Ảnh đại diện tin: Google cập nhật tài liệu kiểm soát nội dung chia sẻ với Google Search, nền tối với biểu tượng kính teal của My Agent"
 ---

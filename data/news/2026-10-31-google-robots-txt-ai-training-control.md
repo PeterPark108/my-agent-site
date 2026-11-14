@@ -9,6 +9,8 @@ sources:
   - name: Google Search Central Blog – Supporting a shared AI training control for websites
     url: https://developers.google.com/search/blog/2026/10/ai-training-control
     date: 2026-10-30
+image: assets/news/google-robots-txt-ai-training-control-cover.webp
+image_alt: "Ảnh bìa tin Google sẽ hỗ trợ lệnh chung chặn AI huấn luyện, nền tối với biểu tượng kính teal"
 ---
 ## Có gì mới
 
@@ -17,6 +19,8 @@ Ngày 30/10/2026, nhóm Google Search Central công bố kế hoạch hỗ trợ
 Đề xuất này dựa trên kết quả của nhóm làm việc AIPREF thuộc IETF, tổ chức xây dựng tiêu chuẩn kỹ thuật cho Internet. Bài viết do John Mueller (Google Search Advocate) đăng tải.
 
 ## Cơ chế dự kiến hoạt động ra sao
+
+![Cơ chế tín hiệu chung trong robots.txt: một mã chính sách dùng chung cho nhiều nhà cung cấp AI, vẫn song song với lệnh riêng từng hãng](../assets/news/google-robots-txt-ai-training-control-co-che.webp)
 
 - Nếu robots.txt dùng mã chung này để **từ chối huấn luyện AI**, và website không khai báo riêng cho **Google-Extended**, Google sẽ hiểu như thể website đã chặn Google-Extended. Google-Extended là cách kiểm soát việc huấn luyện AI mà Google cung cấp từ năm 2023.
 - Các cách kiểm soát riêng của từng công ty vẫn tiếp tục hoạt động song song. Nghĩa là có thể đặt một lựa chọn chung cho tất cả, rồi tinh chỉnh riêng cho từng nhà cung cấp.
@@ -27,6 +31,8 @@ Ngày 30/10/2026, nhóm Google Search Central công bố kế hoạch hỗ trợ
 Đây vẫn là bản đề xuất nháp. Google cho biết đặt mục tiêu hỗ trợ cùng các nhà cung cấp AI khác trong **năm 2027** và sẽ tiếp tục chuẩn hoá qua nhóm làm việc tại IETF. Theo Google, đề xuất phù hợp với Bộ quy tắc thực hành dành cho mô hình AI đa dụng theo Đạo luật AI của EU, vốn coi robots.txt là cách chính để chủ website thể hiện mong muốn theo dạng máy đọc được.
 
 ## Doanh nghiệp nhỏ nên làm gì
+
+![Checklist cho chủ website nhỏ: chưa cần sửa robots.txt ngay, kiểm tra file hiện tại, phân biệt chặn AI huấn luyện với chặn Google Search, và theo dõi cập nhật năm 2027](../assets/news/google-robots-txt-ai-training-control-viec-nen-lam.webp)
 
 1. **Chưa cần thay đổi gì ngay.** Mã chính sách chung chưa được áp dụng; thêm vào bây giờ có thể chưa có tác dụng.
 2. **Kiểm tra robots.txt hiện tại** để biết website đang cho phép hay chặn những gì. Một dòng chặn sai có thể khiến trang không được thu thập trên Google Search.

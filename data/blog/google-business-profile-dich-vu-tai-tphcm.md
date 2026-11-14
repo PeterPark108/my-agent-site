@@ -6,6 +6,8 @@ description: "Hướng dẫn tạo và tối ưu Google Business Profile cho d�
 category: marketing
 tags: [google business profile, google maps, seo địa phương, tp.hcm]
 services: [google-maps, seo-tong-the, thiet-ke-website]
+image: assets/blog/google-business-profile-dich-vu-tai-tphcm-cover.webp
+image_alt: "Ảnh bìa bài Google Business Profile cho dịch vụ tại TP.HCM, nền tối với biểu tượng kính teal của My Agent"
 ---
 ## Google Business Profile là gì?
 
@@ -15,6 +17,8 @@ Google Business Profile (trước đây gọi là Google My Business) là hồ s
 
 Google phân biệt cơ sở có địa điểm khách đến trực tiếp và cơ sở phục vụ tận nơi (service-area business). Nếu anh/chị gặp khách tại nhà khách hoặc văn phòng của khách mà không có cửa hàng đón khách, nên chọn dạng phục vụ tận nơi, ẩn địa chỉ và khai báo khu vực phục vụ, ví dụ TP.HCM hoặc một số quận. Cách thiết lập có trong [hướng dẫn về khu vực phục vụ của Google](https://support.google.com/business/answer/9157481).
 
+![Hai loại hồ sơ Google Business Profile: cơ sở có địa điểm khách đến trực tiếp, và cơ sở phục vụ tận nơi cần ẩn địa chỉ](../assets/blog/google-business-profile-dich-vu-tai-tphcm-loai-ho-so.webp)
+
 ## Điền thông tin đúng quy định
 
 Google có [nguyên tắc thể hiện doanh nghiệp](https://support.google.com/business/answer/3038177) khá rõ:
@@ -23,6 +27,8 @@ Google có [nguyên tắc thể hiện doanh nghiệp](https://support.google.co
 - **Danh mục:** chọn một danh mục chính mô tả sát nhất, thêm vài danh mục phụ nếu đúng.
 - **Số điện thoại và website:** thống nhất với thông tin trên website và các trang mạng xã hội.
 - **Giờ làm việc:** ghi giờ thật, cập nhật khi nghỉ lễ.
+
+![Checklist điền hồ sơ Google Business Profile đúng quy định: tên thương hiệu thật, danh mục sát, số điện thoại và website thống nhất, giờ làm việc đúng thực tế](../assets/blog/google-business-profile-dich-vu-tai-tphcm-thong-tin.webp)
 
 Vi phạm nguyên tắc có thể khiến hồ sơ bị tạm ngưng, nên làm đúng ngay từ đầu sẽ đỡ mất công hơn.
 
@@ -36,6 +42,8 @@ Hồ sơ cần được xác minh trước khi hiển thị đầy đủ. Google
 - Viết phần mô tả ngắn gọn về dịch vụ, khu vực phục vụ và cách liên hệ.
 - Mời khách đã dùng dịch vụ để lại đánh giá thật, và trả lời lịch sự mọi đánh giá. Google cấm mua hoặc tạo đánh giá giả.
 - Thêm bài cập nhật khi có dịch vụ mới hay thông báo nghỉ.
+
+![Ba việc giữ hồ sơ Google Business Profile luôn sống: ảnh thật, mô tả và đánh giá, cùng thông tin khớp với website](../assets/blog/google-business-profile-dich-vu-tai-tphcm-giu-ho-so.webp)
 
 ## Kết nối với website
 

@@ -5,8 +5,12 @@ description: "Tốc độ website cơ bản cho doanh nghiệp nhỏ: cách tự
 category: website
 tags: [tốc độ website, doanh nghiệp nhỏ, tối ưu web, chăm sóc website]
 services: [thiet-ke-website, cham-soc-website, hosting-seo, seo-tong-the]
+image: assets/blog/toc-do-website-co-ban-cho-doanh-nghiep-nho-cover.webp
+image_alt: "Ảnh bìa bài Tốc độ website cơ bản cho doanh nghiệp nhỏ, nền tối với biểu tượng kính teal của My Agent"
 ---
 Website mở chậm khiến khách dễ bỏ đi trước khi xem dịch vụ hay bấm liên hệ. Điều này đúng với hầu hết doanh nghiệp nhỏ: cửa hàng, phòng khám, quán ăn, xưởng sản xuất hay văn phòng dịch vụ đều dùng web để giới thiệu và nhận yêu cầu. Bài này gom lại các việc cơ bản để anh/chị tự kiểm tra và cải thiện tốc độ, không cần đi sâu kỹ thuật.
+
+![Checklist bảy việc cơ bản để tự kiểm tra và cải thiện tốc độ website, từ đo hiện trạng, nén ảnh, hosting, plugin, bộ nhớ đệm, bản điện thoại đến câu hỏi khi thuê làm web](../assets/blog/toc-do-website-co-ban-cho-doanh-nghiep-nho-7-viec.webp)
 
 ## Vì sao tốc độ website quan trọng với doanh nghiệp nhỏ
 
@@ -27,6 +31,8 @@ Nên kiểm tra trang chủ và một trang quan trọng khác (dịch vụ, s�
 ## Việc 2: Giảm dung lượng ảnh và media
 
 Ảnh lớn là nguyên nhân phổ biến khiến website chậm. Một số việc anh/chị hoặc đơn vị làm web có thể làm:
+
+![Ba nhóm việc giúp giảm dung lượng ảnh và media: nén ảnh, dùng đúng kích thước hiển thị và không tự phát video nặng trên trang chủ](../assets/blog/toc-do-website-co-ban-cho-doanh-nghiep-nho-anh.webp)
 
 - Nén ảnh trước khi đăng; ưu tiên định dạng hiện đại như WebP khi hệ thống hỗ trợ.
 - Không tải ảnh quá rộng so với chỗ hiển thị (ví dụ ảnh banner không cần rộng hàng nghìn pixel nếu khung chỉ hẹp).
@@ -66,6 +72,8 @@ Nếu anh/chị đang dùng dịch vụ [chăm sóc website](../dich-vu/cham-soc
 ## Việc 6: Ưu tiên trải nghiệm trên điện thoại
 
 Phần lớn khách doanh nghiệp nhỏ đến từ điện thoại. Khi tối ưu tốc độ, hãy ưu tiên bản mobile trong PageSpeed Insights và tự mở thử:
+
+![Checklist ưu tiên bản điện thoại khi tối ưu tốc độ: chữ đọc được ngay, nút liên hệ hiện sớm và trang không bị kéo ngang](../assets/blog/toc-do-website-co-ban-cho-doanh-nghiep-nho-dien-thoai.webp)
 
 - Chữ đọc được ngay, không phải chờ ảnh lớn mới thấy tiêu đề.
 - Nút gọi điện, Zalo, form liên hệ hiện sớm và bấm được.

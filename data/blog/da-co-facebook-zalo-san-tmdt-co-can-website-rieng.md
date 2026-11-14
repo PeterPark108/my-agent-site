@@ -5,6 +5,8 @@ description: "Doanh nghiệp nhỏ đã bán qua Facebook, Zalo, sàn thương m
 category: website
 tags: [website riêng, doanh nghiệp nhỏ, bán hàng đa kênh, thiết kế web giá rẻ]
 services: [thiet-ke-website, ten-mien, google-maps, cham-soc-website]
+image: assets/blog/da-co-facebook-zalo-san-tmdt-co-can-website-rieng-cover.webp
+image_alt: "Ảnh bìa bài Đã có Facebook, Zalo, sàn TMĐT, có cần website riêng?, nền tối với biểu tượng kính teal của My Agent"
 ---
 Nhiều doanh nghiệp nhỏ đã có Fanpage Facebook, Zalo và gian hàng trên sàn thương mại điện tử, rồi tự hỏi: vậy có cần làm thêm website riêng không? Câu trả lời ngắn: không bắt buộc, nhưng website riêng giải quyết vài việc mà các nền tảng không làm thay được. Bài này đi qua 7 ý ngắn để anh/chị tự quyết định.
 
@@ -19,12 +21,16 @@ Facebook, Zalo và sàn thương mại điện tử có sẵn người dùng, c�
 - **Phụ thuộc chính sách:** thay đổi thuật toán, quy định hay việc tài khoản bị hạn chế đều nằm ngoài tay anh/chị.
 - **Khó kể câu chuyện riêng:** trang gian hàng có khuôn mẫu chung, khó thể hiện thương hiệu, quy trình làm việc hay điểm khác biệt.
 
+![Bốn giới hạn khi chỉ dựa vào Facebook, Zalo hay sàn: phí và hoa hồng, không giữ thông tin khách, phụ thuộc chính sách, và khó kể câu chuyện riêng](../assets/blog/da-co-facebook-zalo-san-tmdt-co-can-website-rieng-gioi-han.webp)
+
 ## Ý 3: Website riêng giúp được gì?
 
 - **Kênh liên hệ trực tiếp:** khách cũ, khách được giới thiệu hoặc khách tìm tên doanh nghiệp trên Google có chỗ để liên hệ thẳng.
 - **Tăng độ tin cậy:** ví dụ khách tìm một phòng khám trên Google, gặp website có thông tin, địa chỉ, chính sách rõ ràng thì yên tâm hơn.
 - **Tự chủ nội dung:** giới thiệu dịch vụ, câu hỏi thường gặp, hướng dẫn theo cách của mình.
 - **Gom các kênh về một chỗ:** một địa chỉ chứa link Zalo, Fanpage, Google Maps và gian hàng trên sàn.
+
+![Bốn việc website riêng giúp được: kênh liên hệ trực tiếp, tăng độ tin cậy, tự chủ nội dung và gom các kênh về một chỗ](../assets/blog/da-co-facebook-zalo-san-tmdt-co-can-website-rieng-loi-ich.webp)
 
 ## Ý 4: Khi nào nên làm, khi nào chưa cần?
 
@@ -40,6 +46,8 @@ Facebook, Zalo và sàn thương mại điện tử có sẵn người dùng, c�
 4. Chính sách đổi trả, bảo hành hoặc điều khoản rõ ràng.
 5. Bản đồ và thông tin liên hệ.
 6. Tên miền riêng có HTTPS.
+
+![Checklist website tối thiểu: trang chủ, trang dịch vụ hoặc sản phẩm, form hoặc nút Zalo, chính sách rõ, bản đồ và tên miền riêng có HTTPS](../assets/blog/da-co-facebook-zalo-san-tmdt-co-can-website-rieng-toi-thieu.webp)
 
 Muốn biết thêm tiêu chí chung, xem bài [website chuyên nghiệp cần gì](website-chuyen-nghiep-can-gi.html) và [thiết kế web trọn gói gồm những gì](thiet-ke-web-tron-goi-gom-nhung-gi.html).
 

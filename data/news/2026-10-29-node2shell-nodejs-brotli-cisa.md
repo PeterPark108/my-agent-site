@@ -18,6 +18,8 @@ sources:
   - name: Akamai Security Research
     url: https://www.akamai.com/blog/security-research/inside-node2shell-closer-look-cve-2026-111497
     date: 2026-10-26
+image: assets/news/node2shell-nodejs-brotli-cisa-cover.webp
+image_alt: "Ảnh bìa tin Lỗ hổng Node2Shell trong Node.js bị CISA xác nhận đang bị khai thác, nền tối với biểu tượng kính teal"
 ---
 ## Chuyện gì đã xảy ra
 
@@ -31,11 +33,15 @@ Ngày 27/10/2026, CISA đưa lỗ hổng vào danh mục KEV – nơi liệt kê
 
 Thư viện Brotli gốc từ bản 1.0.3 đến 1.2.0 đều có lỗi, nên ngoài Node.js, nhiều sản phẩm khác như Bun, Envoy, Istio cũng đã phát hành bản sửa. Với Node.js, các bản đã vá là **22.23.4**, **24.22.1** và **26.12.1**. Các dòng đã ngừng hỗ trợ không nhận bản vá; Node.js lưu ý phiên bản hết hạn luôn được coi là bị ảnh hưởng.
 
+![Ai bị ảnh hưởng bởi Node2Shell: lỗi nằm ở bộ giải nén Brotli đi kèm Node.js, có thể bị lộ cả khi code không gọi trực tiếp, và các bản đã vá là 22.23.4, 24.22.1 và 26.12.1](../assets/news/node2shell-nodejs-brotli-cisa-anh-huong.webp)
+
 Theo phân tích của Akamai, ứng dụng vẫn có thể bị lộ ngay cả khi lập trình viên không trực tiếp gọi hàm giải nén Brotli, ví dụ khi nhận phản hồi qua `fetch()` có sẵn hoặc khi Express 5 đọc nội dung yêu cầu được nén.
 
 Cùng đợt cập nhật này, Node.js còn sửa thêm một số lỗi khác liên quan tới kiểm tra chứng chỉ TLS và phân giải DNS, nên nâng cấp đủ bản mới là cách gọn nhất.
 
 ## Doanh nghiệp nhỏ nên làm gì
+
+![Checklist khi máy chủ chạy Node.js: hỏi đơn vị làm web hoặc tự kiểm tra phiên bản, nâng cấp bản vá, đừng quên ảnh Docker và máy phụ, rồi theo dõi nhật ký tiến trình](../assets/news/node2shell-nodejs-brotli-cisa-viec-nen-lam.webp)
 
 1. Hỏi đơn vị làm web hoặc tự kiểm tra xem website, API, công cụ nội bộ có chạy Node.js không (lệnh `node -v` trên máy chủ).
 2. Nâng cấp lên bản vá tương ứng; nếu đang dùng dòng đã hết hỗ trợ thì chuyển sang dòng còn được hỗ trợ. Nên thử trên bản thử và sao lưu trước.

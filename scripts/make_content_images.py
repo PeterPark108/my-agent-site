@@ -549,6 +549,329 @@ def batch1_specs():
          "items": ["Cập nhật hệ thống lưu trữ mạng", "Bật cập nhật tự động nếu có", "Không mở trang quản trị ra Internet", "Giữ thêm bản sao lưu tách rời", "Kiểm tra tài khoản được cấp quyền", "Thử phục hồi bản sao một lần"]},
     ]
 
+
+def batch2_specs():
+    """Đợt 2: 9 blog còn lại + 7 tin article + 9 ảnh bìa cho thẻ type:link. Không gồm og-image.png."""
+    C, B = list(COVER), list(BODY)
+    return [
+        # ----- blog 6: tốc độ -----
+        {"id": "b6-cover", "out": "assets/blog/toc-do-website-co-ban-cho-doanh-nghiep-nho-cover.webp", "size": C, "kind": "cover",
+         "kicker": "My Agent · Blog", "title": "Tốc độ website cơ bản cho doanh nghiệp nhỏ",
+         "subtitle": "Tự kiểm tra, nén ảnh, bớt plugin, bật cache, ưu tiên điện thoại.", "icon": "clock"},
+        {"id": "b6-viec", "out": "assets/blog/toc-do-website-co-ban-cho-doanh-nghiep-nho-7-viec.webp", "size": B, "kind": "checklist",
+         "kicker": "Bảy việc cơ bản", "title": "Làm lần lượt, không cần sửa sâu ngay",
+         "icon": "clock",
+         "items": ["Tự đo tốc độ trước khi sửa", "Giảm dung lượng ảnh và media", "Chọn hosting phù hợp", "Bớt plugin và mã nhúng thừa", "Bật bộ nhớ đệm hợp lý", "Ưu tiên trải nghiệm trên điện thoại", "Hỏi rõ khi thuê làm web"]},
+        {"id": "b6-anh", "out": "assets/blog/toc-do-website-co-ban-cho-doanh-nghiep-nho-anh.webp", "size": B, "kind": "cards",
+         "kicker": "Việc 2", "title": "Ảnh lớn thường làm trang chậm",
+         "items": [
+            ("image", "Nén ảnh", "Ưu tiên WebP khi hệ thống hỗ trợ"),
+            ("devices", "Đúng kích thước", "Không tải ảnh rộng hơn chỗ hiện"),
+            ("growth", "Ít media thừa", "Bỏ video và slider không cần"),
+         ]},
+        {"id": "b6-mobile", "out": "assets/blog/toc-do-website-co-ban-cho-doanh-nghiep-nho-dien-thoai.webp", "size": B, "kind": "checklist",
+         "kicker": "Việc 6", "title": "Ưu tiên bản điện thoại khi tối ưu",
+         "icon": "phone",
+         "items": ["Chữ đọc được ngay, không chờ ảnh lớn", "Nút gọi, Zalo, form hiện sớm", "Trang không bị kéo ngang", "Đo bằng mạng di động, tắt Wi-Fi thử", "Xem gợi ý bản mobile trên PageSpeed", "Thử bấm liên hệ bằng chính điện thoại mình"]},
+
+        # ----- blog 7: GA -----
+        {"id": "b7-cover", "out": "assets/blog/do-luong-website-bang-google-analytics-co-ban-cover.webp", "size": C, "kind": "cover",
+         "kicker": "My Agent · Blog", "title": "Đo lường website bằng Google Analytics cơ bản",
+         "subtitle": "Cài đúng, tự giữ quyền, xem nguồn truy cập và sự kiện quan trọng.", "icon": "data"},
+        {"id": "b7-muc-tieu", "out": "assets/blog/do-luong-website-bang-google-analytics-co-ban-muc-tieu.webp", "size": B, "kind": "cards",
+         "kicker": "Việc 1", "title": "Xác định trước điều mình muốn biết",
+         "items": [
+            ("search", "Website để làm gì", "Giới thiệu, nhận liên hệ hay đặt lịch"),
+            ("form", "Hành động quan trọng", "Gọi điện, Zalo, form, đặt mua"),
+            ("calendar", "Số liệu theo tháng", "Chỉ theo dõi vài con số thật sự cần"),
+         ]},
+        {"id": "b7-su-kien", "out": "assets/blog/do-luong-website-bang-google-analytics-co-ban-su-kien.webp", "size": B, "kind": "cards",
+         "kicker": "Việc 5", "title": "Đánh dấu hành động có giá trị",
+         "items": [
+            ("form", "Gửi form", "Yêu cầu liên hệ"),
+            ("phone", "Bấm gọi điện", "Mở đúng số"),
+            ("chat", "Bấm Zalo", "Đúng tài khoản"),
+            ("calendar", "Đặt lịch", "Khi website có lịch"),
+         ]},
+        {"id": "b7-nhip", "out": "assets/blog/do-luong-website-bang-google-analytics-co-ban-nhip-thang.webp", "size": B, "kind": "checklist",
+         "kicker": "Việc 6", "title": "Đọc số liệu định kỳ, rồi mới hành động",
+         "icon": "calendar",
+         "items": ["Xem hằng tháng, không cần mỗi ngày", "Người dùng và trang xem nhiều", "Nguồn truy cập chính", "Số sự kiện quan trọng", "So sánh với tháng trước", "Ghi vài dòng nhận xét rồi chỉnh trang"]},
+
+        # ----- blog 8: bảo mật -----
+        {"id": "b8-cover", "out": "assets/blog/bao-mat-website-co-ban-cho-doanh-nghiep-nho-cover.webp", "size": C, "kind": "cover",
+         "kicker": "My Agent · Blog", "title": "Bảo mật website cơ bản cho doanh nghiệp nhỏ",
+         "subtitle": "HTTPS, cập nhật, mật khẩu mạnh, 2FA, sao lưu và phân quyền.", "icon": "lock"},
+        {"id": "b8-7viec", "out": "assets/blog/bao-mat-website-co-ban-cho-doanh-nghiep-nho-7-viec.webp", "size": B, "kind": "checklist",
+         "kicker": "Bảy việc nên làm", "title": "Không an toàn tuyệt đối, nhưng giảm rủi ro rõ",
+         "icon": "shield",
+         "items": ["Bật HTTPS cho toàn bộ website", "Cập nhật phần mềm, giao diện, plugin", "Mật khẩu mạnh và xác thực hai bước", "Sao lưu định kỳ và thử khôi phục", "Phân quyền tài khoản rõ ràng", "Bảo vệ form liên hệ khỏi spam", "Biết ai xử lý khi có sự cố"]},
+        {"id": "b8-taikhoan", "out": "assets/blog/bao-mat-website-co-ban-cho-doanh-nghiep-nho-tai-khoan.webp", "size": B, "kind": "cards",
+         "kicker": "Việc 3", "title": "Tài khoản quản trị là chìa khóa",
+         "items": [
+            ("key", "Mật khẩu riêng", "Dài, không dùng chung, lưu ở trình quản lý"),
+            ("lock", "Xác thực hai bước", "Bật ở web, hosting, tên miền, email"),
+            ("profile", "Không dùng chung tài khoản", "Mỗi người một tài khoản"),
+         ]},
+        {"id": "b8-saoluu", "out": "assets/blog/bao-mat-website-co-ban-cho-doanh-nghiep-nho-sao-luu.webp", "size": B, "kind": "flow",
+         "kicker": "Việc 4", "title": "Sao lưu chỉ có ích khi phục hồi được",
+         "nodes": [("backup", "Sao lưu mã và dữ liệu"), ("cloud", "Giữ thêm bản tách khỏi hosting"), ("refresh", "Thử khôi phục một lần")]},
+
+        # ----- blog 9: Facebook / Zalo / sàn -----
+        {"id": "b9-cover", "out": "assets/blog/da-co-facebook-zalo-san-tmdt-co-can-website-rieng-cover.webp", "size": C, "kind": "cover",
+         "kicker": "My Agent · Blog", "title": "Đã có Facebook, Zalo, sàn TMĐT, có cần website riêng?",
+         "subtitle": "Không bắt buộc, nhưng website làm được vài việc nền tảng không làm thay.", "icon": "website"},
+        {"id": "b9-gioi-han", "out": "assets/blog/da-co-facebook-zalo-san-tmdt-co-can-website-rieng-gioi-han.webp", "size": B, "kind": "cards",
+         "kicker": "Ý 2", "title": "Giới hạn khi chỉ dựa vào nền tảng",
+         "items": [
+            ("legal", "Phí và hoa hồng", "Tùy nền tảng và gói đang dùng"),
+            ("profile", "Khó giữ dữ liệu khách", "Lịch sử nằm trên nền tảng"),
+            ("warning", "Phụ thuộc một kênh", "Thay đổi chính sách là bị ảnh hưởng"),
+         ]},
+        {"id": "b9-loi-ich", "out": "assets/blog/da-co-facebook-zalo-san-tmdt-co-can-website-rieng-loi-ich.webp", "size": B, "kind": "cards",
+         "kicker": "Ý 3", "title": "Website riêng giúp được gì",
+         "items": [
+            ("phone", "Liên hệ trực tiếp", "Khách tìm tên doanh nghiệp rồi gọi"),
+            ("check", "Tăng độ tin cậy", "Thông tin, địa chỉ, chính sách rõ"),
+            ("doc", "Tự chủ nội dung", "Sửa khi việc thay đổi, không chờ nền tảng"),
+         ]},
+        {"id": "b9-toi-thieu", "out": "assets/blog/da-co-facebook-zalo-san-tmdt-co-can-website-rieng-toi-thieu.webp", "size": B, "kind": "checklist",
+         "kicker": "Ý 5", "title": "Website tối thiểu cần những gì",
+         "icon": "home",
+         "items": ["Trang chủ: làm gì, cho ai", "Trang dịch vụ hoặc sản phẩm", "Form liên hệ hoặc nút Zalo", "Chính sách đổi trả / bảo hành", "Bản đồ và thông tin liên hệ", "Tên miền riêng có HTTPS"]},
+
+        # ----- blog 10: GBP -----
+        {"id": "b10-cover", "out": "assets/blog/google-business-profile-dich-vu-tai-tphcm-cover.webp", "size": C, "kind": "cover",
+         "kicker": "My Agent · Blog", "title": "Google Business Profile cho dịch vụ tại TP.HCM",
+         "subtitle": "Tên đúng, danh mục sát, khu vực phục vụ rõ, ảnh thật, đánh giá thật.", "icon": "search"},
+        {"id": "b10-loai", "out": "assets/blog/google-business-profile-dich-vu-tai-tphcm-loai-ho-so.webp", "size": B, "kind": "compare",
+         "kicker": "Chọn đúng loại hồ sơ", "title": "Có chỗ khách đến, hay phục vụ tận nơi",
+         "cols": [
+            {"icon": "home", "title": "Có địa điểm đón khách", "points": ["Cửa hàng, phòng khám, văn phòng", "Hiện địa chỉ trên Maps", "Khách có thể chỉ đường tới"]},
+            {"icon": "network", "title": "Phục vụ tận nơi", "points": ["Gặp khách tại nhà hoặc công trình", "Ẩn địa chỉ, khai khu vực phục vụ", "Ví dụ một hoặc vài quận ở TP.HCM"]},
+         ]},
+        {"id": "b10-thong-tin", "out": "assets/blog/google-business-profile-dich-vu-tai-tphcm-thong-tin.webp", "size": B, "kind": "checklist",
+         "kicker": "Điền đúng quy định", "title": "Tên, danh mục và thông tin phải thật",
+         "icon": "profile",
+         "items": ["Tên đúng thương hiệu, không nhồi từ khóa", "Một danh mục chính sát việc đang làm", "Giờ mở cửa và cách liên hệ khớp thực tế", "Khu vực phục vụ khai đúng", "Ảnh thật về công việc, không lấy trên mạng", "Không mua hoặc tạo đánh giá giả"]},
+        {"id": "b10-song", "out": "assets/blog/google-business-profile-dich-vu-tai-tphcm-giu-ho-so.webp", "size": B, "kind": "cards",
+         "kicker": "Giữ hồ sơ luôn sống", "title": "Cập nhật đều, thông tin khớp với website",
+         "items": [
+            ("image", "Ảnh thật", "Công việc và đội ngũ"),
+            ("chat", "Trả lời đánh giá", "Lịch sự, cả đánh giá chưa tốt"),
+            ("link", "Khớp với website", "Tên, điện thoại, khu vực phục vụ"),
+         ]},
+
+        # ----- blog 11: checklist SEO -----
+        {"id": "b11-cover", "out": "assets/blog/checklist-seo-co-ban-cho-website-cover.webp", "size": C, "kind": "cover",
+         "kicker": "My Agent · Blog", "title": "Checklist SEO cơ bản cho website doanh nghiệp nhỏ",
+         "subtitle": "Mỗi trang một chủ đề, title riêng, liên kết nội bộ, sitemap, Search Console.", "icon": "seo"},
+        {"id": "b11-noidung", "out": "assets/blog/checklist-seo-co-ban-cho-website-noi-dung.webp", "size": B, "kind": "checklist",
+         "kicker": "Phần nội dung", "title": "Mỗi trang một chủ đề, title và mô tả riêng",
+         "icon": "doc",
+         "items": ["Ghi trang nào phục vụ cụm từ nào", "Không để hai trang cùng tranh một cụm", "Title riêng, nói đúng việc của trang", "Mô tả riêng, đủ để khách hiểu", "Tiêu đề trên trang khớp nội dung", "Chữ dễ đọc, trả lời đúng câu khách hỏi"]},
+        {"id": "b11-kythuat", "out": "assets/blog/checklist-seo-co-ban-cho-website-ky-thuat.webp", "size": B, "kind": "checklist",
+         "kicker": "Phần kỹ thuật", "title": "Nền tảng kỹ thuật tự kiểm được",
+         "icon": "software",
+         "items": ["Website chạy HTTPS, không báo lỗi", "Hiển thị tốt, bấm dễ trên điện thoại", "Ảnh được nén, có mô tả alt đúng", "Có sitemap và robots.txt", "Không chặn nhầm trang quan trọng", "Không có link hỏng dẫn tới trang lỗi"]},
+        {"id": "b11-theodoi", "out": "assets/blog/checklist-seo-co-ban-cho-website-theo-doi.webp", "size": B, "kind": "flow",
+         "kicker": "Liên kết và theo dõi", "title": "Dẫn nội bộ hợp lý, rồi rà bằng Search Console",
+         "nodes": [("link", "Liên kết bài và trang dịch vụ"), ("search", "Kết nối Search Console"), ("refresh", "Rà lại khi thêm trang")]},
+
+        # ----- blog 12: website chuyên nghiệp -----
+        {"id": "b12-cover", "out": "assets/blog/website-chuyen-nghiep-can-gi-cover.webp", "size": C, "kind": "cover",
+         "kicker": "My Agent · Blog", "title": "Website chuyên nghiệp cần những gì?",
+         "subtitle": "Mười tiêu chí tự kiểm được: rõ việc, dễ bấm, liên hệ được, nền tảng vững.", "icon": "check"},
+        {"id": "b12-10tieu-chi", "out": "assets/blog/website-chuyen-nghiep-can-gi-10-tieu-chi.webp", "size": B, "kind": "checklist",
+         "kicker": "Mười tiêu chí", "title": "Tự kiểm được, kể cả khi không rành kỹ thuật",
+         "icon": "check",
+         "items": ["Khách hiểu mình làm gì ngay khi mở trang", "Đẹp và dễ bấm trên điện thoại", "Nội dung rõ, thông tin kiểm chứng được", "Nút liên hệ hiện sớm, bấm được", "HTTPS, tốc độ chấp nhận được", "SEO nền tảng, sitemap, Search Console", "Form và chính sách rõ", "Ảnh thật, đúng việc", "Dễ cập nhật khi thông tin đổi", "Tên miền và tài khoản đứng đúng tên mình"]},
+        {"id": "b12-tukiem", "out": "assets/blog/website-chuyen-nghiep-can-gi-tu-kiem.webp", "size": B, "kind": "cards",
+         "kicker": "Tự kiểm thế nào", "title": "Ba việc làm được ngay trên điện thoại",
+         "items": [
+            ("phone", "Tự mở và bấm thử", "Gọi, Zalo, gửi form"),
+            ("clock", "Đo tốc độ", "PageSpeed Insights của Google"),
+            ("search", "Xem chỉ mục", "Google Search Console"),
+         ]},
+
+        # ----- blog 13: trọn gói -----
+        {"id": "b13-cover", "out": "assets/blog/thiet-ke-web-tron-goi-gom-nhung-gi-cover.webp", "size": C, "kind": "cover",
+         "kicker": "My Agent · Blog", "title": "Thiết kế web trọn gói gồm những gì?",
+         "subtitle": "Từ tư vấn, giao diện, bàn giao đến tên miền, hosting và chăm sóc.", "icon": "combo"},
+        {"id": "b13-buoc", "out": "assets/blog/thiet-ke-web-tron-goi-gom-nhung-gi-cac-buoc.webp", "size": B, "kind": "steps",
+         "kicker": "Các bước", "title": "Một dự án thiết kế web trọn gói đi thế nào",
+         "steps": ["Tư vấn và xác định mục tiêu", "Sơ đồ trang và wireframe", "Giao diện máy tính và điện thoại", "Lập trình, form, SEO cơ bản", "Bàn giao trên tên miền của mình"]},
+        {"id": "b13-ban-giao", "out": "assets/blog/thiet-ke-web-tron-goi-gom-nhung-gi-ban-giao.webp", "size": B, "kind": "checklist",
+         "kicker": "Khi bàn giao", "title": "Anh/chị nên nhận được những gì",
+         "icon": "care",
+         "items": ["Website chạy trên tên miền của mình, có HTTPS", "Giao diện cho máy tính và điện thoại", "Sitemap, robots.txt và thẻ SEO từng trang", "Form liên hệ gửi về email của mình", "Tài liệu hoặc buổi hướng dẫn cập nhật", "Quyền quản trị và mã nguồn sau khi thanh toán đủ"]},
+        {"id": "b13-kem", "out": "assets/blog/thiet-ke-web-tron-goi-gom-nhung-gi-phan-kem.webp", "size": B, "kind": "cards",
+         "kicker": "Phần đi kèm nên hỏi rõ", "title": "Nền móng không phải lúc nào cũng nằm trong gói thiết kế",
+         "items": [
+            ("domain", "Tên miền", "Đăng ký đứng tên mình"),
+            ("hosting", "Hosting", "Cấu hình và sao lưu rõ"),
+            ("mail", "Email theo tên miền", "Hỏi trước khi chốt gói"),
+         ]},
+
+        # ----- blog 14: chi phí -----
+        {"id": "b14-cover", "out": "assets/blog/chi-phi-lam-website-phu-thuoc-yeu-to-nao-cover.webp", "size": C, "kind": "cover",
+         "kicker": "My Agent · Blog", "title": "Chi phí làm website phụ thuộc vào yếu tố nào?",
+         "subtitle": "Loại web, số trang, tính năng, nội dung, tên miền, hosting và chăm sóc.", "icon": "growth"},
+        {"id": "b14-yeu-to", "out": "assets/blog/chi-phi-lam-website-phu-thuoc-yeu-to-nao-yeu-to.webp", "size": B, "kind": "cards",
+         "kicker": "Các yếu tố chính", "title": "Không có một con số chung cho mọi website",
+         "items": [
+            ("website", "Loại website", "Landing, giới thiệu hay bán hàng"),
+            ("doc", "Số trang, nội dung", "Ai chuẩn bị chữ và hình"),
+            ("software", "Tính năng", "Form cơ bản hay quản lý đơn"),
+            ("refresh", "Phạm vi chỉnh sửa", "Hỏi rõ số lần sửa trong gói"),
+         ]},
+        {"id": "b14-kem", "out": "assets/blog/chi-phi-lam-website-phu-thuoc-yeu-to-nao-chi-phi-kem.webp", "size": B, "kind": "cards",
+         "kicker": "Chi phí hay bị quên", "title": "Các khoản tính riêng, cần hỏi trước",
+         "items": [
+            ("domain", "Tên miền", "Thường tính theo năm, đứng tên mình"),
+            ("hosting", "Hosting / VPS", "Gia hạn và sao lưu"),
+            ("care", "Chăm sóc sau bàn giao", "Cập nhật, bảo hành, hỗ trợ"),
+         ]},
+        {"id": "b14-hoi", "out": "assets/blog/chi-phi-lam-website-phu-thuoc-yeu-to-nao-nen-hoi.webp", "size": B, "kind": "checklist",
+         "kicker": "Khi xem báo giá", "title": "Giá thấp không xấu, nếu biết mình nhận gì",
+         "icon": "legal",
+         "items": ["Có giao diện điện thoại không?", "Có HTTPS không?", "Có thẻ SEO và sitemap không?", "Ai sở hữu mã nguồn và tên miền?", "Bảo hành bao lâu?", "Giá đã gồm tên miền, hosting chưa? (My Agent: chưa, chưa bao gồm VAT)"]},
+
+        # ----- news articles -----
+        {"id": "n6-cover", "out": "assets/news/wordpress-7-1-4-ban-va-bao-mat-cover.webp", "size": C, "kind": "cover",
+         "kicker": "My Agent · Tin tức · Bảo mật", "title": "WordPress 7.1.4 vá nhiều lỗi bảo mật",
+         "subtitle": "Nên kiểm tra phiên bản và cập nhật, rồi rà lại tài khoản có quyền viết bài.", "icon": "software"},
+        {"id": "n6-loi", "out": "assets/news/wordpress-7-1-4-ban-va-bao-mat-loi-dang-chu-y.webp", "size": B, "kind": "cards",
+         "kicker": "Những lỗi đáng chú ý", "title": "Bản 7.1.4 sửa một loạt lỗ hổng, gồm lỗi lúc cập nhật lõi",
+         "items": [
+            ("warning", "Cập nhật lõi", "Thư mục giải nén có thể bị truy cập"),
+            ("lock", "Vá bảo mật", "Khuyến nghị cập nhật ngay"),
+            ("refresh", "Nhánh cũ", "Bản vá được đưa ngược về nhánh còn hỗ trợ"),
+         ]},
+        {"id": "n6-viec", "out": "assets/news/wordpress-7-1-4-ban-va-bao-mat-viec-nen-lam.webp", "size": B, "kind": "checklist",
+         "kicker": "Góc nhìn cho doanh nghiệp nhỏ", "title": "Việc nên làm trong tuần này",
+         "icon": "check",
+         "items": ["Xem phiên bản WordPress hiện tại", "Cập nhật lên 7.1.4 hoặc bản vá tương ứng", "Sao lưu trước khi cập nhật", "Rà tài khoản có quyền viết bài", "Gỡ plugin và giao diện không dùng", "Xác nhận site đã nhận bản mới"]},
+
+        {"id": "n7-cover", "out": "assets/news/gitlab-cve-2026-97229-cisa-cover.webp", "size": C, "kind": "cover",
+         "kicker": "My Agent · Tin tức · Bảo mật", "title": "Lỗ hổng GitLab điểm 10 đang bị khai thác",
+         "subtitle": "CISA đưa vào danh mục KEV. Máy tự cài cần nâng cấp bản đã vá.", "icon": "warning"},
+        {"id": "n7-rui-ro", "out": "assets/news/gitlab-cve-2026-97229-cisa-rui-ro.webp", "size": B, "kind": "cards",
+         "kicker": "Lỗ hổng nguy hiểm ở đâu", "title": "Không cần đăng nhập vẫn có thể chạy mã",
+         "items": [
+            ("software", "CI/CD", "Lỗi khi biên dịch biểu thức chính quy"),
+            ("revoke", "Không cần đăng nhập", "Kẻ tấn công có thể chạy mã trên máy"),
+            ("legal", "CISA KEV", "Đã có bằng chứng khai thác thực tế"),
+         ]},
+        {"id": "n7-viec", "out": "assets/news/gitlab-cve-2026-97229-cisa-viec-nen-lam.webp", "size": B, "kind": "checklist",
+         "kicker": "Doanh nghiệp nhỏ nên làm gì", "title": "Xác định mình có dùng GitLab tự cài không",
+         "icon": "lock",
+         "items": ["Hỏi đơn vị quản lý mã nguồn đã vá chưa", "Nếu tự cài: kiểm tra phiên bản", "Nâng lên 19.4.2, 19.3.5 hoặc 19.2.8", "Ưu tiên máy chủ mở ra Internet", "GitLab.com đã được hãng vá sẵn", "Rà nhật ký theo hướng dẫn của GitLab"]},
+
+        {"id": "n8-cover", "out": "assets/news/google-robots-txt-ai-training-control-cover.webp", "size": C, "kind": "cover",
+         "kicker": "My Agent · Tin tức · Web & SEO", "title": "Google sẽ hỗ trợ lệnh chung chặn AI huấn luyện",
+         "subtitle": "Vẫn là đề xuất nháp, mục tiêu 2027. Chưa cần sửa robots.txt vội.", "icon": "robot"},
+        {"id": "n8-co-che", "out": "assets/news/google-robots-txt-ai-training-control-co-che.webp", "size": B, "kind": "compare",
+         "kicker": "Cơ chế dự kiến", "title": "Một mã chính sách dùng chung, thay vì lệnh riêng từng hãng",
+         "cols": [
+            {"icon": "doc", "title": "Hiện nay", "points": ["Phải viết lệnh riêng cho từng công ty AI", "Google-Extended là cách của Google từ 2023", "Dễ sót nếu chỉ chặn một vài bot"]},
+            {"icon": "robot", "title": "Đề xuất mới", "points": ["Một policy token trong robots.txt", "Từ chối huấn luyện AI dùng chung", "Chưa áp dụng; mục tiêu trong năm 2027"]},
+         ]},
+        {"id": "n8-viec", "out": "assets/news/google-robots-txt-ai-training-control-viec-nen-lam.webp", "size": B, "kind": "checklist",
+         "kicker": "Doanh nghiệp nhỏ nên làm gì", "title": "Chưa cần thay đổi gì ngay",
+         "icon": "search",
+         "items": ["Chưa thêm mã mới vào robots.txt vội", "Kiểm tra robots.txt hiện tại đang cho phép gì", "Tránh một dòng chặn sai làm mất trang trên Google", "Theo dõi khi Google và các hãng chính thức hỗ trợ", "Quyết định sau: cho phép hay hạn chế huấn luyện"]},
+
+        {"id": "n9-cover", "out": "assets/news/canva-brush-ai-chinh-sua-thiet-ke-cover.webp", "size": C, "kind": "cover",
+         "kicker": "My Agent · Tin tức · AI", "title": "Canva ra mắt Brush, AI chuyên chỉnh sửa thiết kế",
+         "subtitle": "Giữ bố cục, màu và chữ khi sửa. Đang có trên gói Pro, vẫn nên tự đọc lại.", "icon": "pencil"},
+        {"id": "n9-vi-sao", "out": "assets/news/canva-brush-ai-chinh-sua-thiet-ke-vi-sao.webp", "size": B, "kind": "cards",
+         "kicker": "Vì sao đáng chú ý", "title": "Tạo thiết kế đã khó, sửa mà không lệch bố cục còn khó hơn",
+         "items": [
+            ("image", "Hiểu cái cần đổi", "Không làm hỏng phần còn lại"),
+            ("pencil", "Giữ màu và chữ", "Sửa đúng chỗ, đúng nhận diện"),
+            ("refresh", "Làm việc lặp lại", "Đổi kích thước, thay tiêu đề hàng loạt"),
+         ]},
+        {"id": "n9-viec", "out": "assets/news/canva-brush-ai-chinh-sua-thiet-ke-viec-nen-lam.webp", "size": B, "kind": "checklist",
+         "kicker": "Doanh nghiệp nhỏ nên làm gì", "title": "Thử với việc lặp lại nhiều nhất, rồi tự kiểm",
+         "icon": "check",
+         "items": ["Nếu đang dùng gói Pro, thử với banner và bài đăng", "Chuẩn bị logo, mã màu, font thống nhất", "Luôn tự đọc lại chữ và hình trước khi đăng", "Không đưa thông tin khách hay nội bộ vào lệnh", "Chỉnh tay phần AI làm chưa đúng"]},
+
+        {"id": "n10-cover", "out": "assets/news/node2shell-nodejs-brotli-cisa-cover.webp", "size": C, "kind": "cover",
+         "kicker": "My Agent · Tin tức · Bảo mật", "title": "Lỗ hổng Node2Shell trong Node.js đang bị khai thác",
+         "subtitle": "CISA xác nhận khai thác thực tế. Nâng lên bản đã vá, đừng mở cổng lạ.", "icon": "warning"},
+        {"id": "n10-anh-huong", "out": "assets/news/node2shell-nodejs-brotli-cisa-anh-huong.webp", "size": B, "kind": "cards",
+         "kicker": "Ai bị ảnh hưởng", "title": "Lỗi nằm ở bộ giải nén Brotli đi kèm Node.js",
+         "items": [
+            ("software", "Node.js", "Vá: 22.23.4, 24.22.1, 26.12.1"),
+            ("network", "Phần mềm khác", "Nhiều sản phẩm dùng Brotli cũng đã vá"),
+            ("revoke", "Dòng hết hỗ trợ", "Không nhận bản vá, cần chuyển dòng còn hỗ trợ"),
+         ]},
+        {"id": "n10-viec", "out": "assets/news/node2shell-nodejs-brotli-cisa-viec-nen-lam.webp", "size": B, "kind": "checklist",
+         "kicker": "Doanh nghiệp nhỏ nên làm gì", "title": "Hỏi đơn vị làm web hoặc tự kiểm tra máy chủ",
+         "icon": "lock",
+         "items": ["Xem website, API, công cụ nội bộ có chạy Node.js không", "Nâng cấp lên bản vá tương ứng", "Sao lưu và thử trên bản thử trước", "Dòng đã hết hỗ trợ thì chuyển sang dòng còn hỗ trợ", "Không mở cổng quản trị ra Internet nếu không cần", "Theo dõi thông báo của đơn vị vận hành"]},
+
+        {"id": "n11-cover", "out": "assets/news/magento-cve-2026-48356-cisa-cover.webp", "size": C, "kind": "cover",
+         "kicker": "My Agent · Tin tức · Bảo mật", "title": "Lỗ hổng tải tệp trên Magento đang bị khai thác",
+         "subtitle": "CISA đưa vào KEV. Cập nhật bản -2026-jul, rồi rà thư mục tải lên.", "icon": "lock"},
+        {"id": "n11-phien-ban", "out": "assets/news/magento-cve-2026-48356-cisa-phien-ban.webp", "size": B, "kind": "cards",
+         "kicker": "Phiên bản bị ảnh hưởng", "title": "Adobe Commerce và Magento Open Source cần bản vá tháng 7/2026",
+         "items": [
+            ("software", "Nhiều dòng 2.4.x", "Kể cả các bản p-patch cũ hơn"),
+            ("refresh", "Bản sửa -2026-jul", "Ví dụ 2.4.8-2026-jul"),
+            ("legal", "CISA KEV", "Đã có bằng chứng khai thác thực tế"),
+         ]},
+        {"id": "n11-viec", "out": "assets/news/magento-cve-2026-48356-cisa-viec-nen-lam.webp", "size": B, "kind": "checklist",
+         "kicker": "Nên làm gì", "title": "Xác định có chạy Magento không, rồi cập nhật có sao lưu",
+         "icon": "check",
+         "items": ["Hỏi đơn vị làm web phiên bản hiện tại", "Cập nhật lên bản -2026-jul tương ứng", "Làm trên bản thử, sao lưu trước", "Rà thư mục tải lên tìm tệp lạ", "Kiểm tra tài khoản quản trị", "Theo dõi cảnh báo sau khi vá"]},
+
+        {"id": "n12-cover", "out": "assets/news/google-ai-mode-links-cover.webp", "size": C, "kind": "cover",
+         "kicker": "My Agent · Tin tức · Web & SEO", "title": "Google AI Mode dẫn nhiều liên kết về website hơn",
+         "subtitle": "AI tóm tắt vẫn dẫn sang trang gốc, nếu trang đó rõ và đáng tin.", "icon": "link"},
+        {"id": "n12-thay-doi", "out": "assets/news/google-ai-mode-links-thay-doi.webp", "size": B, "kind": "cards",
+         "kicker": "Chuyện gì đã xảy ra", "title": "AI Mode và AI Overviews dễ bấm sang website gốc hơn",
+         "items": [
+            ("search", "Dẫn ra trang gốc", "Không chỉ đọc câu trả lời tóm tắt"),
+            ("check", "Nguồn đáng tin", "Trang rõ ràng, kiểm chứng được"),
+            ("form", "Việc cụ thể", "Đặt lịch, xem dịch vụ, liên hệ"),
+         ]},
+        {"id": "n12-viec", "out": "assets/news/google-ai-mode-links-viec-nen-lam.webp", "size": B, "kind": "checklist",
+         "kicker": "Doanh nghiệp nhỏ nên làm gì", "title": "Giữ thông tin trên website rõ, thống nhất, dễ hiểu",
+         "icon": "doc",
+         "items": ["Rà trang dịch vụ: làm gì, cho ai, ở đâu", "Cập nhật trang liên hệ cho đủ và đúng", "Khớp thông tin với Google Business Profile", "Viết câu trả lời đúng câu khách hay hỏi", "Dùng chữ đơn giản, dễ trích dẫn"]},
+
+        # ----- 9 link-only covers (listing thumbs only) -----
+        {"id": "l1-cover", "out": "assets/news/google-spam-update-09-2026-cover.webp", "size": C, "kind": "cover",
+         "kicker": "My Agent · Tin tức · Web & SEO", "title": "Google hoàn tất đợt cập nhật spam tháng 9/2026",
+         "subtitle": "Kéo dài gần 14 ngày. Nên xem Search Console nếu lưu lượng thay đổi lạ.", "icon": "search"},
+        {"id": "l2-cover", "out": "assets/news/zbs-khung-gio-gui-tin-cover.webp", "size": C, "kind": "cover",
+         "kicker": "My Agent · Tin tức · Nền tảng", "title": "Tin nhắn mẫu ZBS chỉ gửi chăm sóc từ 7h đến 22h",
+         "subtitle": "Tin giao dịch vẫn gửi mọi lúc. Đặt lịch gửi trong khung giờ cho phép.", "icon": "clock"},
+        {"id": "l3-cover", "out": "assets/news/power-bi-10-2026-cover.webp", "size": C, "kind": "cover",
+         "kicker": "My Agent · Tin tức · Dữ liệu", "title": "Power BI tháng 10/2026: Gantt gốc và Copilot",
+         "subtitle": "Biểu đồ Gantt có sẵn và Copilot hỗ trợ dựng báo cáo.", "icon": "data"},
+        {"id": "l4-cover", "out": "assets/news/beyondtrust-cve-2026-102764-cover.webp", "size": C, "kind": "cover",
+         "kicker": "My Agent · Tin tức · Bảo mật", "title": "Lỗ hổng vượt xác thực trên BeyondTrust đang bị khai thác",
+         "subtitle": "Remote Support bị lỗi xác thực. Cần vá nếu doanh nghiệp đang dùng.", "icon": "warning"},
+        {"id": "l5-cover", "out": "assets/news/google-search-control-docs-cover.webp", "size": C, "kind": "cover",
+         "kicker": "My Agent · Tin tức · Web & SEO", "title": "Google cập nhật tài liệu kiểm soát nội dung Search",
+         "subtitle": "Rà lại cách website cho phép hoặc hạn chế nội dung chia sẻ với Search.", "icon": "doc"},
+        {"id": "l6-cover", "out": "assets/news/php2shell-cisa-cover.webp", "size": C, "kind": "cover",
+         "kicker": "My Agent · Tin tức · Bảo mật", "title": "Lỗ hổng PHP php2shell: CISA yêu cầu vá ngay",
+         "subtitle": "Lỗi nghiêm trọng, đã có trong danh mục khai thác thực tế.", "icon": "lock"},
+        {"id": "l7-cover", "out": "assets/news/zalo-oa-the-tuong-tac-cover.webp", "size": C, "kind": "cover",
+         "kicker": "My Agent · Tin tức · Nền tảng", "title": "Zalo OA thêm Thẻ tương tác cho bài viết",
+         "subtitle": "Bộ sưu tập, biểu mẫu và quà tặng ngay trong bài viết OA.", "icon": "chat"},
+        {"id": "l8-cover", "out": "assets/news/zbs-quy-dinh-kiem-duyet-10-2026-cover.webp", "size": C, "kind": "cover",
+         "kicker": "My Agent · Tin tức · Nền tảng", "title": "Zalo siết từ ngữ tuyệt đối khi duyệt mẫu tin ZBS",
+         "subtitle": "Rà lại nội dung mẫu tin chăm sóc, tránh chữ quá tuyệt đối.", "icon": "legal"},
+        {"id": "l9-cover", "out": "assets/news/openai-gpt-6-1-terra-cover.webp", "size": C, "kind": "cover",
+         "kicker": "My Agent · Tin tức · AI", "title": "OpenAI ra mắt GPT-6.1 Terra",
+         "subtitle": "Nhanh, rẻ hơn và giỏi thao tác máy tính hơn bản trước.", "icon": "robot"},
+    ]
+
 def contact_sheet(paths, dest: Path, cols=5):
     from PIL import Image, ImageDraw, ImageFont
     ims = []
@@ -576,7 +899,7 @@ def contact_sheet(paths, dest: Path, cols=5):
         font_b = ImageFont.truetype(str(FONT_DIR / "BeVietnamPro-SemiBold.ttf"), 18)
     except Exception:
         font = font_b = ImageFont.load_default()
-    draw.text((pad, 12), "My Agent — ảnh bài viết (batch 1)", fill=(46, 230, 214), font=font_b)
+    draw.text((pad, 12), "My Agent — ảnh bài viết (batch 2)", fill=(46, 230, 214), font=font_b)
     for i, (p, t) in enumerate(thumbs):
         r, c = divmod(i, cols)
         x = pad + c * (thumb_w + gap)
@@ -595,6 +918,7 @@ def contact_sheet(paths, dest: Path, cols=5):
 def main(argv=None):
     ap = argparse.ArgumentParser(description="Sinh ảnh blog/tin tức My Agent")
     ap.add_argument("--batch1", action="store_true", help="Sinh toàn bộ ảnh đợt 1 (và og-image.png)")
+    ap.add_argument("--batch2", action="store_true", help="Sinh ảnh đợt 2 (9 blog + 7 tin article + 9 ảnh bìa thẻ link; không đụng og-image.png)")
     ap.add_argument("--spec", help="File JSON danh sách ảnh (cùng schema với batch 1)")
     ap.add_argument("--only", help="Chỉ sinh id này (cách nhau bởi dấu phẩy)")
     ap.add_argument("--contact-sheet", help="Ghép contact sheet từ ảnh vừa sinh hoặc từ thư mục")
@@ -603,6 +927,8 @@ def main(argv=None):
     specs = []
     if args.batch1:
         specs = batch1_specs()
+    if args.batch2:
+        specs = batch2_specs()
     if args.spec:
         specs = json.loads(Path(args.spec).read_text(encoding="utf-8"))
     if args.only:

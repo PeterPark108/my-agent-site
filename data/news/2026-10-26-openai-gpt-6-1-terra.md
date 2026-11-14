@@ -8,4 +8,6 @@ insight: "Các tác vụ văn phòng lặp lại như soạn email, tóm tắt t
 sources:
   - name: "OpenAI"
     url: https://openai.com/index/introducing-gpt-6-1-terra
+image: assets/news/openai-gpt-6-1-terra-cover.webp
+image_alt: "Ảnh đại diện tin: OpenAI ra mắt GPT-6.1 Terra: nhanh, rẻ hơn và giỏi thao tác máy tính, nền tối với biểu tượng kính teal của My Agent"
 ---

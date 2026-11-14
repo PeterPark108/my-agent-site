@@ -6,10 +6,14 @@ description: "Làm website bao nhiêu tiền? Các yếu tố quyết định ch
 category: website
 tags: [chi phí website, thiết kế web giá rẻ, báo giá]
 services: [thiet-ke-website, ten-mien, hosting-seo, cham-soc-website]
+image: assets/blog/chi-phi-lam-website-phu-thuoc-yeu-to-nao-cover.webp
+image_alt: "Ảnh bìa bài Chi phí làm website phụ thuộc vào yếu tố nào?, nền tối với biểu tượng kính teal của My Agent"
 ---
 ## Vì sao không có một con số chung cho mọi website?
 
 "Làm website bao nhiêu tiền?" là câu hỏi chủ doanh nghiệp nào cũng đặt ra đầu tiên. Câu trả lời thật thà là: còn tùy. Một trang giới thiệu cửa hàng vài trang và một web bán hàng có giỏ hàng, quản lý đơn là hai sản phẩm rất khác nhau, nên chi phí cũng khác. Thay vì nhìn vào một con số quảng cáo, anh/chị nên hiểu chi phí được tạo nên từ những phần nào. Khi đó, so sánh các báo giá sẽ dễ hơn nhiều.
+
+![Ba nhóm yếu tố làm chi phí website khác nhau: loại website, số trang và nội dung, cùng tính năng và công nghệ](../assets/blog/chi-phi-lam-website-phu-thuoc-yeu-to-nao-yeu-to.webp)
 
 ## 1. Loại website anh/chị cần
 
@@ -35,6 +39,8 @@ WordPress phù hợp khi anh/chị muốn tự đăng bài, sản phẩm thườ
 
 ## 5. Các chi phí đi kèm hay bị quên
 
+![Các khoản chi phí đi kèm cần hỏi trước: tên miền, hosting, thủ tục Bộ Công Thương và chăm sóc website định kỳ, thường chưa gồm trong giá thiết kế](../assets/blog/chi-phi-lam-website-phu-thuoc-yeu-to-nao-chi-phi-kem.webp)
+
 ### Tên miền và hosting
 
 Đây là phí trả cho nhà cung cấp, thường tính theo năm và cần gia hạn. Tại My Agent, giá thiết kế **chưa gồm** tên miền và hosting: [tên miền](../dich-vu/ten-mien.html) có giá riêng trong bảng giá (đăng ký đứng tên anh/chị), còn [hosting/VPS](../dich-vu/hosting-seo.html) là thương lượng theo cấu hình.
@@ -57,6 +63,8 @@ Chi phí "đội lên" thường do phạm vi không rõ. Với [dịch vụ thi
 ## Thiết kế web giá rẻ: nên hiểu thế nào?
 
 Giá thấp không xấu, miễn là anh/chị biết mình nhận được gì. Hãy hỏi: có giao diện điện thoại không, có HTTPS không, có thẻ SEO và sitemap không, ai sở hữu mã nguồn và tên miền, bảo hành bao lâu. Một báo giá rẻ nhưng tên miền đứng tên người khác có thể gây rắc rối lâu dài.
+
+![Checklist nên hỏi khi gặp báo giá thiết kế web giá thấp: giao diện điện thoại, HTTPS, thẻ SEO và sitemap, quyền sở hữu mã nguồn và tên miền, thời gian bảo hành](../assets/blog/chi-phi-lam-website-phu-thuoc-yeu-to-nao-nen-hoi.webp)
 
 ## Câu hỏi thường gặp
 

@@ -8,4 +8,6 @@ insight: "Website WordPress hay web PHP trên hosting cần được kiểm tra 
 sources:
   - name: "CISA"
     url: https://www.cisa.gov/news-events/alerts/2026/10/21/critical-vulnerabilities-php-require-immediate-patching
+image: assets/news/php2shell-cisa-cover.webp
+image_alt: "Ảnh đại diện tin: Lỗ hổng PHP “php2shell” nghiêm trọng: CISA yêu cầu vá ngay, nền tối với biểu tượng kính teal của My Agent"
 ---
