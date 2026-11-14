@@ -5,8 +5,12 @@ description: "Bảo mật website cơ bản cho doanh nghiệp nhỏ: HTTPS, c�
 category: website
 tags: [bảo mật website, doanh nghiệp nhỏ, chăm sóc website, thiết kế web giá rẻ]
 services: [cham-soc-website, thiet-ke-website, hosting-seo, ten-mien]
+image: assets/blog/bao-mat-website-co-ban-cho-doanh-nghiep-nho-cover.webp
+image_alt: "Ảnh bìa bài Bảo mật website cơ bản cho doanh nghiệp nhỏ: 7 việc nên làm, nền tối với biểu tượng kính teal của My Agent"
 ---
 Website của doanh nghiệp nhỏ cũng có thể bị tấn công, thường không phải vì doanh nghiệp "đáng chú ý", mà vì các công cụ dò lỗi chạy tự động trên rất nhiều website cùng lúc. Không có cách nào an toàn tuyệt đối, nhưng vài việc cơ bản giúp giảm rủi ro đáng kể và giúp khôi phục nhanh khi có sự cố. Bài này gom lại 7 việc, chia ngắn để anh/chị làm dần.
+
+![Checklist bảy việc bảo mật cơ bản cho website doanh nghiệp nhỏ: HTTPS, cập nhật phần mềm, mật khẩu và xác thực hai bước, sao lưu, phân quyền, chống spam form và theo dõi cảnh báo](../assets/blog/bao-mat-website-co-ban-cho-doanh-nghiep-nho-7-viec.webp)
 
 ## Việc 1: Bật HTTPS cho toàn bộ website
 
@@ -31,6 +35,8 @@ Chúng tôi có đăng tin về các bản vá, ví dụ [WordPress phát hành 
 
 Tài khoản quản trị website, hosting, tên miền và email đều là "chìa khóa". Nên:
 
+![Ba việc bảo vệ tài khoản quản trị: mật khẩu dài riêng từng tài khoản, bật xác thực hai bước, và không dùng chung một tài khoản](../assets/blog/bao-mat-website-co-ban-cho-doanh-nghiep-nho-tai-khoan.webp)
+
 - Dùng mật khẩu dài, riêng cho từng tài khoản, lưu trong trình quản lý mật khẩu.
 - Bật xác thực hai bước (2FA/MFA) ở mọi nơi hỗ trợ.
 
@@ -39,6 +45,8 @@ CISA (cơ quan an ninh mạng Hoa Kỳ) khuyến nghị bật [xác thực đa y
 ## Việc 4: Sao lưu định kỳ và thử khôi phục
 
 Sao lưu là phương án cuối khi mọi thứ khác thất bại. Nên sao lưu cả mã nguồn lẫn dữ liệu, lưu ít nhất một bản ở nơi tách khỏi hosting chính, và thỉnh thoảng thử khôi phục để chắc bản sao lưu dùng được. Tần suất tùy mức độ thay đổi của website: web cập nhật thường xuyên cần sao lưu dày hơn.
+
+![Sơ đồ sao lưu website có ích: sao lưu mã nguồn và dữ liệu, giữ một bản tách khỏi hosting chính, rồi thử khôi phục](../assets/blog/bao-mat-website-co-ban-cho-doanh-nghiep-nho-sao-luu.webp)
 
 ## Việc 5: Phân quyền tài khoản rõ ràng
 

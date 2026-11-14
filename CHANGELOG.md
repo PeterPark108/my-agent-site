@@ -1,5 +1,11 @@
 # Nhật ký thay đổi
 
+## 0.12.9 — 2026-11-14 (PR nháp ảnh SEO batch 2, chờ Peter gõ "Duyệt PR")
+- Ảnh batch 2: 9 bài blog còn lại và 7 tin article còn lại — mỗi bài 1 ảnh bìa 1200×630 WebP ≤ 150 KB và 2–3 ảnh thân bài (sơ đồ / checklist / wireframe, phong cách kính tối teal, tiêu đề bìa tương phản cao như batch 1). Thêm ảnh đại diện (thumbnail) cho 9 thẻ tin `type: link` trên trang liệt kê. Tạo bằng `scripts/make_content_images.py --batch2` (cờ này không sinh `og-image.png`).
+- Không đụng `assets/og-image.png`, `og-images.json` hay `seo.tsx` (ảnh chia sẻ trang chủ/danh mục thuộc PR #93, đã lên site lúc 07:51 14/11). Bài viết dùng ảnh bìa WebP riêng làm og:image; thẻ link chỉ thêm `image` + `image_alt` trong front matter.
+- Bump VERSION 0.12.9 (production đang 0.12.8 sau khi merge và triển khai PR #94).
+- Khi triển khai: dựng lại trên bản copy của site đang chạy, giống cách làm với PR #91 và #94 — site live còn các bản vá chỉ có trên server (nav patch, trang GA 13/11, 3 trang dịch vụ, và ảnh OG theo trang của PR #93). Không merge hay triển khai cho đến khi Peter tự gõ đúng "Duyệt PR #xx".
+
 ## 0.12.8 — 2026-11-14 (PR nháp ảnh SEO batch 1, chờ Peter gõ "Duyệt PR")
 - Pipeline ảnh cho blog/tin: `scripts/seo_v6.sh` copy cả `assets/` (kèm `assets/blog` và `assets/news`); thẻ liệt kê hiện thumbnail khi bài có `image`; `tech_pass.py` ghi `og:image:width` / `height` / `type` theo file thật; CSS v6 cho `.nwa-cover`, `.nwa-fig` và `.nw-thumb` (nền tối, viền kính); `safe-content` cho phép `fetchpriority` trên `img` (kèm bài kiểm tra).
 - Validator: bài **mới** đăng từ 15/11/2026 phải có `image` + `image_alt` (tin `type: link` không bắt buộc). Bài cũ chưa có ảnh vẫn được dựng. Cập nhật `docs/blog.md`, `docs/tin-tuc.md`, template và file format.

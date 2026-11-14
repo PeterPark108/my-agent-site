@@ -6,12 +6,16 @@ description: "Thiết kế web trọn gói gồm những gì? Các bước từ 
 category: website
 tags: [thiết kế web trọn gói, TP.HCM, website]
 services: [thiet-ke-website, ten-mien, hosting-seo, email-doanh-nghiep]
+image: assets/blog/thiet-ke-web-tron-goi-gom-nhung-gi-cover.webp
+image_alt: "Ảnh bìa bài Thiết kế web trọn gói gồm những gì?, nền tối với biểu tượng kính teal của My Agent"
 ---
 ## "Trọn gói" nghĩa là gì?
 
 Nhiều chủ cửa hàng, doanh nghiệp nhỏ muốn làm website nhưng không có thời gian lo từng phần: tên miền, giao diện, nội dung, máy chủ. "Trọn gói" nghĩa là một đầu mối lo từ đầu đến khi web chạy được trên tên miền của anh/chị. Tuy vậy, mỗi đơn vị hiểu "trọn gói" một kiểu, nên trước khi ký, anh/chị cần biết gói thực sự gồm những gì. Dưới đây là danh sách để đối chiếu, dựa trên cách My Agent làm [dịch vụ thiết kế website](../dich-vu/thiet-ke-website.html) tại TP.HCM. Nếu muốn xem nhanh My Agent là ai và đang làm những gì, anh/chị có thể ghé [trang chủ My Agent](../index.html).
 
 ## Các bước trong một dự án thiết kế web trọn gói
+
+![Các bước của một dự án thiết kế web trọn gói: tư vấn mục tiêu, sơ đồ trang, giao diện máy tính và điện thoại, lập trình kèm SEO cơ bản, rồi bàn giao trên tên miền của mình](../assets/blog/thiet-ke-web-tron-goi-gom-nhung-gi-cac-buoc.webp)
 
 ### 1. Tư vấn và xác định mục tiêu
 
@@ -46,9 +50,13 @@ Trỏ tên miền, bật HTTPS, gửi sitemap lên Google Search Console và hư
 - Tài liệu hoặc buổi hướng dẫn cập nhật nội dung.
 - Quyền quản trị và mã nguồn sau khi thanh toán đủ.
 
+![Checklist những thứ nên nhận khi bàn giao website: chạy trên tên miền có HTTPS, giao diện máy tính và điện thoại, SEO nền tảng, form liên hệ, hướng dẫn và quyền quản trị](../assets/blog/thiet-ke-web-tron-goi-gom-nhung-gi-ban-giao.webp)
+
 Kèm theo đó là 2 lần chỉnh sửa trong phạm vi đã thống nhất và bảo hành lỗi kỹ thuật 60 ngày sau bàn giao.
 
 ## Những phần đi kèm nên hỏi rõ
+
+![Ba phần đi kèm cần hỏi rõ khi làm web trọn gói: tên miền, hosting và email; thủ tục Bộ Công Thương; và chăm sóc sau khi ra mắt](../assets/blog/thiet-ke-web-tron-goi-gom-nhung-gi-phan-kem.webp)
 
 ### Tên miền, hosting và email
 

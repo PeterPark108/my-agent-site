@@ -12,6 +12,8 @@ sources:
   - name: GitHub Security Advisory GHSA-4w3m-c66w-69mg (WordPress)
     url: https://github.com/WordPress/wordpress-develop/security/advisories/GHSA-4w3m-c66w-69mg
     date: 2026-10-29
+image: assets/news/wordpress-7-1-4-ban-va-bao-mat-cover.webp
+image_alt: "Ảnh bìa tin WordPress 7.1.4 vá nhiều lỗi bảo mật, nên cập nhật, nền tối với biểu tượng kính teal"
 ---
 ## Có gì mới
 
@@ -22,6 +24,8 @@ Ngày 28/10/2026, nhóm phát triển WordPress phát hành phiên bản **7.1.4
 ## Những lỗi đáng chú ý
 
 Danh sách sửa lỗi trong bản 7.1.4 khá dài. Một số điểm chính:
+
+![Ba nhóm lỗi đáng chú ý trong WordPress 7.1.4: lỗi lúc cập nhật lõi, nhiều lỗ hổng XSS lưu trữ, và lỗi từ chối dịch vụ](../assets/news/wordpress-7-1-4-ban-va-bao-mat-loi-dang-chu-y.webp)
 
 - **Lỗi trong quá trình cập nhật lõi WordPress.** Theo bản tư vấn bảo mật trên GitHub, khi cập nhật bằng gói đầy đủ, WordPress giải nén tệp mới vào một thư mục có tên dễ đoán nằm trong thư mục upgrade mà web server có thể truy cập. Kẻ tấn công không cần đăng nhập, nếu "chạy đua" thành công đúng lúc giải nén, có thể dẫn tới thực thi mã từ xa. Bản tư vấn này xếp mức độ nghiêm trọng là thấp, vì khoảng thời gian khai thác rất hẹp.
 - **Nhiều lỗi XSS lưu trữ (stored XSS)**: liên quan tới mã khối (block) được tạo đặc biệt, yêu cầu xoá dữ liệu cá nhân, Interactivity API, Customizer, khối Categories, khối Playlist và hình ảnh, khối phân trang bình luận, và tên đăng nhập được tạo đặc biệt.
@@ -39,6 +43,8 @@ WordPress cho biết các bản vá đã được đưa ngược về mọi nhá
 ## Góc nhìn cho doanh nghiệp nhỏ
 
 Nhiều website bán hàng, giới thiệu công ty hay homestay tại Việt Nam chạy trên WordPress, và thường không có người theo dõi cập nhật thường xuyên. Một vài việc nên làm trong tuần này:
+
+![Checklist việc nên làm trong tuần khi WordPress phát hành bản vá: kiểm tra phiên bản, sao lưu trước khi cập nhật, rà tài khoản và hỏi đơn vị quản lý web](../assets/news/wordpress-7-1-4-ban-va-bao-mat-viec-nen-lam.webp)
 
 1. Đăng nhập trang quản trị, xem phiên bản WordPress hiện tại. Nếu chưa phải 7.1.4 (hoặc bản vá tương ứng của nhánh đang dùng) thì cập nhật.
 2. Sao lưu toàn bộ website và cơ sở dữ liệu trước khi cập nhật, nhất là khi site có nhiều plugin.

@@ -9,6 +9,8 @@ sources:
   - name: Canva Newsroom – Introducing Canva Brush
     url: https://www.canva.com/newsroom/news/canva-brush/
     date: 2026-10-30
+image: assets/news/canva-brush-ai-chinh-sua-thiet-ke-cover.webp
+image_alt: "Ảnh bìa tin Canva ra mắt Brush, AI chuyên chỉnh sửa thiết kế, nền tối với biểu tượng kính teal"
 ---
 ## Có gì mới
 
@@ -19,6 +21,8 @@ Ngày 30/10/2026 (giờ Việt Nam), Canva công bố **Brush**, một mô hình
 ## Vì sao đáng chú ý
 
 Theo Canva, tạo ra một thiết kế đẹp bằng AI đã khó, nhưng sửa thiết kế còn khó hơn: mô hình phải hiểu cái gì cần đổi và cái gì phải giữ nguyên, nếu không một yêu cầu nhỏ có thể làm lệch cả bố cục, màu sắc hay kiểu chữ. Hãng nói Brush được huấn luyện thêm trên các tác vụ thiết kế thật, kết hợp học tăng cường với tiêu chí chấm điểm do đội ngũ thiết kế chuyên nghiệp của Canva đặt ra.
+
+![Ba lý do Brush đáng chú ý: sửa thiết kế khó hơn tạo mới, cần giữ bố cục và nhận diện, và vẫn phải tự duyệt lại chữ, giá, thông tin liên hệ](../assets/news/canva-brush-ai-chinh-sua-thiet-ke-vi-sao.webp)
 
 Canva công bố Brush nhanh hơn tới 69% với các tác vụ chỉnh sửa thông thường so với agent thiết kế trước đây của hãng, và trong thử nghiệm nội bộ cho chất lượng tương đương hoặc tốt hơn ở phần lớn tác vụ. Đây là số liệu do Canva tự đo, chưa có đánh giá độc lập.
 
@@ -33,6 +37,8 @@ Hiện Brush có trong Canva AI cho người dùng gói Canva Pro, các gói kh�
 Canva cho biết đang phát triển thêm hỗ trợ Brand Kit (bộ nhận diện thương hiệu), khả năng tham chiếu tệp đính kèm và cải thiện cách xử lý bố cục nhiều hình ảnh.
 
 ## Doanh nghiệp nhỏ nên làm gì
+
+![Checklist khi dùng AI chỉnh sửa thiết kế: thử với việc lặp lại nhiều nhất, giữ logo màu font thống nhất, tự đọc lại nội dung, và nén ảnh cho website](../assets/news/canva-brush-ai-chinh-sua-thiet-ke-viec-nen-lam.webp)
 
 1. Nếu đang dùng Canva Pro để làm banner, bài đăng Facebook, Zalo, hãy thử Brush với việc lặp lại nhiều nhất, như đổi kích thước hoặc thay tiêu đề hàng loạt.
 2. Chuẩn bị sẵn logo, mã màu và font chữ thống nhất; khi có Brand Kit, AI sẽ dễ giữ đúng nhận diện hơn.

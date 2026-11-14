@@ -6,12 +6,16 @@ description: "Checklist SEO cơ bản tự kiểm được: từ khóa cho từn
 category: seo
 tags: [seo cơ bản, checklist seo, seo website]
 services: [seo-tong-the, thiet-ke-website, hosting-seo]
+image: assets/blog/checklist-seo-co-ban-cho-website-cover.webp
+image_alt: "Ảnh bìa bài Checklist SEO cơ bản cho website doanh nghiệp nhỏ, nền tối với biểu tượng kính teal của My Agent"
 ---
 ## SEO cơ bản là gì?
 
 SEO cơ bản là những việc giúp Google hiểu đúng website của anh/chị đang nói về điều gì và cho ai. Không có cách nào bảo đảm một vị trí cụ thể trên kết quả tìm kiếm, nhưng làm đúng phần nền tảng giúp website không tự cản đường mình. Checklist dưới đây dành cho chủ cửa hàng, văn phòng dịch vụ hay người làm tự do muốn tự rà website trước khi đầu tư thêm. Phần lớn mục có thể kiểm bằng trình duyệt và tài khoản Google miễn phí.
 
 ## Phần nội dung trên từng trang
+
+![Checklist phần nội dung SEO cơ bản: mỗi trang một chủ đề, title và mô tả riêng, cùng một tiêu đề chính với các mục rõ ràng](../assets/blog/checklist-seo-co-ban-cho-website-noi-dung.webp)
 
 ### Mỗi trang một chủ đề chính
 
@@ -33,11 +37,15 @@ Mỗi trang chỉ có một tiêu đề chính (H1), các phần nhỏ dùng ti�
 - Có file sitemap và robots.txt, không vô tình chặn trang quan trọng.
 - Không có link hỏng dẫn tới trang lỗi.
 
+![Checklist nền tảng kỹ thuật SEO: HTTPS, giao diện điện thoại, ảnh có alt, sitemap và robots.txt, không có link hỏng](../assets/blog/checklist-seo-co-ban-cho-website-ky-thuat.webp)
+
 Google có tài liệu [hướng dẫn SEO cơ bản](https://developers.google.com/search/docs/fundamentals/seo-starter-guide) bằng nhiều ngôn ngữ, anh/chị có thể đọc thêm để hiểu vì sao các mục trên quan trọng.
 
 ## Liên kết nội bộ và theo dõi
 
 Các bài viết nên dẫn về trang dịch vụ liên quan, và trang dịch vụ dẫn sang nhau khi hợp lý. Ví dụ, bài này nhắc tới [dịch vụ SEO tổng thể](../dich-vu/seo-tong-the.html) và [hosting chuẩn SEO](../dich-vu/hosting-seo.html). Cuối cùng, hãy kết nối website với [Google Search Console](https://search.google.com/search-console/about) để xem trang nào được index, khách tìm bằng cụm từ nào và có lỗi gì cần sửa.
+
+![Sơ đồ theo dõi SEO: dẫn liên kết nội bộ hợp lý rồi rà chỉ mục và truy vấn trong Google Search Console](../assets/blog/checklist-seo-co-ban-cho-website-theo-doi.webp)
 
 ## Lặp lại định kỳ
 

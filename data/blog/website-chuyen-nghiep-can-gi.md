@@ -6,10 +6,14 @@ description: "10 tiêu chí để biết website có chuyên nghiệp: tốc đ�
 category: website
 tags: [website chuyên nghiệp, thiết kế web, checklist]
 services: [thiet-ke-website, cham-soc-website]
+image: assets/blog/website-chuyen-nghiep-can-gi-cover.webp
+image_alt: "Ảnh bìa bài Website chuyên nghiệp cần những gì? 10 tiêu chí, nền tối với biểu tượng kính teal của My Agent"
 ---
 ## Vì sao cần một checklist?
 
 "Chuyên nghiệp" là chữ ai làm web cũng dùng, nên khó so sánh. Một website chuyên nghiệp không phải là website nhiều hiệu ứng, mà là website khách mở ra hiểu ngay anh/chị làm gì, tin được và liên hệ được. Dưới đây là 10 tiêu chí anh/chị tự kiểm được, kể cả khi không rành kỹ thuật. Dùng danh sách này để xem lại website đang có, hoặc để hỏi đơn vị trước khi thuê [thiết kế web chuyên nghiệp](../dich-vu/thiet-ke-website.html).
+
+![Mười tiêu chí tự kiểm được để nhận biết website chuyên nghiệp, từ nội dung rõ, điện thoại, liên hệ, HTTPS, SEO nền tảng đến tên miền và bảo trì](../assets/blog/website-chuyen-nghiep-can-gi-10-tieu-chi.webp)
 
 ## 10 tiêu chí dễ kiểm tra
 
@@ -58,6 +62,8 @@ Website cần cập nhật, sao lưu và vá bảo mật định kỳ. Hỏi rõ
 - Mở website trên điện thoại của chính anh/chị và thử bấm gọi, nhắn Zalo, gửi form.
 - Dùng PageSpeed Insights của Google để xem tốc độ và các gợi ý cải thiện.
 - Vào Google Search Console xem trang đã được lập chỉ mục chưa và có lỗi gì không.
+
+![Ba việc tự kiểm website ngay trên điện thoại: bấm gọi và form, xem tốc độ bằng PageSpeed Insights, và rà Search Console](../assets/blog/website-chuyen-nghiep-can-gi-tu-kiem.webp)
 
 Lưu ý: làm đúng các tiêu chí trên giúp website có nền tảng tốt, nhưng thứ hạng trên Google còn phụ thuộc nội dung và mức cạnh tranh, không ai cam kết được vị trí.
 

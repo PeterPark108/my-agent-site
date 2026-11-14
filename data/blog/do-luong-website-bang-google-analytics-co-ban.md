@@ -5,12 +5,16 @@ description: "Đo lường website bằng Google Analytics cơ bản cho doanh n
 category: du-lieu
 tags: [google analytics, đo lường website, doanh nghiệp nhỏ, dữ liệu]
 services: [phan-tich-du-lieu, thiet-ke-website, seo-tong-the, cham-soc-website]
+image: assets/blog/do-luong-website-bang-google-analytics-co-ban-cover.webp
+image_alt: "Ảnh bìa bài Đo lường website bằng Google Analytics cơ bản, nền tối với biểu tượng kính teal của My Agent"
 ---
 Làm xong website mới là bước đầu. Muốn biết website có thật sự giúp việc kinh doanh hay không, doanh nghiệp cần đo lường: bao nhiêu người ghé xem, họ đến từ đâu, xem trang nào và có liên hệ hay không. Google Analytics là công cụ miễn phí phổ biến cho việc này. Bài này gom lại 7 việc cơ bản, viết ngắn để anh/chị tự kiểm tra mà không cần rành kỹ thuật.
 
 ## Việc 1: Xác định trước điều mình muốn biết
 
 Trước khi cài công cụ, nên trả lời vài câu hỏi đơn giản:
+
+![Ba câu hỏi giúp xác định mục tiêu đo lường: website dùng để làm gì, hành động nào của khách là quan trọng nhất, và mỗi tháng cần xem những con số nào](../assets/blog/do-luong-website-bang-google-analytics-co-ban-muc-tieu.webp)
 
 - Website dùng để làm gì: giới thiệu, nhận liên hệ, nhận đặt lịch hay bán hàng?
 - Hành động nào của khách là quan trọng nhất: gọi điện, nhắn Zalo, gửi form hay đặt mua?
@@ -42,11 +46,15 @@ Với lượt đến từ tìm kiếm, nên dùng thêm [Google Search Console](
 
 Lượt xem trang chưa nói lên nhiều. Điều đáng đo là hành động có giá trị: gửi form, bấm số điện thoại, bấm nút Zalo, đặt lịch. Google Analytics cho phép theo dõi [sự kiện](https://support.google.com/analytics/answer/9322688) và [đánh dấu sự kiện quan trọng (key event)](https://support.google.com/analytics/answer/13128484) để theo dõi riêng.
 
+![Ba nhóm sự kiện nên đánh dấu trong Google Analytics: gửi form, bấm gọi điện hoặc Zalo, và đặt lịch](../assets/blog/do-luong-website-bang-google-analytics-co-ban-su-kien.webp)
+
 Nên bắt đầu với 2–3 sự kiện quan trọng nhất, kiểm tra kỹ rằng chúng được ghi nhận đúng, rồi mới mở rộng.
 
 ## Việc 6: Đọc số liệu định kỳ, so sánh cùng kỳ
 
 Không cần mở báo cáo mỗi ngày. Một nhịp hợp lý cho doanh nghiệp nhỏ là xem hằng tháng:
+
+![Nhịp đọc số liệu hằng tháng: lượng người dùng và trang xem nhiều, nguồn truy cập, rồi số sự kiện liên hệ](../assets/blog/do-luong-website-bang-google-analytics-co-ban-nhip-thang.webp)
 
 - Lượng người dùng và các trang được xem nhiều nhất.
 - Nguồn truy cập chính và thay đổi so với tháng trước.

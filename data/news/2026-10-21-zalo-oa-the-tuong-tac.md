@@ -8,4 +8,6 @@ insight: "Shop nhỏ có thể nhận đăng ký tư vấn hoặc phát mã gi�
 sources:
   - name: "Zalo Official Account"
     url: https://oa.zalo.me/home/resources/library/tinh-nang-moi-03-loai-the-tuong-tac-tang-chuyen-doi-tu-bai-viet-oa-_5282390580180042490
+image: assets/news/zalo-oa-the-tuong-tac-cover.webp
+image_alt: "Ảnh đại diện tin: Zalo OA thêm Thẻ tương tác cho bài viết: bộ sưu tập, biểu mẫu, quà tặng, nền tối với biểu tượng kính teal của My Agent"
 ---

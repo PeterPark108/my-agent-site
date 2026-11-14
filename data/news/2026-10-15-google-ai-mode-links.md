@@ -10,10 +10,14 @@ sources:
   - name: "Google Blog"
     url: https://blog.google/products-and-platforms/products/search/updates-ai-mode-overviews-explore-web/
     date: 2026-10-15
+image: assets/news/google-ai-mode-links-cover.webp
+image_alt: "Ảnh bìa tin Google AI Mode và AI Overviews dẫn nhiều liên kết về website hơn, nền tối với biểu tượng kính teal"
 ---
 ## Chuyện gì đã xảy ra
 
 Ngày 15/10/2026, Google công bố một loạt thay đổi cho hai tính năng tìm kiếm bằng AI là AI Mode và AI Overviews. Điểm chung của các thay đổi là giúp người dùng dễ bấm sang website gốc hơn thay vì chỉ đọc câu trả lời do AI tóm tắt.
+
+![Ba thay đổi của Google AI Mode và AI Overviews: nhiều liên kết chèn trong câu trả lời, mục trang chính thức ở đầu, và băng chuyền tin bài mới mở rộng](../assets/news/google-ai-mode-links-thay-doi.webp)
 
 Theo bài đăng của Google, có mấy điểm đáng chú ý:
 
@@ -30,6 +34,8 @@ Theo bài đăng của Google, có mấy điểm đáng chú ý:
 - Các tính năng này đang được triển khai và thử nghiệm dần, nên chưa chắc mọi khu vực và mọi truy vấn đều thấy ngay.
 
 ## Nên làm gì
+
+![Checklist để website dễ được dẫn từ kết quả AI của Google: trang dịch vụ nói rõ làm gì cho ai, thông tin liên hệ thống nhất, và nội dung trả lời đúng câu hỏi bằng ngôn ngữ đơn giản](../assets/news/google-ai-mode-links-viec-nen-lam.webp)
 
 1. Rà lại trang dịch vụ: mỗi trang nói rõ làm gì, cho ai, ở khu vực nào.
 2. Cập nhật trang liên hệ và thông tin doanh nghiệp cho thống nhất giữa website, Google Business Profile và mạng xã hội.

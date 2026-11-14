@@ -8,4 +8,6 @@ insight: "Doanh nghiệp gửi tin chăm sóc qua Zalo nên soạn lại mẫu t
 sources:
   - name: "Zalo Business Solutions"
     url: https://zalo.solutions/news/quy-dinh-chung-khi-kiem-duyet-mau-tin-zns/xdygqtrjjm97k28rsh07wr72
+image: assets/news/zbs-quy-dinh-kiem-duyet-10-2026-cover.webp
+image_alt: "Ảnh đại diện tin: Zalo cập nhật quy định duyệt mẫu tin ZBS: siết từ ngữ tuyệt đối, nền tối với biểu tượng kính teal của My Agent"
 ---
