@@ -6,12 +6,17 @@ description: "Chủ doanh nghiệp nhỏ cần biết quy trình làm website: t
 category: website
 tags: [quy trình website, doanh nghiệp nhỏ, bàn giao]
 services: [thiet-ke-website, ten-mien, hosting-seo, cham-soc-website]
+image: assets/blog/quy-trinh-lam-website-cho-doanh-nghiep-nho-cover.webp
+image_alt: "Ảnh bìa bài Quy trình làm website cho doanh nghiệp nhỏ, nền tối với biểu tượng kính teal của My Agent"
+
 ---
 Một website cho doanh nghiệp nhỏ bắt đầu từ cuộc trao đổi, không bắt đầu từ việc chọn màu. Anh/chị cần biết website phải giúp khách làm gì, ai là người xem, phần nào làm trong lần này, và đến lúc nào thì được coi là xong. Khi các bước được nói rõ, anh/chị biết lúc gửi nội dung, lúc góp ý, và lúc nhận quyền quản trị.
 
 Trình tự dưới đây dùng được cho nhiều loại hình: phòng khám, văn phòng tư vấn, xưởng sản xuất, trung tâm đào tạo hay đơn vị vận chuyển. Nội dung và tính năng khác nhau. Các quyết định cần chốt thì giống nhau. Nếu anh/chị còn phân vân vì đã có mạng xã hội hoặc gian hàng trên sàn, hãy đọc [đã có Facebook, Zalo, sàn TMĐT thì có cần website riêng](da-co-facebook-zalo-san-tmdt-co-can-website-rieng.html) trước. Bài này dành cho lúc anh/chị đã quyết định làm.
 
 Bài nói về cách làm việc cùng người dựng web. Danh sách hạng mục thường có trong một gói nằm ở [thiết kế web trọn gói gồm những gì](thiet-ke-web-tron-goi-gom-nhung-gi.html). Cách tự nhìn một website đã rõ ràng chưa nằm ở [website chuyên nghiệp cần những gì](website-chuyen-nghiep-can-gi.html).
+
+![Sơ đồ bảy chặng làm website: trao đổi, báo giá, duyệt cấu trúc, dựng trang, rà soát, ra mắt và bàn giao](../assets/blog/quy-trinh-lam-website-cho-doanh-nghiep-nho-7-chang.webp)
 
 ## Bắt đầu từ cuộc trao đổi
 
@@ -48,6 +53,8 @@ Trước khi đồng ý, hãy đọc đề xuất cạnh ghi chú buổi trao đ
 
 Khi phạm vi đã chốt, việc tiếp theo là sắp xếp trang trước khi vẽ. Sơ đồ trang và wireframe cho thấy có những trang nào, nội dung đứng theo thứ tự nào, và khách đi từ đâu tới nút liên hệ. Anh/chị duyệt phần này bằng vài câu: người lạ có hiểu mình làm gì không, có thấy cách liên hệ không, có thiếu trang nào đã thống nhất không.
 
+![Thứ tự duyệt website: chốt cấu trúc trang trước, rồi mới duyệt giao diện](../assets/blog/quy-trinh-lam-website-cho-doanh-nghiep-nho-cau-truc-giao-dien.webp)
+
 Giao diện đến sau: màu, chữ và hình theo nhận diện anh/chị đang dùng. Nên xem cả máy tính và điện thoại, vì nhiều khách mở web bằng điện thoại. Góp ý nên gom một lượt và chỉ đúng chỗ: đổi câu ở đầu trang, thay ảnh chưa đúng, hoặc làm nút gọi dễ thấy hơn. Đổi cả hướng nội dung ở bước này là đổi phạm vi.
 
 Trang dịch vụ tách thành hai việc: sơ đồ trang và wireframe, rồi thiết kế giao diện. Trang chủ gộp vào chặng thiết kế: cấu trúc nội dung, hệ thống thị giác và bản xem thử.
@@ -78,6 +85,8 @@ Muốn biết khách vào từ đâu sau khi mở, anh/chị có thể gắn đo
 ## Bàn giao quyền, không chỉ gửi một link
 
 Bàn giao là lúc anh/chị nhận đủ thứ để tự vận hành. Theo trang dịch vụ và bài trọn gói, phần nhận được gồm website trên tên miền của mình, giao diện máy tính và điện thoại, sitemap cùng thẻ SEO từng trang, form về email của mình, tài liệu hoặc buổi hướng dẫn cập nhật nội dung, rồi quyền quản trị và mã nguồn sau khi thanh toán đủ.
+
+![Checklist bàn giao website: tài khoản, quyền quản trị, hướng dẫn và kênh hỗ trợ, không chỉ gửi một đường link](../assets/blog/quy-trinh-lam-website-cho-doanh-nghiep-nho-ban-giao.webp)
 
 Khi đã thanh toán đủ, anh/chị sở hữu mã nguồn, nội dung và các tài khoản liên quan. Bảo hành lỗi kỹ thuật là 60 ngày sau bàn giao. Sau đó, cập nhật nội dung, sao lưu và vá bảo mật là việc định kỳ. Anh/chị có thể tự làm, hoặc dùng [chăm sóc website](../dich-vu/cham-soc-website.html). Phần nên giữ từ ngày đầu được gợi ý trong bài [bảo mật website cơ bản](bao-mat-website-co-ban-cho-doanh-nghiep-nho.html).
 

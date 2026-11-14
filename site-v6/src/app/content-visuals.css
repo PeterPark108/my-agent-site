@@ -245,3 +245,73 @@
   }
   .site-content .content-card > .ic.gl { margin-bottom: 20px; }
 }
+
+
+/* Ảnh bìa, ảnh trong bài và thumbnail thẻ liệt kê — phong cách kính tối */
+.site-content .nwa-cover {
+  margin: -28px -28px 28px;
+  border-radius: 16px 16px 0 0;
+  overflow: hidden;
+  border: 0;
+  border-bottom: 1px solid rgba(163, 198, 255, 0.16);
+  background: #05070f;
+}
+.site-content .nwa-cover img,
+.site-content .nwa-fig img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.site-content .nwa-fig {
+  margin: 1.6em 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+.site-content .nwa-fig img {
+  border-radius: 14px;
+  border: 1px solid rgba(163, 198, 255, 0.16);
+  background: #05070f;
+  box-shadow: inset 0 1px rgba(233, 236, 245, 0.06);
+}
+.site-content .nwa-fig figcaption,
+.site-content .nwa-cover figcaption {
+  margin-top: 10px;
+  padding: 0 4px;
+  color: var(--mu);
+  font-size: 12px;
+  line-height: 1.6;
+  text-align: center;
+}
+.site-content .content-card > .nw-thumb,
+.site-content article.news > .nw-thumb,
+.site-content .nw-thumb {
+  display: block;
+  margin: -28px -28px 18px;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 16px 16px 0 0;
+  border-bottom: 1px solid rgba(163, 198, 255, 0.16);
+  background: #05070f;
+}
+.site-content .content-card:has(> .nw-thumb)::before,
+.site-content article.news:has(> .nw-thumb)::before {
+  display: none;
+}
+.site-content .nw-thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+@media (max-width: 700px) {
+  .site-content .nwa-cover,
+  .site-content .content-card > .nw-thumb,
+  .site-content article.news > .nw-thumb,
+  .site-content .nw-thumb {
+    margin-left: -20px;
+    margin-right: -20px;
+  }
+  .site-content .nwa-cover { margin-top: -20px; margin-bottom: 22px; }
+}

@@ -9,11 +9,12 @@ description: "Hướng dẫn từng bước tự kiểm tra website trên điệ
 category: website           # website | seo | marketing | du-lieu | ai
 tags: [website, điện thoại, hướng dẫn]   # tuỳ chọn
 services: [thiet-ke-website, cham-soc-website]   # 1–4 slug trang dich-vu/<slug>.html
-# image: assets/blog/kiem-tra-mobile.webp   # tuỳ chọn, png/jpg/webp có thật trong assets/blog/
-# image_alt: "Điện thoại hiển thị trang chủ website"   # bắt buộc nếu có image
+# image: assets/blog/kiem-tra-mobile-cover.webp   # bắt buộc với bài từ 15/11/2026; png/jpg/webp trong assets/blog/; bìa 1200×630, nên WebP ≤ 150 KB
+# image_alt: "Ảnh bìa bài hướng dẫn tự kiểm tra website trên điện thoại, nền tối và biểu tượng kính teal"
 # draft: true               # bật dòng này để tạm chưa đăng
 ---
 Phần lớn khách tìm hiểu dịch vụ qua điện thoại, nên một website chỉ đẹp trên máy tính là chưa đủ. Bài này hướng dẫn cách tự kiểm tra nhanh bằng chính điện thoại của bạn, không cần công cụ phức tạp.
+
 
 ## Kiểm tra chữ và khoảng cách
 

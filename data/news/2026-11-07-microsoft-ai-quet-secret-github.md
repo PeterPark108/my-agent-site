@@ -9,6 +9,9 @@ sources:
   - name: Microsoft Security Blog – Threat actors use agentic AI tooling to find and abuse exposed secrets
     url: https://www.microsoft.com/en-us/security/blog/2026/11/05/threat-actors-use-agentic-ai-tooling-to-find-and-abuse-exposed-secrets/
     date: 2026-11-05
+image: assets/news/microsoft-ai-quet-secret-github-cover.webp
+image_alt: "Ảnh bìa tin Microsoft: AI agent quét GitHub tìm khóa bị lộ, nền tối với biểu tượng kính teal"
+
 ---
 ## Có gì mới
 
@@ -22,6 +25,8 @@ Microsoft cũng theo dõi hoạt động lạm dụng credential ứng dụng h�
 
 Nhiều shop, studio hay đội nhỏ vẫn đưa khóa vào file `.env` rồi commit nhầm, hoặc nhúng token trong script demo rồi đẩy repo public. Khi repo đã công khai, máy quét (kể cả agent) có thể thấy khóa gần như ngay. Xóa dòng trên bản mới **không** thu hồi khóa: lịch sử git, fork, mirror và bản cache vẫn có thể giữ bản sao.
 
+![Sơ đồ rủi ro: khóa nằm trong kho mã công khai có thể bị công cụ AI lấy rất nhanh](../assets/news/microsoft-ai-quet-secret-github-rui-ro.webp)
+
 Hậu quả không chỉ là “bị đọc mã”. Credential ứng dụng thường có quyền chương trình hóa tới cloud, kho bí mật, storage hoặc dịch vụ AI — đúng kiểu tài nguyên Microsoft thấy bị lạm dụng sau khi khóa lộ. Nếu doanh nghiệp đang dùng API AI trả phí theo lượt gọi, khóa bị lấy có thể đẩy chi phí bất thường trước khi phát hiện.
 
 ## Việc nên làm ngay
@@ -31,5 +36,7 @@ Hậu quả không chỉ là “bị đọc mã”. Credential ứng dụng thư
 3. Không lưu client secret dài hạn trong mã nguồn. Ưu tiên biến môi trường trên máy chủ, kho bí mật có kiểm soát truy cập, hoặc cơ chế xác thực không cần secret cố định (managed identity / workload identity) khi nhà cung cấp hỗ trợ.
 4. Áp quyền tối thiểu cho từng ứng dụng: chỉ đúng tài nguyên cần dùng; tách khóa theo môi trường (dev/prod) và theo dịch vụ để một khóa lộ không mở hết hệ thống.
 5. Theo dõi tín hiệu bất thường: một IP đăng nhập nhiều service principal trong thời gian ngắn, lỗi secret sai/hết hạn xen kẽ thành công, hoặc đột biến chi phí API AI / cloud.
+
+![Checklist việc nên làm ngay: thu hồi khóa bị lộ, xoá khỏi kho mã và kiểm tra quyền truy cập](../assets/news/microsoft-ai-quet-secret-github-viec-nen-lam.webp)
 
 Tin này không yêu cầu doanh nghiệp nhỏ “mua thêm công cụ AI bảo mật” ngay. Việc thực tế nhất là dừng để khóa trong repo công khai, xoay vòng khóa đã lộ, và giữ thói quen kiểm tra quyền ứng dụng — vì tốc độ quét và khai thác bằng agent đang rút ngắn cửa sổ phản ứng từ ngày xuống phút.

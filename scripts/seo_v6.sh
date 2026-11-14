@@ -15,6 +15,8 @@ T=$(mktemp -d); trap 'rm -rf "$T"' EXIT
 echo "== Dựng site cũ trong $T (gốc $BASE)"
 git archive "$BASE" | tar -x -C "$T"
 rm -rf "$T/scripts" "$T/data" "$T/docs"; cp -a scripts data docs VERSION "$T"/
+mkdir -p "$T/assets"
+cp -a assets/. "$T/assets/"
 (cd "$T" && python3 scripts/news_build.py | tail -2 && python3 scripts/blog_build.py | tail -2 && python3 scripts/tech_pass.py >/dev/null \
   && git init -q && git add -A && git -c user.name=seo -c user.email=seo@localhost commit -qm base)
 (cd "$T" && bash "scripts/${MODE}_publish.sh" "$@")

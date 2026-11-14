@@ -33,6 +33,7 @@ ICON={'ai':SV+'<rect x="5" y="5" width="14" height="14" rx="3"/><path d="M9 9h6v
 FORBID=[r'24\s*/\s*7',r'fpt\s*polytechnic',r'cam\s*kết\s*(lên\s*)?top',r'đảm\s*bảo\s*(lên\s*)?top',r'100\s*%\s*(lên\s*)?top',r'bảo\s*đảm\s*(lên\s*)?top',r'chắc\s*chắn\s*lên\s*top',r'cam\s*kết\s*(lên\s*)?(trang\s*1|top\s*1|hạng\s*1)']
 FIELDS={'type','title','date','updated','topic','summary','insight','sources','image','image_alt','tags','draft'}
 MIN_WORDS=250
+IMAGE_REQUIRED_FROM=datetime.date(2026,11,15)  # bài mới từ ngày này phải có ảnh đại diện
 E=lambda x:html.escape(str(x),quote=True)
 def vn(d): y,m,dd=d.split('-'); return f'{int(dd):02d}/{int(m):02d}/{y}'
 def today():
@@ -117,6 +118,12 @@ def load(d,errs,warns):
       if not wh: L('image phải là file png/jpg/webp nằm trong assets/news/')
       else: it['img']=wh
       if not str(it.get('image_alt','')).strip(): L('có image thì phải có image_alt (mô tả ảnh)')
+    else:
+      try:
+        if it.get('type','article')!='link' and datetime.date.fromisoformat(it['date'])>=IMAGE_REQUIRED_FROM:
+          L('bài đăng từ 15/11/2026 phải có image (file png/jpg/webp trong assets/news/) và image_alt')
+      except ValueError:
+        pass
     body=body.strip(); it['body']=body
     if art:
       wc=M.words(body); it['words']=wc
@@ -179,15 +186,22 @@ def src_names(it): return ', '.join(s['name'] for s in it['sources'])
 def card(it,pre,h='h2',home=False):
   t=it['topic']; art=it['type']=='article'
   head=f'<div class="nw-top"><span class="nw-ic">{ICON[t]}</span><span class="nw-tg mono">{E(TOPICS[t])}</span><time class="mono" datetime="{it["date"]}">{vn(it["date"])}</time></div>'
+  thumb=''; href=pre+url_of(it) if art else it['sources'][0]['url']
+  if it.get('img'):
+    iw,ih,src=it['img']
+    ext=' target="_blank" rel="noopener noreferrer"' if not art else ''
+    thumb=f'<a class="nw-thumb" href="{E(href) if not art else href}"{ext} tabindex="-1"><img src="{pre}{src}" alt="{E(it["image_alt"])}" width="{iw}" height="{ih}" loading="lazy" decoding="async"></a>'
   if art:
     u=pre+url_of(it)
-    return (f'<article class="card glass news rv" data-topic="{t}" id="{E(it["slug"])}">{head}<{h} class="nw-h"><a class="nw-a" href="{u}">{E(it["title"])}</a></{h}><p class="nw-s">{E(it["summary"])}</p>'
+    return (f'<article class="card glass news rv" data-topic="{t}" id="{E(it["slug"])}">{thumb}{head}<{h} class="nw-h"><a class="nw-a" href="{u}">{E(it["title"])}</a></{h}><p class="nw-s">{E(it["summary"])}</p>'
       +('' if home else f'<p class="nw-in"><b>Góc nhìn My Agent:</b> {E(it["insight"])}</p>')+
       f'<p class="nw-src"><span class="muted">Nguồn: {E(src_names(it))}</span> <a class="btn ghost sm" href="{u}">Đọc bài<span class="sr"> “{E(it["title"])}”</span></a></p></article>')
   s=it['sources'][0]
-  return (f'<article class="card glass news rv" data-topic="{t}" id="{E(it["slug"])}">{head}<{h} class="nw-h">{E(it["title"])}</{h}><p class="nw-s">{E(it["summary"])}</p>'
+  return (f'<article class="card glass news rv" data-topic="{t}" id="{E(it["slug"])}">{thumb}{head}<{h} class="nw-h">{E(it["title"])}</{h}><p class="nw-s">{E(it["summary"])}</p>'
    +('' if home else f'<p class="nw-in"><b>Góc nhìn My Agent:</b> {E(it["insight"])}</p>')+
    f'<p class="nw-src"><span class="muted">Nguồn: {E(s["name"])}</span> <a class="btn ghost sm" href="{E(s["url"])}" target="_blank" rel="noopener noreferrer">Đọc nguồn<span class="sr"> bài “{E(it["title"])}” trên {E(s["name"])} (mở tab mới)</span></a></p></article>')
+
+
 def ld(o): return '<script type="application/ld+json">'+json.dumps(o,ensure_ascii=False).replace('</','<\\/')+'</script>'
 RSSL=f'<link rel="alternate" type="application/rss+xml" title="Tin tức công nghệ – My Agent" href="{BASE}tin-tuc/feed.xml">'
 

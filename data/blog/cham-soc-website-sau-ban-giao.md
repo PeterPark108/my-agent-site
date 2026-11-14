@@ -5,8 +5,13 @@ description: "Sau bàn giao, doanh nghiệp nhỏ nên làm định kỳ: cập 
 category: website
 tags: [chăm sóc website, doanh nghiệp nhỏ, bảo trì website, bàn giao]
 services: [cham-soc-website, thiet-ke-website, hosting-seo, ten-mien]
+image: assets/blog/cham-soc-website-sau-ban-giao-cover.webp
+image_alt: "Ảnh bìa bài Chăm sóc website sau khi bàn giao, nền tối với biểu tượng kính teal của My Agent"
+
 ---
 Website bàn giao xong mới là lúc trang bắt đầu phục vụ khách. Với doanh nghiệp nhỏ, dù anh/chị bán hàng, làm dịch vụ, sản xuất hay tư vấn, website vẫn cần người trông coi: nội dung cũ đi, tên miền đến hạn, form im lặng, ảnh nặng dần và phần mềm xuất hiện bản vá. Bài này gom các việc nên làm định kỳ sau khi nhận website, để chủ doanh nghiệp tự theo dõi hoặc giao cho người trong team. Phần lớn danh sách không cần biết lập trình.
+
+![Sơ đồ bảy việc nên làm định kỳ sau khi bàn giao website, gồm nội dung, sao lưu, gia hạn, form, tốc độ, bảo mật và Analytics](../assets/blog/cham-soc-website-sau-ban-giao-7-viec.webp)
 
 ## Vì sao không nên để website đứng yên
 
@@ -41,6 +46,8 @@ Website ít sửa có thể sao lưu thưa hơn website đăng bài hoặc nhậ
 ## Việc 3: Gia hạn tên miền, hosting và chứng chỉ SSL
 
 Tên miền hoặc hosting hết hạn thì website tắt; email theo tên miền cũng có thể ngừng. Nên ghi ngày hết hạn vào lịch, đặt nhắc trước vài tuần, và bật gia hạn tự động nếu nhà cung cấp cho phép và thẻ thanh toán còn hiệu lực.
+
+![Ba thứ cần theo dõi ngày hết hạn: tên miền, hosting và chứng chỉ SSL](../assets/blog/cham-soc-website-sau-ban-giao-gia-han.webp)
 
 Chứng chỉ SSL/TLS, tức ổ khóa HTTPS trên trình duyệt, cũng có hạn. Nhiều hosting gia hạn chứng chỉ miễn phí tự động, nhưng vẫn nên mở website bằng trình duyệt thỉnh thoảng để xem còn cảnh báo không bảo mật hay không. Google có bài [vì sao HTTPS quan trọng](https://web.dev/articles/why-https-matters) với khách nhập form.
 
@@ -91,6 +98,8 @@ Ghi lại vài dòng nhận xét vào một file hoặc sổ tay. Số liệu ch
 | Mỗi tháng | Sửa nội dung lệch, gửi thử form, xem Analytics, kiểm tra đã có bản sao lưu mới |
 | Mỗi quý | Mở website trên điện thoại bằng mạng di động, rà plugin và tài khoản không còn dùng |
 | Mỗi năm | Gia hạn tên miền và hosting, rà chứng chỉ HTTPS, đổi mật khẩu các tài khoản quan trọng |
+
+![Bảng chia việc chăm sóc website theo nhịp tuần, tháng và năm](../assets/blog/cham-soc-website-sau-ban-giao-nhip-goi-y.webp)
 
 Đây là nhịp gợi ý cho website thông thường, không phải lịch bắt buộc. Website thay đổi nhiều thì làm dày hơn. Website rất ít thay đổi vẫn không nên bỏ hẳn việc gia hạn và sao lưu.
 

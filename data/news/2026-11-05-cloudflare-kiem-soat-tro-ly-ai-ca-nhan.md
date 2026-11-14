@@ -9,6 +9,9 @@ sources:
   - name: Cloudflare Blog – See the agents, set the terms (new visibility and control for personal agents)
     url: https://blog.cloudflare.com/personal-agents-visibility-control/
     date: 2026-11-04
+image: assets/news/cloudflare-kiem-soat-tro-ly-ai-ca-nhan-cover.webp
+image_alt: "Ảnh bìa tin Cloudflare cho chủ website xem và kiểm soát trợ lý AI cá nhân, nền tối với biểu tượng kính teal"
+
 ---
 ## Có gì mới
 
@@ -22,6 +25,8 @@ Theo Cloudflare, với chủ website, các lượt truy cập này trước đâ
 - Một ô thống kê mới liệt kê trợ lý nào đang ghé website và mỗi trợ lý gửi bao nhiêu yêu cầu. Lọc theo một trợ lý, chủ website thấy được trang nào bị truy cập, mã trạng thái trả về và mạng xuất phát. Nhờ vậy có thể biết trợ lý đó đang đọc trang sản phẩm, vào trang thanh toán hay gặp lỗi ở trang nào.
 - Với website dùng tính năng chống lạm dụng tài khoản (đang thử nghiệm sớm), đội phụ trách có thể xem trợ lý nào đang đăng nhập thay cho tài khoản nào, và xử lý riêng một tài khoản đáng ngờ mà không phải chặn trợ lý đó với mọi người dùng khác.
 
+![So sánh lượt truy cập từ trình duyệt thông thường và từ trợ lý AI vào website](../assets/news/cloudflare-kiem-soat-tro-ly-ai-ca-nhan-thong-ke.webp)
+
 ## Chính sách truy cập chi tiết hơn
 
 Mùa hè vừa qua, Cloudflare đã cho phép đặt chính sách riêng cho bot AI phục vụ tìm kiếm, huấn luyện mô hình và hoạt động dạng trợ lý. Lần này, mục cài đặt được đổi tên thành **AI Crawler and Agent access policies** và cho phép chọn chính sách cho từng trợ lý được hỗ trợ: cho phép, chỉ chặn trên các trang có quảng cáo, hoặc chặn hẳn. Chính sách cho bot tìm kiếm và bot huấn luyện giữ nguyên.
@@ -31,6 +36,8 @@ Khi thêm một tên miền mới vào Cloudflare, hệ thống sẽ hỏi websi
 ## Góc nhìn cho doanh nghiệp nhỏ
 
 Nhiều website doanh nghiệp nhỏ đang dùng Cloudflare để tăng tốc và chống tấn công mà chủ web ít khi mở bảng điều khiển ra xem. Một vài việc nên làm:
+
+![Quy trình quyết định: xem số liệu trợ lý AI thực tế, rồi mới chọn cho phép hoặc hạn chế](../assets/news/cloudflare-kiem-soat-tro-ly-ai-ca-nhan-quyet-dinh.webp)
 
 1. Nếu website dùng Cloudflare, hãy vào phần thống kê bot để xem đã có trợ lý AI nào ghé chưa và chúng thường vào trang nào.
 2. Kiểm tra lại chính sách cho bot AI hiện tại. Website bán hàng hay dịch vụ thường có lợi khi để trợ lý đọc được trang sản phẩm, bảng thông tin và trang liên hệ.

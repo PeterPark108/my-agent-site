@@ -1,13 +1,40 @@
 #!/usr/bin/env python3
 """Idempotent technical pass: SEO head tags, fonts, form wiring, a11y tweaks, sitemap.
 Does NOT change visible copy. Run from repo root: python3 scripts/tech_pass.py"""
-import re,pathlib,json,html,subprocess,datetime,sys
+import re,pathlib,json,html,subprocess,datetime,sys,struct
 sys.path.insert(0,str(pathlib.Path(__file__).resolve().parent))
 from seo_pages import PAGES
 NOINDEX={'tra-cuu-tien-do.html'}  # tiện ích: noindex,follow + loại khỏi sitemap
 R=pathlib.Path(__file__).resolve().parent.parent
 cfg=(R/'js/config.js').read_text()
 BASE=re.search(r"siteUrl:\s*'([^']+)'",cfg).group(1)
+
+def image_meta(path):
+  """(width, height, mime) từ png/jpg/webp, hoặc None."""
+  f=pathlib.Path(path)
+  if not f.is_file(): return None
+  b=f.read_bytes()
+  try:
+    if b[:8]==b"\x89PNG\r\n\x1a\n":
+      w,h=struct.unpack(">II",b[16:24]); return w,h,"image/png"
+    if b[:2]==b"\xff\xd8":
+      i=2
+      while i<len(b):
+        while b[i]==0xff: i+=1
+        mk=b[i]; i+=1; ln=struct.unpack(">H",b[i:i+2])[0]
+        if mk in (0xc0,0xc1,0xc2):
+          h,w=struct.unpack(">HH",b[i+3:i+7]); return w,h,"image/jpeg"
+        i+=ln
+    if b[:4]==b"RIFF" and b[8:12]==b"WEBP":
+      k=b[12:16]
+      if k==b"VP8X": return int.from_bytes(b[24:27],"little")+1,int.from_bytes(b[27:30],"little")+1,"image/webp"
+      if k==b"VP8 ":
+        w,h=struct.unpack("<HH",b[26:30]); return w&0x3fff,h&0x3fff,"image/webp"
+      if k==b"VP8L":
+        v=int.from_bytes(b[21:25],"little"); return (v&0x3fff)+1,((v>>14)&0x3fff)+1,"image/webp"
+  except Exception:
+    return None
+  return None
 THEME_ON=re.search(r'themeEnabled:\s*true',cfg) is not None
 _td=re.search(r"themeDefault:\s*'(light|system|dark)'",cfg)
 THEME_DEFAULT=_td.group(1) if _td else 'light'
@@ -122,9 +149,11 @@ for f in pages:
   e=lambda x:html.escape(x,quote=True)
   ogt='article' if 'property="article:published_time"' in s else 'website'
   im=re.search(r'<link rel="image_src" href="([^"]+)">',s); ogi=im.group(1) if im else BASE+'assets/og-image.png'
+  _meta=image_meta(R/ogi[len(BASE):]) if ogi.startswith(BASE) else None
+  ow,oh,ot=(_meta if _meta else (1200,630,'image/png'))
   head=[f'<link rel="canonical" href="{url}"><link rel="alternate" hreflang="vi" href="{url}"><link rel="alternate" hreflang="x-default" href="{url}">',
    f'<link rel="icon" href="{p}assets/favicon.svg" type="image/svg+xml"><link rel="icon" href="{p}assets/favicon-32.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="{p}assets/apple-touch-icon.png"><link rel="manifest" href="{p}site.webmanifest">',
-   f'<meta property="og:type" content="{ogt}"><meta property="og:locale" content="vi_VN"><meta property="og:site_name" content="My Agent"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:url" content="{url}"><meta property="og:image" content="{ogi}">'+('<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">' if not im else '')+f'',
+   f'<meta property="og:type" content="{ogt}"><meta property="og:locale" content="vi_VN"><meta property="og:site_name" content="My Agent"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:url" content="{url}"><meta property="og:image" content="{ogi}"><meta property="og:image:width" content="{ow}"><meta property="og:image:height" content="{oh}"><meta property="og:image:type" content="{ot}">',
    f'<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{e(title)}"><meta name="twitter:description" content="{e(desc)}"><meta name="twitter:image" content="{ogi}">',
    f'<script src="{p}js/config.js"{" defer" if rel=="index.html" else ""}></script><script src="{p}js/theme.js" defer></script><script src="{p}js/motion.js" defer></script><script src="{p}js/chat.js" defer></script>']
   # v0.9.28: trang chủ dùng màn intro 3D (#i3d trong body, js/intro3d.js tải sau sự kiện load); bỏ overlay intro.js 6,5s cũ

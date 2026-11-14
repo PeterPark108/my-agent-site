@@ -5,8 +5,13 @@ description: "Website doanh nghiệp nhỏ dùng để khách tìm thấy trên 
 category: website
 tags: [website, doanh nghiệp nhỏ, liên hệ, dịch vụ]
 services: [thiet-ke-website, cham-soc-website, seo-tong-the]
+image: assets/blog/website-dung-de-lam-gi-cho-doanh-nghiep-nho-cover.webp
+image_alt: "Ảnh bìa bài Website dùng để làm gì cho doanh nghiệp nhỏ, nền tối với biểu tượng kính teal của My Agent"
+
 ---
 Nhiều chủ doanh nghiệp nhỏ hỏi: làm website xong thì dùng vào việc gì? Website không chỉ để "có mặt trên mạng". Nó đóng vài vai trò cụ thể: để khách tìm thấy, tin được, xem dịch vụ, gửi yêu cầu, giữ nội dung do mình kiểm soát, và theo dõi được trang đang chạy thế nào. Điều này đúng với cửa hàng, phòng khám, xưởng, văn phòng dịch vụ hay trung tâm đào tạo. Bài này nêu từng việc đó, để anh/chị hình dung website phục vụ công việc hàng ngày ra sao.
+
+![Sơ đồ sáu vai trò của website cho doanh nghiệp nhỏ: tìm thấy trên Google, tạo độ tin cậy, giới thiệu dịch vụ, nhận liên hệ, giữ nội dung tự chủ và đo lường](../assets/blog/website-dung-de-lam-gi-cho-doanh-nghiep-nho-vai-tro.webp)
 
 ## Để khách tìm thấy khi đang tìm dịch vụ
 
@@ -30,6 +35,8 @@ Ví dụ: quán ăn nêu món thế mạnh và cách đặt bàn; xưởng nêu 
 
 Website là nơi khách chủ động gửi câu hỏi, đặt lịch hoặc xin báo giá, cả khi anh/chị đang bận trao đổi với người khác. Nút gọi, Zalo và form ngắn nên dễ thấy trên máy tính và điện thoại. Nên nói rõ sẽ phản hồi trong giờ làm việc, và khách nhận được gì sau khi gửi: thư xác nhận, cuộc gọi lại, hay cần chờ.
 
+![Ba cách nhận liên hệ trên website cần dễ thấy trên điện thoại: gọi điện, nhắn Zalo và gửi form](../assets/blog/website-dung-de-lam-gi-cho-doanh-nghiep-nho-lien-he.webp)
+
 Không cần form dài. Tên, cách liên hệ và nhu cầu thường là đủ. Nếu cần định hướng chi phí, hãy dẫn tới [bảng giá](../bang-gia.html) và ghi rõ đây là giá tham khảo, chưa bao gồm VAT; báo giá chính xác sau khi trao đổi nhu cầu. Các bước từ trao đổi đến bàn giao được mô tả trong [quy trình làm website](quy-trinh-lam-website-cho-doanh-nghiep-nho.html).
 
 ## Để giữ nội dung do mình kiểm soát
@@ -41,6 +48,8 @@ Mạng xã hội vẫn hữu ích cho tin ngắn và trò chuyện từng lúc. 
 ## Để theo dõi website đang chạy thế nào
 
 Khi trang đã chạy, anh/chị có thể xem trang nào được mở nhiều, khách đến từ đâu, và form hay nút liên hệ có được dùng không. Việc này giúp quyết định nên làm rõ trang nào, bổ sung nội dung gì, hay sửa chỗ khách hay bỏ dở. Cách bắt đầu nằm ở bài [đo lường website bằng Google Analytics cơ bản](do-luong-website-bang-google-analytics-co-ban.html). Không cần xem số liệu liên tục; một lượt đọc định kỳ, rồi ghi lại việc cần sửa, là đủ để website phục vụ đúng việc.
+
+![Ba nhóm số liệu nên theo dõi trên website: lượt xem trang, nguồn truy cập và số yêu cầu liên hệ](../assets/blog/website-dung-de-lam-gi-cho-doanh-nghiep-nho-do-luong.webp)
 
 ## Bắt đầu từ vài vai trò rõ, rồi bổ sung dần
 

@@ -13,6 +13,7 @@ CATS={'website':'Website','seo':'SEO','marketing':'Marketing online','du-lieu':'
 CAT_ICON={'website':N.ICON['web-seo'],'seo':N.ICON['web-seo'],'marketing':N.ICON['nen-tang'],'du-lieu':N.ICON['du-lieu'],'ai':N.ICON['ai']}
 FIELDS={'title','slug','date','updated','description','category','tags','services','image','image_alt','draft'}
 MIN_WORDS=300
+IMAGE_REQUIRED_FROM=datetime.date(2026,11,15)  # bài mới từ ngày này phải có ảnh đại diện
 FORBID=N.FORBID+[r'\b24\s*/\s*24\b',r'\b24\s*h\b',r'\btop\s*(1|một)\b',r'(đảm\s*bảo|bảo\s*đảm|cam\s*kết|chắc\s*chắn)\s*(về\s*)?(vị\s*trí|thứ\s*hạng|lên\s*(trang|top|hạng))',r'fpt\s*poly']
 # số liệu/giá: phải đánh dấu là ví dụ/giả định hoặc có link nguồn trong cùng đoạn
 NUMCLAIM=re.compile(r'\d[\d.,]*\s*(%|phần\s*trăm|triệu|tỷ|nghìn|ngàn|k\b|đ\b|đồng|vnđ|vnd|usd|\$|khách\s*hàng|doanh\s*nghiệp|dự\s*án)',re.I)
@@ -101,6 +102,12 @@ def load(d,errs):
       if not wh: L('image phải là file png/jpg/webp có thật trong assets/blog/')
       else: it['img']=wh
       if not str(it.get('image_alt','')).strip(): L('có image thì phải có image_alt (mô tả ảnh)')
+    else:
+      try:
+        if datetime.date.fromisoformat(it['date'])>=IMAGE_REQUIRED_FROM:
+          L('bài đăng từ 15/11/2026 phải có image (file png/jpg/webp trong assets/blog/) và image_alt')
+      except ValueError:
+        pass
     body=body.strip(); it['body']=body
     wc=M.words(body); it['words']=wc
     if wc<MIN_WORDS: L(f'nội dung chỉ có {wc} từ (tối thiểu {MIN_WORDS})')
@@ -133,7 +140,11 @@ def shell_page(rel,title,desc,head,main,on=False):
 RSSL=f'<link rel="alternate" type="application/rss+xml" title="Blog kiến thức – My Agent" href="{BASE}blog/feed.xml">'
 def card(it,pre,h='h2'):
   c=it['category']; u=pre+url_of(it)
-  return (f'<article class="card glass news rv" data-topic="{c}"><div class="nw-top"><span class="nw-ic">{CAT_ICON[c]}</span><span class="nw-tg mono">{E(CATS[c])}</span><time class="mono" datetime="{it["date"]}">{vn(it["date"])}</time></div>'
+  thumb=''
+  if it.get('img'):
+    iw,ih,src=it['img']
+    thumb=f'<a class="nw-thumb" href="{u}" tabindex="-1"><img src="{pre}{src}" alt="{E(it["image_alt"])}" width="{iw}" height="{ih}" loading="lazy" decoding="async"></a>'
+  return (f'<article class="card glass news rv" data-topic="{c}">{thumb}<div class="nw-top"><span class="nw-ic">{CAT_ICON[c]}</span><span class="nw-tg mono">{E(CATS[c])}</span><time class="mono" datetime="{it["date"]}">{vn(it["date"])}</time></div>'
     f'<{h} class="nw-h"><a class="nw-a" href="{u}">{E(it["title"])}</a></{h}><p class="nw-s">{E(it["description"])}</p>'
     f'<p class="nw-src"><span class="muted">{max(1,round(it["words"]/200))} phút đọc</span> <a class="btn ghost sm" href="{u}">Đọc bài<span class="sr"> “{E(it["title"])}”</span></a></p></article>')
 

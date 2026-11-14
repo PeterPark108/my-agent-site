@@ -72,13 +72,14 @@
       "rule": "nếu có phải trùng tên file"
     },
     "image": {
-      "required": false,
+      "required": "bài đăng từ 2026-11-15",
       "type": "path",
-      "rule": "png/jpg/webp có thật trong assets/blog/"
+      "rule": "png/jpg/webp có thật trong assets/blog/; ảnh bìa 1200×630, nên WebP ≤ 150 KB"
     },
     "image_alt": {
-      "required": "nếu có image",
-      "type": "string"
+      "required": "nếu có image (bắt buộc khi có image; bài mới từ 2026-11-15 phải có cả hai)",
+      "type": "string",
+      "rule": "mô tả tiếng Việt, nói rõ ảnh thể hiện gì"
     },
     "draft": {
       "required": false,

@@ -5,12 +5,17 @@ description: "Chọn tên miền và hosting cho doanh nghiệp nhỏ: tên ng�
 category: website
 tags: [tên miền, hosting, doanh nghiệp nhỏ, thiết kế web giá rẻ]
 services: [ten-mien, hosting-seo, thiet-ke-website, cham-soc-website]
+image: assets/blog/chon-ten-mien-va-hosting-cho-doanh-nghiep-nho-cover.webp
+image_alt: "Ảnh bìa bài Chọn tên miền và hosting cho doanh nghiệp nhỏ, nền tối với biểu tượng kính teal của My Agent"
+
 ---
 Tên miền là địa chỉ để khách tìm đến website, còn hosting là nơi website "ở". Hai thứ này thường được chọn vội lúc mới làm web, nhưng lại ảnh hưởng lâu dài: đổi tên miền về sau tốn công, còn hosting yếu làm web chậm hoặc gián đoạn. Bài này gom lại 7 điều nên biết, chia ngắn để anh/chị tự kiểm tra trước khi đăng ký.
 
 ## Điều 1: Tên miền ngắn, dễ đọc, dễ nhớ
 
 Khách thường gõ tên miền sau khi nghe qua điện thoại, thấy trên bảng hiệu hay danh thiếp. Nên:
+
+![So sánh cách chọn tên miền ngắn dễ đọc và cân nhắc đuôi .vn hay .com cho doanh nghiệp nhỏ](../assets/blog/chon-ten-mien-va-hosting-cho-doanh-nghiep-nho-ten-mien.webp)
 
 - Chọn tên ngắn, gần với tên thương hiệu, đọc lên là viết đúng.
 - Hạn chế dấu gạch ngang, số và chữ dễ nhầm.
@@ -45,6 +50,8 @@ Tên miền và hosting đều có thời hạn. Quên gia hạn có thể làm 
 
 Không cần rành kỹ thuật, chỉ cần nắm ý chính:
 
+![Ba nhóm hosting ở mức cơ bản cho doanh nghiệp nhỏ, trình bày trên nền tối với icon kính teal](../assets/blog/chon-ten-mien-va-hosting-cho-doanh-nghiep-nho-hosting.webp)
+
 - **Hosting dùng chung (shared hosting)**: nhiều website dùng chung một máy chủ, dễ dùng, hợp web giới thiệu nhỏ.
 - **VPS / máy chủ ảo**: tài nguyên riêng hơn, linh hoạt hơn nhưng cần người quản trị.
 - **Cloud hosting**: dễ tăng giảm tài nguyên theo nhu cầu.
@@ -54,6 +61,8 @@ Chọn theo nhu cầu thật của website, không nhất thiết chọn gói l�
 ## Điều 6: Vị trí máy chủ, sao lưu, HTTPS và hỗ trợ
 
 Khi so sánh hosting, nên hỏi rõ:
+
+![Checklist khi chọn hosting: vị trí máy chủ, sao lưu, HTTPS và kênh hỗ trợ](../assets/blog/chon-ten-mien-va-hosting-cho-doanh-nghiep-nho-https-sao-luu.webp)
 
 - Máy chủ đặt ở đâu, có gần phần lớn khách truy cập không.
 - Có sao lưu định kỳ không, ai giữ bản sao lưu và khôi phục thế nào.

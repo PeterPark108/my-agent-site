@@ -8,8 +8,8 @@ topic: web-seo                  # ai | bao-mat | web-seo | du-lieu | nen-tang
 summary: "Tóm tắt 120–200 ký tự, tự viết bằng lời của mình, nói rõ chuyện gì xảy ra. Dùng cho thẻ tin, mô tả SEO, RSS và đoạn mở đầu bài."
 insight: "Góc nhìn My Agent: 1–3 câu, tin này có ý nghĩa gì với chủ website hay doanh nghiệp nhỏ."
 tags: [google, seo]             # tuỳ chọn
-# image: assets/news/2026-10-28-slug.webp   # tuỳ chọn, ảnh tự làm/được phép dùng, đặt trong assets/news/
-# image_alt: "Mô tả ảnh"                    # bắt buộc nếu có image
+# image: assets/news/2026-10-28-slug-cover.webp   # bắt buộc với bài article từ 15/11/2026; png/jpg/webp trong assets/news/; bìa 1200×630, nên WebP ≤ 150 KB
+# image_alt: "Ảnh bìa tin, nền tối với biểu tượng kính teal minh hoạ chủ đề bài viết"
 # draft: true                   # bật thì bài KHÔNG được dựng/đăng
 sources:
   - name: Google Search Central
@@ -19,6 +19,7 @@ sources:
 ## Chuyện gì đã xảy ra
 
 Viết bằng lời của mình, ít nhất 250 từ cho cả bài. Không chép nguyên câu từ nguồn.
+
 
 ## Ảnh hưởng tới doanh nghiệp nhỏ
 

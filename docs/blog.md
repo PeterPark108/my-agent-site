@@ -27,7 +27,7 @@ git push origin dev
 gh pr create --base production --head dev --title "blog: <tiêu đề>" --body "Bài mới: blog/<slug>.html"
 ```
 Không tự merge: người duyệt (Peter) merge PR, rồi `git push origin origin/production:main` để lên site.
-Ảnh (tuỳ chọn): đặt file png/jpg/webp vào `assets/blog/` (nên ≤ 200 KB, ngang 1200px), khai báo `image` + `image_alt`.
+Ảnh đại diện: bắt buộc với bài đăng từ **15/11/2026**. Đặt file WebP (ưu tiên) / png / jpg vào `assets/blog/` — ảnh bìa 1200×630, ≤ 150 KB — rồi khai báo `image` + `image_alt`. Trong thân bài nên có **2–3 ảnh** `![mô tả tiếng Việt](../assets/blog/<ten-file>.webp)` (mô tả bắt buộc, tên file không dấu). Tạo ảnh đồng bộ phong cách kính tối bằng `scripts/make_content_images.py` (không dùng ảnh người mẫu, khách giả, giao diện sản phẩm có bản quyền, hay ảnh báo/người nổi tiếng).
 
 ## Front-matter
 Nằm giữa hai dòng `---` ở đầu file. Chuỗi có dấu `:` hoặc `#` thì đặt trong ngoặc kép. Danh sách dạng `[a, b]`.
@@ -42,7 +42,7 @@ Nằm giữa hai dòng `---` ở đầu file. Chuỗi có dấu `:` hoặc `#` t
 | `services` | có | 1–4 slug trang `dich-vu/<slug>.html` có thật, vd `[thiet-ke-website, seo-tong-the]` |
 | `tags` | không | danh sách từ khóa |
 | `slug` | không | nếu ghi thì phải trùng tên file |
-| `image`, `image_alt` | không | ảnh trong `assets/blog/`; có `image` thì bắt buộc `image_alt` |
+| `image`, `image_alt` | có (từ 15/11/2026) | ảnh bìa trong `assets/blog/` (png/jpg/webp); có `image` thì bắt buộc `image_alt` mô tả ảnh |
 | `draft` | không | `true` = bỏ qua, chưa đăng |
 
 Trường khác = lỗi. Tên file: `data/blog/<slug>.md`, slug chỉ `a-z 0-9 -`, không dấu, không trùng (`index`, `feed` bị cấm).
@@ -50,7 +50,7 @@ Trường khác = lỗi. Tên file: `data/blog/<slug>.md`, slug chỉ `a-z 0-9 -
 Slug dịch vụ hợp lệ: thiet-ke-website, hosting-seo, ten-mien, email-doanh-nghiep, cham-soc-website, seo-tong-the, quang-cao-google-facebook, traffic-user, google-maps, video-ai, cham-soc-fanpage, zalo-oa-mini-app, profile-doanh-nghiep, phan-tich-du-lieu, ky-thuat-du-lieu, phan-mem-noi-bo, thiet-ke-app, bo-cong-thuong.
 
 ## Markdown được phép
-`##` / `###` (không dùng `#` – H1 là title), đoạn văn, `**đậm**`, `*nghiêng*`, `` `code` ``, danh sách `-` / `1.`, `> trích dẫn`, khối ```` ``` ````, bảng `| a | b |`, `---`, link `[chữ](https://...)` hoặc link nội bộ `../dich-vu/x.html`, ảnh `![mô tả](../assets/blog/x.webp)` (bắt buộc mô tả). HTML thô bị escape; `javascript:`, `data:`, `//` bị chặn. Tối thiểu **300 từ**.
+`##` / `###` (không dùng `#` – H1 là title), đoạn văn, `**đậm**`, `*nghiêng*`, `` `code` ``, danh sách `-` / `1.`, `> trích dẫn`, khối ```` ``` ````, bảng `| a | b |`, `---`, link `[chữ](https://...)` hoặc link nội bộ `../dich-vu/x.html`, ảnh `![mô tả](../assets/blog/x.webp)` (bắt buộc mô tả tiếng Việt). Bài mới nên có 2–3 ảnh thân bài ngoài ảnh bìa. HTML thô bị escape; `javascript:`, `data:`, `//` bị chặn. Tối thiểu **300 từ**.
 
 ## Quy tắc viết (validator chặn tự động)
 - Tiếng Việt có dấu, lời của My Agent, hướng dẫn thực tế.
