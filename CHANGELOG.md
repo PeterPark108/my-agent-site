@@ -1,5 +1,8 @@
 # Nhật ký thay đổi
 
+## 0.12.10 — 2026-11-15 (PR nháp blog, chờ Peter gõ "Duyệt PR")
+- Blog mới (chủ đề chung cho mọi doanh nghiệp nhỏ): "Website hiển thị tốt trên điện thoại: cần kiểm tra gì" (`data/blog/website-hien-thi-tot-tren-dien-thoai.md`, category website, checklist tự kiểm trên máy thật: cỡ chữ, nút gọi/Zalo, menu, form, ảnh không tràn, đối chiếu bằng Search Console và PageSpeed Insights/Lighthouse; FAQ 4 câu; 1 ảnh bìa + 3 ảnh thân bài WebP; link nội bộ tới bài tốc độ, vai trò website, nội dung từng trang, chăm sóc sau bàn giao và checklist SEO). Dựng lại blog qua `scripts/seo_v6.sh blog`. Bump VERSION 0.12.10 (production đang 0.12.9). Không đổi pipeline ảnh — dùng hỗ trợ đã có từ v0.12.8.
+
 ## 0.12.9 — 2026-11-14 (PR nháp ảnh SEO batch 2, chờ Peter gõ "Duyệt PR")
 - Ảnh batch 2: 9 bài blog còn lại và 7 tin article còn lại — mỗi bài 1 ảnh bìa 1200×630 WebP ≤ 150 KB và 2–3 ảnh thân bài (sơ đồ / checklist / wireframe, phong cách kính tối teal, tiêu đề bìa tương phản cao như batch 1). Thêm ảnh đại diện (thumbnail) cho 9 thẻ tin `type: link` trên trang liệt kê. Tạo bằng `scripts/make_content_images.py --batch2` (cờ này không sinh `og-image.png`).
 - Không đụng `assets/og-image.png`, `og-images.json` hay `seo.tsx` (ảnh chia sẻ trang chủ/danh mục thuộc PR #93, đã lên site lúc 07:51 14/11). Bài viết dùng ảnh bìa WebP riêng làm og:image; thẻ link chỉ thêm `image` + `image_alt` trong front matter.
