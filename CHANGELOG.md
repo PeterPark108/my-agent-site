@@ -1,5 +1,8 @@
 # Nhật ký thay đổi
 
+## 0.12.11 — 2026-11-16 (PR nháp blog, chờ Peter gõ "Duyệt PR")
+- Blog mới (chủ đề chung cho mọi doanh nghiệp nhỏ): "Trang Giới thiệu và thông tin liên hệ: cách tạo niềm tin" (`data/blog/trang-gioi-thieu-va-thong-tin-lien-he-tao-niem-tin.md`, category website; góc riêng về niềm tin: thông tin kiểm chứng được, người thật việc thật, liên hệ dùng được, đồng nhất thông tin mọi kênh, đánh giá chỉ dùng cái có thật, HTTPS/chính sách bảo mật; FAQ 4 câu; 1 ảnh bìa + 3 ảnh thân bài WebP; link nội bộ tới bài nội dung từng trang, Google Business Profile, website chuyên nghiệp cần gì, thiết kế web trọn gói, bảo mật web, chăm sóc sau bàn giao). Dựng lại blog qua `scripts/seo_v6.sh blog`. Bump VERSION 0.12.11 (production đang 0.12.10). Không đổi pipeline.
+
 ## 0.12.10 — 2026-11-15 (PR nháp blog, chờ Peter gõ "Duyệt PR")
 - Blog mới (chủ đề chung cho mọi doanh nghiệp nhỏ): "Website hiển thị tốt trên điện thoại: cần kiểm tra gì" (`data/blog/website-hien-thi-tot-tren-dien-thoai.md`, category website, checklist tự kiểm trên máy thật: cỡ chữ, nút gọi/Zalo, menu, form, ảnh không tràn, đối chiếu bằng Search Console và PageSpeed Insights/Lighthouse; FAQ 4 câu; 1 ảnh bìa + 3 ảnh thân bài WebP; link nội bộ tới bài tốc độ, vai trò website, nội dung từng trang, chăm sóc sau bàn giao và checklist SEO). Dựng lại blog qua `scripts/seo_v6.sh blog`. Bump VERSION 0.12.10 (production đang 0.12.9). Không đổi pipeline ảnh — dùng hỗ trợ đã có từ v0.12.8.
 
