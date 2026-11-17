@@ -1,5 +1,8 @@
 # Nhật ký thay đổi
 
+## 0.12.12 — 2026-11-17 (PR nháp blog, chờ Peter gõ "Duyệt PR")
+- Blog mới (chủ đề chung cho mọi doanh nghiệp nhỏ): "Khi nào nên làm mới website cũ" (`data/blog/khi-nao-nen-lam-moi-website-cu.md`, category website; làm mới khác chăm sóc, 6 dấu hiệu nên làm mới, 4 câu tự quyết định, những gì phải giữ: tên miền, nội dung, đường dẫn + chuyển hướng 301, đo lường, dữ liệu form; chuyển an toàn; FAQ 4 câu; 1 ảnh bìa + 3 ảnh thân bài WebP; link nội bộ tới chăm sóc sau bàn giao, hiển thị điện thoại, bảo mật, Google Analytics, chi phí, web chuyên nghiệp, tên miền/hosting, trang Giới thiệu/liên hệ, tốc độ, checklist SEO). Dựng lại blog qua `scripts/seo_v6.sh blog`. Bump VERSION 0.12.12 (production đang 0.12.11). Không đổi pipeline.
+
 ## 0.12.11 — 2026-11-16 (PR nháp blog, chờ Peter gõ "Duyệt PR")
 - Blog mới (chủ đề chung cho mọi doanh nghiệp nhỏ): "Trang Giới thiệu và thông tin liên hệ: cách tạo niềm tin" (`data/blog/trang-gioi-thieu-va-thong-tin-lien-he-tao-niem-tin.md`, category website; góc riêng về niềm tin: thông tin kiểm chứng được, người thật việc thật, liên hệ dùng được, đồng nhất thông tin mọi kênh, đánh giá chỉ dùng cái có thật, HTTPS/chính sách bảo mật; FAQ 4 câu; 1 ảnh bìa + 3 ảnh thân bài WebP; link nội bộ tới bài nội dung từng trang, Google Business Profile, website chuyên nghiệp cần gì, thiết kế web trọn gói, bảo mật web, chăm sóc sau bàn giao). Dựng lại blog qua `scripts/seo_v6.sh blog`. Bump VERSION 0.12.11 (production đang 0.12.10). Không đổi pipeline.
 
