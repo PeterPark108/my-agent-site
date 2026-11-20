@@ -1,5 +1,8 @@
 # Nhật ký thay đổi
 
+## 0.12.14 — 2026-11-20 (PR nháp blog, chờ Peter gõ "Duyệt PR")
+- Blog mới (chủ đề chung cho mọi doanh nghiệp nhỏ): "Ảnh trên website: chọn, đặt tên và nén ảnh để web nhanh và đẹp" (`data/blog/anh-tren-website-chon-dat-ten-nen-anh.md`, category website; chọn ảnh thật có quyền dùng, đúng kích thước/tỉ lệ, tên tệp không dấu, alt tiếng Việt đúng nội dung, nén WebP nhẹ, khai báo width/height, tải lười ảnh phía dưới, phong cách thống nhất, kiểm tra sau khi đăng; FAQ 4 câu; 1 ảnh bìa + 3 ảnh thân bài WebP; link nội bộ tới tốc độ web, cần chuẩn bị gì, website chuyên nghiệp, hiển thị điện thoại, chăm sóc sau bàn giao; link ngoài Google Search Central (SEO hình ảnh, WebP) và web.dev (CLS, lazy loading)). Dựng lại blog qua `scripts/seo_v6.sh blog`. Bump VERSION 0.12.14 (production đang 0.12.13). Không đổi pipeline.
+
 ## 0.12.13 — 2026-11-19 (PR nháp blog, chờ Peter gõ "Duyệt PR")
 - Blog mới (chủ đề chung cho mọi doanh nghiệp nhỏ): "Cần chuẩn bị gì trước khi làm website: nội dung, ảnh, thông tin" (`data/blog/can-chuan-bi-gi-truoc-khi-lam-website.md`, category website; danh sách chuẩn bị: mục tiêu, thông tin doanh nghiệp một bản chuẩn, bản nháp nội dung, danh sách sản phẩm/dịch vụ, ảnh và logo có quyền dùng, tên miền và tài khoản (không gửi mật khẩu qua tin nhắn), website tham khảo và người duyệt; FAQ 4 câu; 1 ảnh bìa + 3 ảnh thân bài WebP; link nội bộ tới quy trình làm web, nội dung từng trang, trang Giới thiệu/liên hệ, tên miền/hosting, làm mới web cũ, tốc độ, Facebook/Zalo, thiết kế web trọn gói). Dựng lại blog qua `scripts/seo_v6.sh blog`. Bump VERSION 0.12.13 (production đang 0.12.12). Không đổi pipeline.
 
